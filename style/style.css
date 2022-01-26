@@ -120,3 +120,24 @@ caption {
     caption-side: top;
 }
 
+/* so that before and after aren't treated the same as the toc, because why would they? */
+.book .book-summary ul.summary li.before a {
+  color: #006cff;
+  text-decoration: none;
+  font-size: 125%;
+  font-variant: small-caps;
+  font-family: 'Roboto Condensed', 'Helvetica Neue', 'Open Sans', Roboto, sans-serif;
+  font-weight: 500;
+}
+
+.book .book-summary ul.summary li a:hover, .book .book-summary ul.summary li.active>a {
+  color: #fffff8;  /*#6197D5*/
+  background-color: #006cff;
+}
+
+.book .book-summary ul.summary li.before a:hover,
+.book .book-summary ul.summary li.before li.active>a {
+  color: #fffff8;  /*#6197D5*/
+  background-color: #006cff;
+  text-decoration: none;
+}

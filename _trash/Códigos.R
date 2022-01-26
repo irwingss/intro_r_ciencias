@@ -1,4 +1,5 @@
 bookdown::render_book("index.Rmd", "bookdown::bs4_book")
+bookdown::render_book("index.Rmd", "bookdown::gitbook")
 
 colorPal <- c("#b41214","#007588","#ffc000")
 fillPal <- c("#ffdede","#d9faff","#fff6de")
