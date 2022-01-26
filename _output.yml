@@ -1,11 +1,10 @@
 bookdown::gitbook:
-    css: [css/book.css, 'https://use.fontawesome.com/releases/v5.14.0/css/all.css']
+    css: [style/book.css, 'https://use.fontawesome.com/releases/v5.14.0/css/all.css']
     font-import: https://fonts.googleapis.com/css?family=Roboto|Open+Sans
     font-family: 'Roboto'
     split_by: section
     config:
       df_print: kable
-      highlight: pygments
       edit: https://github.com/irwingss/intro_r_ciencias/blob/master/%s
       download: null
       search: yes

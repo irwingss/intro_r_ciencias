@@ -1,4 +1,4 @@
---- 
+---
 site: bookdown::bookdown_site
 output:
   bookdown::gitbook
@@ -9,11 +9,14 @@ description: "Libro introductorio al uso del lenguaje de programación R, con ej
 date: "`r Sys.Date()`"
 bibliography: [book.bib, packages.bib]
 biblio-style: apalike
-documentclass: book
+colorlinks: yes
+graphics: yes
+lot: yes
+lof: yes
 link-citations: yes
 cover-image: 'Cover/cover R.png'
 favicon: 'figs/favicon.ico'
-url: 'https\://github.com/irwingss/intro_r_ciencias/'  # evidently the \: is required or you'll get text in the title/toc area
+url: 'https\://github.com/irwingss/intro_r_ciencias/'
 github-repo:  'irwingss/intro_r_ciencias/'
 ---
 

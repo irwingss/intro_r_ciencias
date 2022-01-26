@@ -121,7 +121,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </style>
 
 
-<link rel="stylesheet" href="css/book.css" type="text/css" />
+<link rel="stylesheet" href="style/book.css" type="text/css" />
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" type="text/css" />
 </head>
 
@@ -360,7 +360,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb25-2"><a href="funciones.html#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="do">## function (x, na.rm = FALSE) </span></span>
 <span id="cb25-3"><a href="funciones.html#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="do">## sqrt(var(if (is.vector(x) || is.factor(x)) x else as.double(x), </span></span>
 <span id="cb25-4"><a href="funciones.html#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="do">##     na.rm = na.rm))</span></span>
-<span id="cb25-5"><a href="funciones.html#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="do">## &lt;bytecode: 0x00000000253bda78&gt;</span></span>
+<span id="cb25-5"><a href="funciones.html#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="do">## &lt;bytecode: 0x00000000253c72b0&gt;</span></span>
 <span id="cb25-6"><a href="funciones.html#cb25-6" aria-hidden="true" tabindex="-1"></a><span class="do">## &lt;environment: namespace:stats&gt;</span></span></code></pre></div>
 <p>La secuencia de órdenes dentro de <code>sd</code> es corta. Básicamente utiliza la función <code>sqrt()</code> para sacarle la raíz cuadrada a la función <code>var()</code>, esta última calcula la varianza de un conjunto de datos. La estructura del código es propiamente la fórmula matemática para el cálculo de la desviación estándar. Aunque, a decir verdades, el código luce más complejo, y es debido a que aquí la función <code>var()</code> contiene argumentos condicionales para pedir que evalúe si el objeto <code>x</code> es correcto para la función, o si se necesita un cambio antes de procesar<code>x</code> en <code>sd()</code>. Pierde cuidado si no se entiende mucho por ahora, no es necesario comprender las funciones a este nivel al iniciar con R.</p>
 </div>
@@ -422,8 +422,7 @@ gitbook.start({
 "depth": 2,
 "scroll_highlight": true
 },
-"df_print": "kable",
-"highlight": "pygments"
+"df_print": "kable"
 });
 });
 </script>
