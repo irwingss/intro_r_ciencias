@@ -1,23 +1,20 @@
 --- 
 site: bookdown::bookdown_site
-output: bookdown::bs4_book
-cover-image: Cover/cover.png
+output:
+  bookdown::gitbook
 title: "Introducción a R para Ciencias"
-subtitle: "Autor: Irwing S. Saldaña"
+subtitle: "Una introducción gentil al mundo la programación para investigadores científicos"
 author: "Irwing S. Saldaña"
 description: "Libro introductorio al uso del lenguaje de programación R, con ejemplos orientados a ciencias"
 date: "2022-01-26"
-colorlinks: yes
-graphics: yes
-lot: yes
-lof: yes
-fontsize: 10pt
-mainfont: Open Sans
-monofont: "Source Code Pro"
-monofontoptions: "Scale=0.8"
 bibliography: [book.bib, packages.bib]
 biblio-style: apalike
+documentclass: book
 link-citations: yes
+cover-image: 'Cover/cover R.png'
+favicon: 'figs/favicon.ico'
+url: 'https\://github.com/irwingss/intro_r_ciencias/'  # evidently the \: is required or you'll get text in the title/toc area
+github-repo:  'irwingss/intro_r_ciencias/'
 ---
 
 

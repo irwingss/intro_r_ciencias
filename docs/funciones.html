@@ -10,16 +10,16 @@
 
   <meta property="og:title" content="2.6 Funciones | Introducción a R para Ciencias" />
   <meta property="og:type" content="book" />
-  
-  <meta property="og:image" content="/Cover/cover.png" />
+  <meta property="og:url" content="https://github.com/irwingss/intro_r_ciencias/" />
+  <meta property="og:image" content="https://github.com/irwingss/intro_r_ciencias//Cover/cover R.png" />
   <meta property="og:description" content="Libro introductorio al uso del lenguaje de programación R, con ejemplos orientados a ciencias" />
-  
+  <meta name="github-repo" content="irwingss/intro_r_ciencias/" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="2.6 Funciones | Introducción a R para Ciencias" />
   
   <meta name="twitter:description" content="Libro introductorio al uso del lenguaje de programación R, con ejemplos orientados a ciencias" />
-  <meta name="twitter:image" content="/Cover/cover.png" />
+  <meta name="twitter:image" content="https://github.com/irwingss/intro_r_ciencias//Cover/cover R.png" />
 
 <meta name="author" content="Irwing S. Saldaña" />
 
@@ -30,7 +30,7 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
-  
+  <link rel="shortcut icon" href="figs/favicon.ico" type="image/x-icon" />
 <link rel="prev" href="creación-de-variables.html"/>
 <link rel="next" href="funciones-básica-útiles.html"/>
 <script src="libs/header-attrs-2.11/header-attrs.js"></script>
@@ -360,7 +360,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb25-2"><a href="funciones.html#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="do">## function (x, na.rm = FALSE) </span></span>
 <span id="cb25-3"><a href="funciones.html#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="do">## sqrt(var(if (is.vector(x) || is.factor(x)) x else as.double(x), </span></span>
 <span id="cb25-4"><a href="funciones.html#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="do">##     na.rm = na.rm))</span></span>
-<span id="cb25-5"><a href="funciones.html#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="do">## &lt;bytecode: 0x00000000253d07a8&gt;</span></span>
+<span id="cb25-5"><a href="funciones.html#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="do">## &lt;bytecode: 0x00000000253bda78&gt;</span></span>
 <span id="cb25-6"><a href="funciones.html#cb25-6" aria-hidden="true" tabindex="-1"></a><span class="do">## &lt;environment: namespace:stats&gt;</span></span></code></pre></div>
 <p>La secuencia de órdenes dentro de <code>sd</code> es corta. Básicamente utiliza la función <code>sqrt()</code> para sacarle la raíz cuadrada a la función <code>var()</code>, esta última calcula la varianza de un conjunto de datos. La estructura del código es propiamente la fórmula matemática para el cálculo de la desviación estándar. Aunque, a decir verdades, el código luce más complejo, y es debido a que aquí la función <code>var()</code> contiene argumentos condicionales para pedir que evalúe si el objeto <code>x</code> es correcto para la función, o si se necesita un cambio antes de procesar<code>x</code> en <code>sd()</code>. Pierde cuidado si no se entiende mucho por ahora, no es necesario comprender las funciones a este nivel al iniciar con R.</p>
 </div>
