@@ -21,20 +21,12 @@ bookdown::gitbook:
           <li class='before'><a href="./">Introducción a R para Ciencias</a></li>
         after: |
          <li class='after'">
+            <div style='text-align:center'>
             <a href="https://github.com/irwingss/">
                <img src="figs/banner completo.png" style="width:100%; padding:0px 0; display:block; margin: 0 auto;" alt="MC logo">
             </a>
-         </li>
          <li class='after'">
-            <div style='text-align:center'>
-               <a href="https://github.com/irwingss/">
-                  <i class="fab fa-github fa-2x" aria-hidden="true"></i>
-               </a>
-            </div>
-         </li>
-         <li class='after'">
-            <div style='text-align:center'>
-               <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">
+            <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">
                   <i class="fab fa-creative-commons fa-lg"></i>
                   <i class="fab fa-creative-commons-by fa-lg"></i>
                   <i class="fab fa-creative-commons-sa fa-lg"></i>

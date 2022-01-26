@@ -149,7 +149,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="a-quién-está-dirigido-este-libro.html#a-quién-está-dirigido-este-libro"><strong>¿A quién está dirigido este libro?</strong></a></li>
 <li><a href="agradecimientos.html#agradecimientos"><strong>Agradecimientos</strong></a></li>
 </ul></li>
-<li class="part"><span><b>I INTRODUCCIÓN A R PARA CIENCIAS</b></span></li>
+<li class="part"><span><b>I INTRODUCCIÓN A R <br>PARA CIENCIAS</b></span></li>
 <li class="chapter" data-level="1" data-path="esencialesRRStudio.html"><a href="esencialesRRStudio.html"><i class="fa fa-check"></i><b>1</b> <strong>Esenciales de R y RStudio</strong></a>
 <ul>
 <li class="chapter" data-level="1.1" data-path="instalación-de-r-y-rstudio.html"><a href="instalación-de-r-y-rstudio.html"><i class="fa fa-check"></i><b>1.1</b> <strong>Instalación de R y RStudio</strong></a></li>
@@ -307,20 +307,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="divider"></li>
 <li class='after'">
+   <div style='text-align:center'>
    <a href="https://github.com/irwingss/">
       <img src="figs/banner completo.png" style="width:100%; padding:0px 0; display:block; margin: 0 auto;" alt="MC logo">
    </a>
-</li>
 <li class='after'">
-   <div style='text-align:center'>
-      <a href="https://github.com/irwingss/">
-         <i class="fab fa-github fa-2x" aria-hidden="true"></i>
-      </a>
-   </div>
-</li>
-<li class='after'">
-   <div style='text-align:center'>
-      <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">
+   <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">
          <i class="fab fa-creative-commons fa-lg"></i>
          <i class="fab fa-creative-commons-by fa-lg"></i>
          <i class="fab fa-creative-commons-sa fa-lg"></i>
@@ -360,7 +352,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb25-2"><a href="funciones.html#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="do">## function (x, na.rm = FALSE) </span></span>
 <span id="cb25-3"><a href="funciones.html#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="do">## sqrt(var(if (is.vector(x) || is.factor(x)) x else as.double(x), </span></span>
 <span id="cb25-4"><a href="funciones.html#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="do">##     na.rm = na.rm))</span></span>
-<span id="cb25-5"><a href="funciones.html#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="do">## &lt;bytecode: 0x00000000253d5698&gt;</span></span>
+<span id="cb25-5"><a href="funciones.html#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="do">## &lt;bytecode: 0x00000000253d87a0&gt;</span></span>
 <span id="cb25-6"><a href="funciones.html#cb25-6" aria-hidden="true" tabindex="-1"></a><span class="do">## &lt;environment: namespace:stats&gt;</span></span></code></pre></div>
 <p>La secuencia de órdenes dentro de <code>sd</code> es corta. Básicamente utiliza la función <code>sqrt()</code> para sacarle la raíz cuadrada a la función <code>var()</code>, esta última calcula la varianza de un conjunto de datos. La estructura del código es propiamente la fórmula matemática para el cálculo de la desviación estándar. Aunque, a decir verdades, el código luce más complejo, y es debido a que aquí la función <code>var()</code> contiene argumentos condicionales para pedir que evalúe si el objeto <code>x</code> es correcto para la función, o si se necesita un cambio antes de procesar<code>x</code> en <code>sd()</code>. Pierde cuidado si no se entiende mucho por ahora, no es necesario comprender las funciones a este nivel al iniciar con R.</p>
 </div>
