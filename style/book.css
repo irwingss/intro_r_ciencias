@@ -37,18 +37,18 @@
 /* main */
 
 .book  {
-  background-color: #fffff8;
+  background-color: #ffffff;
 }
 
 .section {
-  background-color: #fffff8;
+  background-color: #ffffff;
 }
 
 
 
 .book .book-body .page-wrapper .page-inner section.normal {
     display: block;
-    background-color: #fffff8;
+    background-color: #ffffff;
     color: #585858;
     padding: 5px 15px;
     font-family: Bitter, Roboto, 'Helvetica Neue', sans-serif;
@@ -62,7 +62,7 @@
 }
 
 .book .book-body {
-    background: #fffff8;
+    background: #ffffff;
     -webkit-transition: left 250ms ease;
     -moz-transition: left 250ms ease;
     -o-transition: left 250ms ease;
@@ -95,7 +95,7 @@ uri class is for urls
     display: block;
     width: 0;
     height: 1.75px;
-    background: #990024;
+    background: #006cff;
     transition: width .3s;
 }
 
@@ -110,13 +110,13 @@ uri class is for urls
 
 
 .body-inner {
-    background-color: #fffff8;
+    background-color: #ffffff;
 }
 
 .book .book-body .page-wrapper {
     position: relative;
     outline: 0;
-    background-color: #fffff8;
+    background-color: #ffffff;
 }
 
 .book .book-body .page-wrapper .page-inner {
@@ -133,18 +133,18 @@ uri class is for urls
     font-family: Roboto sans-serif;
     font-size: .85em;
     color: #7e888b;
-    background-color: #fffff8;
+    background-color: #ffffff;
     /* background: 0 0; */
 }
 
 /* only way to set bgcolor of top bar?*/
 .book-body.fixed {
-  background-color: #fffff8;
+  background-color: #ffffff;
 }
 
 /* Rather than resize the header, just get rid of line */
 .book.with-summary .book-header.fixed {
-  background-color: #fffff8;
+  background-color: #ffffff;
   font-variant: small-caps;
   /*font-family: Stalemate Roboto Sans; ignored as all it is doing is taking from index title*/
   border-bottom: 0 solid rgba(0,0,0,.07);  /*just remove it; this makes height in .book-header above moot*/
@@ -154,7 +154,7 @@ uri class is for urls
 }
 
 i {
-  background-color: #fffff8;
+  background-color: #ffffff;
 }
 
 /* toc area general */
@@ -192,13 +192,13 @@ i {
 
 
 .book .book-summary ul.summary li a:hover, .book .book-summary ul.summary li.active>a {
-  color: #fffff8;  /*#6197D5*/
-  background-color: #990024;
+  color: #ffffff;  /*#6197D5*/
+  background-color: #006cff;
 }
 
 /* so that before and after aren't treated the same as the toc, because why would they? */
 .book .book-summary ul.summary li.before a {
-  color: #990024;
+  color: #006cff;
   text-decoration: none;
   font-size: 125%;
   font-variant: small-caps;
@@ -209,8 +209,8 @@ i {
 
 .book .book-summary ul.summary li.before a:hover,
 .book .book-summary ul.summary li.before li.active>a {
-  color: #fffff8;  /*#6197D5*/
-  background-color: #990024;
+  color: #ffffff;  /*#6197D5*/
+  background-color: #006cff;
   text-decoration: none;
 }
 
@@ -261,7 +261,7 @@ i {
 /* headers */
 
 h1, h2, h3, h4, h5 {
-  color:#990024;
+  color:#006cff;
   font-family: 'Roboto Condensed';
 }
 
@@ -342,13 +342,13 @@ img {
 
 /* creative commons, github icons */
 .fab .fa-creative-commons, .fa-creative-commons-sa, .fa-creative-commons-by, .fa-github, .fa-lg {
-  color: #990024;
+  color: #006cff;
   background-color: transparent;
 }
 
 /* text highlights */
 .book .book-body .page-wrapper .page-inner section.normal em, .emph {
-  color: #990024BF;  /*#E32D00 #ff5500 #D14300*/
+  color: #006cff;  /*#E32D00 #ff5500 #D14300*/
   font-weight: 500;
   font-style: normal;
 }
@@ -458,7 +458,7 @@ pre, code {
 
 /* https://github.com/rstudio/distill/blob/master/inst/rmarkdown/templates/distill_article/resources/a11y.theme + https://gist.github.com/hadley/f53b6e92df20994fdabe6562d284728a */
 code span.ot {color:#007faa}
-code span.at {color:#7d9029}
+code span.at {color:#1c1c1c}
 code span.ss {color:#bb6688}
 code span.an {color:#545454;}
 code span.fu {color:#066bf2}
@@ -475,7 +475,7 @@ code span.pp {color:#bc7a00}
 code span.in {color:#545454;}
 code span.vs {color:#008000}
 code span.wa {color:#545454; font-style: italic}
-code span.do {color:#ba2121; font-style: italic}
+code span.do {color:#242424}
 code span.im {}
 code span.ch {color:#008000}
 code span.dt {color:#aa5d00}
@@ -483,7 +483,7 @@ code span.fl {color:#ff7b00}
 code span.co {color:#adadad}
 code span.cv {color:#545454; font-style: italic}
 code span.cn {color:#8a00e6}
-code span.sc {color:#008000}
+code span.sc {color:#5f00db}
 code span.dv {color:#a1024a}
 code span.kw {color:#8a00e6;}
 

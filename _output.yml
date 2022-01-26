@@ -22,7 +22,7 @@ bookdown::gitbook:
         after: |
          <li class='after'">
             <a href="https://github.com/irwingss/">
-               <img src="figs/banner completo.png" style="width:25%; padding:0px 0; display:block; margin: 0 auto;" alt="MC logo">
+               <img src="figs/banner completo.png" style="width:75%; padding:0px 0; display:block; margin: 0 auto;" alt="MC logo">
             </a>
          </li>
          <li class='after'">
