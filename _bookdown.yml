@@ -6,7 +6,7 @@ language:
   ui:
     chapter_name: "Capítulo "
 delete_merged_file: true
-output_dir: _bookFiles
+output_dir: docs
 rmd_files: [
   "index.Rmd",
   "01-intro.Rmd",
