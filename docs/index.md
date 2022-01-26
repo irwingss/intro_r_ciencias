@@ -47,7 +47,7 @@ Esta página web es de _libre uso dentro de los términos autorizados_ bajo la [
 Photo by <a href="">Pawel Czerwinski</a> on <a href="">Unsplash</a>
   
   
-## **El paquete del libro** {-}
+## El paquete del libro {-}
 
 <img src="Cover/logo rbrack.png" width="40%" style="display: block; margin: auto;" />
 
@@ -82,7 +82,7 @@ update.packages(ask = FALSE)
 5. Una vez estén todas las librerías instaladas, se debe ejecutar la última función `update.packages()` para actualizar las que se encuentren desactualizadas.
 
 
-## **¿Cómo usar el libro?** {-}
+## ¿Cómo usar el libro? {-}
 
 El libro cuenta con capítulos secuenciales. Si es tu primera vez con R, se sugiere continuar la secuencia. La información está organizada de manera que permita al lector identificar la teoría y ejemplos, junto con ciertos contenidos resaltados como se muestra a continuación:
 
@@ -94,7 +94,7 @@ El libro cuenta con capítulos secuenciales. Si es tu primera vez con R, se sugi
 
 # **Prefacio** {-}
 
-## **¿Por qué aprender R?** {-}
+## ¿Por qué aprender R? {-}
 
 Sin importar tu carrera de origen, es más que seguro nunca pensaste que algún día terminarías queriendo aprender a programar. Esta necesidad se está haciendo cada vez más frecuentes entre profesionales de distintas ramas de la ciencia. Las razones de aprender a programar pueden ser diversas, pero casi siempre se centran en la necesidad de analizar datos, hacer ciencia, participar en un grupo de investigación, o para tener herramientas analíticas para el doctorado. Pero ¿Por qué R?.
 
@@ -119,12 +119,12 @@ R es uno de los lenguajes más populares para ciencia de datos e investigación 
 
 - Masiva cantidad de repositorios en la nube como [GitHub](https://github.com/), [GitLab](https://gitlab.com/) o [Bioconductor](https://www.bioconductor.org/) donde se alberga toda la información que ha sido alguna vez creada y publicada con R.
 
-## **¿A quién está dirigido este libro?** {-}
+## ¿A quién está dirigido este libro? {-}
 
 El libro está planeado para llevarte desde cero en el manejo del lenguaje de programación R, sin importar el campo de la ciencia del que provengas. Los capítulos están diseñados para ser independientes entre sí. Siéntete libre de saltar entre los capítulos y seleccionar aquellos que sean de tu interés en el momento, si ya dominas conceptos más básicos. 
 
 La progresión temática está adaptada a los primeros cursos del programa [Data Science: Estadística y Análisis de Datos en R](https://www.masterx.org/bundle/data-science-r), ofrecido por el autor del libro, [Irwing S. Saldaña](https://github.com/irwingss), a través del [Instituto de Ciencias Antonio Brack](https://www.brackinstitute.com/). El programa comenzó a ser dictado en 2020, y ha recibido a estudiantes de diferentes partes de Latinoamérica, El Caribe y España, de diversos perfiles profesionales: biólogos, médicos y otros profesionales de la salud, ingenieros, psicólogos, entre otros; además, profesionales de otras ramas no tan afines a las ciencias, como economistas, tecnólogos o especialistas en finanzas. 
 
-## **Agradecimientos** {-}
+## Agradecimientos {-}
 
 <span style="color:red;">**FALTA**</span>
