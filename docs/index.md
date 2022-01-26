@@ -49,7 +49,7 @@ Photo by <a href="">Pawel Czerwinski</a> on <a href="">Unsplash</a>
   
 ## **El paquete del libro** {-}
 
-<img src="Cover/logo rbrack.png" width="70%" style="display: block; margin: auto;" />
+<img src="Cover/logo rbrack.png" width="40%" style="display: block; margin: auto;" />
 
 Las bases de datos y funciones de soporte del programa de estudios aquí propuesto están disponibles en el paquete `rbrack`, disponible en el [repositorio de Github]().
 

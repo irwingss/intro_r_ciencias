@@ -55,7 +55,7 @@ Photo by <a href="">Pawel Czerwinski</a> on <a href="">Unsplash</a>
   
 ## **El paquete del libro** {-}
 
-```{r, fig.align='center', out.width="70%", echo=FALSE}
+```{r, fig.align='center', out.width="40%", echo=FALSE}
 knitr::include_graphics('Cover/logo rbrack.png')
 ```
 

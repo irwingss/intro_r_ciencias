@@ -256,7 +256,12 @@ i {
 
 /* headers */
 
-h1, h2, h3, h4, h5 {
+h1 {
+  color:#006cff;
+  font-family: 'Roboto Condensed';
+}
+
+h2, h3, h4, h5 {
   color:#00252b;
   font-family: 'Roboto Condensed';
 }

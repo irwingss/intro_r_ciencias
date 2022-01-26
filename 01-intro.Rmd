@@ -1,10 +1,10 @@
-# (PART) INTRODUCCIÓN A R <br>PARA CIENCIAS </br> {.unnumbered}
+# (PART\*) INTRODUCCIÓN A <br>R PARA CIENCIAS </br> {.unnumbered}
 
 # **Esenciales de R y RStudio** {#esencialesRRStudio}
 
 Este primer capítulo está enteramente dedicado a conocer R y RStudio como programas. Se trabajará desde su instalación, configuración, uso de los paneles de RStudio, uso de librerías, repositorios, tipos de documentos en RStudio, proyectos, y cómo pedir ayuda. Este primer contacto con RStudio facilitará el uso del programa para escribir código en R (Sección [2 R básico](#rbasico)).
 
-## **Instalación de R y RStudio**
+## Instalación de R y RStudio
 
 Para utilizar el lenguaje de programación R (en adelante R), proponemos el uso del ambiente de desarrollo integrado [RStudio](https://www.rstudio.com/). Este programa mejorará enormemente el flujo, la velocidad y la eficiencia de trabajo con R. RStudio es más que un editor de texto que resalta la sintaxis del código de R, sino que también permite tener paneles de trabajo organizados que facilitan su uso. 
 
@@ -24,19 +24,19 @@ Para utilizar el lenguaje de programación R (en adelante R), proponemos el uso 
 
 Para efectos de este libro, se deberá utilizar **las versiones listadas (o posteriores)** de los siguientes programas, según el sistema operativo:
 
-#### **Para Windows:** {-}
+#### Para Windows: {-}
 
 - R version 4.1.2 (2021-11-01) -- "Bird Hippie" [Descarga](https://cran.r-project.org/bin/windows/base/R-4.1.2-win.exe)
 - RStudio Desktop 2021.09.1+372 [Descarga](https://download1.rstudio.org/desktop/windows/RStudio-2021.09.1-372.exe)
 - Rtools4.0 [Descarga](https://cran.r-project.org/bin/windows/Rtools/rtools40v2-x86_64.exe)
 
-#### **Para macOS:** {-}
+#### Para macOS: {-}
 
 - R version 4.1.2 (2021-11-01) -- "Bird Hippie" [Descarga](https://cran.r-project.org/bin/macosx/base/R-4.1.2.pkg)
 - RStudio Desktop 2021.09.1+372 [Descarga](https://download1.rstudio.org/desktop/macos/RStudio-2021.09.1-372.dmg)
 - XQuartz 2.8.1. [Descarga](https://github.com/XQuartz/XQuartz/releases/download/XQuartz-2.8.1/XQuartz-2.8.1.dmg)
 
-#### **Para Ubuntu/Debian:** {-}
+#### Para Ubuntu/Debian: {-}
 
 A lo largo del libro no brindamos comentarios o soporte para el uso de R o RStudio en UNIX/GNU/Linux/Ubuntu. Las principales razones son que la mayoría de usuarios que aprenden R no suelen utilizar sistemas operativos de código libre, además de que algunos paquetes han presentado problemas al ser instalados.
 
@@ -75,7 +75,7 @@ sudo gdebi rstudio-server-2021.09.2-382-amd64.deb
 
 Los pasos aquí detallados están publicados en la [web oficial de RStudio](https://www.rstudio.com/products/rstudio/download-server/debian-ubuntu/). Otros códigos interesantes puedes hallarlos en diferentes referencias como las del [Center for Open Middleware](http://www.upm.es/sfs/Rectorado/Gabinete%20del%20Rector/Notas%20de%20Prensa/2015/05/documentos/Instrucciones%20de%20instalaci%C3%B3n%20de%20R%20y%20RStudio.pdf).
 
-## **Configuración de RStudio**
+## Configuración de RStudio
 
 La siguiente es una configuración sugerida para que RStudio sea visualizado de igual manera por todos los estudiantes que usen este libro, y se guíen mejor con la sintaxis del código, ordenamiento de paneles, codificación, idioma del texto, entre otros.
 
@@ -142,7 +142,7 @@ knitr::include_graphics("figs/screenshots/configRStudio-10.jpg")
 ```
 <br>
 
-## **Tema BrackInstitute (2022)**
+## Tema BrackInstitute (2022)
 
 Este es un requerimiento especial para los estudiantes que usen este libro en las clases, en vivo o grabadas, del [Instituto de Ciencias Antonio Brack](https://www.brackinstitute.com/) a través de la plataforma educativa online [masterX](https://www.masterx.org/). Se les solicita instalen el tema de color de RStudio `BrackInstitute` para que la sintaxis del código sea del mismo color que el mostrado en clase, facilitando así su comprensión. Si eres un lector que no está llevando el programa, sientete libre instalar el tema también.
 
@@ -175,7 +175,7 @@ Finalmente, presiona `enter` para comenzar su ejecución.
 
 Si todo va bien, el tema cambiará automáticamente. Para más temas desarrollados para el Instituto de Ciencias Antonio Brack, visita el repositorio [Primolius-Theme](https://github.com/irwingss/Primolius-Theme) de [Irwing S. Saldaña](https://github.com/irwingss).
 
-## **Paneles de RStudio** {#panelesRStudio}
+## Paneles de RStudio {#panelesRStudio}
 
 Existen diversos editores de código que permiten trabajar con R, pero ninguno con la versatilidad de RStudio. El programa está dividido en paneles que uno puede reorganizar a conveniencia. Más allá de la posición o el orden de los paneles, es necesario que se sepa reconocerlos por su contenido, las pestañas que contiene, entre otros. Aquí se presentan los paneles en su posición clásica, junto con algunas barras y botones que se deben conocer al iniciar con RStudio. 
 
@@ -213,7 +213,7 @@ knitr::include_graphics("figs/screenshots/Slide5.PNG")
 ```
 <br>
 
-## **Librerías y Repositorios**
+## Librerías y Repositorios
 
 Una de las mayores virtudes de R es la enorme comunidad de desarrollo que ha creado asombrosas funcionalidades para simplificarle el flujo de trabajo a otras personas. Estas funcionalidades en realidad son _funciones_ (para mayor detalle sobre ellas, visita la sección [2.7 Funciones](#funciones)). La estructura que almacena funciones se conoce como librería o paquete. Para poder una función en RStudio, se debe instalar previamente el paquete que la contiene. Los paquetes están publicados en repositorios. Los principales son:
 
@@ -242,7 +242,7 @@ install.packages("devtools")
 devtools::install_github("irwingss/rbrack")
 ```
 
-## **Actualización de librerías**
+## Actualización de librerías
 
 Es importante mantener actualizada la paquetería. En los repositorios de cada paquete se suelen reportar fallos o inconsistencias que son resueltas y liberadas como una actualización. Se recomienda hacer esto al menos una vez por mes.
 
@@ -281,11 +281,11 @@ Para acceder puntualmente a la función `bind_cols()` de la librería **dplyr**,
 dplyr::bind_cols()
 ```
 
-## **Tipos de documentos en RStudio**
+## Tipos de documentos en RStudio
 
 Luego de conocer los paneles de RStudio, es necesario crear los espacios donde se escribirán las órdenes a modo de código. Estos documentos, como cualquier editor de texto, se pueden guardar o compartir, por ejemplo, mediante un correo electrónico.
 
-### **R Script (.R)**
+### R Script (.R)
  
 Es el documento más simple donde puedo escribir R. Es un editor de texto como el bloc de notas de cualquier sistema operativo. No obstante, este editor lee y colorea la sintaxis especial del código de R. Esto permite identificar cada parte del código según lo que sea: una variable, una función, un número, un texto, símbolos especiales, operadores, entre otros; simplificando enormemente la lectura del código y el aprendizaje de R.
 
@@ -307,7 +307,7 @@ knitr::include_graphics("figs/screenshots/Rscript.jpg")
 ```
 
 
-### **R Markdown (.Rmd)**
+### R Markdown (.Rmd)
 
 Es un formato de archivo para la creación de documentos dinámicos. Estos pueden ser: páginas web, aplicaciones **shiny**, diapositivas, o cualquier tipo de reporte que puede ser exportado en formato .docx, .pdf o .html. Utiliza la sintaxis de Markdown pero posibilitando la inclusión de "pedacitos de código", la traducción literal de code chunk. Los chunk se comportan como pequeños R scripts embebidos en el documento de texto plano escrito con sintaxis Markdown. 
 
@@ -360,7 +360,7 @@ knitr::include_graphics("figs/screenshots/abrir R Markdown 6.jpg")
 knitr::include_graphics("figs/screenshots/abrir R Markdown 7.jpg")
 ```
 
-## **Proyectos de RStudio**
+## Proyectos de RStudio
 
 Este es el santo grial del uso de RStudio para crear una diversidad de repositorios: de trabajo, [colaboraciones](https://medium.com/@jonathanmines/the-ultimate-github-collaboration-guide-df816e98fb67), [diapositivas](https://bookdown.org/yihui/rmarkdown/xaringan.html), [páginas web](https://rmarkdown.rstudio.com/lesson-13.html), [blogs](https://bookdown.org/yihui/blogdown/), [libros](https://bookdown.org/), entre otros. Para poder usar un proyecto de RStudio con dichos propósitos, se necesita aprender a usar las versiones de control de proyectos con [Git](https://happygitwithr.com/install-git.html) y [Shell](https://cfss.uchicago.edu/setup/shell/). Puedes iniciar en este tema con una genial presentación de su uso, elaborado por [University of Zurich](https://www.geo.uzh.ch/microsite/reproducible_research/post/rr-rstudio-git/). 
 
@@ -413,7 +413,7 @@ knitr::include_graphics("figs/screenshots/proyectos6.jpg")
 - No olvides las comillas al inicio y final de la dirección, ni que los slash usados son forwardslash (hacia delante) `/`, no backslash (hacia atrás) `\`.
 ```
 
-## **Pedir ayuda**
+## Pedir ayuda
 
 Pedir ayuda sin internet es algo posible en RStudio. Todas las librerías instaladas contienen información de respaldo sobre el uso de cada función que almacenan. 
 

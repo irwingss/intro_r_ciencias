@@ -1,21 +1,21 @@
 # **Programación Funcional e iteraciones**
-## **Control de flujo**
+## Control de flujo
 
-## **Creación de funciones** {#creacion-fun}
+## Creación de funciones {#creacion-fun}
 La gran comunidad de desarrollo detrás de R ha creado una infinidad de funciones, almacenados en los miles de paquetes, o librerías, disponibles en el repositorio oficial `CRAN` y otras fuentes (ver sección [Librerías y repositorios](#librerías-y-repositorios). No obstante, algunas veces se necesita crear funciones personalizadas a los requerimientos del usuario. 
 
 Cuando se detecta que algunas secuencias de órdenes se suelen repetir en el código, crear una función que empaquete dicha secuencia permitirá
 _automatizar procedimientos y simplificar el código_. Como regla general, si copias y pegas una secuencia de órdenes para usarla más de 2 veces, ya se debería pensar en crear una función que compile la tarea. 
 
 ```{block2, type='rmdnote'}
-**Crear un función involucra los siguientes pasos:**
+Crear un función involucra los siguientes pasos:
 
 1. Darle un nombre. Crear una función es como crear una variable: hay que asignarle un contenido a un nombre.
 2. Luego de escribir el nombre, se tiene que usar la función llamada `function()`para indicar qué argumentos tendrá la nueva función.
 3. Definir el contenido de la función, la secuencia de órdenes, dentro de corchetes. Dentro de ellos se usarán los argumentos establecidos en `function()`.
 ```
 
-Para **crear una función** que le sume 100 a un número, se puede usar:
+Para crear una función que le sume 100 a un número, se puede usar:
 
 ```{r}
 # Esta función admitirá como objeto de entrada un 
@@ -41,7 +41,7 @@ k.Gauss <- function(n) {
 k.Gauss(100)
 ```
 
-Adicionalmente, se puede **predefinir valores por defecto** en `function()`, mismos que se podrán modificar al usar la función ya creada.
+Adicionalmente, se puede predefinir valores por defecto en `function()`, mismos que se podrán modificar al usar la función ya creada.
 
 ```{r}
 # Esta función hallará el logaritmo con base 2 
@@ -56,7 +56,7 @@ log.Gauss <- function(n, base = 2) {
 log.Gauss(100)
 ```
 
-Como es notorio, se pueden **crear variables dentro de una función**, pero estas serán temporales. Una vez se imprime el resultado en consola, la variable desaparece. Para que algún paso realizado dentro de la función se guarde como una variable permanentemente en el ambiente, usa el símbolo especial `<<-`.
+Como es notorio, se pueden crear variables dentro de una función, pero estas serán temporales. Una vez se imprime el resultado en consola, la variable desaparece. Para que algún paso realizado dentro de la función se guarde como una variable permanentemente en el ambiente, usa el símbolo especial `<<-`.
 
 ```{r}
 # Se guardará resultado.Gauss en la consola
@@ -77,5 +77,5 @@ print(resultado.Gauss)
 
 
 ## `ifelse()`
-## **Iteraciones con for loops**
-## **Aplicación de** `purrr::map()`
+## Iteraciones con for loops
+## Aplicación de `purrr::map()`

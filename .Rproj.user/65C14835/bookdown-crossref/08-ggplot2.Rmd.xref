@@ -1,47 +1,47 @@
-h1:part-gráficos-avanzados-con-ggplot2 (PART*) GRÁFICOS AVANZADOS CON ggplot2
+h1:part-gráficos-avanzados-con-ggplot2 (PART*) GRÁFICOS AVANZADOSCON ggplot2
 h1:visualización-avanzada-de-gráficos 
-h2:gramática-de-gráficos-sintaxis-de-ggplot2 
-h2:visualización-por-capas 
+h2:gramática-de-gráficos-sintaxis-de-ggplot2 Gramática de gráficos: sintaxis de ggplot2
+h2:visualización-por-capas Visualización por capas
 h1:componentes-clave-de-un-gráfico-con-ggplot2 
-h2:geométricas 
-h2:stats 
-h2:coloreo-rellenado-formas-y-tipos-de-línea 
-h2:facetas 
-h2:etiquetas 
-h2:modificando-los-ejes 
-h2:temas 
+h2:geométricas Geométricas
+h2:stats Stats
+h2:coloreo-rellenado-formas-y-tipos-de-línea Coloreo, rellenado, formas y tipos de línea
+h2:facetas Facetas
+h2:etiquetas Etiquetas
+h2:modificando-los-ejes Modificando los ejes
+h2:temas Temas
 h1:creando-gráficos 
-h2:una-variable-x-continua 
-h3:polígonos-de-frecuencias 
-h3:gráfico-de-área 
-h3:gráfico-de-densidad 
-h3:histograma-de-frecuencias 
-h2:una-variable-x-discreta 
-h3:gráficos-de-barras 
-h3:gráficos-de-barras-polares 
-h3:gráfios-de-discrepancia 
-h2:dos-variables-x-vs-y-continuas 
-h3:gráfico-de-dispersión-de-puntos 
-h3:gráfico-de-etiquetas-y-texto 
-h3:gráficos-de-densidad-2d 
-h2:dos-variables-x-discreta-vs-y-continua 
-h3:gráficos-de-cajas 
-h3:gráfico-de-violín 
-h2:dos-variables-x-vs-y-discretas 
-h3:gráficos-de-conteos 
-h3:gráficos-de-calor 
+h2:una-variable-x-continua Una variable X continua
+h3:polígonos-de-frecuencias Polígonos de frecuencias
+h3:gráfico-de-área Gráfico de área
+h3:gráfico-de-densidad Gráfico de densidad
+h3:histograma-de-frecuencias Histograma de frecuencias
+h2:una-variable-x-discreta Una variable X discreta
+h3:gráficos-de-barras Gráficos de barras
+h3:gráficos-de-barras-polares Gráficos de barras polares
+h3:gráfios-de-discrepancia Gráfios de discrepancia
+h2:dos-variables-x-vs-y-continuas Dos variables: X vs Y continuas
+h3:gráfico-de-dispersión-de-puntos Gráfico de dispersión de puntos
+h3:gráfico-de-etiquetas-y-texto Gráfico de etiquetas y texto
+h3:gráficos-de-densidad-2d Gráficos de densidad 2D
+h2:dos-variables-x-discreta-vs-y-continua Dos variables: X discreta vs Y continua
+h3:gráficos-de-cajas Gráficos de cajas
+h3:gráfico-de-violín Gráfico de violín
+h2:dos-variables-x-vs-y-discretas Dos variables: X vs Y discretas
+h3:gráficos-de-conteos Gráficos de conteos
+h3:gráficos-de-calor Gráficos de calor
 h1:adicionando-líneas 
-h2:gráficos-de-regresión 
-h2:segmentos-y-flechas 
-h2:curvas-y-flechas 
+h2:gráficos-de-regresión Gráficos de Regresión
+h2:segmentos-y-flechas Segmentos y flechas
+h2:curvas-y-flechas Curvas y flechas
 h1:gráficos-estadísticos-semiautomáticos 
-h2:funciones-de-ggpubr  
-h2:funciones-de-ggstatsplot  
-h2:funciones-de-ggcorplot  
+h2:funciones-de-ggpubr Funciones de 
+h2:funciones-de-ggstatsplot Funciones de 
+h2:funciones-de-ggcorplot Funciones de 
 h1:exportación-de-gráficos 
-h2:composición-de-múltiples-gráficos 
-h3:utilizando-patchwork  
-h3:utilizando-ggpubr  
-h2:exportacion-en-png-o-jpeg 
-h2:exportación-en-pdf 
+h2:composición-de-múltiples-gráficos Composición de múltiples gráficos
+h3:utilizando-patchwork Utilizando 
+h3:utilizando-ggpubr Utilizando 
+h2:exportacion-en-png-o-jpeg Exportaci[on] en PNG o JPEG
+h2:exportación-en-pdf Exportación en PDF
 
