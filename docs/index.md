@@ -6,7 +6,7 @@ title: "Introducción a R para Ciencias"
 subtitle: "Autor: Irwing S. Saldaña"
 author: "Irwing S. Saldaña"
 description: "Libro introductorio al uso del lenguaje de programación R, con ejemplos orientados a ciencias"
-date: "2022-01-24"
+date: "2022-01-26"
 colorlinks: yes
 graphics: yes
 lot: yes

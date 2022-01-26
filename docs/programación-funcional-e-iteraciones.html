@@ -1,215 +1,395 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="" xml:lang="">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Capítulo 6 Programación Funcional e iteraciones | Introducción a R para Ciencias</title>
-<meta name="author" content="Irwing S. Saldaña">
-<meta name="description" content="6.1 Control de flujo   6.2 Creación de funciones La gran comunidad de desarrollo detrás de R ha creado una infinidad de funciones, almacenados en los miles de paquetes, o librerías, disponibles en...">
-<meta name="generator" content="bookdown 0.24 with bs4_book()">
-<meta property="og:title" content="Capítulo 6 Programación Funcional e iteraciones | Introducción a R para Ciencias">
-<meta property="og:type" content="book">
-<meta property="og:image" content="/Cover/cover.png">
-<meta property="og:description" content="6.1 Control de flujo   6.2 Creación de funciones La gran comunidad de desarrollo detrás de R ha creado una infinidad de funciones, almacenados en los miles de paquetes, o librerías, disponibles en...">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Capítulo 6 Programación Funcional e iteraciones | Introducción a R para Ciencias">
-<meta name="twitter:description" content="6.1 Control de flujo   6.2 Creación de funciones La gran comunidad de desarrollo detrás de R ha creado una infinidad de funciones, almacenados en los miles de paquetes, o librerías, disponibles en...">
-<meta name="twitter:image" content="/Cover/cover.png">
-<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
-<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><link rel="icon" type="image/png" sizes="32x32" href="figs/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="figs/favicon-32x32.png">
-<script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-      ga('create', 'UA-99618359-1', 'auto');
-      ga('send', 'pageview');
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Capítulo 6 Programación Funcional e iteraciones | Introducción a R para Ciencias</title>
+  <meta name="description" content="Libro introductorio al uso del lenguaje de programación R, con ejemplos orientados a ciencias" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-    </script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="style/style.css">
+  <meta property="og:title" content="Capítulo 6 Programación Funcional e iteraciones | Introducción a R para Ciencias" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:image" content="/Cover/cover.png" />
+  <meta property="og:description" content="Libro introductorio al uso del lenguaje de programación R, con ejemplos orientados a ciencias" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Capítulo 6 Programación Funcional e iteraciones | Introducción a R para Ciencias" />
+  
+  <meta name="twitter:description" content="Libro introductorio al uso del lenguaje de programación R, con ejemplos orientados a ciencias" />
+  <meta name="twitter:image" content="/Cover/cover.png" />
+
+<meta name="author" content="Irwing S. Saldaña" />
+
+
+<meta name="date" content="2022-01-26" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="valores-perdidos.html"/>
+<link rel="next" href="control-de-flujo.html"/>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
 </head>
-<body data-spy="scroll" data-target="#toc">
 
-<div class="container-fluid">
-<div class="row">
-  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+<body>
 
-    <div class="d-flex align-items-start justify-content-between">
-      <h2>
-        <!--debajo del título-->
-        <a href="index.html" title="Autor: Irwing S. Saldaña">Introducción a R para Ciencias</a><br><small class="text-muted">Autor: Irwing S. Saldaña<br>Editorial: IC Press<br>Publicación: 2022-01-24</small>
-      </h2>
-      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Mostrar barra de contenidos</span></button>
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Introducción a R para Ciencias</a></li>
+
+<li class="divider"></li>
+<li><a href="index.html#bienvenida"><strong>Bienvenida</strong></a>
+<ul>
+<li><a href="el-paquete-del-libro.html#el-paquete-del-libro"><strong>El paquete del libro</strong></a></li>
+<li><a href="cómo-usar-el-libro.html#cómo-usar-el-libro"><strong>¿Cómo usar el libro?</strong></a></li>
+</ul></li>
+<li><a href="prefacio.html#prefacio"><strong>Prefacio</strong></a>
+<ul>
+<li><a href="por-qué-aprender-r.html#por-qué-aprender-r"><strong>¿Por qué aprender R?</strong></a></li>
+<li><a href="a-quién-está-dirigido-este-libro.html#a-quién-está-dirigido-este-libro"><strong>¿A quién está dirigido este libro?</strong></a></li>
+<li><a href="agradecimientos.html#agradecimientos"><strong>Agradecimientos</strong></a></li>
+</ul></li>
+<li class="part"><span><b>I INTRODUCCIÓN A R PARA CIENCIAS</b></span></li>
+<li class="chapter" data-level="1" data-path="esencialesRRStudio.html"><a href="esencialesRRStudio.html"><i class="fa fa-check"></i><b>1</b> <strong>Esenciales de R y RStudio</strong></a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="instalación-de-r-y-rstudio.html"><a href="instalación-de-r-y-rstudio.html"><i class="fa fa-check"></i><b>1.1</b> <strong>Instalación de R y RStudio</strong></a></li>
+<li class="chapter" data-level="1.2" data-path="configuración-de-rstudio.html"><a href="configuración-de-rstudio.html"><i class="fa fa-check"></i><b>1.2</b> <strong>Configuración de RStudio</strong></a></li>
+<li class="chapter" data-level="1.3" data-path="tema-brackinstitute-2022.html"><a href="tema-brackinstitute-2022.html"><i class="fa fa-check"></i><b>1.3</b> <strong>Tema BrackInstitute (2022)</strong></a></li>
+<li class="chapter" data-level="1.4" data-path="panelesRStudio.html"><a href="panelesRStudio.html"><i class="fa fa-check"></i><b>1.4</b> <strong>Paneles de RStudio</strong></a></li>
+<li class="chapter" data-level="1.5" data-path="librerías-y-repositorios.html"><a href="librerías-y-repositorios.html"><i class="fa fa-check"></i><b>1.5</b> <strong>Librerías y Repositorios</strong></a></li>
+<li class="chapter" data-level="1.6" data-path="actualización-de-librerías.html"><a href="actualización-de-librerías.html"><i class="fa fa-check"></i><b>1.6</b> <strong>Actualización de librerías</strong></a></li>
+<li class="chapter" data-level="1.7" data-path="tipos-de-documentos-en-rstudio.html"><a href="tipos-de-documentos-en-rstudio.html"><i class="fa fa-check"></i><b>1.7</b> <strong>Tipos de documentos en RStudio</strong></a>
+<ul>
+<li class="chapter" data-level="1.7.1" data-path="tipos-de-documentos-en-rstudio.html"><a href="tipos-de-documentos-en-rstudio.html#r-script-.r"><i class="fa fa-check"></i><b>1.7.1</b> <strong>R Script (.R)</strong></a></li>
+<li class="chapter" data-level="1.7.2" data-path="tipos-de-documentos-en-rstudio.html"><a href="tipos-de-documentos-en-rstudio.html#r-markdown-.rmd"><i class="fa fa-check"></i><b>1.7.2</b> <strong>R Markdown (.Rmd)</strong></a></li>
+</ul></li>
+<li class="chapter" data-level="1.8" data-path="proyectos-de-rstudio.html"><a href="proyectos-de-rstudio.html"><i class="fa fa-check"></i><b>1.8</b> <strong>Proyectos de RStudio</strong></a></li>
+<li class="chapter" data-level="1.9" data-path="pedir-ayuda.html"><a href="pedir-ayuda.html"><i class="fa fa-check"></i><b>1.9</b> <strong>Pedir ayuda</strong></a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="rbasico.html"><a href="rbasico.html"><i class="fa fa-check"></i><b>2</b> <strong>Primer contacto con R</strong></a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="ejecutar-código.html"><a href="ejecutar-código.html"><i class="fa fa-check"></i><b>2.1</b> <strong>Ejecutar código</strong></a></li>
+<li class="chapter" data-level="2.2" data-path="r-como-calculadora.html"><a href="r-como-calculadora.html"><i class="fa fa-check"></i><b>2.2</b> <strong>R como calculadora</strong></a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="r-como-calculadora.html"><a href="r-como-calculadora.html#funciones-matemáticas"><i class="fa fa-check"></i><b>2.2.1</b> <strong>Funciones matemáticas</strong></a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="operadores-lógicos-y-relacionales.html"><a href="operadores-lógicos-y-relacionales.html"><i class="fa fa-check"></i><b>2.3</b> <strong>Operadores lógicos y relacionales</strong></a></li>
+<li class="chapter" data-level="2.4" data-path="comentar-el-código.html"><a href="comentar-el-código.html"><i class="fa fa-check"></i><b>2.4</b> <strong>Comentar el código</strong></a></li>
+<li class="chapter" data-level="2.5" data-path="creación-de-variables.html"><a href="creación-de-variables.html"><i class="fa fa-check"></i><b>2.5</b> <strong>Creación de variables</strong></a></li>
+<li class="chapter" data-level="2.6" data-path="funciones.html"><a href="funciones.html"><i class="fa fa-check"></i><b>2.6</b> <strong>Funciones</strong></a></li>
+<li class="chapter" data-level="2.7" data-path="funciones-básica-útiles.html"><a href="funciones-básica-útiles.html"><i class="fa fa-check"></i><b>2.7</b> <strong>Funciones básica útiles</strong></a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="estructurasdatos.html"><a href="estructurasdatos.html"><i class="fa fa-check"></i><b>3</b> <strong>Estructuras de datos</strong></a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="clasificación-de-variables.html"><a href="clasificación-de-variables.html"><i class="fa fa-check"></i><b>3.1</b> <strong>Clasificación de variables</strong></a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="clasificación-de-variables.html"><a href="clasificación-de-variables.html#clases-atómicas"><i class="fa fa-check"></i><b>3.1.1</b> <strong>Clases atómicas</strong></a></li>
+<li class="chapter" data-level="3.1.2" data-path="clasificación-de-variables.html"><a href="clasificación-de-variables.html#estructuras-de-datos"><i class="fa fa-check"></i><b>3.1.2</b> <strong>Estructuras de datos</strong></a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="vectores.html"><a href="vectores.html"><i class="fa fa-check"></i><b>3.2</b> <strong>Vectores</strong></a></li>
+<li class="chapter" data-level="3.3" data-path="factores.html"><a href="factores.html"><i class="fa fa-check"></i><b>3.3</b> <strong>Factores</strong></a></li>
+<li class="chapter" data-level="3.4" data-path="matrices.html"><a href="matrices.html"><i class="fa fa-check"></i><b>3.4</b> <strong>Matrices</strong></a></li>
+<li class="chapter" data-level="3.5" data-path="data-frames.html"><a href="data-frames.html"><i class="fa fa-check"></i><b>3.5</b> <strong>Data Frames</strong></a></li>
+<li class="chapter" data-level="3.6" data-path="tibbles.html"><a href="tibbles.html"><i class="fa fa-check"></i><b>3.6</b> <strong>Tibbles</strong></a></li>
+<li class="chapter" data-level="3.7" data-path="listas.html"><a href="listas.html"><i class="fa fa-check"></i><b>3.7</b> <strong>Listas</strong></a></li>
+<li class="chapter" data-level="3.8" data-path="indexación-de-variables.html"><a href="indexación-de-variables.html"><i class="fa fa-check"></i><b>3.8</b> <strong>Indexación de variables</strong></a>
+<ul>
+<li class="chapter" data-level="3.8.1" data-path="indexación-de-variables.html"><a href="indexación-de-variables.html#indexación-en-variables-1d"><i class="fa fa-check"></i><b>3.8.1</b> <strong>Indexación en variables 1D</strong></a></li>
+<li class="chapter" data-level="3.8.2" data-path="indexación-de-variables.html"><a href="indexación-de-variables.html#indexación-en-variables-2d"><i class="fa fa-check"></i><b>3.8.2</b> <strong>Indexación en variables 2D</strong></a></li>
+<li class="chapter" data-level="3.8.3" data-path="indexación-de-variables.html"><a href="indexación-de-variables.html#indexación-en-listas"><i class="fa fa-check"></i><b>3.8.3</b> <strong>Indexación en listas</strong></a></li>
+</ul></li>
+<li class="chapter" data-level="3.9" data-path="coerción-de-variables.html"><a href="coerción-de-variables.html"><i class="fa fa-check"></i><b>3.9</b> <strong>Coerción de variables</strong></a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="carga-y-exportación-de-datos.html"><a href="carga-y-exportación-de-datos.html"><i class="fa fa-check"></i><b>4</b> <strong>Carga y exportación de datos</strong></a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="directorios-de-trabajo.html"><a href="directorios-de-trabajo.html"><i class="fa fa-check"></i><b>4.1</b> <strong>Directorios de trabajo</strong></a></li>
+<li class="chapter" data-level="4.2" data-path="lectura-de-bases-de-datos.html"><a href="lectura-de-bases-de-datos.html"><i class="fa fa-check"></i><b>4.2</b> <strong>Lectura de bases de datos</strong></a></li>
+<li class="chapter" data-level="4.3" data-path="exportar-basas-de-datos.html"><a href="exportar-basas-de-datos.html"><i class="fa fa-check"></i><b>4.3</b> <strong>Exportar basas de datos</strong></a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="manejo-de-datos-con-tidyverse.html"><a href="manejo-de-datos-con-tidyverse.html"><i class="fa fa-check"></i><b>5</b> <strong>Manejo de datos con</strong> <code>tidyverse</code></a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="datos-ordenados-tidy.html"><a href="datos-ordenados-tidy.html"><i class="fa fa-check"></i><b>5.1</b> <strong>Datos ordenados (tidy)</strong></a></li>
+<li class="chapter" data-level="5.2" data-path="pipelines-con-tidyverse.html"><a href="pipelines-con-tidyverse.html"><i class="fa fa-check"></i><b>5.2</b> <strong>Pipelines con tidyverse</strong></a></li>
+<li class="chapter" data-level="5.3" data-path="tablas-anchas-y-largas-con-tidyr.html"><a href="tablas-anchas-y-largas-con-tidyr.html"><i class="fa fa-check"></i><b>5.3</b> <strong>Tablas anchas y largas con tidyr</strong></a></li>
+<li class="chapter" data-level="5.4" data-path="filtrado.html"><a href="filtrado.html"><i class="fa fa-check"></i><b>5.4</b> <strong>Filtrado</strong></a></li>
+<li class="chapter" data-level="5.5" data-path="selección.html"><a href="selección.html"><i class="fa fa-check"></i><b>5.5</b> <strong>Selección</strong></a></li>
+<li class="chapter" data-level="5.6" data-path="agrupamiento.html"><a href="agrupamiento.html"><i class="fa fa-check"></i><b>5.6</b> <strong>Agrupamiento</strong></a></li>
+<li class="chapter" data-level="5.7" data-path="reordenamiento.html"><a href="reordenamiento.html"><i class="fa fa-check"></i><b>5.7</b> <strong>Reordenamiento</strong></a></li>
+<li class="chapter" data-level="5.8" data-path="conteo.html"><a href="conteo.html"><i class="fa fa-check"></i><b>5.8</b> <strong>Conteo</strong></a></li>
+<li class="chapter" data-level="5.9" data-path="creación-y-transformación-de-columnas.html"><a href="creación-y-transformación-de-columnas.html"><i class="fa fa-check"></i><b>5.9</b> <strong>Creación y transformación de columnas</strong></a></li>
+<li class="chapter" data-level="5.10" data-path="resúmenes-estadísticos.html"><a href="resúmenes-estadísticos.html"><i class="fa fa-check"></i><b>5.10</b> <strong>Resúmenes estadísticos</strong></a></li>
+<li class="chapter" data-level="5.11" data-path="combinar-bases-de-datos.html"><a href="combinar-bases-de-datos.html"><i class="fa fa-check"></i><b>5.11</b> <strong>Combinar bases de datos</strong></a></li>
+<li class="chapter" data-level="5.12" data-path="valores-perdidos.html"><a href="valores-perdidos.html"><i class="fa fa-check"></i><b>5.12</b> <strong>Valores perdidos</strong></a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="programación-funcional-e-iteraciones.html"><a href="programación-funcional-e-iteraciones.html"><i class="fa fa-check"></i><b>6</b> <strong>Programación Funcional e iteraciones</strong></a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="control-de-flujo.html"><a href="control-de-flujo.html"><i class="fa fa-check"></i><b>6.1</b> <strong>Control de flujo</strong></a></li>
+<li class="chapter" data-level="6.2" data-path="creacion-fun.html"><a href="creacion-fun.html"><i class="fa fa-check"></i><b>6.2</b> <strong>Creación de funciones</strong></a></li>
+<li class="chapter" data-level="6.3" data-path="ifelse.html"><a href="ifelse.html"><i class="fa fa-check"></i><b>6.3</b> <code>ifelse()</code></a></li>
+<li class="chapter" data-level="6.4" data-path="iteraciones-con-for-loops.html"><a href="iteraciones-con-for-loops.html"><i class="fa fa-check"></i><b>6.4</b> <strong>Iteraciones con for loops</strong></a></li>
+<li class="chapter" data-level="6.5" data-path="aplicación-de-purrrmap.html"><a href="aplicación-de-purrrmap.html"><i class="fa fa-check"></i><b>6.5</b> <strong>Aplicación de</strong> <code>purrr::map()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="potencialidades-de-r-markdown.html"><a href="potencialidades-de-r-markdown.html"><i class="fa fa-check"></i><b>7</b> <strong>Potencialidades de R Markdown</strong></a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="diapositivas-con-xaringan.html"><a href="diapositivas-con-xaringan.html"><i class="fa fa-check"></i><b>7.1</b> <strong>Diapositivas con Xaringan</strong></a></li>
+<li class="chapter" data-level="7.2" data-path="crear-blogs-con-blogdown.html"><a href="crear-blogs-con-blogdown.html"><i class="fa fa-check"></i><b>7.2</b> <strong>Crear blogs con Blogdown</strong></a></li>
+<li class="chapter" data-level="7.3" data-path="crear-libros-bookdown.html"><a href="crear-libros-bookdown.html"><i class="fa fa-check"></i><b>7.3</b> <strong>Crear libros Bookdown</strong></a></li>
+</ul></li>
+<li class="part"><span><b>GRÁFICOS AVANZADOS CON ggplot2</b></span></li>
+<li class="chapter" data-level="8" data-path="visualización-avanzada-de-gráficos.html"><a href="visualización-avanzada-de-gráficos.html"><i class="fa fa-check"></i><b>8</b> <strong>Visualización avanzada de gráficos</strong></a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="gramática-de-gráficos-sintaxis-de-ggplot2.html"><a href="gramática-de-gráficos-sintaxis-de-ggplot2.html"><i class="fa fa-check"></i><b>8.1</b> <strong>Gramática de gráficos: sintaxis de ggplot2</strong></a></li>
+<li class="chapter" data-level="8.2" data-path="visualización-por-capas.html"><a href="visualización-por-capas.html"><i class="fa fa-check"></i><b>8.2</b> <strong>Visualización por capas</strong></a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="componentes-clave-de-un-gráfico-con-ggplot2.html"><a href="componentes-clave-de-un-gráfico-con-ggplot2.html"><i class="fa fa-check"></i><b>9</b> <strong>Componentes clave de un gráfico con ggplot2</strong></a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="geométricas.html"><a href="geométricas.html"><i class="fa fa-check"></i><b>9.1</b> <strong>Geométricas</strong></a></li>
+<li class="chapter" data-level="9.2" data-path="stats.html"><a href="stats.html"><i class="fa fa-check"></i><b>9.2</b> <strong>Stats</strong></a></li>
+<li class="chapter" data-level="9.3" data-path="coloreo-rellenado-formas-y-tipos-de-línea.html"><a href="coloreo-rellenado-formas-y-tipos-de-línea.html"><i class="fa fa-check"></i><b>9.3</b> <strong>Coloreo, rellenado, formas y tipos de línea</strong></a></li>
+<li class="chapter" data-level="9.4" data-path="facetas.html"><a href="facetas.html"><i class="fa fa-check"></i><b>9.4</b> <strong>Facetas</strong></a></li>
+<li class="chapter" data-level="9.5" data-path="etiquetas.html"><a href="etiquetas.html"><i class="fa fa-check"></i><b>9.5</b> <strong>Etiquetas</strong></a></li>
+<li class="chapter" data-level="9.6" data-path="modificando-los-ejes.html"><a href="modificando-los-ejes.html"><i class="fa fa-check"></i><b>9.6</b> <strong>Modificando los ejes</strong></a></li>
+<li class="chapter" data-level="9.7" data-path="temas.html"><a href="temas.html"><i class="fa fa-check"></i><b>9.7</b> <strong>Temas </strong></a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="creando-gráficos.html"><a href="creando-gráficos.html"><i class="fa fa-check"></i><b>10</b> <strong>Creando gráficos</strong></a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="una-variable-x-continua.html"><a href="una-variable-x-continua.html"><i class="fa fa-check"></i><b>10.1</b> <strong>Una variable X continua</strong></a>
+<ul>
+<li class="chapter" data-level="10.1.1" data-path="una-variable-x-continua.html"><a href="una-variable-x-continua.html#polígonos-de-frecuencias"><i class="fa fa-check"></i><b>10.1.1</b> <strong>Polígonos de frecuencias</strong></a></li>
+<li class="chapter" data-level="10.1.2" data-path="una-variable-x-continua.html"><a href="una-variable-x-continua.html#gráfico-de-área"><i class="fa fa-check"></i><b>10.1.2</b> <strong>Gráfico de área</strong></a></li>
+<li class="chapter" data-level="10.1.3" data-path="una-variable-x-continua.html"><a href="una-variable-x-continua.html#gráfico-de-densidad"><i class="fa fa-check"></i><b>10.1.3</b> <strong>Gráfico de densidad</strong></a></li>
+<li class="chapter" data-level="10.1.4" data-path="una-variable-x-continua.html"><a href="una-variable-x-continua.html#histograma-de-frecuencias"><i class="fa fa-check"></i><b>10.1.4</b> <strong>Histograma de frecuencias</strong></a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="una-variable-x-discreta.html"><a href="una-variable-x-discreta.html"><i class="fa fa-check"></i><b>10.2</b> <strong>Una variable X discreta</strong></a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="una-variable-x-discreta.html"><a href="una-variable-x-discreta.html#gráficos-de-barras"><i class="fa fa-check"></i><b>10.2.1</b> <strong>Gráficos de barras</strong></a></li>
+<li class="chapter" data-level="10.2.2" data-path="una-variable-x-discreta.html"><a href="una-variable-x-discreta.html#gráficos-de-barras-polares"><i class="fa fa-check"></i><b>10.2.2</b> <strong>Gráficos de barras polares</strong></a></li>
+<li class="chapter" data-level="10.2.3" data-path="una-variable-x-discreta.html"><a href="una-variable-x-discreta.html#gráfios-de-discrepancia"><i class="fa fa-check"></i><b>10.2.3</b> <strong>Gráfios de discrepancia</strong></a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="dos-variables-x-vs-y-continuas.html"><a href="dos-variables-x-vs-y-continuas.html"><i class="fa fa-check"></i><b>10.3</b> <strong>Dos variables: X vs Y continuas</strong></a>
+<ul>
+<li class="chapter" data-level="10.3.1" data-path="dos-variables-x-vs-y-continuas.html"><a href="dos-variables-x-vs-y-continuas.html#gráfico-de-dispersión-de-puntos"><i class="fa fa-check"></i><b>10.3.1</b> <strong>Gráfico de dispersión de puntos</strong></a></li>
+<li class="chapter" data-level="10.3.2" data-path="dos-variables-x-vs-y-continuas.html"><a href="dos-variables-x-vs-y-continuas.html#gráfico-de-etiquetas-y-texto"><i class="fa fa-check"></i><b>10.3.2</b> <strong>Gráfico de etiquetas y texto</strong></a></li>
+<li class="chapter" data-level="10.3.3" data-path="dos-variables-x-vs-y-continuas.html"><a href="dos-variables-x-vs-y-continuas.html#gráficos-de-densidad-2d"><i class="fa fa-check"></i><b>10.3.3</b> <strong>Gráficos de densidad 2D</strong></a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="dos-variables-x-discreta-vs-y-continua.html"><a href="dos-variables-x-discreta-vs-y-continua.html"><i class="fa fa-check"></i><b>10.4</b> <strong>Dos variables: X discreta vs Y continua</strong></a>
+<ul>
+<li class="chapter" data-level="10.4.1" data-path="dos-variables-x-discreta-vs-y-continua.html"><a href="dos-variables-x-discreta-vs-y-continua.html#gráficos-de-cajas"><i class="fa fa-check"></i><b>10.4.1</b> <strong>Gráficos de cajas</strong></a></li>
+<li class="chapter" data-level="10.4.2" data-path="dos-variables-x-discreta-vs-y-continua.html"><a href="dos-variables-x-discreta-vs-y-continua.html#gráfico-de-violín"><i class="fa fa-check"></i><b>10.4.2</b> <strong>Gráfico de violín</strong></a></li>
+</ul></li>
+<li class="chapter" data-level="10.5" data-path="dos-variables-x-vs-y-discretas.html"><a href="dos-variables-x-vs-y-discretas.html"><i class="fa fa-check"></i><b>10.5</b> <strong>Dos variables: X vs Y discretas</strong></a>
+<ul>
+<li class="chapter" data-level="10.5.1" data-path="dos-variables-x-vs-y-discretas.html"><a href="dos-variables-x-vs-y-discretas.html#gráficos-de-conteos"><i class="fa fa-check"></i><b>10.5.1</b> <strong>Gráficos de conteos</strong></a></li>
+<li class="chapter" data-level="10.5.2" data-path="dos-variables-x-vs-y-discretas.html"><a href="dos-variables-x-vs-y-discretas.html#gráficos-de-calor"><i class="fa fa-check"></i><b>10.5.2</b> <strong>Gráficos de calor</strong></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="adicionando-líneas.html"><a href="adicionando-líneas.html"><i class="fa fa-check"></i><b>11</b> <strong>Adicionando Líneas</strong></a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="gráficos-de-regresión.html"><a href="gráficos-de-regresión.html"><i class="fa fa-check"></i><b>11.1</b> <strong>Gráficos de Regresión</strong></a></li>
+<li class="chapter" data-level="11.2" data-path="segmentos-y-flechas.html"><a href="segmentos-y-flechas.html"><i class="fa fa-check"></i><b>11.2</b> <strong>Segmentos y flechas</strong></a></li>
+<li class="chapter" data-level="11.3" data-path="curvas-y-flechas.html"><a href="curvas-y-flechas.html"><i class="fa fa-check"></i><b>11.3</b> <strong>Curvas y flechas</strong></a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="gráficos-estadísticos-semiautomáticos.html"><a href="gráficos-estadísticos-semiautomáticos.html"><i class="fa fa-check"></i><b>12</b> <strong>Gráficos estadísticos semiautomáticos</strong></a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="funciones-de-ggpubr.html"><a href="funciones-de-ggpubr.html"><i class="fa fa-check"></i><b>12.1</b> <strong>Funciones de</strong> <code>ggpubr</code></a></li>
+<li class="chapter" data-level="12.2" data-path="funciones-de-ggstatsplot.html"><a href="funciones-de-ggstatsplot.html"><i class="fa fa-check"></i><b>12.2</b> <strong>Funciones de</strong> <code>ggstatsplot</code></a></li>
+<li class="chapter" data-level="12.3" data-path="funciones-de-ggcorplot.html"><a href="funciones-de-ggcorplot.html"><i class="fa fa-check"></i><b>12.3</b> <strong>Funciones de</strong> <code>ggcorplot</code></a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="exportación-de-gráficos.html"><a href="exportación-de-gráficos.html"><i class="fa fa-check"></i><b>13</b> <strong>Exportación de Gráficos</strong></a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="composición-de-múltiples-gráficos.html"><a href="composición-de-múltiples-gráficos.html"><i class="fa fa-check"></i><b>13.1</b> <strong>Composición de múltiples gráficos</strong></a>
+<ul>
+<li class="chapter" data-level="13.1.1" data-path="composición-de-múltiples-gráficos.html"><a href="composición-de-múltiples-gráficos.html#utilizando-patchwork"><i class="fa fa-check"></i><b>13.1.1</b> <strong>Utilizando</strong> <code>patchwork</code></a></li>
+<li class="chapter" data-level="13.1.2" data-path="composición-de-múltiples-gráficos.html"><a href="composición-de-múltiples-gráficos.html#utilizando-ggpubr"><i class="fa fa-check"></i><b>13.1.2</b> <strong>Utilizando</strong> <code>ggpubr</code></a></li>
+</ul></li>
+<li class="chapter" data-level="13.2" data-path="exportacion-en-png-o-jpeg.html"><a href="exportacion-en-png-o-jpeg.html"><i class="fa fa-check"></i><b>13.2</b> <strong>Exportaci[on] en PNG o JPEG</strong></a></li>
+<li class="chapter" data-level="13.3" data-path="exportación-en-pdf.html"><a href="exportación-en-pdf.html"><i class="fa fa-check"></i><b>13.3</b> <strong>Exportación en PDF</strong></a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://www.brackinstitute.com/" target="blank">Instituto de Ciencias Antonio Brack</a></li>
+
+</ul>
+
+      </nav>
     </div>
 
-    <div id="main-nav" class="collapse-lg">
-      <form role="Buscar">
-        <input id="search" class="form-control" type="search" placeholder="Buscar" aria-label="Buscar">
-</form>
-
-      <nav aria-label="Table of contents"><h2>Tabla de Capítulos  </h2>
-        <ul class="book-toc list-unstyled">
-<li><a class="" href="index.html">Bienvenida</a></li>
-<li><a class="" href="prefacio.html">Prefacio</a></li>
-<li class="book-part">INTRODUCCIÓN A R PARA CIENCIAS</li>
-<li><a class="" href="esencialesRRStudio.html"><span class="header-section-number">1</span> Esenciales de R y RStudio</a></li>
-<li><a class="" href="rbasico.html"><span class="header-section-number">2</span> Primer contacto con R</a></li>
-<li><a class="" href="estructurasdatos.html"><span class="header-section-number">3</span> Estructuras de datos</a></li>
-<li><a class="" href="carga-y-exportaci%C3%B3n-de-datos.html"><span class="header-section-number">4</span> Carga y exportación de datos</a></li>
-<li><a class="" href="manejo-de-datos-con-tidyverse.html"><span class="header-section-number">5</span> Manejo de datos con tidyverse</a></li>
-<li><a class="active" href="programaci%C3%B3n-funcional-e-iteraciones.html"><span class="header-section-number">6</span> Programación Funcional e iteraciones</a></li>
-<li><a class="" href="potencialidades-de-r-markdown.html"><span class="header-section-number">7</span> Potencialidades de R Markdown</a></li>
-<li class="book-part">GRÁFICOS AVANZADOS CON ggplot2</li>
-<li><a class="" href="visualizaci%C3%B3n-avanzada-de-gr%C3%A1ficos.html"><span class="header-section-number">8</span> Visualización avanzada de gráficos</a></li>
-<li><a class="" href="componentes-clave-de-un-gr%C3%A1fico-con-ggplot2.html"><span class="header-section-number">9</span> Componentes clave de un gráfico con ggplot2</a></li>
-<li><a class="" href="creando-gr%C3%A1ficos.html"><span class="header-section-number">10</span> Creando gráficos</a></li>
-<li><a class="" href="adicionando-l%C3%ADneas.html"><span class="header-section-number">11</span> Adicionando Líneas</a></li>
-<li><a class="" href="gr%C3%A1ficos-estad%C3%ADsticos-semiautom%C3%A1ticos.html"><span class="header-section-number">12</span> Gráficos estadísticos semiautomáticos</a></li>
-<li><a class="" href="exportaci%C3%B3n-de-gr%C3%A1ficos.html"><span class="header-section-number">13</span> Exportación de Gráficos</a></li>
-</ul>
-
-        <div class="book-extra">
-          
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introducción a R para Ciencias</a>
+          </h1>
         </div>
-      </nav>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="programación-funcional-e-iteraciones" class="section level1" number="6">
+<h1><span class="header-section-number">Capítulo 6</span> <strong>Programación Funcional e iteraciones</strong></h1>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="programación-funcional-e-iteraciones" class="section level1" number="6">
-<h1>
-<span class="header-section-number">Capítulo 6</span> <strong>Programación Funcional e iteraciones</strong><a class="anchor" aria-label="anchor" href="#programaci%C3%B3n-funcional-e-iteraciones"><i class="fas fa-link"></i></a>
-</h1>
-<div id="control-de-flujo" class="section level2" number="6.1">
-<h2>
-<span class="header-section-number">6.1</span> <strong>Control de flujo</strong><a class="anchor" aria-label="anchor" href="#control-de-flujo"><i class="fas fa-link"></i></a>
-</h2>
-</div>
-<div id="creacion-fun" class="section level2" number="6.2">
-<h2>
-<span class="header-section-number">6.2</span> <strong>Creación de funciones</strong><a class="anchor" aria-label="anchor" href="#creacion-fun"><i class="fas fa-link"></i></a>
-</h2>
-<p>La gran comunidad de desarrollo detrás de R ha creado una infinidad de funciones, almacenados en los miles de paquetes, o librerías, disponibles en el repositorio oficial <code>CRAN</code> y otras fuentes (ver sección <a href="esencialesRRStudio.html#librer%C3%ADas-y-repositorios">Librerías y repositorios</a>. No obstante, algunas veces se necesita crear funciones personalizadas a los requerimientos del usuario.</p>
-<p>Cuando se detecta que algunas secuencias de órdenes se suelen repetir en el código, crear una función que empaquete dicha secuencia permitirá
-<em>automatizar procedimientos y simplificar el código</em>. Como regla general, si copias y pegas una secuencia de órdenes para usarla más de 2 veces, ya se debería pensar en crear una función que compile la tarea.</p>
+            </section>
 
-<div class="rmdnote">
-<p><strong>Crear un función involucra los siguientes pasos:</strong></p>
-<ol style="list-style-type: decimal">
-<li>Darle un nombre. Crear una función es como crear una variable: hay que asignarle un contenido a un nombre.</li>
-<li>Luego de escribir el nombre, se tiene que usar la función llamada <code>function()</code>para indicar qué argumentos tendrá la nueva función.</li>
-<li>Definir el contenido de la función, la secuencia de órdenes, dentro de corchetes. Dentro de ellos se usarán los argumentos establecidos en <code>function()</code>.
-</li>
-</ol>
-</div>
-
-<p>Para <strong>crear una función</strong> que le sume 100 a un número, se puede usar:</p>
-<div class="sourceCode" id="cb44"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Esta función admitirá como objeto de entrada un </span>
-<span class="co"># valor x, definido en function(), para sumarle 100</span>
-<span class="va">mi.fun</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">{</span>
-  <span class="va">x</span><span class="op">+</span><span class="fl">100</span>
-<span class="op">}</span>
-
-<span class="co"># Usando mi.fun() con 10</span>
-<span class="fu">mi.fun</span><span class="op">(</span><span class="fl">10</span><span class="op">)</span>
-<span class="co">## [1] 110</span></code></pre></div>
-<p>Para recrear la famosa función de <a href="https://es.wikipedia.org/wiki/Carl_Friedrich_Gauss">Carl Friedrich Gauss</a> para calcular la suma de todos los números dentro de un rango numérico, usaremos la fórmula matemática:</p>
-<p><span class="math display">\[ k = \frac{n * ( n + 1 )}{2} \]</span></p>
-<div class="sourceCode" id="cb45"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">k.Gauss</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">n</span><span class="op">)</span> <span class="op">{</span>
-  <span class="op">(</span><span class="va">n</span> <span class="op">*</span> <span class="op">(</span><span class="va">n</span><span class="op">+</span><span class="fl">1</span><span class="op">)</span><span class="op">)</span><span class="op">/</span><span class="fl">2</span>
-<span class="op">}</span>
-
-<span class="fu">k.Gauss</span><span class="op">(</span><span class="fl">100</span><span class="op">)</span>
-<span class="co">## [1] 5050</span></code></pre></div>
-<p>Adicionalmente, se puede <strong>predefinir valores por defecto</strong> en <code>function()</code>, mismos que se podrán modificar al usar la función ya creada.</p>
-<div class="sourceCode" id="cb46"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Esta función hallará el logaritmo con base 2 </span>
-<span class="co"># (por defecto) de la función matemática de Gauss</span>
-<span class="va">log.Gauss</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">n</span>, <span class="va">base</span> <span class="op">=</span> <span class="fl">2</span><span class="op">)</span> <span class="op">{</span>
-  <span class="va">resultado.Gauss</span> <span class="op">&lt;-</span> <span class="op">(</span><span class="va">n</span> <span class="op">*</span> <span class="op">(</span><span class="va">n</span><span class="op">+</span><span class="fl">1</span><span class="op">)</span><span class="op">)</span><span class="op">/</span><span class="fl">2</span>
-  <span class="va">logaritmo</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="va">resultado.Gauss</span>, base<span class="op">=</span><span class="va">base</span><span class="op">)</span>
-  <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">logaritmo</span><span class="op">)</span>
-<span class="op">}</span>
-
-<span class="co"># Aplicando la función al valor 100</span>
-<span class="fu">log.Gauss</span><span class="op">(</span><span class="fl">100</span><span class="op">)</span>
-<span class="co">## [1] 12.3</span></code></pre></div>
-<p>Como es notorio, se pueden <strong>crear variables dentro de una función</strong>, pero estas serán temporales. Una vez se imprime el resultado en consola, la variable desaparece. Para que algún paso realizado dentro de la función se guarde como una variable permanentemente en el ambiente, usa el símbolo especial <code>&lt;&lt;-</code>.</p>
-<div class="sourceCode" id="cb47"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Se guardará resultado.Gauss en la consola</span>
-<span class="va">log.Gauss</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">n</span>, <span class="va">base</span> <span class="op">=</span> <span class="fl">2</span><span class="op">)</span> <span class="op">{</span>
-  <span class="va">resultado.Gauss</span> <span class="op">&lt;&lt;-</span> <span class="op">(</span><span class="va">n</span> <span class="op">*</span> <span class="op">(</span><span class="va">n</span><span class="op">+</span><span class="fl">1</span><span class="op">)</span><span class="op">)</span><span class="op">/</span><span class="fl">2</span>
-  <span class="va">logaritmo</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="va">resultado.Gauss</span>, base<span class="op">=</span><span class="va">base</span><span class="op">)</span>
-  <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">logaritmo</span><span class="op">)</span>
-<span class="op">}</span>
-
-<span class="co"># Aplicando la función al valor 100</span>
-<span class="fu">log.Gauss</span><span class="op">(</span><span class="fl">100</span><span class="op">)</span>
-<span class="co">## [1] 12.3</span>
-
-<span class="co"># Mostrando el objeto que se creó automáticamente</span>
-<span class="co"># en el ambiente tras ejecutar log.Gauss()</span>
-<span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">resultado.Gauss</span><span class="op">)</span>
-<span class="co">## [1] 5050</span></code></pre></div>
-</div>
-<div id="ifelse" class="section level2" number="6.3">
-<h2>
-<span class="header-section-number">6.3</span> <code>ifelse()</code><a class="anchor" aria-label="anchor" href="#ifelse"><i class="fas fa-link"></i></a>
-</h2>
-</div>
-<div id="iteraciones-con-for-loops" class="section level2" number="6.4">
-<h2>
-<span class="header-section-number">6.4</span> <strong>Iteraciones con for loops</strong><a class="anchor" aria-label="anchor" href="#iteraciones-con-for-loops"><i class="fas fa-link"></i></a>
-</h2>
-</div>
-<div id="aplicación-de-purrrmap" class="section level2" number="6.5">
-<h2>
-<span class="header-section-number">6.5</span> <strong>Aplicación de</strong> <code>purrr::map()</code><a class="anchor" aria-label="anchor" href="#aplicaci%C3%B3n-de-purrrmap"><i class="fas fa-link"></i></a>
-</h2>
-
-</div>
-</div>
-  <div class="chapter-nav">
-<div class="prev"><a href="manejo-de-datos-con-tidyverse.html"><span class="header-section-number">5</span> Manejo de datos con tidyverse</a></div>
-<div class="next"><a href="potencialidades-de-r-markdown.html"><span class="header-section-number">7</span> Potencialidades de R Markdown</a></div>
-</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
-            <hr>
-<nav id="toc" data-toggle="toc" aria-label="En este capítulo"><h2>En este capítulo</h2>
-      <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#programaci%C3%B3n-funcional-e-iteraciones"><span class="header-section-number">6</span> Programación Funcional e iteraciones</a></li>
-<li><a class="nav-link" href="#control-de-flujo"><span class="header-section-number">6.1</span> Control de flujo</a></li>
-<li><a class="nav-link" href="#creacion-fun"><span class="header-section-number">6.2</span> Creación de funciones</a></li>
-<li><a class="nav-link" href="#ifelse"><span class="header-section-number">6.3</span> ifelse()</a></li>
-<li><a class="nav-link" href="#iteraciones-con-for-loops"><span class="header-section-number">6.4</span> Iteraciones con for loops</a></li>
-<li><a class="nav-link" href="#aplicaci%C3%B3n-de-purrrmap"><span class="header-section-number">6.5</span> Aplicación de purrr::map()</a></li>
-</ul>
-
-      <div class="book-extra">
-        <ul class="list-unstyled">
-          
-        </ul>
-</div>
-    </nav>
-</div>
-
-</div>
-</div> <!-- .container -->
-
-<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
-
-  <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Introducción a R para Ciencias</strong>", por Irwing S. Saldaña. <br>Construido por última vez en 2022-01-24.</p>
+          </div>
+        </div>
+      </div>
+<a href="valores-perdidos.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="control-de-flujo.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
   </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": true,
+"twitter": true,
+"linkedin": true,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section",
+"scroll_highlight": true
+}
+});
+});
+</script>
 
-  <div class="col-12 col-md-6 mt-3">
-    <p>Este libro ha sido construido utilizando el paquete de R <a class="text-light" href="https://bookdown.org">bookdown</a>.</p>
-  </div>
-
-</div></div>
-</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
@@ -221,22 +401,7 @@
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
-</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
-for (let popover of popovers) {
-  const div = document.createElement('div');
-  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
-  div.innerHTML = popover.getAttribute('data-content');
-
-  var has_math = div.querySelector("span.math");
-  if (has_math) {
-    document.body.appendChild(div);
-    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
-    MathJax.Hub.Queue(function() {
-      popover.setAttribute('data-content', div.innerHTML);
-      document.body.removeChild(div);
-    })
-  }
-}
 </script>
 </body>
+
 </html>
