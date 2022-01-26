@@ -85,7 +85,7 @@ uri class is for urls
 .book .book-body .page-wrapper .page-inner section.normal a,
 .book .book-body .page-wrapper .page-inner section.normal a.uri {
     display: inline-block;
-    color: #D34600;
+    color: #5f00db;
     text-decoration: none;
 }
 
@@ -104,10 +104,6 @@ uri class is for urls
     width: 100%;
     //transition: width .3s;
 }
-
-
-
-
 
 .body-inner {
     background-color: #ffffff;
@@ -192,8 +188,8 @@ i {
 
 
 .book .book-summary ul.summary li a:hover, .book .book-summary ul.summary li.active>a {
-  color: #ffffff;  /*#6197D5*/
-  background-color: #006cff;
+  color: #006cff;  /*#6197D5*/
+  background-color: #99daff;
 }
 
 /* so that before and after aren't treated the same as the toc, because why would they? */
@@ -348,8 +344,8 @@ img {
 
 /* text highlights */
 .book .book-body .page-wrapper .page-inner section.normal em, .emph {
-  color: #006cff;  /*#E32D00 #ff5500 #D14300*/
-  font-weight: 500;
+  color: #444444;  /*#E32D00 #ff5500 #D14300*/
+  font-weight: 400;
   font-style: normal;
 }
 
