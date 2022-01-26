@@ -95,7 +95,7 @@ uri class is for urls
     display: block;
     width: 0;
     height: 1.75px;
-    background: #006cff;
+    background: #5f00db;
     transition: width .3s;
 }
 
@@ -188,8 +188,8 @@ i {
 
 
 .book .book-summary ul.summary li a:hover, .book .book-summary ul.summary li.active>a {
-  color: #006cff;  /*#6197D5*/
-  background-color: #99daff;
+  color: #ffffff;  /*#6197D5*/
+  background-color: #006cff;
 }
 
 /* so that before and after aren't treated the same as the toc, because why would they? */
@@ -257,7 +257,7 @@ i {
 /* headers */
 
 h1, h2, h3, h4, h5 {
-  color:#006cff;
+  color:#00252b;
   font-family: 'Roboto Condensed';
 }
 
@@ -338,7 +338,7 @@ img {
 
 /* creative commons, github icons */
 .fab .fa-creative-commons, .fa-creative-commons-sa, .fa-creative-commons-by, .fa-github, .fa-lg {
-  color: #006cff;
+  color: #00252b;
   background-color: transparent;
 }
 
