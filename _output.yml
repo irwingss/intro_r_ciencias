@@ -1,23 +1,48 @@
 bookdown::gitbook:
-  css: style/style.css
-  split_by: section
-  config:
-    toc:
-      collapse: section
-      scroll_highlight: true
-      before: |
-        <li><a href="./">Introducción a R para Ciencias</a></li>
-      after: |
-        <li><a href="https://www.brackinstitute.com/" target="blank">Instituto de Ciencias Antonio Brack</a></li>
-    sharing:
-      facebook: true
-      github: true
-      twitter: true
-      linkedin: true
-    fontsettings:
-      theme: white
-      family: sans
-      size: 2
+    css: [css/book.css, 'https://use.fontawesome.com/releases/v5.14.0/css/all.css']
+    font-import: https://fonts.googleapis.com/css?family=Roboto|Open+Sans
+    font-family: 'Roboto'
+    split_by: section
+    config:
+      df_print: kable
+      highlight: pygments
+      edit: https://github.com/irwingss/intro_r_ciencias/blob/master/%s
+      download: null
+      search: yes
+      sharing:
+        facebook: true
+        github: true
+        twitter: true
+        linkedin: true
+      toc:
+        depth: 2
+        collapse: section
+        scroll_highlight: yes
+        before: |
+          <li class='before'><a href="./">Introducción a R para Ciencias</a></li>
+        after: |
+         <li class='after'">
+            <a href="https://github.com/irwingss/">
+               <img src="figs/banner completo.png" style="width:25%; padding:0px 0; display:block; margin: 0 auto;" alt="MC logo">
+            </a>
+         </li>
+         <li class='after'">
+            <div style='text-align:center'>
+               <a href="https://github.com/irwingss/">
+                  <i class="fab fa-github fa-2x" aria-hidden="true"></i>
+               </a>
+            </div>
+         </li>
+         <li class='after'">
+            <div style='text-align:center'>
+               <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">
+                  <i class="fab fa-creative-commons fa-lg"></i>
+                  <i class="fab fa-creative-commons-by fa-lg"></i>
+                  <i class="fab fa-creative-commons-sa fa-lg"></i>
+               </a>
+            </div>
+         </li>
+
 # bookdown::pdf_book:
 #   includes:
 #     in_header: latex/preamble.tex

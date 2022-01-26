@@ -121,7 +121,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </style>
 
 
-<link rel="stylesheet" href="style/style.css" type="text/css" />
+<link rel="stylesheet" href="css/book.css" type="text/css" />
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" type="text/css" />
 </head>
 
 <body>
@@ -134,7 +135,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">Introducción a R para Ciencias</a></li>
+<li class='before'><a href="./">Introducción a R para Ciencias</a></li>
 
 <li class="divider"></li>
 <li><a href="index.html#bienvenida"><strong>Bienvenida</strong></a>
@@ -305,7 +306,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="13.3" data-path="exportación-en-pdf.html"><a href="exportación-en-pdf.html"><i class="fa fa-check"></i><b>13.3</b> <strong>Exportación en PDF</strong></a></li>
 </ul></li>
 <li class="divider"></li>
-<li><a href="https://www.brackinstitute.com/" target="blank">Instituto de Ciencias Antonio Brack</a></li>
+<li class='after'">
+   <a href="https://github.com/irwingss/">
+      <img src="figs/banner completo.png" style="width:25%; padding:0px 0; display:block; margin: 0 auto;" alt="MC logo">
+   </a>
+</li>
+<li class='after'">
+   <div style='text-align:center'>
+      <a href="https://github.com/irwingss/">
+         <i class="fab fa-github fa-2x" aria-hidden="true"></i>
+      </a>
+   </div>
+</li>
+<li class='after'">
+   <div style='text-align:center'>
+      <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">
+         <i class="fab fa-creative-commons fa-lg"></i>
+         <i class="fab fa-creative-commons-by fa-lg"></i>
+         <i class="fab fa-creative-commons-sa fa-lg"></i>
+      </a>
+   </div>
+</li>
 
 </ul>
 
@@ -339,7 +360,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb25-2"><a href="funciones.html#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="do">## function (x, na.rm = FALSE) </span></span>
 <span id="cb25-3"><a href="funciones.html#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="do">## sqrt(var(if (is.vector(x) || is.factor(x)) x else as.double(x), </span></span>
 <span id="cb25-4"><a href="funciones.html#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="do">##     na.rm = na.rm))</span></span>
-<span id="cb25-5"><a href="funciones.html#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="do">## &lt;bytecode: 0x000000002638fc30&gt;</span></span>
+<span id="cb25-5"><a href="funciones.html#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="do">## &lt;bytecode: 0x00000000253d07a8&gt;</span></span>
 <span id="cb25-6"><a href="funciones.html#cb25-6" aria-hidden="true" tabindex="-1"></a><span class="do">## &lt;environment: namespace:stats&gt;</span></span></code></pre></div>
 <p>La secuencia de órdenes dentro de <code>sd</code> es corta. Básicamente utiliza la función <code>sqrt()</code> para sacarle la raíz cuadrada a la función <code>var()</code>, esta última calcula la varianza de un conjunto de datos. La estructura del código es propiamente la fórmula matemática para el cálculo de la desviación estándar. Aunque, a decir verdades, el código luce más complejo, y es debido a que aquí la función <code>var()</code> contiene argumentos condicionales para pedir que evalúe si el objeto <code>x</code> es correcto para la función, o si se necesita un cambio antes de procesar<code>x</code> en <code>sd()</code>. Pierde cuidado si no se entiende mucho por ahora, no es necesario comprender las funciones a este nivel al iniciar con R.</p>
 </div>
@@ -380,8 +401,8 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": null,
-"text": null
+"link": "https://github.com/irwingss/intro_r_ciencias/blob/master/02-primer-contacto.Rmd",
+"text": "Edit"
 },
 "history": {
 "link": null,
@@ -398,8 +419,11 @@ gitbook.start({
 },
 "toc": {
 "collapse": "section",
+"depth": 2,
 "scroll_highlight": true
-}
+},
+"df_print": "kable",
+"highlight": "pygments"
 });
 });
 </script>
