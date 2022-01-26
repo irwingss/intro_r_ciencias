@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Capítulo 1 Esenciales de R y RStudio | Análisis Estadístico con R Aplicado a Ciencias</title>
+<meta name="author" content="Irwing S. Saldaña">
+<meta name="description" content="Este primer capítulo está enteramente dedicado a conocer R y RStudio como programas. Se trabajará desde su instalación, configuración, uso de los paneles de RStudio, uso de librerías,...">
+<meta name="generator" content="bookdown 0.24 with bs4_book()">
+<meta property="og:title" content="Capítulo 1 Esenciales de R y RStudio | Análisis Estadístico con R Aplicado a Ciencias">
+<meta property="og:type" content="book">
+<meta property="og:image" content="/Cover/cover.png">
+<meta property="og:description" content="Este primer capítulo está enteramente dedicado a conocer R y RStudio como programas. Se trabajará desde su instalación, configuración, uso de los paneles de RStudio, uso de librerías,...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Capítulo 1 Esenciales de R y RStudio | Análisis Estadístico con R Aplicado a Ciencias">
+<meta name="twitter:description" content="Este primer capítulo está enteramente dedicado a conocer R y RStudio como programas. Se trabajará desde su instalación, configuración, uso de los paneles de RStudio, uso de librerías,...">
+<meta name="twitter:image" content="/Cover/cover.png">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><link rel="icon" type="image/png" sizes="32x32" href="figs/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="figs/favicon-32x32.png">
+<script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-99618359-1', 'auto');
+      ga('send', 'pageview');
+
+    </script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="style/style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h2>
+        <a href="index.html" title="">Análisis Estadístico con R Aplicado a Ciencias</a>
+      </h2>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Mostrar barra de contenidos</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="Buscar">
+        <input id="search" class="form-control" type="search" placeholder="Buscar" aria-label="Buscar">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Tabla de Capítulos  </h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Bienvenida</a></li>
+<li><a class="" href="prefacio.html">Prefacio</a></li>
+<li><a class="" href="prerrequisitos.html">Prerrequisitos</a></li>
+<li class="book-part">INTRODUCCIÓN A R PARA CIENCIAS</li>
+<li><a class="active" href="esenciales-de-r-y-rstudio.html"><span class="header-section-number">1</span> Esenciales de R y RStudio</a></li>
+<li><a class="" href="rbasico.html"><span class="header-section-number">2</span> R básico</a></li>
+<li><a class="" href="operadores-l%C3%B3gicos.html"><span class="header-section-number">3</span> Operadores lógicos</a></li>
+<li><a class="" href="valores-perdidos.html"><span class="header-section-number">4</span> Valores perdidos</a></li>
+<li><a class="" href="valores-perdidos-1.html"><span class="header-section-number">5</span> Valores perdidos</a></li>
+<li><a class="" href="flujos-de-trabajo-con-tidyverse.html"><span class="header-section-number">6</span> Flujos de trabajo con tidyverse</a></li>
+<li class="book-part">GRÁFICOS AVANZADOS CON ggplot2</li>
+<li><a class="" href="probabilidades.html"><span class="header-section-number">7</span> Probabilidades</a></li>
+<li><a class="" href="estad%C3%ADstica-descriptiva.html"><span class="header-section-number">8</span> Estadística descriptiva</a></li>
+<li><a class="" href="test-de-normalidad.html"><span class="header-section-number">9</span> Test de normalidad</a></li>
+<li><a class="" href="test-de-comparaciones-de-grupos.html"><span class="header-section-number">10</span> Test de comparaciones de grupos</a></li>
+<li><a class="" href="introducci%C3%B3n-a-los-modelos-lineales.html"><span class="header-section-number">11</span> Introducción a los modelos lineales</a></li>
+<li><a class="" href="correlaciones.html"><span class="header-section-number">12</span> Correlaciones</a></li>
+<li><a class="" href="an%C3%A1lisis-de-varianza.html"><span class="header-section-number">13</span> Análisis de varianza</a></li>
+<li><a class="" href="an%C3%A1losis-de-poder.html"><span class="header-section-number">14</span> Análosis de poder</a></li>
+<li class="book-part">ANÁLISIS ESTADÍSTICO BÁSICO</li>
+<li><a class="" href="probabilidades-1.html"><span class="header-section-number">15</span> Probabilidades</a></li>
+<li><a class="" href="estad%C3%ADstica-descriptiva-1.html"><span class="header-section-number">16</span> Estadística descriptiva</a></li>
+<li><a class="" href="test-de-normalidad-1.html"><span class="header-section-number">17</span> Test de normalidad</a></li>
+<li><a class="" href="test-de-comparaciones-de-grupos-1.html"><span class="header-section-number">18</span> Test de comparaciones de grupos</a></li>
+<li><a class="" href="introducci%C3%B3n-a-los-modelos-lineales-1.html"><span class="header-section-number">19</span> Introducción a los modelos lineales</a></li>
+<li><a class="" href="correlaciones-1.html"><span class="header-section-number">20</span> Correlaciones</a></li>
+<li><a class="" href="an%C3%A1lisis-de-varianza-1.html"><span class="header-section-number">21</span> Análisis de varianza</a></li>
+<li><a class="" href="an%C3%A1lisis-de-poder.html"><span class="header-section-number">22</span> Análisis de poder</a></li>
+<li class="book-part">MODELAMIENTO ESTADÍSTICO LINEAL AVANZADO</li>
+<li><a class="" href="regresi%C3%B3n-lineal-cl%C3%A1sica-lm.html"><span class="header-section-number">23</span> Regresión lineal clásica (LM)</a></li>
+<li><a class="" href="modelos-lineales-generalizados-glm.html"><span class="header-section-number">24</span> Modelos lineales generalizados (GLM)</a></li>
+<li><a class="" href="modelos-de-efectos-mixtos-cl%C3%A1sica-lmm-y-generalizados-glmm.html"><span class="header-section-number">25</span> Modelos de efectos mixtos: clásica (LMM) y generalizados (GLMM)</a></li>
+<li class="book-part">ESTADÍSTICA MULTIVARIADA</li>
+<li><a class="" href="m%C3%A9todos-interdependientes.html"><span class="header-section-number">26</span> Métodos interdependientes</a></li>
+<li><a class="" href="m%C3%A9todos-can%C3%B3nicos.html"><span class="header-section-number">27</span> Métodos Canónicos</a></li>
+</ul>
+
+        <div class="book-extra">
+          
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="esenciales-de-r-y-rstudio" class="section level1" number="1">
+<h1>
+<span class="header-section-number">Capítulo 1</span> <strong>Esenciales de R y RStudio</strong><a class="anchor" aria-label="anchor" href="#esenciales-de-r-y-rstudio"><i class="fas fa-link"></i></a>
+</h1>
+<p>Este primer capítulo está enteramente dedicado a conocer R y RStudio como programas. Se trabajará desde su instalación, configuración, uso de los paneles de RStudio, uso de librerías, repositorios, tipos de documentos en RStudio, proyectos, y cómo pedir ayuda. Este primer contacto con RStudio facilitará el uso del programa para escribir código en R (Sección <a href="rbasico.html#rbasico">2 R básico</a>).</p>
+<div id="instalación-de-r-y-rstudio" class="section level2" number="1.1">
+<h2>
+<span class="header-section-number">1.1</span> <strong>Instalación de R y RStudio</strong><a class="anchor" aria-label="anchor" href="#instalaci%C3%B3n-de-r-y-rstudio"><i class="fas fa-link"></i></a>
+</h2>
+<p>Para utilizar el lenguaje de programación R (en adelante R), proponemos el uso del ambiente de desarrollo integrado <a href="https://www.rstudio.com/">RStudio</a>. Este programa mejorará enormemente el flujo, la velocidad y la eficiencia de trabajo con R. RStudio es más que un editor de texto que resalta la sintaxis del código de R, sino que también permite tener paneles de trabajo organizados que facilitan su uso.</p>
+
+<div class="rmdwarning ">
+<p><strong>Requerimientos mínimos del sistema para ejecutar RStudio:</strong></p>
+<ul>
+<li>Procesadores de 2 núcleos (equivalente a Intel® Core™ i3 o AMD Ryzen™ 3).</li>
+<li>4 Gb RAM.</li>
+<li>Espacio en almacenamiento de 100 Gb.</li>
+</ul>
+<p><strong>Requerimientos recomendados del sistema para ejecutar RStudio:</strong></p>
+<ul>
+<li>Procesadores de 4 a más núcleos (equivalente a Intel® Core™ i5 a más o AMD Ryzen™ 5 a más).</li>
+<li>8 a más Gb RAM.</li>
+<li>Más de 100 Gb de espacio de almacenamiento.
+</li>
+</ul>
+</div>
+
+<p>Para efectos de este libro, se deberá utilizar <strong>las versiones listadas (o posteriores)</strong> de los siguientes programas, según el sistema operativo:</p>
+<div id="para-windows" class="section level4 unnumbered">
+<h4>
+<strong>Para Windows:</strong><a class="anchor" aria-label="anchor" href="#para-windows"><i class="fas fa-link"></i></a>
+</h4>
+<ul>
+<li>R version 4.1.2 (2021-11-01) – “Bird Hippie” <a href="https://cran.r-project.org/bin/windows/base/R-4.1.2-win.exe">Descarga</a>
+</li>
+<li>RStudio Desktop 2021.09.1+372 <a href="https://download1.rstudio.org/desktop/windows/RStudio-2021.09.1-372.exe">Descarga</a>
+</li>
+<li>Rtools4.0 <a href="https://cran.r-project.org/bin/windows/Rtools/rtools40v2-x86_64.exe">Descarga</a>
+</li>
+</ul>
+</div>
+<div id="para-macos" class="section level4 unnumbered">
+<h4>
+<strong>Para macOS:</strong><a class="anchor" aria-label="anchor" href="#para-macos"><i class="fas fa-link"></i></a>
+</h4>
+<ul>
+<li>R version 4.1.2 (2021-11-01) – “Bird Hippie” <a href="https://cran.r-project.org/bin/macosx/base/R-4.1.2.pkg">Descarga</a>
+</li>
+<li>RStudio Desktop 2021.09.1+372 <a href="https://download1.rstudio.org/desktop/macos/RStudio-2021.09.1-372.dmg">Descarga</a>
+</li>
+<li>XQuartz 2.8.1. <a href="https://github.com/XQuartz/XQuartz/releases/download/XQuartz-2.8.1/XQuartz-2.8.1.dmg">Descarga</a>
+</li>
+</ul>
+</div>
+<div id="para-ubuntudebian" class="section level4 unnumbered">
+<h4>
+<strong>Para Ubuntu/Debian:</strong><a class="anchor" aria-label="anchor" href="#para-ubuntudebian"><i class="fas fa-link"></i></a>
+</h4>
+<p>A lo largo del libro no brindamos comentarios o soporte para el uso de R o RStudio en UNIX/GNU/Linux/Ubuntu. Las principales razones son que la mayoría de usuarios que aprenden R no suelen utilizar sistemas operativos de código libre, además de que algunos paquetes han presentado problemas al ser instalados.</p>
+<p>Primero, se debe preparar el índice de paquetes del sistema:</p>
+<pre><code>sudo apt update</code></pre>
+<pre><code>sudo apt -y upgrade</code></pre>
+<p>Luego, ejecuta:</p>
+<pre><code>sudo apt -y install r-base</code></pre>
+<p>Con lo anterior ya se tiene R instalado. Más adelante, cuando se desee actualizar R, ejecuta el código:</p>
+<pre><code>sudo apt-get remove --purge r-base*</code></pre>
+<p>Luego, añadir el repositorio de CRAN:</p>
+<pre><code>sudo gedit /etc/apt/source.list</code></pre>
+<p>Para Instalar RStudio para Ubuntu 18, Ubuntu 20 o Debian 10</p>
+<pre><code>sudo apt-get install gdebi-core
+wget https://download2.rstudio.org/server/bionic/amd64/rstudio-server-2021.09.2-382-amd64.deb
+sudo gdebi rstudio-server-2021.09.2-382-amd64.deb</code></pre>
+<p>Los pasos aquí detallados están publicados en la <a href="https://www.rstudio.com/products/rstudio/download-server/debian-ubuntu/">web oficial de RStudio</a>. Otros códigos interesantes puedes hallarlos en diferentes referencias como las del <a href="http://www.upm.es/sfs/Rectorado/Gabinete%20del%20Rector/Notas%20de%20Prensa/2015/05/documentos/Instrucciones%20de%20instalaci%C3%B3n%20de%20R%20y%20RStudio.pdf">Center for Open Middleware</a>.</p>
+</div>
+</div>
+<div id="configuración-de-rstudio" class="section level2" number="1.2">
+<h2>
+<span class="header-section-number">1.2</span> <strong>Configuración de RStudio</strong><a class="anchor" aria-label="anchor" href="#configuraci%C3%B3n-de-rstudio"><i class="fas fa-link"></i></a>
+</h2>
+<p>La siguiente es una configuración sugerida para que RStudio sea visualizado de igual manera por todos los estudiantes que usen este libro, y se guíen mejor con la sintaxis del código, ordenamiento de paneles, codificación, idioma del texto, entre otros.</p>
+
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-2"></span>
+<img src="figs/screenshots/configRStudio-1.jpg" alt="Para iniciar la configuración de RStudio, clic en tools/ Global Options." width="100%"><p class="caption">
+FIGURA 1.1: Para iniciar la configuración de RStudio, clic en <code>tools/ Global Options</code>.
+</p>
+</div>
+<p><br></p>
+
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-3"></span>
+<img src="figs/screenshots/configRStudio-2.jpg" alt="Abrirá la ventana de configuraciones. En la pestaña General se verifica la versión de R que está ejecutando RStudio." width="100%"><p class="caption">
+FIGURA 1.2: Abrirá la ventana de configuraciones. En la pestaña General se verifica la versión de R que está ejecutando RStudio.
+</p>
+</div>
+<p><br></p>
+
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-4"></span>
+<img src="figs/screenshots/configRStudio-3.jpg" alt="En la pestaña Code se configura la mayor cantidad de puntos necesarios para que el código sea legible. Aquí se muestra la configuración de las pestañas Editing y Display. Las dos opciones nuevas en la versión de RStudio 1.4+ son (con flechas rojas), son importantes en mejorar la lectura del código para principiantes: una permite identificar los pares de paréntesis con colores diferenciables (Rainbow parentheses en pestaña Display), y la otra es un primer intento de crear un operador pipe nativo para el código básico de R (Use native pipe operator, |&gt;). Este último no lo habilitaremos para seguir usando el pipe de tidyverse %&gt;%." width="100%"><p class="caption">
+FIGURA 1.3: En la pestaña Code se configura la mayor cantidad de puntos necesarios para que el código sea legible. Aquí se muestra la configuración de las pestañas Editing y Display. Las dos opciones nuevas en la versión de RStudio 1.4+ son (con flechas rojas), son importantes en mejorar la lectura del código para principiantes: una permite identificar los pares de paréntesis con colores diferenciables (Rainbow parentheses en pestaña Display), y la otra es un primer intento de crear un operador pipe nativo para el código básico de R (Use native pipe operator, <code>|&gt;</code>). Este último no lo habilitaremos para seguir usando el pipe de tidyverse <code>%&gt;%</code>.
+</p>
+</div>
+<p><br></p>
+
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-5"></span>
+<img src="figs/screenshots/configRStudio-4.jpg" alt="En la pestaña Saving es importante definir la codificación que usarán los archivos generados por RStudio. Se recomienda dar clic en Change... y luego seleccionar la codificación UTF-8." width="100%"><p class="caption">
+FIGURA 1.4: En la pestaña Saving es importante definir la codificación que usarán los archivos generados por RStudio. Se recomienda dar clic en <code>Change...</code> y luego seleccionar la codificación <code>UTF-8</code>.
+</p>
+</div>
+<p><br></p>
+
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-6"></span>
+<img src="figs/screenshots/configRStudio-6.jpg" alt="Las pestañas Completion y Diagnóstico no se modifican mucho, pero sí es necesario mencionar que si notáse que el programa se ejecuta muy lento, se debe considerar desactivar las opciones de diagnóstico (marcadas en rojo)." width="100%"><p class="caption">
+FIGURA 1.5: Las pestañas Completion y Diagnóstico no se modifican mucho, pero sí es necesario mencionar que si notáse que el programa se ejecuta muy lento, se debe considerar desactivar las opciones de diagnóstico (marcadas en rojo).
+</p>
+</div>
+<p><br></p>
+
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-7"></span>
+<img src="figs/screenshots/configRStudio-7.jpg" alt="La organización de los paneles descritos en la sección 1.4 Paneles de RStudio se configuran previamente en la pestaña Pane Layout. A la izquierda: la organización por defecto. A la derecha: se deberá seleccionar todas las pestañas (excepto VCS y Connections) con un check dentro del panel superior derecho. Eso hará que el panel inferior derecho cambie de nombre a “TabSet”." width="100%"><p class="caption">
+FIGURA 1.6: La organización de los paneles descritos en la sección <a href="esenciales-de-r-y-rstudio.html#panelesRStudio">1.4 Paneles de RStudio</a> se configuran previamente en la pestaña Pane Layout. A la izquierda: la organización por defecto. A la derecha: se deberá seleccionar todas las pestañas (excepto VCS y Connections) con un check dentro del panel superior derecho. Eso hará que el panel inferior derecho cambie de nombre a “TabSet”.
+</p>
+</div>
+<p><br></p>
+
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-8"></span>
+<img src="figs/screenshots/configRStudio-8.jpg" alt="El siguiente paso es cambiar la ubicación de TabSet haciendo clic y cambiando el panel por Console. Clic en Aplicar para definir los cambios." width="100%"><p class="caption">
+FIGURA 1.7: El siguiente paso es cambiar la ubicación de TabSet haciendo clic y cambiando el panel por Console. Clic en Aplicar para definir los cambios.
+</p>
+</div>
+<p><br></p>
+
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-9"></span>
+<img src="figs/screenshots/configRStudio-9.jpg" alt="La configuración de R Markdown es solo para evitar que se cuelgue al usar los documentos. Definir todas las casillas y selectores como se muestra a continuación en las pestañas Basic y Advanced." width="100%"><p class="caption">
+FIGURA 1.8: La configuración de R Markdown es solo para evitar que se cuelgue al usar los documentos. Definir todas las casillas y selectores como se muestra a continuación en las pestañas Basic y Advanced.
+</p>
+</div>
+<p><br></p>
+
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-10"></span>
+<img src="figs/screenshots/configRStudio-10.jpg" alt="Para trabajar correctamente con los documentos R Markdown y evitar que se cuelguen, desmarcar la casilla con flecha roja. En la pestaña Spelling, se especifica el uso del lenguaje para el texto de los documentos. Selecciona de la lista “Spanish”. Clic en Aplicar para definir los cambios." width="100%"><p class="caption">
+FIGURA 1.9: Para trabajar correctamente con los documentos R Markdown y evitar que se cuelguen, desmarcar la casilla con flecha roja. En la pestaña Spelling, se especifica el uso del lenguaje para el texto de los documentos. Selecciona de la lista “Spanish”. Clic en Aplicar para definir los cambios.
+</p>
+</div>
+<p><br></p>
+</div>
+<div id="tema-brackinstitute-2022" class="section level2" number="1.3">
+<h2>
+<span class="header-section-number">1.3</span> <strong>Tema BrackInstitute (2022)</strong><a class="anchor" aria-label="anchor" href="#tema-brackinstitute-2022"><i class="fas fa-link"></i></a>
+</h2>
+<p>Este es un requerimiento especial para los estudiantes que usen este libro en las clases, en vivo o grabadas, del <a href="https://www.brackinstitute.com/">Instituto de Ciencias Antonio Brack</a> a través de la plataforma educativa online <a href="https://www.masterx.org/">masterX</a>. Se les solicita instalen el tema de color de RStudio <code>BrackInstitute</code> para que la sintaxis del código sea del mismo color que el mostrado en clase, facilitando así su comprensión. Si eres un lector que no está llevando el programa, sientete libre instalar el tema también.</p>
+
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-11"></span>
+<img src="figs/screenshots/tema%20BrackInstitute.png" alt="Vista previa del tema BrackInstitute." width="100%"><p class="caption">
+FIGURA 1.10: Vista previa del tema <code>BrackInstitute</code>.
+</p>
+</div>
+<p><br></p>
+<p>Para instalarlo, copia las líneas de código completas en la consola.</p>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"rstudioapi"</span><span class="op">)</span>
+<span class="va">tema_BrackInstitute</span> <span class="op">&lt;-</span> <span class="fu">fs</span><span class="fu">::</span><span class="fu"><a href="https://fs.r-lib.org/reference/file_temp.html">path_temp</a></span><span class="op">(</span><span class="st">"tema_BrackInstitute"</span>, ext <span class="op">=</span> <span class="st">"tmTheme"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/download.file.html">download.file</a></span><span class="op">(</span><span class="st">"https://raw.githubusercontent.com/irwingss/Primolius-Theme/main/BrackInstitute.tmTheme"</span>,<span class="va">tema_BrackInstitute</span><span class="op">)</span>
+<span class="fu">rstudioapi</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/rstudioapi/man/addTheme.html">addTheme</a></span><span class="op">(</span><span class="va">tema_BrackInstitute</span>, apply <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
+<p>Como se muestra a continuación:</p>
+
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-13"></span>
+<img src="figs/screenshots/tema%20en%20consola.jpg" alt="Código de instalación del tema BrackInstitute en la consola, listo para ser ejecutado." width="100%"><p class="caption">
+FIGURA 1.11: Código de instalación del tema <code>BrackInstitute</code> en la consola, listo para ser ejecutado.
+</p>
+</div>
+<p><br></p>
+<p>Finalmente, presiona <code>enter</code> para comenzar su ejecución.</p>
+<p>Si todo va bien, el tema cambiará automáticamente. Para más temas desarrollados para el Instituto de Ciencias Antonio Brack, visita el repositorio <a href="https://github.com/irwingss/Primolius-Theme">Primolius-Theme</a> de <a href="https://github.com/irwingss">Irwing S. Saldaña</a>.</p>
+</div>
+<div id="panelesRStudio" class="section level2" number="1.4">
+<h2>
+<span class="header-section-number">1.4</span> <strong>Paneles de RStudio</strong><a class="anchor" aria-label="anchor" href="#panelesRStudio"><i class="fas fa-link"></i></a>
+</h2>
+<p>Existen diversos editores de código que permiten trabajar con R, pero ninguno con la versatilidad de RStudio. El programa está dividido en paneles que uno puede reorganizar a conveniencia. Más allá de la posición o el orden de los paneles, es necesario que se sepa reconocerlos por su contenido, las pestañas que contiene, entre otros. Aquí se presentan los paneles en su posición clásica, junto con algunas barras y botones que se deben conocer al iniciar con RStudio.</p>
+
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-14"></span>
+<img src="figs/screenshots/Slide1.PNG" alt="Panel de Trabajo. Aquí aparecerán los archivos de trabajo de R, sean R script o R Markdown. Además, es donde aparecen las bases de datos cuando se pide visualizarlas en RStudio." width="100%"><p class="caption">
+FIGURA 1.12: Panel de Trabajo. Aquí aparecerán los archivos de trabajo de R, sean R script o R Markdown. Además, es donde aparecen las bases de datos cuando se pide visualizarlas en RStudio.
+</p>
+</div>
+<p><br></p>
+
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-15"></span>
+<img src="figs/screenshots/Slide2.PNG" alt="Consola. Es el panel donde se imprimen los resultados textuales y numéricos junto con el código que los genera." width="100%"><p class="caption">
+FIGURA 1.13: Consola. Es el panel donde se imprimen los resultados textuales y numéricos junto con el código que los genera.
+</p>
+</div>
+<p><br></p>
+
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-16"></span>
+<img src="figs/screenshots/Slide3.PNG" alt="Panel de pestañas: aquí encontrarás: el ambiente (Environment) donde se guardan los objetos creados o cargados en RStudio; la historia (History) de las ejecuciones realizadas durante la sesión de RStudio; archivos (Files) para visualizar los archivos de la carpeta de trabajo actual (definida como la carpeta “documentos” por defecto); la pestaña de visualización de gráficos estáticos (Plots); pestaña de instalación y actualización de paquetes (Packages); la pestaña de ayuda (Help); y el visualizador (Viewer) de gráficos animados, gráficos 3D, objetos HTML. las conexiones (Connections) que se pueden realizar con bases de datos (Oracle, SQL, Salesforce, Spark, Hipe, entre otros); tutoriales (tutorial) precargados usando shiny para el uso básico de R y RStudio." width="100%"><p class="caption">
+FIGURA 1.14: Panel de pestañas: aquí encontrarás: el ambiente (Environment) donde se guardan los objetos creados o cargados en RStudio; la historia (History) de las ejecuciones realizadas durante la sesión de RStudio; archivos (Files) para visualizar los archivos de la carpeta de trabajo actual (definida como la carpeta “documentos” por defecto); la pestaña de visualización de gráficos estáticos (Plots); pestaña de instalación y actualización de paquetes (Packages); la pestaña de ayuda (Help); y el visualizador (Viewer) de gráficos animados, gráficos 3D, objetos HTML. las conexiones (Connections) que se pueden realizar con bases de datos (Oracle, SQL, Salesforce, Spark, Hipe, entre otros); tutoriales (tutorial) precargados usando shiny para el uso básico de R y RStudio.
+</p>
+</div>
+<p><br></p>
+
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-17"></span>
+<img src="figs/screenshots/Slide6.PNG" alt="Barra de opciones rápidas." width="100%"><p class="caption">
+FIGURA 1.15: Barra de opciones rápidas.
+</p>
+</div>
+
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-18"></span>
+<img src="figs/screenshots/Slide5.PNG" alt="Barra de menús. De las pestañas más importantes: File nos permite crear o cargar archivos; Session, definir espacio de trabajo actual; y Tools, ingresar a las configuraciones de RStudio. Usos más avanzados, como la depuración de código o el uso de versiones de control (Git), también se manejan desde las opciones de esta barra." width="100%"><p class="caption">
+FIGURA 1.16: Barra de menús. De las pestañas más importantes: File nos permite crear o cargar archivos; Session, definir espacio de trabajo actual; y Tools, ingresar a las configuraciones de RStudio. Usos más avanzados, como la depuración de código o el uso de versiones de control (Git), también se manejan desde las opciones de esta barra.
+</p>
+</div>
+<p><br></p>
+</div>
+<div id="librerías-y-repositorios" class="section level2" number="1.5">
+<h2>
+<span class="header-section-number">1.5</span> <strong>Librerías y Repositorios</strong><a class="anchor" aria-label="anchor" href="#librer%C3%ADas-y-repositorios"><i class="fas fa-link"></i></a>
+</h2>
+<p>Una de las mayores virtudes de R es la enorme comunidad de desarrollo que ha creado asombrosas funcionalidades para simplificarle el flujo de trabajo a otras personas. Estas funcionalidades en realidad son <em>funciones</em> (para mayor detalle sobre ellas, visita la sección <a href="rbasico.html#funciones">2.7 Funciones</a>). La estructura que almacena funciones se conoce como librería o paquete. Para poder una función en RStudio, se debe instalar previamente el paquete que la contiene. Los paquetes están publicados en repositorios. Los principales son:</p>
+<ul>
+<li><p><a href="https://cran.r-project.org/">CRAN</a> (de Comprehensive R Archive Network en inglés), el repositorio oficial de R. Solo los paquetes aprobados y con soporte de fallos constante son publicados aquí.</p></li>
+<li><p><a href="https://github.com/">GitHub</a>, el repositorio más grande no oficial en el que se pueden encontrar paquetes de R. Muchos repositorios en CRAN mantienen versiones beta en GitHub para su testeo.</p></li>
+<li><p><a href="https://www.bioconductor.org/">Bioconductor</a>, el mayor repositorio de paquetes asociados a bioinformática y ciencias afines.</p></li>
+</ul>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-19"></span>
+<img src="figs/screenshots/paquetes%20instalacion.jpg" alt="Instalación manual de paquetes." width="100%"><p class="caption">
+FIGURA 1.17: Instalación manual de paquetes.
+</p>
+</div>
+<p>Si se requiere instalar paquetes de CRAN (e.g., <code>tidyverse</code>) con código, se utilizará un código similar a este:</p>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"tidyverse"</span><span class="op">)</span></code></pre></div>
+<p>Para paquetes desde GitHub (eg., <code>rbrack</code> del repositorio de la cuenta <code>irwingss</code>), se instalará previamente el paquete de CRAN <code>devtools</code>, para luego usar una función almacenada en él <code>install_github()</code>:</p>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"devtools"</span><span class="op">)</span>
+<span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org/reference/remote-reexports.html">install_github</a></span><span class="op">(</span><span class="st">"irwingss/rbrack"</span><span class="op">)</span></code></pre></div>
+</div>
+<div id="actualización-de-librerías" class="section level2" number="1.6">
+<h2>
+<span class="header-section-number">1.6</span> <strong>Actualización de librerías</strong><a class="anchor" aria-label="anchor" href="#actualizaci%C3%B3n-de-librer%C3%ADas"><i class="fas fa-link"></i></a>
+</h2>
+<p>Es importante mantener actualizada la paquetería. En los repositorios de cada paquete se suelen reportar fallos o inconsistencias que son resueltas y liberadas como una actualización. Se recomienda hacer esto al menos una vez por mes.</p>
+
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-22"></span>
+<img src="figs/screenshots/paquetes%20actualizacion.jpg" alt="Actualización manual de paquetes de CRAN." width="100%"><p class="caption">
+FIGURA 1.18: Actualización manual de paquetes de CRAN.
+</p>
+</div>
+<p>Los paquetes instalados desde repositorio no oficial, deberán ser actualizados “reinstalándolos” de manera forzada. Para forzar la instalación de un paquete ya instalado desde github, se usa el argumento <code>force=TRUE</code>:</p>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"devtools"</span><span class="op">)</span>
+<span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org/reference/remote-reexports.html">install_github</a></span><span class="op">(</span><span class="st">"irwingss/rbrack"</span>, force<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
+</div>
+<div id="tipos-de-documentos-en-rstudio" class="section level2" number="1.7">
+<h2>
+<span class="header-section-number">1.7</span> <strong>Tipos de documentos en RStudio</strong><a class="anchor" aria-label="anchor" href="#tipos-de-documentos-en-rstudio"><i class="fas fa-link"></i></a>
+</h2>
+<p>Luego de conocer los paneles de RStudio, es necesario crear los espacios donde se escribirán las órdenes a modo de código. Estos documentos, como cualquier editor de texto, se pueden guardar o compartir, por ejemplo, mediante un correo electrónico.</p>
+<div id="r-script-.r" class="section level3" number="1.7.1">
+<h3>
+<span class="header-section-number">1.7.1</span> <strong>R Script (.R)</strong><a class="anchor" aria-label="anchor" href="#r-script-.r"><i class="fas fa-link"></i></a>
+</h3>
+<p>Es el documento más simple donde puedo escribir R. Es un editor de texto como el bloc de notas de cualquier sistema operativo. No obstante, este editor lee y colorea la sintaxis especial del código de R. Esto permite identificar cada parte del código según lo que sea: una variable, una función, un número, un texto, símbolos especiales, operadores, entre otros; simplificando enormemente la lectura del código y el aprendizaje de R.</p>
+
+<div class="rmdnote">
+Puedes crear un R script haciendo clics (<a href="fig:abrirRscript">FIGURA 1.7</a>), o utilizando el atajo de teclado <code>Control + shift + N</code> o <code>Command + shift + N</code>.
+</div>
+
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:abrirRscript"></span>
+<img src="figs/screenshots/abrir%20un%20Rscript.jpg" alt="Procedimiento para abrir un documento de RScript usando el menú File/ New File/ R script." width="100%"><p class="caption">
+FIGURA 1.19: Procedimiento para abrir un documento de RScript usando el menú <code>File/ New File/ R script</code>.
+</p>
+</div>
+
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-25"></span>
+<img src="figs/screenshots/Rscript.jpg" alt="Apariencia de un R script con código. Notar los colores diferenciales para cada parte del código." width="100%"><p class="caption">
+FIGURA 1.20: Apariencia de un R script con código. Notar los colores diferenciales para cada parte del código.
+</p>
+</div>
+</div>
+<div id="r-markdown-.rmd" class="section level3" number="1.7.2">
+<h3>
+<span class="header-section-number">1.7.2</span> <strong>R Markdown (.Rmd)</strong><a class="anchor" aria-label="anchor" href="#r-markdown-.rmd"><i class="fas fa-link"></i></a>
+</h3>
+<p>Es un formato de archivo para la creación de documentos dinámicos. Estos pueden ser: páginas web, aplicaciones shiny, diapositivas, o cualquier tipo de reporte que puede ser exportado en formato .docx, .pdf o .html. Utiliza la sintaxis de Markdown pero posibilitando la inclusión de “pedacitos de código”, la traducción literal de code chunk. Los chunk se comportan como pequeños R scripts embebidos en el documento de texto plano escrito con sintaxis Markdown.</p>
+<p>Suena extremadamente complejo el decir “sintaxis Markdown”, pero no lo es. Una vez uno sabe utilizar R, aprender Markdown resulta sencillo. Puedes aprender a utilizar R Markdown con el libro en línea <a href="https://bookdown.org/yihui/rmarkdown/">R Markdown: The Definitive Guide</a> en su versión de 2018, o el más actualizado <a href="https://bookdown.org/yihui/rmarkdown-cookbook/">R Markdown Cookbook</a> de 2020. Ambos libros han sido escritos en colaboración de Yihui Xie, uno de las mentes brillantes de RStudio y a quien le debemos el uso de documentos dinámicos en RStudio.</p>
+<p>No se profundizará en el uso de R Markdown, dado que no es el objetivo del programa, pero se utilizará frecuentemente durante las clases. Si eres un estudiante que no ha está llevando el programa, podrás siempre utilizar tanto R script como R Markdown para ejecutar tus códigos. Se recomienda fuertemente comenzar a utilizar este último dada la ventaja de permitir hacer anotaciones de texto plano como en cualquier editor de texto común.</p>
+
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-26"></span>
+<img src="figs/screenshots/abrir%20R%20Markdown%201.jpg" alt="Procedimiento para abrir un documento de R Markdown usando el menú File/ New File/ R Markdown...." width="100%"><p class="caption">
+FIGURA 1.21: Procedimiento para abrir un documento de R Markdown usando el menú <code>File/ New File/ R Markdown...</code>.
+</p>
+</div>
+
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-27"></span>
+<img src="figs/screenshots/abrir%20R%20Markdown%202.jpg" alt="Ventana emergente para darle nombre al documento R Markdown." width="100%"><p class="caption">
+FIGURA 1.22: Ventana emergente para darle nombre al documento R Markdown.
+</p>
+</div>
+
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-28"></span>
+<img src="figs/screenshots/abrir%20R%20Markdown%203.jpg" alt="Aparecerá un archivo R Markdown con texto de ejemplo para que tengamos una idea de qué se puede hacer con él." width="100%"><p class="caption">
+FIGURA 1.23: Aparecerá un archivo R Markdown con texto de ejemplo para que tengamos una idea de qué se puede hacer con él.
+</p>
+</div>
+
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-29"></span>
+<img src="figs/screenshots/abrir%20R%20Markdown%204.jpg" alt="knit es una función del paquete knitr, desarrollado por Yihui Xie y colaboradores, para la generación de reportes dinámicos con R Markdown. Haciendo clic en el botón se despliega la lista de posibles exportaciones del documento. La exportación Knit to HTML produce una página web de reporte." width="100%"><p class="caption">
+FIGURA 1.24: <code>knit</code> es una función del paquete <code>knitr</code>, desarrollado por Yihui Xie y colaboradores, para la generación de reportes dinámicos con R Markdown. Haciendo clic en el botón se despliega la lista de posibles exportaciones del documento. La exportación <code>Knit to HTML</code> produce una página web de reporte.
+</p>
+</div>
+
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-30"></span>
+<img src="figs/screenshots/abrir%20R%20Markdown%205.jpg" alt="Tras hacer clic en Knit to HTML, será necesario guardar en el almacenamiento de la computadora el documento, cuya extensión es .Rmd." width="100%"><p class="caption">
+FIGURA 1.25: Tras hacer clic en <code>Knit to HTML</code>, será necesario guardar en el almacenamiento de la computadora el documento, cuya extensión es <code>.Rmd</code>.
+</p>
+</div>
+
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-31"></span>
+<img src="figs/screenshots/abrir%20R%20Markdown%206.jpg" alt="En la consola, o en una pestaña Render, comenzará a mostrarse la ejecución del código que knit desplegó para exportar el R Markdown a página web HTML." width="100%"><p class="caption">
+FIGURA 1.26: En la consola, o en una pestaña Render, comenzará a mostrarse la ejecución del código que <code>knit</code> desplegó para exportar el R Markdown a página web HTML.
+</p>
+</div>
+
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-32"></span>
+<img src="figs/screenshots/abrir%20R%20Markdown%207.jpg" alt="Vista del archivo HTML generado a partir del R Markdown de ejemplo." width="100%"><p class="caption">
+FIGURA 1.27: Vista del archivo HTML generado a partir del R Markdown de ejemplo.
+</p>
+</div>
+</div>
+</div>
+<div id="proyectos-de-rstudio" class="section level2" number="1.8">
+<h2>
+<span class="header-section-number">1.8</span> <strong>Proyectos de RStudio</strong><a class="anchor" aria-label="anchor" href="#proyectos-de-rstudio"><i class="fas fa-link"></i></a>
+</h2>
+<p>Este es el santo grial del uso de RStudio para crear una diversidad de repositorios: de trabajo, <a href="https://medium.com/@jonathanmines/the-ultimate-github-collaboration-guide-df816e98fb67">colaboraciones</a>, <a href="https://bookdown.org/yihui/rmarkdown/xaringan.html">diapositivas</a>, <a href="https://rmarkdown.rstudio.com/lesson-13.html">páginas web</a>, <a href="https://bookdown.org/yihui/blogdown/">blogs</a>, <a href="https://bookdown.org/">libros</a>, entre otros. Para poder usar un proyecto de RStudio con dichos propósitos, se necesita aprender a usar las versiones de control de proyectos con <a href="https://happygitwithr.com/install-git.html">Git</a> y <a href="https://cfss.uchicago.edu/setup/shell/">Shell</a>. Puedes iniciar en este tema con una genial presentación de su uso, elaborado por <a href="https://www.geo.uzh.ch/microsite/reproducible_research/post/rr-rstudio-git/">University of Zurich</a>.</p>
+<p>Este apartado solo se centrará en el uso de proyectos para trabajos locales. Una vez se domine este uso, será más sencillo entender cómo elaborar otras cosas más complejas.</p>
+<p>Aquí se muestran los pasos para crear un proyecto local:</p>
+
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-33"></span>
+<img src="figs/screenshots/proyectos1.jpg" alt="Para crear un proyecto local, ir a menu File/ New Project...." width="100%"><p class="caption">
+FIGURA 1.28: Para crear un proyecto local, ir a menu <code>File/ New Project...</code>.
+</p>
+</div>
+
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-34"></span>
+<img src="figs/screenshots/proyectos2.jpg" alt="Para efectos de este libro, selecciona la primera opción. Clic en New Directory para crear en el almacenamiento de tu computador una carpeta nueva donde se almacenará todo los respecto a este proyecto. Existing Directory solo se usará cuando ya se ha creado de antemano una carpeta donde se quiere almacenar el proyecto. Para versiones de control con Git y GitHub, el proceso se inicia con Version Control, para crear la carpeta de trabajo (tal como las anteriores opciones), pero el proyecto estará casi listo para hacer commit y publicar los cambios en GitHub." width="100%"><p class="caption">
+FIGURA 1.29: Para efectos de este libro, selecciona la primera opción. Clic en <code>New Directory</code> para crear en el almacenamiento de tu computador una carpeta nueva donde se almacenará todo los respecto a este proyecto. <code>Existing Directory</code> solo se usará cuando ya se ha creado de antemano una carpeta donde se quiere almacenar el proyecto. Para versiones de control con Git y GitHub, el proceso se inicia con <code>Version Control</code>, para crear la carpeta de trabajo (tal como las anteriores opciones), pero el proyecto estará <em>casi</em> listo para hacer <em>commit</em> y publicar los cambios en GitHub.
+</p>
+</div>
+
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-35"></span>
+<img src="figs/screenshots/proyectos3.jpg" alt="En Directory name: escribe el nombre del proyecto, mismo que también tendrá la nueva carpeta de trabajo que se creará en tu computador. En el botón Browse..., podrás ubicar una carpeta madre donde irás creando proyectos para mantenerlos todos ordenados y accesibles. Puede ser una subcarpeta dentro de documentos, con algún nombre genérico como “proyectos”, “proyectos de R”, entre otros. Finalmente, clic en Create Project." width="100%"><p class="caption">
+FIGURA 1.30: En <code>Directory name:</code> escribe el nombre del proyecto, mismo que también tendrá la nueva carpeta de trabajo que se creará en tu computador. En el botón <code>Browse...</code>, podrás ubicar una carpeta <em>madre</em> donde irás creando proyectos para mantenerlos todos ordenados y accesibles. Puede ser una subcarpeta dentro de documentos, con algún nombre genérico como “proyectos”, “proyectos de R”, entre otros. Finalmente, clic en <code>Create Project</code>.
+</p>
+</div>
+
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-36"></span>
+<img src="figs/screenshots/proyectos4.jpg" alt="Se abrirá una nueva sesión con título idéntico a la carpeta de proyecto creada (aquí “Investigación A”). Nótese el ambiente (environment) en blanco. Todas las variables y funciones que se creen o carguen en el proyecto permanecerán en este ambiente específico del proyecto." width="100%"><p class="caption">
+FIGURA 1.31: Se abrirá una nueva sesión con título idéntico a la carpeta de proyecto creada (aquí “Investigación A”). Nótese el ambiente (environment) en blanco. Todas las variables y funciones que se creen o carguen en el proyecto permanecerán en este ambiente específico del proyecto.
+</p>
+</div>
+
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-37"></span>
+<img src="figs/screenshots/proyectos5.jpg" alt="En la pestaña de Files se verá el contenido de todo lo que copiemos dentro de la carpeta del proyecto. Puedes acceder a la carpeta de trabajo haciendo clic en More/ Show Folder in New Windows. Allí podrás pegar archivos o documentos que necesites cargar posteriormente en tu proyecto." width="100%"><p class="caption">
+FIGURA 1.32: En la pestaña de <code>Files</code> se verá el contenido de todo lo que copiemos dentro de la carpeta del proyecto. Puedes acceder a la carpeta de trabajo haciendo clic en <code>More/ Show Folder in New Windows</code>. Allí podrás pegar archivos o documentos que necesites cargar posteriormente en tu proyecto.
+</p>
+</div>
+
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-38"></span>
+<img src="figs/screenshots/proyectos6.jpg" alt="Para crear un nuevo proyecto, abrir uno existente o cerrar el proyecto actual (flecha roja), existe el menú de acceso rápido que tiene el mismo nombre que tu proyecto actual. Para ver la dirección de la carpeta de trabajo en consola, ejecuta la función getwd()." width="100%"><p class="caption">
+FIGURA 1.33: Para crear un nuevo proyecto, abrir uno existente o cerrar el proyecto actual (flecha roja), existe el menú de acceso rápido que tiene el mismo nombre que tu proyecto actual. Para ver la dirección de la carpeta de trabajo en consola, ejecuta la función <code><a href="https://rdrr.io/r/base/getwd.html">getwd()</a></code>.
+</p>
+</div>
+
+<div class="rmdnote">
+<ul>
+<li><p>Para ver la dirección de la carpeta de trabajo en consola, ejecuta la función <code><a href="https://rdrr.io/r/base/getwd.html">getwd()</a></code>.</p></li>
+<li>
+<p>Si por el contrario necesitas definir un nuevo directorio de trabajo manualmente, ejecuta la función <code><a href="https://rdrr.io/r/base/getwd.html">setwd()</a></code> definiendo dentro de ella la dirección deseada. Por ejemplo:</p>
+<center>
+<p><code>setwd("C:/Users/irwin/Documents/Otra_Carpeta/Subcarpeta B")</code></p>
+</center>
+</li>
+<li>
+<p>No olvides las comillas al inicio y final de la dirección, ni que los slash usados son forwardslash (hacia delante) <code>/</code>, no backslash (hacia atrás) <code>\</code>.</p>
+</li>
+</ul>
+</div>
+
+</div>
+<div id="pedir-ayuda" class="section level2" number="1.9">
+<h2>
+<span class="header-section-number">1.9</span> <strong>Pedir ayuda</strong><a class="anchor" aria-label="anchor" href="#pedir-ayuda"><i class="fas fa-link"></i></a>
+</h2>
+<p>Pedir ayuda sin internet es algo posible en RStudio. Todas las librerías instaladas contienen información de respaldo sobre el uso de cada función que almacenan.</p>
+<p>Para acceder a ella, se debe acceder a la pestaña Help.</p>
+
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-40"></span>
+<img src="figs/screenshots/help1.jpg" alt="Accediendo a la pestaña Help para buscar ayuda sobre la función mean(). Nótese que solo se busca el nombre de la función sin paréntesis." width="100%"><p class="caption">
+FIGURA 1.34: Accediendo a la pestaña Help para buscar ayuda sobre la función <code><a href="https://rdrr.io/r/base/mean.html">mean()</a></code>. Nótese que solo se busca el nombre de la función sin paréntesis.
+</p>
+</div>
+
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-41"></span>
+<img src="figs/screenshots/help2.jpg" alt="Detalle de la ayuda de la función mean(). Es muy útil revisar la sección Arguments donde se describen los argumentos, además los ejemplos de uso." width="100%"><p class="caption">
+FIGURA 1.35: Detalle de la ayuda de la función <code><a href="https://rdrr.io/r/base/mean.html">mean()</a></code>. Es muy útil revisar la sección Arguments donde se describen los argumentos, además los ejemplos de uso.
+</p>
+</div>
+<p>Para pedir ayuda en internet, se recomienda el uso del buscador exclusivo de temas en R conocido como <a href="https://rseek.org/">rseek</a>.</p>
+
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-42"></span>
+<img src="figs/screenshots/rseek.jpg" alt="Búsqueda de ayuda para la función mean() en rseek. Puedes acceder directamente a la viñeta (PDF o web) del uso de la función (que es la misma información que en la búsqueda en RStudio), documentación, funciones asociadas, paquetes populares que usen mean, wikipedia, blogs como R-Bloggers donde expliquen su uso, Issues que son problemas reportados para la función, o paquetes que contengan una función con el mismo nombre." width="100%"><p class="caption">
+FIGURA 1.36: Búsqueda de ayuda para la función <code><a href="https://rdrr.io/r/base/mean.html">mean()</a></code> en rseek. Puedes acceder directamente a la viñeta (PDF o web) del uso de la función (que es la misma información que en la búsqueda en RStudio), documentación, funciones asociadas, paquetes populares que usen mean, wikipedia, blogs como <a href="https://www.r-bloggers.com/">R-Bloggers</a> donde expliquen su uso, <em>Issues</em> que son problemas reportados para la función, o paquetes que contengan una función con el mismo nombre.
+</p>
+</div>
+
+<div class="rmdnote">
+<ul>
+<li><p>Es posible <strong>pedir ayuda con código</strong>. Ejecutando la función <code>help()</code> conteniendo el nombre de la <em>función</em> que se desea buscar, abrirá automáticamente la página de ayuda en la pestaña Help. Por ejemplo:<code><a href="https://rdrr.io/r/stats/varimax.html">help(varimax)</a></code>.</p></li>
+<li><p>Otra forma de obtener el mismo resultado es usando el símbolo <code>?</code>. Por ejemplo: <code><a href="https://rdrr.io/r/stats/varimax.html">?varimax</a></code>.</p></li>
+<li>
+<p>Si se necesita buscar un <em>término</em>, no una función, se usaría el simbolo doble <code>??</code> antes del término a buscar. Esta búsqueda es más lenta porque es más profunda y nos da todas las funciones donde se use dicho término. Por ejemplo, para buscar en todos archivos de ayuda de R el término deviance: <code>??deviance</code>.</p>
+</li>
+</ul>
+</div>
+
+
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="prerrequisitos.html">Prerrequisitos</a></div>
+<div class="next"><a href="rbasico.html"><span class="header-section-number">2</span> R básico</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+            <hr>
+<nav id="toc" data-toggle="toc" aria-label="En este capítulo"><h2>En este capítulo</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#esenciales-de-r-y-rstudio"><span class="header-section-number">1</span> Esenciales de R y RStudio</a></li>
+<li><a class="nav-link" href="#instalaci%C3%B3n-de-r-y-rstudio"><span class="header-section-number">1.1</span> Instalación de R y RStudio</a></li>
+<li><a class="nav-link" href="#configuraci%C3%B3n-de-rstudio"><span class="header-section-number">1.2</span> Configuración de RStudio</a></li>
+<li><a class="nav-link" href="#tema-brackinstitute-2022"><span class="header-section-number">1.3</span> Tema BrackInstitute (2022)</a></li>
+<li><a class="nav-link" href="#panelesRStudio"><span class="header-section-number">1.4</span> Paneles de RStudio</a></li>
+<li><a class="nav-link" href="#librer%C3%ADas-y-repositorios"><span class="header-section-number">1.5</span> Librerías y Repositorios</a></li>
+<li><a class="nav-link" href="#actualizaci%C3%B3n-de-librer%C3%ADas"><span class="header-section-number">1.6</span> Actualización de librerías</a></li>
+<li>
+<a class="nav-link" href="#tipos-de-documentos-en-rstudio"><span class="header-section-number">1.7</span> Tipos de documentos en RStudio</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#r-script-.r"><span class="header-section-number">1.7.1</span> R Script (.R)</a></li>
+<li><a class="nav-link" href="#r-markdown-.rmd"><span class="header-section-number">1.7.2</span> R Markdown (.Rmd)</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#proyectos-de-rstudio"><span class="header-section-number">1.8</span> Proyectos de RStudio</a></li>
+<li><a class="nav-link" href="#pedir-ayuda"><span class="header-section-number">1.9</span> Pedir ayuda</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+          
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Análisis Estadístico con R Aplicado a Ciencias</strong>" fue escrito por Irwing S. Saldaña. Fue construido por última vez en 2022-01-19.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

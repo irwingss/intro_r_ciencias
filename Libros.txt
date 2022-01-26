@@ -1,0 +1,48 @@
+https://rafalab.github.io/dsbook/probability.html#examples
+
+https://dataanalyticsbook.info/chapter-3.-recognition-logistic-regression-ranking.html#chapter-3.-recognition-logistic-regression-ranking
+
+https://bookdown.org/mpfoley1973/statistics/pearsons-correlation.html
+
+https://bookdown.org/bret_larget/stat-240-case-studies/binomial-distributions.html
+
+https://m-clark.github.io/mixed-models-with-R/
+
+https://m-clark.github.io/data-processing-and-visualization/models.html
+
+https://r4ds.had.co.nz/model-intro.html
+
+https://github.com/tidymodels/TMwR/blob/main/_bookdown.yml
+
+
+REGEX y STRING MANIPULATION
+https://bookdown.org/f_lennert/introduction-to-r/stringregex.html
+
+
+GLMM y GLM GEE
+https://slideplayer.com/slide/6106341/
+
+GLMM Course
+https://bbolker.github.io/morelia_2018/
+https://github.com/bbolker/mixedmodels-misc/blob/master/data/culcita.RData
+https://bbolker.github.io/morelia_2018/notes/glmm.html
+
+MOdelos estadisticos lineales gráfico
+https://lindeloev.github.io/tests-as-linear/#:~:text=Most%20of%20the%20common%20statistical,there%20is%20less%20to%20learn.
+
+log linear models
+https://data.library.virginia.edu/an-introduction-to-loglinear-models/
+https://www.uni-kiel.de/psychologie/rexrepos/posts/logLinear.html
+
+estadistica basica
+https://lindeloev.github.io/tests-as-linear/
+
+https://www.muscardinus.be/2018/09/number-random-effect-levels/
+
+
+# Random Effects levels explanation
+https://www.muscardinus.be/2018/09/number-random-effect-levels/
+http://personal.psu.edu/mar36/stat_461/?C=M;O=A
+
+
+

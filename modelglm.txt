@@ -1,0 +1,33 @@
+
+model{
+
+#Priors
+for (i in 1:5) { beta[i]  ~ dnorm(0, 0.001) }
+alpha ~ dnorm(0, 0.001)
+
+#Likelihood
+for (i in 1:NNest) {
+ for (j in 1:NObservationsInNest[i]) {
+   NCalls[j,i] ~ dpois(mu[j,i])   
+   log(mu[j,i]) <- max(-20, min(20, eta[j,i]))
+   eta[j,i] <- alpha + beta[1] * iSexParent[j,i] +
+                       beta[2] * iFoodTreatment[j,i] +
+                       beta[3] * ArrivalTime[j,i] +
+                       beta[4] * iFoodTreatment[j,i] * iSexParent[j,i] +
+                       beta[5] * iSexParent[j,i]     * ArrivalTime[j,i] +
+                       1 * LBroodSize[j,i]          
+  
+   #Discrepancy measures
+   YNew[j,i] ~ dpois(mu[j,i])
+   PRes[j,i]    <- (NCalls[j,i] - mu[j,i]) / sqrt(mu[j,i])
+   PResNew[j,i] <- (YNew[j,i] - mu[j,i]) / sqrt(mu[j,i])
+   D[j,i]     <- pow(PRes[j,i], 2)
+   DNew[j, i] <- pow(PResNew[j,i], 2)
+ }
+ Fiti[i] <- sum(D[1:NObservationsInNest[i], i])
+ FitiNew[i] <- sum(DNew[1:NObservationsInNest[i], i])
+}
+Fit <- sum(Fiti[1:NNest])
+FitNew <- sum(FitiNew[1:NNest])
+}
+

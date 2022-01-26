@@ -1,0 +1,19 @@
+h1:estructurasdatos 
+h2:clasificación-de-variables 
+(ref:gatocaja) Analogía del gato en la caja para entender a las variables. Aquí, el gato es el contenido; la caja, la estructura. Esta  puede ser de la clase  y estructura . Así mismo, habrán variables contenedoras de números, de caracteres, de valores lógicos, y estos estarán ordenados de diferente manera.
+h3:clases-atómicas 
+h3:estructuras-de-datos 
+(ref:strdatos1) Estructuras informáticas para almacenar de datos en el lenguaje R.
+h2:vectores 
+h2:factores 
+(ref:factoresEjemplo) Ejemplo de uso del conjunto de datos  para colorear los puntos del gráfico de enfrentamiento de las variables  y .
+h2:matrices 
+h2:data-frames 
+h2:tibbles 
+h2:listas 
+h2:indexación-de-variables 
+h3:indexación-en-variables-1d 
+h3:indexación-en-variables-2d 
+h3:indexación-en-listas 
+h2:coerción-de-variables 
+

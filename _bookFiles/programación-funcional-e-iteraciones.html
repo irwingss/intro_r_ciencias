@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Capítulo 6 Programación Funcional e iteraciones | Introducción a R para Ciencias</title>
+<meta name="author" content="Irwing S. Saldaña">
+<meta name="description" content="6.1 Control de flujo   6.2 Creación de funciones La gran comunidad de desarrollo detrás de R ha creado una infinidad de funciones, almacenados en los miles de paquetes, o librerías, disponibles en...">
+<meta name="generator" content="bookdown 0.24 with bs4_book()">
+<meta property="og:title" content="Capítulo 6 Programación Funcional e iteraciones | Introducción a R para Ciencias">
+<meta property="og:type" content="book">
+<meta property="og:image" content="/Cover/cover.png">
+<meta property="og:description" content="6.1 Control de flujo   6.2 Creación de funciones La gran comunidad de desarrollo detrás de R ha creado una infinidad de funciones, almacenados en los miles de paquetes, o librerías, disponibles en...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Capítulo 6 Programación Funcional e iteraciones | Introducción a R para Ciencias">
+<meta name="twitter:description" content="6.1 Control de flujo   6.2 Creación de funciones La gran comunidad de desarrollo detrás de R ha creado una infinidad de funciones, almacenados en los miles de paquetes, o librerías, disponibles en...">
+<meta name="twitter:image" content="/Cover/cover.png">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><link rel="icon" type="image/png" sizes="32x32" href="figs/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="figs/favicon-32x32.png">
+<script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-99618359-1', 'auto');
+      ga('send', 'pageview');
+
+    </script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="style/style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h2>
+        <!--debajo del título-->
+        <a href="index.html" title="Autor: Irwing S. Saldaña">Introducción a R para Ciencias</a><br><small class="text-muted">Autor: Irwing S. Saldaña<br>Editorial: IC Press<br>Publicación: 2022-01-24</small>
+      </h2>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Mostrar barra de contenidos</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="Buscar">
+        <input id="search" class="form-control" type="search" placeholder="Buscar" aria-label="Buscar">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Tabla de Capítulos  </h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Bienvenida</a></li>
+<li><a class="" href="prefacio.html">Prefacio</a></li>
+<li class="book-part">INTRODUCCIÓN A R PARA CIENCIAS</li>
+<li><a class="" href="esencialesRRStudio.html"><span class="header-section-number">1</span> Esenciales de R y RStudio</a></li>
+<li><a class="" href="rbasico.html"><span class="header-section-number">2</span> Primer contacto con R</a></li>
+<li><a class="" href="estructurasdatos.html"><span class="header-section-number">3</span> Estructuras de datos</a></li>
+<li><a class="" href="carga-y-exportaci%C3%B3n-de-datos.html"><span class="header-section-number">4</span> Carga y exportación de datos</a></li>
+<li><a class="" href="manejo-de-datos-con-tidyverse.html"><span class="header-section-number">5</span> Manejo de datos con tidyverse</a></li>
+<li><a class="active" href="programaci%C3%B3n-funcional-e-iteraciones.html"><span class="header-section-number">6</span> Programación Funcional e iteraciones</a></li>
+<li><a class="" href="potencialidades-de-r-markdown.html"><span class="header-section-number">7</span> Potencialidades de R Markdown</a></li>
+<li class="book-part">GRÁFICOS AVANZADOS CON ggplot2</li>
+<li><a class="" href="visualizaci%C3%B3n-avanzada-de-gr%C3%A1ficos.html"><span class="header-section-number">8</span> Visualización avanzada de gráficos</a></li>
+<li><a class="" href="componentes-clave-de-un-gr%C3%A1fico-con-ggplot2.html"><span class="header-section-number">9</span> Componentes clave de un gráfico con ggplot2</a></li>
+<li><a class="" href="creando-gr%C3%A1ficos.html"><span class="header-section-number">10</span> Creando gráficos</a></li>
+<li><a class="" href="adicionando-l%C3%ADneas.html"><span class="header-section-number">11</span> Adicionando Líneas</a></li>
+<li><a class="" href="gr%C3%A1ficos-estad%C3%ADsticos-semiautom%C3%A1ticos.html"><span class="header-section-number">12</span> Gráficos estadísticos semiautomáticos</a></li>
+<li><a class="" href="exportaci%C3%B3n-de-gr%C3%A1ficos.html"><span class="header-section-number">13</span> Exportación de Gráficos</a></li>
+</ul>
+
+        <div class="book-extra">
+          
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="programación-funcional-e-iteraciones" class="section level1" number="6">
+<h1>
+<span class="header-section-number">Capítulo 6</span> <strong>Programación Funcional e iteraciones</strong><a class="anchor" aria-label="anchor" href="#programaci%C3%B3n-funcional-e-iteraciones"><i class="fas fa-link"></i></a>
+</h1>
+<div id="control-de-flujo" class="section level2" number="6.1">
+<h2>
+<span class="header-section-number">6.1</span> <strong>Control de flujo</strong><a class="anchor" aria-label="anchor" href="#control-de-flujo"><i class="fas fa-link"></i></a>
+</h2>
+</div>
+<div id="creacion-fun" class="section level2" number="6.2">
+<h2>
+<span class="header-section-number">6.2</span> <strong>Creación de funciones</strong><a class="anchor" aria-label="anchor" href="#creacion-fun"><i class="fas fa-link"></i></a>
+</h2>
+<p>La gran comunidad de desarrollo detrás de R ha creado una infinidad de funciones, almacenados en los miles de paquetes, o librerías, disponibles en el repositorio oficial <code>CRAN</code> y otras fuentes (ver sección <a href="esencialesRRStudio.html#librer%C3%ADas-y-repositorios">Librerías y repositorios</a>. No obstante, algunas veces se necesita crear funciones personalizadas a los requerimientos del usuario.</p>
+<p>Cuando se detecta que algunas secuencias de órdenes se suelen repetir en el código, crear una función que empaquete dicha secuencia permitirá
+<em>automatizar procedimientos y simplificar el código</em>. Como regla general, si copias y pegas una secuencia de órdenes para usarla más de 2 veces, ya se debería pensar en crear una función que compile la tarea.</p>
+
+<div class="rmdnote">
+<p><strong>Crear un función involucra los siguientes pasos:</strong></p>
+<ol style="list-style-type: decimal">
+<li>Darle un nombre. Crear una función es como crear una variable: hay que asignarle un contenido a un nombre.</li>
+<li>Luego de escribir el nombre, se tiene que usar la función llamada <code>function()</code>para indicar qué argumentos tendrá la nueva función.</li>
+<li>Definir el contenido de la función, la secuencia de órdenes, dentro de corchetes. Dentro de ellos se usarán los argumentos establecidos en <code>function()</code>.
+</li>
+</ol>
+</div>
+
+<p>Para <strong>crear una función</strong> que le sume 100 a un número, se puede usar:</p>
+<div class="sourceCode" id="cb44"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Esta función admitirá como objeto de entrada un </span>
+<span class="co"># valor x, definido en function(), para sumarle 100</span>
+<span class="va">mi.fun</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">{</span>
+  <span class="va">x</span><span class="op">+</span><span class="fl">100</span>
+<span class="op">}</span>
+
+<span class="co"># Usando mi.fun() con 10</span>
+<span class="fu">mi.fun</span><span class="op">(</span><span class="fl">10</span><span class="op">)</span>
+<span class="co">## [1] 110</span></code></pre></div>
+<p>Para recrear la famosa función de <a href="https://es.wikipedia.org/wiki/Carl_Friedrich_Gauss">Carl Friedrich Gauss</a> para calcular la suma de todos los números dentro de un rango numérico, usaremos la fórmula matemática:</p>
+<p><span class="math display">\[ k = \frac{n * ( n + 1 )}{2} \]</span></p>
+<div class="sourceCode" id="cb45"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">k.Gauss</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">n</span><span class="op">)</span> <span class="op">{</span>
+  <span class="op">(</span><span class="va">n</span> <span class="op">*</span> <span class="op">(</span><span class="va">n</span><span class="op">+</span><span class="fl">1</span><span class="op">)</span><span class="op">)</span><span class="op">/</span><span class="fl">2</span>
+<span class="op">}</span>
+
+<span class="fu">k.Gauss</span><span class="op">(</span><span class="fl">100</span><span class="op">)</span>
+<span class="co">## [1] 5050</span></code></pre></div>
+<p>Adicionalmente, se puede <strong>predefinir valores por defecto</strong> en <code>function()</code>, mismos que se podrán modificar al usar la función ya creada.</p>
+<div class="sourceCode" id="cb46"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Esta función hallará el logaritmo con base 2 </span>
+<span class="co"># (por defecto) de la función matemática de Gauss</span>
+<span class="va">log.Gauss</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">n</span>, <span class="va">base</span> <span class="op">=</span> <span class="fl">2</span><span class="op">)</span> <span class="op">{</span>
+  <span class="va">resultado.Gauss</span> <span class="op">&lt;-</span> <span class="op">(</span><span class="va">n</span> <span class="op">*</span> <span class="op">(</span><span class="va">n</span><span class="op">+</span><span class="fl">1</span><span class="op">)</span><span class="op">)</span><span class="op">/</span><span class="fl">2</span>
+  <span class="va">logaritmo</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="va">resultado.Gauss</span>, base<span class="op">=</span><span class="va">base</span><span class="op">)</span>
+  <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">logaritmo</span><span class="op">)</span>
+<span class="op">}</span>
+
+<span class="co"># Aplicando la función al valor 100</span>
+<span class="fu">log.Gauss</span><span class="op">(</span><span class="fl">100</span><span class="op">)</span>
+<span class="co">## [1] 12.3</span></code></pre></div>
+<p>Como es notorio, se pueden <strong>crear variables dentro de una función</strong>, pero estas serán temporales. Una vez se imprime el resultado en consola, la variable desaparece. Para que algún paso realizado dentro de la función se guarde como una variable permanentemente en el ambiente, usa el símbolo especial <code>&lt;&lt;-</code>.</p>
+<div class="sourceCode" id="cb47"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Se guardará resultado.Gauss en la consola</span>
+<span class="va">log.Gauss</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">n</span>, <span class="va">base</span> <span class="op">=</span> <span class="fl">2</span><span class="op">)</span> <span class="op">{</span>
+  <span class="va">resultado.Gauss</span> <span class="op">&lt;&lt;-</span> <span class="op">(</span><span class="va">n</span> <span class="op">*</span> <span class="op">(</span><span class="va">n</span><span class="op">+</span><span class="fl">1</span><span class="op">)</span><span class="op">)</span><span class="op">/</span><span class="fl">2</span>
+  <span class="va">logaritmo</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="va">resultado.Gauss</span>, base<span class="op">=</span><span class="va">base</span><span class="op">)</span>
+  <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">logaritmo</span><span class="op">)</span>
+<span class="op">}</span>
+
+<span class="co"># Aplicando la función al valor 100</span>
+<span class="fu">log.Gauss</span><span class="op">(</span><span class="fl">100</span><span class="op">)</span>
+<span class="co">## [1] 12.3</span>
+
+<span class="co"># Mostrando el objeto que se creó automáticamente</span>
+<span class="co"># en el ambiente tras ejecutar log.Gauss()</span>
+<span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">resultado.Gauss</span><span class="op">)</span>
+<span class="co">## [1] 5050</span></code></pre></div>
+</div>
+<div id="ifelse" class="section level2" number="6.3">
+<h2>
+<span class="header-section-number">6.3</span> <code>ifelse()</code><a class="anchor" aria-label="anchor" href="#ifelse"><i class="fas fa-link"></i></a>
+</h2>
+</div>
+<div id="iteraciones-con-for-loops" class="section level2" number="6.4">
+<h2>
+<span class="header-section-number">6.4</span> <strong>Iteraciones con for loops</strong><a class="anchor" aria-label="anchor" href="#iteraciones-con-for-loops"><i class="fas fa-link"></i></a>
+</h2>
+</div>
+<div id="aplicación-de-purrrmap" class="section level2" number="6.5">
+<h2>
+<span class="header-section-number">6.5</span> <strong>Aplicación de</strong> <code>purrr::map()</code><a class="anchor" aria-label="anchor" href="#aplicaci%C3%B3n-de-purrrmap"><i class="fas fa-link"></i></a>
+</h2>
+
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="manejo-de-datos-con-tidyverse.html"><span class="header-section-number">5</span> Manejo de datos con tidyverse</a></div>
+<div class="next"><a href="potencialidades-de-r-markdown.html"><span class="header-section-number">7</span> Potencialidades de R Markdown</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+            <hr>
+<nav id="toc" data-toggle="toc" aria-label="En este capítulo"><h2>En este capítulo</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#programaci%C3%B3n-funcional-e-iteraciones"><span class="header-section-number">6</span> Programación Funcional e iteraciones</a></li>
+<li><a class="nav-link" href="#control-de-flujo"><span class="header-section-number">6.1</span> Control de flujo</a></li>
+<li><a class="nav-link" href="#creacion-fun"><span class="header-section-number">6.2</span> Creación de funciones</a></li>
+<li><a class="nav-link" href="#ifelse"><span class="header-section-number">6.3</span> ifelse()</a></li>
+<li><a class="nav-link" href="#iteraciones-con-for-loops"><span class="header-section-number">6.4</span> Iteraciones con for loops</a></li>
+<li><a class="nav-link" href="#aplicaci%C3%B3n-de-purrrmap"><span class="header-section-number">6.5</span> Aplicación de purrr::map()</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+          
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Introducción a R para Ciencias</strong>", por Irwing S. Saldaña. <br>Construido por última vez en 2022-01-24.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>Este libro ha sido construido utilizando el paquete de R <a class="text-light" href="https://bookdown.org">bookdown</a>.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

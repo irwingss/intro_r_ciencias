@@ -1,0 +1,23 @@
+book_filename: "Introducción a R para Ciencias"
+language:
+  label:
+    fig: "FIGURA "
+    tab: "TABLA "
+  ui:
+    chapter_name: "Capítulo "
+delete_merged_file: true
+output_dir: _bookFiles
+rmd_files: [
+  "index.Rmd",
+  "01-intro.Rmd",
+  "02-primer-contacto.Rmd",
+  "03-estructuras-datos.Rmd",
+  "04-carga-datos.Rmd",
+  "05-tidyverse.Rmd",
+  "06-programacion.Rmd",
+  "07-potencialidades.Rmd",
+  "08-ggplot2.Rmd"
+  ]
+clean: [packages.bib, bookdown.bbl]
+new_session: yes
+before_chapter_script: "_common.R"

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Capítulo 22 Modelos lineales generalizados (GLM) | Análisis Estadístico con R Aplicado a Ciencias</title>
+<meta name="author" content="Irwing S. Saldaña">
+<meta name="description" content="22.1 Logística   22.2 Binomial   22.3 Poisson   22.4 Binomial Negativa   22.5 Hurdle y Zero inflados   22.6 Weibull   22.7 Gamma   22.8 Beta">
+<meta name="generator" content="bookdown 0.24 with bs4_book()">
+<meta property="og:title" content="Capítulo 22 Modelos lineales generalizados (GLM) | Análisis Estadístico con R Aplicado a Ciencias">
+<meta property="og:type" content="book">
+<meta property="og:image" content="/Cover/cover.png">
+<meta property="og:description" content="22.1 Logística   22.2 Binomial   22.3 Poisson   22.4 Binomial Negativa   22.5 Hurdle y Zero inflados   22.6 Weibull   22.7 Gamma   22.8 Beta">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Capítulo 22 Modelos lineales generalizados (GLM) | Análisis Estadístico con R Aplicado a Ciencias">
+<meta name="twitter:description" content="22.1 Logística   22.2 Binomial   22.3 Poisson   22.4 Binomial Negativa   22.5 Hurdle y Zero inflados   22.6 Weibull   22.7 Gamma   22.8 Beta">
+<meta name="twitter:image" content="/Cover/cover.png">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><link rel="icon" type="image/png" sizes="32x32" href="figs/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="figs/favicon-32x32.png">
+<script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-99618359-1', 'auto');
+      ga('send', 'pageview');
+
+    </script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="style/style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h2>
+        <a href="index.html" title="">Análisis Estadístico con R Aplicado a Ciencias</a>
+      </h2>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Mostrar barra de contenidos</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="Buscar">
+        <input id="search" class="form-control" type="search" placeholder="Buscar" aria-label="Buscar">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Tabla de Capítulos  </h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Bienvenida</a></li>
+<li><a class="" href="prefacio.html">Prefacio</a></li>
+<li><a class="" href="prerrequisitos.html">Prerrequisitos</a></li>
+<li class="book-part">INTRODUCCIÓN A R PARA CIENCIAS</li>
+<li><a class="" href="esencialesRRStudio.html"><span class="header-section-number">1</span> Esenciales de R y RStudio</a></li>
+<li><a class="" href="rbasico.html"><span class="header-section-number">2</span> R básico</a></li>
+<li><a class="" href="r-intermedio.html"><span class="header-section-number">3</span> R intermedio</a></li>
+<li><a class="" href="flujos-de-trabajo-con-tidyverse.html"><span class="header-section-number">4</span> Flujos de trabajo con tidyverse</a></li>
+<li class="book-part">GRÁFICOS AVANZADOS CON ggplot2</li>
+<li><a class="" href="probabilidades.html"><span class="header-section-number">5</span> Probabilidades</a></li>
+<li><a class="" href="estad%C3%ADstica-descriptiva.html"><span class="header-section-number">6</span> Estadística descriptiva</a></li>
+<li><a class="" href="test-de-normalidad.html"><span class="header-section-number">7</span> Test de normalidad</a></li>
+<li><a class="" href="test-de-comparaciones-de-grupos.html"><span class="header-section-number">8</span> Test de comparaciones de grupos</a></li>
+<li><a class="" href="introducci%C3%B3n-a-los-modelos-lineales.html"><span class="header-section-number">9</span> Introducción a los modelos lineales</a></li>
+<li><a class="" href="correlaciones.html"><span class="header-section-number">10</span> Correlaciones</a></li>
+<li><a class="" href="an%C3%A1lisis-de-varianza.html"><span class="header-section-number">11</span> Análisis de varianza</a></li>
+<li><a class="" href="an%C3%A1losis-de-poder.html"><span class="header-section-number">12</span> Análosis de poder</a></li>
+<li class="book-part">ANÁLISIS ESTADÍSTICO BÁSICO</li>
+<li><a class="" href="probabilidades-1.html"><span class="header-section-number">13</span> Probabilidades</a></li>
+<li><a class="" href="estad%C3%ADstica-descriptiva-1.html"><span class="header-section-number">14</span> Estadística descriptiva</a></li>
+<li><a class="" href="test-de-normalidad-1.html"><span class="header-section-number">15</span> Test de normalidad</a></li>
+<li><a class="" href="test-de-comparaciones-de-grupos-1.html"><span class="header-section-number">16</span> Test de comparaciones de grupos</a></li>
+<li><a class="" href="introducci%C3%B3n-a-los-modelos-lineales-1.html"><span class="header-section-number">17</span> Introducción a los modelos lineales</a></li>
+<li><a class="" href="correlaciones-1.html"><span class="header-section-number">18</span> Correlaciones</a></li>
+<li><a class="" href="an%C3%A1lisis-de-varianza-1.html"><span class="header-section-number">19</span> Análisis de varianza</a></li>
+<li><a class="" href="an%C3%A1lisis-de-poder.html"><span class="header-section-number">20</span> Análisis de poder</a></li>
+<li class="book-part">MODELAMIENTO ESTADÍSTICO LINEAL AVANZADO</li>
+<li><a class="" href="regresi%C3%B3n-lineal-cl%C3%A1sica-lm.html"><span class="header-section-number">21</span> Regresión lineal clásica (LM)</a></li>
+<li><a class="active" href="modelos-lineales-generalizados-glm.html"><span class="header-section-number">22</span> Modelos lineales generalizados (GLM)</a></li>
+<li><a class="" href="modelos-de-efectos-mixtos-cl%C3%A1sica-lmm-y-generalizados-glmm.html"><span class="header-section-number">23</span> Modelos de efectos mixtos: clásica (LMM) y generalizados (GLMM)</a></li>
+<li class="book-part">ESTADÍSTICA MULTIVARIADA</li>
+<li><a class="" href="m%C3%A9todos-interdependientes.html"><span class="header-section-number">24</span> Métodos interdependientes</a></li>
+<li><a class="" href="m%C3%A9todos-can%C3%B3nicos.html"><span class="header-section-number">25</span> Métodos Canónicos</a></li>
+</ul>
+
+        <div class="book-extra">
+          
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="modelos-lineales-generalizados-glm" class="section level1" number="22">
+<h1>
+<span class="header-section-number">Capítulo 22</span> <strong>Modelos lineales generalizados (GLM)</strong><a class="anchor" aria-label="anchor" href="#modelos-lineales-generalizados-glm"><i class="fas fa-link"></i></a>
+</h1>
+<div id="logística" class="section level2" number="22.1">
+<h2>
+<span class="header-section-number">22.1</span> Logística<a class="anchor" aria-label="anchor" href="#log%C3%ADstica"><i class="fas fa-link"></i></a>
+</h2>
+</div>
+<div id="binomial" class="section level2" number="22.2">
+<h2>
+<span class="header-section-number">22.2</span> Binomial<a class="anchor" aria-label="anchor" href="#binomial"><i class="fas fa-link"></i></a>
+</h2>
+</div>
+<div id="poisson" class="section level2" number="22.3">
+<h2>
+<span class="header-section-number">22.3</span> Poisson<a class="anchor" aria-label="anchor" href="#poisson"><i class="fas fa-link"></i></a>
+</h2>
+</div>
+<div id="binomial-negativa" class="section level2" number="22.4">
+<h2>
+<span class="header-section-number">22.4</span> Binomial Negativa<a class="anchor" aria-label="anchor" href="#binomial-negativa"><i class="fas fa-link"></i></a>
+</h2>
+</div>
+<div id="hurdle-y-zero-inflados" class="section level2" number="22.5">
+<h2>
+<span class="header-section-number">22.5</span> Hurdle y Zero inflados<a class="anchor" aria-label="anchor" href="#hurdle-y-zero-inflados"><i class="fas fa-link"></i></a>
+</h2>
+</div>
+<div id="weibull" class="section level2" number="22.6">
+<h2>
+<span class="header-section-number">22.6</span> Weibull<a class="anchor" aria-label="anchor" href="#weibull"><i class="fas fa-link"></i></a>
+</h2>
+</div>
+<div id="gamma" class="section level2" number="22.7">
+<h2>
+<span class="header-section-number">22.7</span> Gamma<a class="anchor" aria-label="anchor" href="#gamma"><i class="fas fa-link"></i></a>
+</h2>
+</div>
+<div id="beta" class="section level2" number="22.8">
+<h2>
+<span class="header-section-number">22.8</span> Beta<a class="anchor" aria-label="anchor" href="#beta"><i class="fas fa-link"></i></a>
+</h2>
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="regresi%C3%B3n-lineal-cl%C3%A1sica-lm.html"><span class="header-section-number">21</span> Regresión lineal clásica (LM)</a></div>
+<div class="next"><a href="modelos-de-efectos-mixtos-cl%C3%A1sica-lmm-y-generalizados-glmm.html"><span class="header-section-number">23</span> Modelos de efectos mixtos: clásica (LMM) y generalizados (GLMM)</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+            <hr>
+<nav id="toc" data-toggle="toc" aria-label="En este capítulo"><h2>En este capítulo</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#modelos-lineales-generalizados-glm"><span class="header-section-number">22</span> Modelos lineales generalizados (GLM)</a></li>
+<li><a class="nav-link" href="#log%C3%ADstica"><span class="header-section-number">22.1</span> Logística</a></li>
+<li><a class="nav-link" href="#binomial"><span class="header-section-number">22.2</span> Binomial</a></li>
+<li><a class="nav-link" href="#poisson"><span class="header-section-number">22.3</span> Poisson</a></li>
+<li><a class="nav-link" href="#binomial-negativa"><span class="header-section-number">22.4</span> Binomial Negativa</a></li>
+<li><a class="nav-link" href="#hurdle-y-zero-inflados"><span class="header-section-number">22.5</span> Hurdle y Zero inflados</a></li>
+<li><a class="nav-link" href="#weibull"><span class="header-section-number">22.6</span> Weibull</a></li>
+<li><a class="nav-link" href="#gamma"><span class="header-section-number">22.7</span> Gamma</a></li>
+<li><a class="nav-link" href="#beta"><span class="header-section-number">22.8</span> Beta</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+          
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Análisis Estadístico con R Aplicado a Ciencias</strong>" fue escrito por Irwing S. Saldaña. Fue construido por última vez en 2022-01-19.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

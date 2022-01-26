@@ -1,0 +1,15 @@
+h1:rbasico 
+(ref:vistprevRStudio) Ejemplo de uso de RStudio en el análisis estadístico.
+h2:ejecutar-código 
+h2:r-como-calculadora 
+tab:echo Operaciones (símbolos) aritméticas en R
+h3:funciones-matemáticas 
+tab:echo Operaciones matemáticas en R. Estos procedimientos matemáticos vienen predefinidos como ordenes denominadas 
+h2:operadores-lógicos-y-relacionales 
+tab:echo Operadores relacionales y lógicos en R, modos de uso y resultado lógico esperado (Verdadero o Falso).
+h2:comentar-el-código 
+h2:creación-de-variables 
+h2:funciones 
+h2:funciones-básica-útiles 
+tab:echo Cincuenta funciones básicas útiles en R.
+

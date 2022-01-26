@@ -1,0 +1,44 @@
+# bookdown::gitbook:
+#   css: style.css
+#   split_by: section
+#   config:
+#     toc:
+#       collapse: section
+#       scroll_highlight: true
+#       before: |
+#         <li><a href="./">Análisis Estadístico con R aplicado a Ciencias</a></li>
+#       after: |
+#         <li><a href="https://www.brackinstitute.com/" target="blank">Instituto de Ciencias Antonio Brack</a></li>
+#     sharing:
+#       facebook: true
+#       github: true
+#       twitter: true
+#       linkedin: true
+#     fontsettings:
+#       theme: white
+#       family: sans
+#       size: 2
+# bookdown::pdf_book:
+#   includes:
+#     in_header: latex/preamble.tex
+#     before_body: latex/before_body.tex
+#     after_body: latex/after_body.tex
+#   keep_tex: yes
+#   latex_engine: xelatex
+#   citation_package: natbib
+#   template: null
+#   pandoc_args: [--top-level-division=chapter, --wrap=none]
+#   toc_depth: 3
+#   toc_unnumbered: no
+#   toc_appendix: yes
+#   highlight_bw: yes
+#   quote_footer: ["\\VA{", "}{}"]
+bookdown::bs4_book:
+  includes:
+    in_header: style/ga.html
+  template: style/bs4_book.html
+  css: style/style.css
+  theme:
+    primary: "#2f4fd7" #links
+    bg: "#ffffff" #backgrounds
+    fg: "#000000" #fonts
