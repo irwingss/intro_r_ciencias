@@ -17,5 +17,15 @@ COMENTARIOS
 ADVERTENCIAS
 ```
 
+<div class="question">
+  1. Pregunta
+</div>
+
 # Color de casilla de codigo
-background-image: linear-gradient(160deg,#f0fcfe 0,#fff7f7 100%);
+#background-image: linear-gradient(160deg,#f0fcfe 0,#fff7f7 100%);
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+openxlsx::read.xlsx("bases/tabla1.xlsx")%>%
+  kable(format = "pandoc", caption = 'Operaciones (símbolos) aritméticas en R')
+```

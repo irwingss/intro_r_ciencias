@@ -1,10 +1,12 @@
 # **Estructuras de datos** {#estructurasdatos}
 
+La sección básica de R, introdujo la terminología de variables y funciones en lo que respecta a la sintaxis del código en R. En este capítulo, revisaremos todo lo que se debe conocer para manejar estructuras de datos diversas. Estos son los insumos esenciales que ingresarán más adelante en las funciones para poder procesar datos, analizarlos o convertirlos en impresionantes gráficos estadísticos. La teoría sobre las variables es la base de todo lo que desarrollarás en R.
+
 ## Clasificación de variables
 
 Toda variable cuenta con dos atributos: clase y estructura. Para entender cómo se almacenan los datos en R, se necesita conocerlas a detalle.
 
-(ref:gatocaja) Analogía del gato en la caja para entender a las variables. Aquí, el gato es el contenido; la caja, la estructura. Esta "variable" puede ser de la clase "contenedora de gatos" y estructura "cartón". Así mismo, habrán variables contenedoras de números, de caracteres, de valores lógicos, y estos estarán ordenados de diferente manera.  
+(ref:gatocaja) Analogía del gato en la caja para entender a las variables. Aquí, el gato es el contenido; la caja, la estructura. Esta "variable" podría ser considerada de la clase "contenedora de gatos" y de estructura "cúbica". De igual manera, en R reconoceremos variables contenedoras de números, de caracteres, de valores lógicos, mismos que podrán estar ordenados en estructuras de una, dos, tres o N dimensiones.  
 
 ```{r, echo=FALSE, fig.cap='(ref:gatocaja)', fig.align='center', out.width="100%"}
 knitr::include_graphics("figs/fotografias/gatobox.jpg")
@@ -18,7 +20,7 @@ Según su contenido, en R existen seis clases básicas (o atómicas) de variable
 
 - Clase lógica: identificado con el nombre `logical`
 - Clase caracter o texto: identificado con el nombre `character`
-- Clase número con decimales: conocidos como _doubles_, identificado con el nombre `numeric`
+- Clase número con decimales: conocidos como *doubles*, identificado con el nombre `numeric`
 - Clase número entero: identificado con el nombre `integer`
 - Clase número complejo: identificado con el nombre `complex`
 - Clase crudo o en bits: identificado con el nombre `raw`
@@ -45,6 +47,8 @@ knitr::include_graphics("figs/elaboradas/Estructuras de datos en R.png")
 ## Vectores
 
 R es un lenguaje basado en vectores. La estructura de almacenamiento de datos más básica es el vector. Un vector contiene elementos, que pueden ser números, textos, valores lógicos, y de cualquier clase atómica. No obstante, solamente puede almacenar elementos de una única clase atómica a la vez. Solo números, solo texto, solo valores lógicos.
+
+### Crear un vector
 
 Para crear un vector, se utiliza la función `c()` donde especifíco los elementos directamente:
 
@@ -76,7 +80,7 @@ vNum <- vector("numeric", length=20)
 vNum
 ```
 
-La razón para usar `vector()` es para crear un _contenedo_ vacío de una longitud determinada, el cual podremos ir llenando con los resultados de un loop. Nos adelantaremos un poco con el código un tanto más avanzado, pero verás el uso de esta función.
+La razón para usar `vector()` es para crear un *contenido vacío* de una longitud determinada, el cual podremos ir llenando con los resultados de un loop. Nos adelantaremos un poco con el código un tanto más avanzado, pero verás el uso de esta función.
 
 ```{r}
 vNum <- vector("numeric", length=6)
@@ -92,7 +96,9 @@ for (i in 1:6){
 vNum
 ```
 
-Otras formas especiales de crear vectores implica el uso de `seq()` para crear secuencias numéricas, o `rep()` para repetir de algún valor una determinada cantidad de veces.
+### Vectores de secuencias y repeticiones
+
+Existen formas especiales de crear vectores implica el uso de `seq()` para crear secuencias numéricas, o `rep()` para repetir de algún valor una determinada cantidad de veces.
 
 Para crear una secuencia del 10 al 100 cada 5 elementos, se usa el argument `by =` dentro de `seq()`
 
@@ -112,23 +118,141 @@ Las repeticiones implica definir dos argumentos: lo que se repetirá, y la canti
 rep("América", 10)
 ```
 
+### Funciones útiles para vectores
+
+Resulta útil conocer algunas de las funciones básicas en R para trabajar con vector.
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+openxlsx::read.xlsx("bases/tabla5.xlsx")%>% 
+  kable(format = "pandoc", caption = 'Operaciones (símbolos) aritméticas en R')
+```
+
+### Operaciones numéricas con vectores
+
+Las operaciones matemáticas que involucran vectores se aplican con lo que se denomina *element-wise*, que se traduce como _**elemento a elemento**_.
+
+```{r}
+vector2 <- 10:20
+vector2 + 5
+```
+
+En la operación anterior, se le sumó 5 unidades a cada elemento de `vector2`. Si se **operan dos vectores de igual longitud**, los elementos del primer vector se van operando uno por uno contra el elemento correspondiente en la posición homóloga del segundo vector.
+
+```{r}
+vector3 <- 0:10
+vector2 * vector3
+```
+
+Si se **operan dos vectores de diferente longitud** de elementos, el resultado tendrá la longitud del mayor, y el menor se irá operando elemento a elemento, y se *recliclará* desde su primer elemento para aplicarse hasta culminar de operar todo.
+
+```{r}
+vector4 <- 1:3
+
+# Revisar el contenido de los vectores
+vector2
+vector4
+
+# Producto de dos vectores de longitud desigual
+vector2 * vector4
+```
+
+### Valores perdidos en vectores
+
+Estos elementos son los tipicos *NA* que aparecen cuando no hay un dato disponible en un conjunto de datos. Si operamos un vector con funciones estadísticas, como `mean()` o `sd()`, el resultado se verá afectado por la presencia del NA, y este impedirá que se genere el resultado correcto. Para evitarlo, es importante incorporar el argumento `na.rm = TRUE` para *remover* los NA de un conjunto de datos y operar sin ellos.
+
+```{r}
+vectorNA <- c(10, 20, NA, 40, 50)
+
+# Operar directo (errado)
+mean(vectorNA)
+
+# Operar incluyendo el argumento para remover NAs
+mean(vectorNA, na.rm = TRUE)
+```
+
+### Indexación de vectores
+
+Indexar significa ubicar posiciones. Cada elemento dentro del vector tiene una posición única. Se puede **extraer el contenido de una posición única definida** dentro de un vector utilizando el operador `[]`. Utilicemos el objeto `vectorNA` creado en la sección anterior:
+
+```{r}
+vectorNA[1]
+
+vectorNA[3]
+
+vectorNA[5]
+```
+
+Para **extraer más de un elemento a la vez**, en lugar de colocar una sola posición dentro de `[]`, se coloca un vector con las posiciones. 
+
+```{r}
+vectorNA[c(1,3)]
+
+vectorNA[c(1,3,5)]
+```
+
+Otro modo es crear un vector de índice, **index**, que contenga las posiciones de interés:
+
+```{r}
+index <- c(1,3,5)
+vectorNA[index]
+```
+
+**Indexar con operaciones lógicas** también es posible. El operador `[]` puede recibir vectores lógicos, para entregar como resultado aquellos elementos cuyas posiciones sean `TRUE` dentro del vector lógico. Si se define una operación lógica como ¿Qué elementos de un vector numérico `x` son valores mayores iguales a 25?, se debe escribir en R: `x>=25`.
+
+```{r}
+# Veamos el resultado para entender la operación lógica
+# (nota que los elemento NA no se convierten a TRUE o FALSE)
+vectorNA>=25
+```
+
+Conociendo esto, el resultado de la indexación sería:
+
+```{r}
+# En dos pasos
+index <- vectorNA>=25
+vectorNA[index]
+
+# En un paso
+vectorNA[vectorNA>=25]
+```
+
+En caso se requiera conocer en qué posiciones se cumple la condición lógica anterior, usa la función `which()`:
+
+```{r}
+which(vectorNA>=25)
+```
+
+Dado que `which()` solo reporta posiciones `TRUE` y obvia las posiciones con NA, usarlo en la indexación es la mejor manera de reportar los elementos sin incluir en el resultado los valores NA:
+
+```{r}
+vectorNA[which(vectorNA>=25)]
+```
+
 ## Factores
 
-Los factores son tipos especiales de vectores, donde R evalúa los valores únicos de la secuencia y los define como categorías. Son muy útiles en programación dado que nos permiten graficar, por ejemplo, con un color diferenciado cada nivel de una variable categorica. Imagina que se requiere hacer un gráfico de dispersión de puntos para ver la relación entre dos variables, pero permitiendo que el color de los puntos refleje el grupo al que pertenece cada observación:
+Los factores son tipos especiales de vectores, donde R evalúa los valores únicos de la secuencia y los define como categorías. Son muy útiles en programación dado que permiten graficar, por ejemplo, con un color diferenciado cada nivel de una variable categorica. Imagina que se requiere hacer un gráfico de dispersión de puntos para ver la relación entre dos variables, pero permitiendo que el color de los puntos refleje el grupo al que pertenece cada observación:
 
-(ref:factoresEjemplo) Ejemplo de uso del conjunto de datos _Grupos_ para colorear los puntos del gráfico de enfrentamiento de las variables _Pétalo_ y _Sépalo_.
+(ref:factoresEjemplo) Ejemplo de uso del conjunto de datos _Grupos_ (que es un Factor) empleada para colorear los puntos del gráfico de enfrentamiento de las variables _Pétalo_ y _Sépalo_.
 
 ```{r, echo=FALSE, fig.cap='(ref:factoresEjemplo)', fig.align='center', out.width="100%"}
 data("iris")
 
 colorPal <- c("#b41214","#007588","#ffc000")
 
+iris$Species <- factor(iris$Species, labels=c("setosa"="I. setosa",
+                                              "versicolor"="I. versicolor",
+                                              "virginica"="I. virginica"))
 ggplot(data=iris, 
        aes(x=Petal.Length, y=Sepal.Length, color=Species))+
   geom_point(size=3, alpha=0.5)+
   scale_color_manual(values=colorPal)+
-  labs(x="Pétalo", y="Sépalo", color="Grupos")
+  labs(x="Pétalo", y="Sépalo", color="Grupos")+
+  theme_minimal()+
+  theme(legend.text=element_text(face=3),
+        legend.position="top")
 ```
+
+### Crear un factor
 
 Para crear un factor se utiliza la función `factor()`, y un vector dentro de ella. La función evaluará los valores únicos del vector y definirá los niveles del factor:
 
@@ -144,6 +268,8 @@ factor(vectorC)
 factor(vectorN)
 ```
 
+### Niveles de un factor
+
 Cada factor muestra sus niveles (Levels) al final de la secuencia. Se puede conocer cuales son los niveles de un factor guardado en el ambiente, utilizando la función `levels()`:
 
 ```{r}
@@ -153,6 +279,8 @@ F1 <- factor(vectorC)
 # Revisar los niveles del factor
 levels(F1)
 ```
+
+### Reordenar los niveles
 
 El orden de los niveles es importante. Por defecto se ordenan los niveles de menor a mayor (si son números), o de la A a la Z (sin son texto). Para una regresión, para un gráfico, el orden afecta los resultados. En una regresión lineal, el primer nivel de un factor puede ser considerado como _nivel base_, y las interpretaciones se harán como factores de aumento o disminución de los otros niveles respecto al nivel base. En un gráfico, el orden de los colores, o las etiquetas de un eje, seguirán este orden. 
 
@@ -174,7 +302,9 @@ F2 <- factor(vectorC, levels=c("B","C","A"))
 levels(F2)
 ```
 
-Por otro lado, si hay necesidad de cambiar el nombre de algún (o algunos) nivel(es), se puede usar un vector con los cambios deseados como contenido del argumento `labels=`. El orden de las etiquetas cambiadas debe seguir el mismo orden original de los niveles:
+### Etiquetas de un factor
+
+En algunas ocasionas existe la necesidad de cambiar el nombre de algún (o algunos) nivel(es), se puede usar un vector con los cambios deseados como contenido del argumento `labels=`. El orden de las etiquetas cambiadas debe seguir el mismo orden original de los niveles:
 
 ```{r}
 # Crear un factor con cambie de etiqueta
@@ -191,6 +321,72 @@ F3
 ```
 
 Como fue evidente, al crear un factor se puede usar como insumo un vector, como `vectorN`, u otro factor previamente creado, como `F1`.
+
+### Valores perdidos en un factor
+
+Los valores perdidos no forman parte de los niveles de un factor. Se muestran como contenido del conjunto de datos, pero no son considerados niveles.
+
+```{r}
+conjunto1 <- c(1,2,1,1,NA,2,1,NA,3,2,1,3,2,3,3,NA)
+fctConjunto1 <- factor(conjunto1)
+fctConjunto1
+```
+
+Por el contrario, si el investigador coloca deliberadamente los NA como texto, estos sí serán considerados como nivel:
+
+```{r}
+conjunto2 <- c(1,2,1,1,"NA",2,1,"NA",3,2,1,3,2,3,3,"NA")
+fctConjunto2 <- factor(conjunto2)
+fctConjunto2
+```
+
+### Indexación de factores
+
+Indexar significa ubicar posiciones. Tal cual con un vector, en los factores cada elemento dentro del vector tiene una posición única. Para **extraer el contenido de una posición única definida** se utiliza igualmente el operador `[]`. Utilicemos el objeto `conjunto1` creado en la sección anterior:
+
+```{r}
+fctConjunto2[3]
+
+fctConjunto2[5]
+```
+
+El resto de reglas para indexar varios elementos a la vez, o indexar con vectores lógicos, son las mismas que para un vector:
+
+```{r}
+# Indexar varios elementos a la vez
+fctConjunto2[c(3,5,10)]
+```
+
+Indexar con operaciones relacionales puede ser engorroso. Debido a que los niveles del factor ya no son considerados *números per se*, sino que son categorías textuales, utiliza operaciones como *mayor qué*, *menor qué* y otras similares, produce resultados vacíos NA. Es imposible para R saber que *Categoría 1* es menor igual que *Categoría 2*. No obstante, se pueden aún utiliza operaciones relacionales de igualdad: 
+
+```{r}
+# Con operación relacional de menor qué
+# obtendremos un resultado erróneo
+index <- fctConjunto2 < 3
+fctConjunto2[index]
+
+# Con operación relacional de igualdad
+index <- fctConjunto2 == 3
+fctConjunto2[index]
+
+# Utilizando el operador %in% podemos pedir 
+# varias igualdades a la vez
+index <- fctConjunto2 %in% c(1,2)
+fctConjunto2[index]
+```
+
+Si se lidia con factores conteniendo NA (no su versión en texto "NA"), el indexar sin `which()` genera que se muestren los NA cuando no son requeridos. Utilicemos el objeto `fctConjunto1`: 
+
+```{r}
+index <- fctConjunto1 == 3
+fctConjunto1[index]
+```
+
+Esto no ocurre al usar which() dentro de los `[]`:
+
+```{r}
+fctConjunto1[which(index)]
+```
 
 ## Matrices
 
@@ -238,30 +434,56 @@ DF <- data.frame(Col1 = 1:5,
 DF
 ```
 
-Cargar una base de datos de un archivo como data frame en R, dependerá del tipo de archivo
-
-Para cargar un excel, se recomienda usar
-
-```{r}
-
-```
-
+No obstante, el modo de trabajo habitual implica cargar archivos desde el computador hacia RStudio para guardar tablas de datos como objetos data frame en el ambiente. Para cargar archivos excel (.xlsx) o delimitados (.csv, .txt), o incluso archivos desde SPSS (.SAV), revisa la sección [4.2 Lectura de bases de datos](#lectura-de-bases-de-datos).
 
 ## Tibbles
 
+Los Tibbles son estructuras de datos en dos dimensiones que tienen todas las ventajas de almacenaje que los data frame. Pueden almacenar datos de cualquier clase (texto, números, lógicos, etc). Pero presentan dos ventajas adicionales:
+
+- Pueden almacenar objetos complejos, como modelos o fórmulas en las celdas, como si se tratase de un elemento cualquiera. 
+- Al imprimir sus resultados en consola, brindan información extra sobre el tamaño de la tabla (filas por columnas), y el tipo de datos que almacena de cada columna (su clase).
+- También, al ser vistos en consola, solo muestran las filas y columnas adecuadas para el pequeño tamaño de la consola, sin desbordarse como lo hacen los data frame. Esto último se verá reflejado cuando visualices en consola bases de datos grandes.
+
+```{r}
+TB <- tibble(Col1 = 1:5, 
+                 Col2 = c("Sit1","Sit1","Sit2","Sit2","Sit3"),
+                 Log = c(T,T,F,F,T),
+                 Fct = factor(c("A","B","C","B","A")))
+TB
+```
 
 ## Listas
 
+Las listas son estructuras de datos primitivas. En teoría, los data frame y tibbles son estructuras internamente basadas en listas. En ellos, sus elementos son únicamente vectores de elementos que se comportan como columnas de las tablas cuando imprimidos el objeto. 
 
+Las listas propiamente dichas, las que creamos con la función `list()`, son estructuras amigables, _almacenando prácticamente toda clase de objetos_: vectores, factores, matrices, data frames, tibbles, incluso otras listas.
 
-## Indexación de variables
+Como se mencionó arriba, la función `list()` permite **crear listas no nombradas**. Cada elemento adquiere como nombre un número correlativo:
 
-### Indexación en variables 1D
+```{r}
+# Creación de una lista no nombradas. Utilizaremos
+# algunos objetos que hemos ido creando hasta aquí.
+primeraLista <- list(TB, DF, vector1, F2)
+primeraLista
+```
 
-### Indexación en variables 2D
+Para **crear una lista nombrada**, se puede colocar cada elemento precedido con un nombre y el símbolo igual.
 
-### Indexación en listas
+```{r}
+# Creación de una lista no nombradas. Utilizaremos
+# algunos objetos que hemos ido creando hasta aquí.
+L1 <- list(TB = TB, DF = DF, vecThor = vector1, factor = F2)
+L1
+```
 
+Resulta muy engorroso tener que colocar los nombres dado que las variables ya tienen uno, esto se puede solucionar si se usa la función `lst()` de la librería **dplyr**.
+
+```{r}
+L2 <- dplyr::lst(TB, DF, vector1, F2)
+L2
+```
+
+Es más que seguro que en el futuro encontrarás ventajoso tener listas nombradas para el manejo de estructuras de datos.
 
 ## Coerción de variables
 

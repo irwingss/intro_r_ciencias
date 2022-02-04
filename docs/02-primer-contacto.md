@@ -36,7 +36,7 @@ Por ahora no se ahondará en el detalle de qué cosa es `rnorm()` o `hist()`.
 hist(rnorm(10000))
 ```
 
-<img src="02-primer-contacto_files/figure-html/unnamed-chunk-2-1.png" width="100%" style="display: block; margin: auto;" />
+<img src="02-primer-contacto_files/figure-html/unnamed-chunk-2-1.svg" width="100%" style="display: block; margin: auto;" />
 
 Para replicarlo, es necesario escribir el código exacto, para luego dar la orden, es decir, ejecutar el código. La ejecución se hace presionando en el teclado de tu computador `control + enter` o `command + enter` (usuarios macOS).
 
@@ -55,12 +55,12 @@ Si se ejecuta el símbolo `:` entre dos números, R generará el rango de valore
 
 ```r
 1:100
-##   [1]   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19
-##  [20]  20  21  22  23  24  25  26  27  28  29  30  31  32  33  34  35  36  37  38
-##  [39]  39  40  41  42  43  44  45  46  47  48  49  50  51  52  53  54  55  56  57
-##  [58]  58  59  60  61  62  63  64  65  66  67  68  69  70  71  72  73  74  75  76
-##  [77]  77  78  79  80  81  82  83  84  85  86  87  88  89  90  91  92  93  94  95
-##  [96]  96  97  98  99 100
+#   [1]   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19
+#  [20]  20  21  22  23  24  25  26  27  28  29  30  31  32  33  34  35  36  37  38
+#  [39]  39  40  41  42  43  44  45  46  47  48  49  50  51  52  53  54  55  56  57
+#  [58]  58  59  60  61  62  63  64  65  66  67  68  69  70  71  72  73  74  75  76
+#  [77]  77  78  79  80  81  82  83  84  85  86  87  88  89  90  91  92  93  94  95
+#  [96]  96  97  98  99 100
 ```
 
 El resultado muestra los confusos `[]` a la izquierda del primer elemento de cada fila del conjunto de datos resultante, indicando su posición dentro de la secuencia de elementos.
@@ -72,7 +72,7 @@ Como ya se había mencionado antes, R nos permite operar con código. La cosa m�
 
 ```r
 10 + 10
-## [1] 20
+# [1] 20
 ```
 
 
@@ -147,10 +147,10 @@ Para comentar en R, se requiere colocar el símbolo `#` a la izquierda del texto
 ```r
 # Esta es una suma 
 2 + 2 
-## [1] 4
+# [1] 4
 
 10 * 2 # + 3029
-## [1] 20
+# [1] 20
 ```
 
 Como queda en evidencia, no importa si el comentario está en solitario en una línea de código, o si está a la derecha de algo que sí se quiere ejecutar. Esto no afecta el resultado de la operación.
@@ -171,7 +171,7 @@ Si se desea ver el contenido de una variable previamente guardada en el ambiente
 
 ```r
 NUM
-## [1] 2022
+# [1] 2022
 ```
 
 o usar la función `print()` para imprimirla en la consola:
@@ -179,7 +179,7 @@ o usar la función `print()` para imprimirla en la consola:
 
 ```r
 print(NUM)
-## [1] 2022
+# [1] 2022
 ```
 
 Una versión frecuentemente usada en ejemplos de R, involucra colocar a la asignación entre paréntesis para que hacer dos cosas a la vez: guardar la variable en el ambiente y mostrar su contenido en la consola.
@@ -187,7 +187,7 @@ Una versión frecuentemente usada en ejemplos de R, involucra colocar a la asign
 
 ```r
 (NUM <- 2022)
-## [1] 2022
+# [1] 2022
 ```
 
 Existe la posibilidad de asignar con un operador de asignación inverso `->`. Toma en cuenta qué debe ir en la cola (contenido) y en la cabeza (nombre) del operador. En otras palabras, la "flecha" que se forma con este operador siempre apunta al futuro nombre de la variable. Recuerda, la variable no existe hasta que no se ejecute y aparezca dicho nombre en el ambiente de RStudio.
@@ -209,7 +209,7 @@ NUM = 2022
 # Calcular el logaritmo en base 2 de 10
 bs <- 2 + 8
 log(10, base = bs)
-## [1] 1
+# [1] 1
 ```
 
 
@@ -230,7 +230,7 @@ x <- c(7,9,3,4,5,3,7,8)
 
 # Usando sd() para hallar la desviación estándar de x
 sd(x)
-## [1] 2.315
+# [1] 2.315
 ```
 
 Si se ejecuta únicamente el nombre de una función existente en RStudio, en la consola se mostrará el contenido de la misma, la secuencia de órdenes que le dan forma a la función. Ejecuta el `sd` para ver su contenido:
@@ -238,11 +238,11 @@ Si se ejecuta únicamente el nombre de una función existente en RStudio, en la 
 
 ```r
 sd
-## function (x, na.rm = FALSE) 
-## sqrt(var(if (is.vector(x) || is.factor(x)) x else as.double(x), 
-##     na.rm = na.rm))
-## <bytecode: 0x00000000253c5da0>
-## <environment: namespace:stats>
+# function (x, na.rm = FALSE) 
+# sqrt(var(if (is.vector(x) || is.factor(x)) x else as.double(x), 
+#     na.rm = na.rm))
+# <bytecode: 0x0000000025bb81a0>
+# <environment: namespace:stats>
 ```
 
 La secuencia de órdenes dentro de `sd` es corta. Básicamente utiliza la función `sqrt()` para sacarle la raíz cuadrada a la función `var()`, esta última calcula la varianza de un conjunto de datos. La estructura del código es propiamente la fórmula matemática para el cálculo de la desviación estándar. Aunque, a decir verdades, el código luce más complejo, y es debido a que aquí la función `var()` contiene argumentos condicionales para pedir que evalúe si el objeto `x` es correcto para la función, o si se necesita un cambio antes de procesar`x` en `sd()`. Pierde cuidado si no se entiende mucho por ahora, no es necesario comprender las funciones a este nivel al iniciar con R.

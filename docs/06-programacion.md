@@ -25,7 +25,7 @@ mi.fun <- function(x){
 
 # Usando mi.fun() con 10
 mi.fun(10)
-## [1] 110
+# [1] 110
 ```
 
 Para recrear la famosa función de [Carl Friedrich Gauss](https://es.wikipedia.org/wiki/Carl_Friedrich_Gauss) para calcular la suma de todos los números dentro de un rango numérico, usaremos la fórmula matemática:
@@ -39,7 +39,7 @@ k.Gauss <- function(n) {
 }
 
 k.Gauss(100)
-## [1] 5050
+# [1] 5050
 ```
 
 Adicionalmente, se puede predefinir valores por defecto en `function()`, mismos que se podrán modificar al usar la función ya creada.
@@ -56,7 +56,7 @@ log.Gauss <- function(n, base = 2) {
 
 # Aplicando la función al valor 100
 log.Gauss(100)
-## [1] 12.3
+# [1] 12.3
 ```
 
 Como es notorio, se pueden crear variables dentro de una función, pero estas serán temporales. Una vez se imprime el resultado en consola, la variable desaparece. Para que algún paso realizado dentro de la función se guarde como una variable permanentemente en el ambiente, usa el símbolo especial `<<-`.
@@ -72,12 +72,12 @@ log.Gauss <- function(n, base = 2) {
 
 # Aplicando la función al valor 100
 log.Gauss(100)
-## [1] 12.3
+# [1] 12.3
 
 # Mostrando el objeto que se creó automáticamente
 # en el ambiente tras ejecutar log.Gauss()
 print(resultado.Gauss)
-## [1] 5050
+# [1] 5050
 ```
 
 

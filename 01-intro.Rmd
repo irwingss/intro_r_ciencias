@@ -2,7 +2,14 @@
 
 # **Esenciales de R y RStudio** {#esencialesRRStudio}
 
-Este primer capítulo está enteramente dedicado a conocer R y RStudio como programas. Se trabajará desde su instalación, configuración, uso de los paneles de RStudio, uso de librerías, repositorios, tipos de documentos en RStudio, proyectos, y cómo pedir ayuda. Este primer contacto con RStudio facilitará el uso del programa para escribir código en R (Sección [2 R básico](#rbasico)).
+Comenzar el aprendizaje de un lenguaje de programación puede resultar doblemente engorroso si nunca se estuvo en contacto con un editor de texto, o un interprete de lenguaje de programación. Este primer capítulo está enteramente dedicado a brindarle al lector los puntos esenciales para entender el uso de RStudio, el principal editor de texto especializado para el lenguaje R. Se recomienda realizar los pasos de instalación y configuración, además de una revisión concienzuda de los tópicos aquí presentados, antes de pasar a tener el primer contacto con la sintaxis del código de R (sección [2. Primer contacto con R](#rbasico)). 
+
+(ref:esenciales1) Estructura temática del capítulo "Esenciales de R y RStudio".
+
+```{r, echo=FALSE, fig.cap='(ref:esenciales1)', fig.align='center', out.width="100%"}
+knitr::include_graphics("figs/elaboradas/Esenciales de RStudio.png")
+```
+
 
 ## Instalación de R y RStudio
 
@@ -11,6 +18,7 @@ Para utilizar el lenguaje de programación R (en adelante R), proponemos el uso 
 ```{block2, type='rmdwarning '}
 **Requerimientos mínimos del sistema para ejecutar RStudio:**
 
+- Sistema con CPU de 64 bits. Con 32 bits es posible instalar R pero no las versiones más recientes de RStudio.
 - Procesadores de 2 núcleos (equivalente a Intel® Core™ i3 o AMD Ryzen™ 3).
 - 4 Gb RAM.
 - Espacio en almacenamiento de 100 Gb.
@@ -404,10 +412,16 @@ knitr::include_graphics("figs/screenshots/proyectos5.jpg")
 knitr::include_graphics("figs/screenshots/proyectos6.jpg")
 ```
 
+(ref:proyecto7) En tu computador, encontrarás creada la carpeta del proyecto, en la dirección que especificaste, donde podrás pegar los archivos que aparecerán en la pestaña de Files del Panel de Ambiente del proyecto.
+
+```{r, echo=FALSE, fig.cap='(ref:proyecto7)', fig.align='center', out.width="100%"}
+knitr::include_graphics("figs/screenshots/proyectos7.jpg")
+```
+
 ```{block2, type='rmdnote'}
 - Para ver la dirección de la carpeta de trabajo en consola, ejecuta la función `getwd()`.
 
-- Si por el contrario necesitas definir un nuevo directorio de trabajo manualmente, ejecuta la función `setwd()` definiendo dentro de ella la dirección deseada. Por ejemplo:
+- Si necesitas cambiar manualmente tu proyecto a otro directorio (carpeta) de trabajo, ejecuta la función `setwd()` definiendo dentro de ella y entre comillas la nueva dirección deseada. Por ejemplo:
 <center>`setwd("C:/Users/irwin/Documents/Otra_Carpeta/Subcarpeta B")`</center>
 
 - No olvides las comillas al inicio y final de la dirección, ni que los slash usados son forwardslash (hacia delante) `/`, no backslash (hacia atrás) `\`.
@@ -431,13 +445,6 @@ knitr::include_graphics("figs/screenshots/help1.jpg")
 knitr::include_graphics("figs/screenshots/help2.jpg")
 ```
 
-Para pedir ayuda en internet, se recomienda el uso del buscador exclusivo de temas en R conocido como [rseek](https://rseek.org/). 
-
-(ref:help3) Búsqueda de ayuda para la función `mean()` en rseek. Puedes acceder directamente a la viñeta (PDF o web) del uso de la función (que es la misma información que en la búsqueda en RStudio), documentación, funciones asociadas, paquetes populares que usen mean, wikipedia, blogs como [R-Bloggers](https://www.r-bloggers.com/) donde expliquen su uso, _Issues_ que son problemas reportados para la función, o paquetes que contengan una función con el mismo nombre. 
-
-```{r, echo=FALSE, fig.cap='(ref:help3)', fig.align='center', out.width="100%"}
-knitr::include_graphics("figs/screenshots/rseek.jpg")
-```
 
 ```{block2, type='rmdnote'}
 - Es posible **pedir ayuda con código**. Ejecutando la función `help()` conteniendo el nombre de la _función_ que se desea buscar, abrirá automáticamente la página de ayuda en la pestaña Help. Por ejemplo:`help(varimax)`.
@@ -445,4 +452,12 @@ knitr::include_graphics("figs/screenshots/rseek.jpg")
 - Otra forma de obtener el mismo resultado es usando el símbolo `?`. Por ejemplo: `?varimax`.
 
 - Si se necesita buscar un _término_, no una función, se usaría el simbolo doble `??` antes del término a buscar. Esta búsqueda es más lenta porque es más profunda y nos da todas las funciones donde se use dicho término. Por ejemplo, para buscar en todos archivos de ayuda de R el término deviance: `??deviance`.
+```
+
+Para pedir ayuda en internet, se recomienda el uso del buscador exclusivo de temas en R conocido como [rseek](https://rseek.org/). 
+
+(ref:help3) Búsqueda de ayuda para la función `mean()` en rseek. Puedes acceder directamente a la viñeta (PDF o web) del uso de la función (que es la misma información que en la búsqueda en RStudio), documentación, funciones asociadas, paquetes populares que usen mean, wikipedia, blogs como [R-Bloggers](https://www.r-bloggers.com/) donde expliquen su uso, _Issues_ que son problemas reportados para la función, o paquetes que contengan una función con el mismo nombre. 
+
+```{r, echo=FALSE, fig.cap='(ref:help3)', fig.align='center', out.width="100%"}
+knitr::include_graphics("figs/screenshots/rseek.jpg")
 ```

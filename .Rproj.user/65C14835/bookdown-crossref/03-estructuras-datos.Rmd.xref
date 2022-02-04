@@ -1,19 +1,28 @@
 h1:estructurasdatos 
 h2:clasificación-de-variables Clasificación de variables
-(ref:gatocaja) Analogía del gato en la caja para entender a las variables. Aquí, el gato es el contenido; la caja, la estructura. Esta  puede ser de la clase  y estructura . Así mismo, habrán variables contenedoras de números, de caracteres, de valores lógicos, y estos estarán ordenados de diferente manera.
+(ref:gatocaja) Analogía del gato en la caja para entender a las variables. Aquí, el gato es el contenido; la caja, la estructura. Esta  podría ser considerada de la clase  y de estructura . De igual manera, en R reconoceremos variables contenedoras de números, de caracteres, de valores lógicos, mismos que podrán estar ordenados en estructuras de una, dos, tres o N dimensiones.
 h3:clases-atómicas Clases atómicas
 h3:estructuras-de-datos Estructuras de datos
 (ref:strdatos1) Estructuras informáticas para almacenar de datos en el lenguaje R.
 h2:vectores Vectores
+h3:crear-un-vector Crear un vector
+h3:vectores-de-secuencias-y-repeticiones Vectores de secuencias y repeticiones
+h3:funciones-útiles-para-vectores Funciones útiles para vectores
+tab:echo Operaciones (símbolos) aritméticas en R
+h3:operaciones-numéricas-con-vectores Operaciones numéricas con vectores
+h3:valores-perdidos-en-vectores Valores perdidos en vectores
+h3:indexación-de-vectores Indexación de vectores
 h2:factores Factores
-(ref:factoresEjemplo) Ejemplo de uso del conjunto de datos  para colorear los puntos del gráfico de enfrentamiento de las variables  y .
+(ref:factoresEjemplo) Ejemplo de uso del conjunto de datos  (que es un Factor) empleada para colorear los puntos del gráfico de enfrentamiento de las variables  y .
+h3:crear-un-factor Crear un factor
+h3:niveles-de-un-factor Niveles de un factor
+h3:reordenar-los-niveles Reordenar los niveles
+h3:etiquetas-de-un-factor Etiquetas de un factor
+h3:valores-perdidos-en-un-factor Valores perdidos en un factor
+h3:indexación-de-factores Indexación de factores
 h2:matrices Matrices
 h2:data-frames Data Frames
 h2:tibbles Tibbles
 h2:listas Listas
-h2:indexación-de-variables Indexación de variables
-h3:indexación-en-variables-1d Indexación en variables 1D
-h3:indexación-en-variables-2d Indexación en variables 2D
-h3:indexación-en-listas Indexación en listas
 h2:coerción-de-variables Coerción de variables
 

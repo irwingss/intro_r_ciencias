@@ -1,5 +1,6 @@
 h1:part-introducción-a-r-para-ciencias (PART*) INTRODUCCIÓN A R PARA CIENCIAS 
 h1:esencialesRRStudio 
+(ref:esenciales1) Estructura temática del capítulo .
 h2:instalación-de-r-y-rstudio Instalación de R y RStudio
 h4:para-windows Para Windows:
 h4:para-macos Para macOS:
@@ -47,6 +48,7 @@ h2:proyectos-de-rstudio Proyectos de RStudio
 (ref:proyecto4) Se abrirá una nueva sesión con título idéntico a la carpeta de proyecto creada (aquí ). Nótese el ambiente (environment) en blanco. Todas las variables y funciones que se creen o carguen en el proyecto permanecerán en este ambiente específico del proyecto.
 (ref:proyecto5) En la pestaña de  se verá el contenido de todo lo que copiemos dentro de la carpeta del proyecto. Puedes acceder a la carpeta de trabajo haciendo clic en . Allí podrás pegar archivos o documentos que necesites cargar posteriormente en tu proyecto.
 (ref:proyecto6) Para crear un nuevo proyecto, abrir uno existente o cerrar el proyecto actual (flecha roja), existe el menú de acceso rápido que tiene el mismo nombre que tu proyecto actual. Para ver la dirección de la carpeta de trabajo en consola, ejecuta la función .
+(ref:proyecto7) En tu computador, encontrarás creada la carpeta del proyecto, en la dirección que especificaste, donde podrás pegar los archivos que aparecerán en la pestaña de Files del Panel de Ambiente del proyecto.
 h2:pedir-ayuda Pedir ayuda
 (ref:help1) Accediendo a la pestaña Help para buscar ayuda sobre la función . Nótese que solo se busca el nombre de la función sin paréntesis.
 (ref:help2) Detalle de la ayuda de la función . Es muy útil revisar la sección Arguments donde se describen los argumentos, además los ejemplos de uso.
