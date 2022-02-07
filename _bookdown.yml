@@ -16,7 +16,8 @@ rmd_files: [
   "05-tidyverse.Rmd",
   "06-programacion.Rmd",
   "07-potencialidades.Rmd",
-  "08-ggplot2.Rmd"
+  "08-ggplot2.Rmd",
+  "09-solucionario.Rmd"
   ]
 clean: [packages.bib, bookdown.bbl]
 new_session: yes

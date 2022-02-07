@@ -42,7 +42,10 @@ tab:unnamed-chunk-9
 tab:unnamed-chunk-21
 fig:unnamed-chunk-2
 tab:unnamed-chunk-10
-fig:unnamed-chunk-22
+fig:unnamed-chunk-24
+tab:unnamed-chunk-46
+tab:unnamed-chunk-47
+tab:unnamed-chunk-48
 esencialesRRStudio
 instalación-de-r-y-rstudio
 configuración-de-rstudio
@@ -64,6 +67,7 @@ comentar-el-código
 creación-de-variables
 funciones
 funciones-básica-útiles
+ejercicios-del-capítulo
 estructurasdatos
 clasificación-de-variables
 clases-atómicas
@@ -75,6 +79,7 @@ funciones-útiles-para-vectores
 operaciones-numéricas-con-vectores
 valores-perdidos-en-vectores
 indexación-de-vectores
+muestreo-de-vectores
 factores
 crear-un-factor
 niveles-de-un-factor
@@ -87,6 +92,7 @@ data-frames
 tibbles
 listas
 coerción-de-variables
+ejercicios-del-capítulo-1
 carga-y-exportación-de-datos
 directorios-de-trabajo
 lectura-de-bases-de-datos
@@ -159,3 +165,6 @@ utilizando-patchwork
 utilizando-ggpubr
 exportacion-en-png-o-jpeg
 exportación-en-pdf
+solucionario-de-los-ejercicios-del-libro
+cap.-2-primer-contacto-con-r
+preg-estructurasdatos

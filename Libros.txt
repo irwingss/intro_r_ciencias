@@ -36,6 +36,7 @@ https://www.uni-kiel.de/psychologie/rexrepos/posts/logLinear.html
 
 estadistica basica
 https://lindeloev.github.io/tests-as-linear/
+https://bookdown.org/ajsage/statistics_for_data_science_notes/
 
 https://www.muscardinus.be/2018/09/number-random-effect-levels/
 
@@ -45,4 +46,4 @@ https://www.muscardinus.be/2018/09/number-random-effect-levels/
 http://personal.psu.edu/mar36/stat_461/?C=M;O=A
 
 https://code.earthengine.google.com/
-
+https://bookdown.org/bgcasey/BioacousticsClass_GEE/

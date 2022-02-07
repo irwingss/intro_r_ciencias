@@ -24,7 +24,7 @@
 <meta name="author" content="Irwing S. Saldaña" />
 
 
-<meta name="date" content="2022-02-04" />
+<meta name="date" content="2022-02-07" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -178,6 +178,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.5" data-path="creación-de-variables.html"><a href="creación-de-variables.html"><i class="fa fa-check"></i><b>2.5</b> Creación de variables</a></li>
 <li class="chapter" data-level="2.6" data-path="funciones.html"><a href="funciones.html"><i class="fa fa-check"></i><b>2.6</b> Funciones</a></li>
 <li class="chapter" data-level="2.7" data-path="funciones-básica-útiles.html"><a href="funciones-básica-útiles.html"><i class="fa fa-check"></i><b>2.7</b> Funciones básica útiles</a></li>
+<li class="chapter" data-level="2.8" data-path="ejercicios-del-capítulo.html"><a href="ejercicios-del-capítulo.html"><i class="fa fa-check"></i><b>2.8</b> Ejercicios del capítulo</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="estructurasdatos.html"><a href="estructurasdatos.html"><i class="fa fa-check"></i><b>3</b> <strong>Estructuras de datos</strong></a>
 <ul>
@@ -194,6 +195,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.2.4" data-path="vectores.html"><a href="vectores.html#operaciones-numéricas-con-vectores"><i class="fa fa-check"></i><b>3.2.4</b> Operaciones numéricas con vectores</a></li>
 <li class="chapter" data-level="3.2.5" data-path="vectores.html"><a href="vectores.html#valores-perdidos-en-vectores"><i class="fa fa-check"></i><b>3.2.5</b> Valores perdidos en vectores</a></li>
 <li class="chapter" data-level="3.2.6" data-path="vectores.html"><a href="vectores.html#indexación-de-vectores"><i class="fa fa-check"></i><b>3.2.6</b> Indexación de vectores</a></li>
+<li class="chapter" data-level="3.2.7" data-path="vectores.html"><a href="vectores.html#muestreo-de-vectores"><i class="fa fa-check"></i><b>3.2.7</b> Muestreo de vectores</a></li>
 </ul></li>
 <li class="chapter" data-level="3.3" data-path="factores.html"><a href="factores.html"><i class="fa fa-check"></i><b>3.3</b> Factores</a>
 <ul>
@@ -209,6 +211,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.6" data-path="tibbles.html"><a href="tibbles.html"><i class="fa fa-check"></i><b>3.6</b> Tibbles</a></li>
 <li class="chapter" data-level="3.7" data-path="listas.html"><a href="listas.html"><i class="fa fa-check"></i><b>3.7</b> Listas</a></li>
 <li class="chapter" data-level="3.8" data-path="coerción-de-variables.html"><a href="coerción-de-variables.html"><i class="fa fa-check"></i><b>3.8</b> Coerción de variables</a></li>
+<li class="chapter" data-level="3.9" data-path="ejercicios-del-capítulo-1.html"><a href="ejercicios-del-capítulo-1.html"><i class="fa fa-check"></i><b>3.9</b> Ejercicios del capítulo</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="carga-y-exportación-de-datos.html"><a href="carga-y-exportación-de-datos.html"><i class="fa fa-check"></i><b>4</b> <strong>Carga y exportación de datos</strong></a>
 <ul>
@@ -314,6 +317,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="13.2" data-path="exportacion-en-png-o-jpeg.html"><a href="exportacion-en-png-o-jpeg.html"><i class="fa fa-check"></i><b>13.2</b> Exportaci[on] en PNG o JPEG</a></li>
 <li class="chapter" data-level="13.3" data-path="exportación-en-pdf.html"><a href="exportación-en-pdf.html"><i class="fa fa-check"></i><b>13.3</b> Exportación en PDF</a></li>
+</ul></li>
+<li class="part"><span><b>SOLUCIONARIO</b></span></li>
+<li class="chapter" data-level="14" data-path="solucionario-de-los-ejercicios-del-libro.html"><a href="solucionario-de-los-ejercicios-del-libro.html"><i class="fa fa-check"></i><b>14</b> <strong>Solucionario de los ejercicios del libro</strong></a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="cap.-2-primer-contacto-con-r.html"><a href="cap.-2-primer-contacto-con-r.html"><i class="fa fa-check"></i><b>14.1</b> Cap. 2: Primer contacto con R</a></li>
+<li class="chapter" data-level="14.2" data-path="preg-estructurasdatos.html"><a href="preg-estructurasdatos.html"><i class="fa fa-check"></i><b>14.2</b> Cap. 3: Estructuras de datos</a></li>
 </ul></li>
 <li class="divider"></li>
 <li class='after'">
@@ -565,6 +574,36 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Dado que <code>which()</code> solo reporta posiciones <code>TRUE</code> y obvia las posiciones con NA, usarlo en la indexación es la mejor manera de reportar los elementos sin incluir en el resultado los valores NA:</p>
 <div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="vectores.html#cb44-1" aria-hidden="true" tabindex="-1"></a>vectorNA[<span class="fu">which</span>(vectorNA<span class="sc">&gt;=</span><span class="dv">25</span>)]</span>
 <span id="cb44-2"><a href="vectores.html#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] 40 50</span></span></code></pre></div>
+</div>
+<div id="muestreo-de-vectores" class="section level3" number="3.2.7">
+<h3><span class="header-section-number">3.2.7</span> Muestreo de vectores</h3>
+<p>En ocasiones es requerido realizar muestreos virtuales, en la que se especifique cuántos elementos se requieren extraer de un vector. En R, la extracción se realiza con la función <code>sample()</code>, como:</p>
+<ul>
+<li><p><strong>Muestreo con reemplazamiento:</strong> donde cada elemento extraído se devuelve al conjunto inicial. Este elemento ya muestreado permanecer disponible para aparecer en siguiente muestreo aleatorio. Se especifica con el argumento <code>replace = TRUE</code>.</p></li>
+<li><p><strong>Muestreo sin reemplazamiento:</strong> donde cada elemento extraído no vuelve a aparecer en el conjunto inicial. Este elemento ya muestreado no estará disponible para aparecer en siguiente muestreo aleatorio. Se especifica con el argumento <code>replace = FALSE</code>.</p></li>
+</ul>
+<p>Si el muestreo es sin reemplazamiento, solo se puede extraer un máximo de elementos igual a la cantidad de elementos del conjunto inicial.</p>
+
+<div class="rmdnote">
+Antes de cualquier función de aleatorización, es importante establecer un conjunto de números aleatorios para que el código sea replicable. Asegurar replicabilidad de los experimentos y análisis es importante para las publicaciones científicas. Utiliza la función <code>set.seed(123)</code> definiendo un número cualquiera, como aquí se colocó 123.
+</div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="vectores.html#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Muestreo con reemplazamiento</span></span>
+<span id="cb45-2"><a href="vectores.html#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="co"># de un conjunto de 2 elementos</span></span>
+<span id="cb45-3"><a href="vectores.html#cb45-3" aria-hidden="true" tabindex="-1"></a>conjuntoInicial <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;A&quot;</span>,<span class="st">&quot;Z&quot;</span>)</span>
+<span id="cb45-4"><a href="vectores.html#cb45-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-5"><a href="vectores.html#cb45-5" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb45-6"><a href="vectores.html#cb45-6" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(conjuntoInicial, <span class="dv">25</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb45-7"><a href="vectores.html#cb45-7" aria-hidden="true" tabindex="-1"></a><span class="co">#  [1] &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;Z&quot; &quot;A&quot; &quot;Z&quot; &quot;Z&quot; &quot;Z&quot; &quot;A&quot; &quot;A&quot; &quot;Z&quot; &quot;Z&quot; &quot;Z&quot; &quot;A&quot; &quot;Z&quot; &quot;A&quot; &quot;Z&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot;</span></span>
+<span id="cb45-8"><a href="vectores.html#cb45-8" aria-hidden="true" tabindex="-1"></a><span class="co"># [21] &quot;A&quot; &quot;Z&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot;</span></span>
+<span id="cb45-9"><a href="vectores.html#cb45-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-10"><a href="vectores.html#cb45-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Muestreo sin reemplazamiento</span></span>
+<span id="cb45-11"><a href="vectores.html#cb45-11" aria-hidden="true" tabindex="-1"></a><span class="co"># de un conjunto con 30 elementos</span></span>
+<span id="cb45-12"><a href="vectores.html#cb45-12" aria-hidden="true" tabindex="-1"></a>conjuntoInicial2 <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">&quot;A&quot;</span>,<span class="st">&quot;Z&quot;</span>), <span class="fu">c</span>(<span class="dv">10</span>,<span class="dv">20</span>))</span>
+<span id="cb45-13"><a href="vectores.html#cb45-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-14"><a href="vectores.html#cb45-14" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">321</span>)</span>
+<span id="cb45-15"><a href="vectores.html#cb45-15" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(conjuntoInicial2, <span class="dv">25</span>, <span class="at">replace =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb45-16"><a href="vectores.html#cb45-16" aria-hidden="true" tabindex="-1"></a><span class="co">#  [1] &quot;Z&quot; &quot;Z&quot; &quot;Z&quot; &quot;Z&quot; &quot;Z&quot; &quot;Z&quot; &quot;Z&quot; &quot;A&quot; &quot;Z&quot; &quot;Z&quot; &quot;Z&quot; &quot;Z&quot; &quot;A&quot; &quot;A&quot; &quot;Z&quot; &quot;Z&quot; &quot;Z&quot; &quot;Z&quot; &quot;A&quot; &quot;Z&quot;</span></span>
+<span id="cb45-17"><a href="vectores.html#cb45-17" aria-hidden="true" tabindex="-1"></a><span class="co"># [21] &quot;Z&quot; &quot;A&quot; &quot;Z&quot; &quot;A&quot; &quot;A&quot;</span></span></code></pre></div>
 </div>
 </div>
             </section>

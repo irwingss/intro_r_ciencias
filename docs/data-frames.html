@@ -24,7 +24,7 @@
 <meta name="author" content="Irwing S. Saldaña" />
 
 
-<meta name="date" content="2022-02-04" />
+<meta name="date" content="2022-02-07" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -178,6 +178,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.5" data-path="creación-de-variables.html"><a href="creación-de-variables.html"><i class="fa fa-check"></i><b>2.5</b> Creación de variables</a></li>
 <li class="chapter" data-level="2.6" data-path="funciones.html"><a href="funciones.html"><i class="fa fa-check"></i><b>2.6</b> Funciones</a></li>
 <li class="chapter" data-level="2.7" data-path="funciones-básica-útiles.html"><a href="funciones-básica-útiles.html"><i class="fa fa-check"></i><b>2.7</b> Funciones básica útiles</a></li>
+<li class="chapter" data-level="2.8" data-path="ejercicios-del-capítulo.html"><a href="ejercicios-del-capítulo.html"><i class="fa fa-check"></i><b>2.8</b> Ejercicios del capítulo</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="estructurasdatos.html"><a href="estructurasdatos.html"><i class="fa fa-check"></i><b>3</b> <strong>Estructuras de datos</strong></a>
 <ul>
@@ -194,6 +195,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.2.4" data-path="vectores.html"><a href="vectores.html#operaciones-numéricas-con-vectores"><i class="fa fa-check"></i><b>3.2.4</b> Operaciones numéricas con vectores</a></li>
 <li class="chapter" data-level="3.2.5" data-path="vectores.html"><a href="vectores.html#valores-perdidos-en-vectores"><i class="fa fa-check"></i><b>3.2.5</b> Valores perdidos en vectores</a></li>
 <li class="chapter" data-level="3.2.6" data-path="vectores.html"><a href="vectores.html#indexación-de-vectores"><i class="fa fa-check"></i><b>3.2.6</b> Indexación de vectores</a></li>
+<li class="chapter" data-level="3.2.7" data-path="vectores.html"><a href="vectores.html#muestreo-de-vectores"><i class="fa fa-check"></i><b>3.2.7</b> Muestreo de vectores</a></li>
 </ul></li>
 <li class="chapter" data-level="3.3" data-path="factores.html"><a href="factores.html"><i class="fa fa-check"></i><b>3.3</b> Factores</a>
 <ul>
@@ -209,6 +211,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.6" data-path="tibbles.html"><a href="tibbles.html"><i class="fa fa-check"></i><b>3.6</b> Tibbles</a></li>
 <li class="chapter" data-level="3.7" data-path="listas.html"><a href="listas.html"><i class="fa fa-check"></i><b>3.7</b> Listas</a></li>
 <li class="chapter" data-level="3.8" data-path="coerción-de-variables.html"><a href="coerción-de-variables.html"><i class="fa fa-check"></i><b>3.8</b> Coerción de variables</a></li>
+<li class="chapter" data-level="3.9" data-path="ejercicios-del-capítulo-1.html"><a href="ejercicios-del-capítulo-1.html"><i class="fa fa-check"></i><b>3.9</b> Ejercicios del capítulo</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="carga-y-exportación-de-datos.html"><a href="carga-y-exportación-de-datos.html"><i class="fa fa-check"></i><b>4</b> <strong>Carga y exportación de datos</strong></a>
 <ul>
@@ -315,6 +318,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="13.2" data-path="exportacion-en-png-o-jpeg.html"><a href="exportacion-en-png-o-jpeg.html"><i class="fa fa-check"></i><b>13.2</b> Exportaci[on] en PNG o JPEG</a></li>
 <li class="chapter" data-level="13.3" data-path="exportación-en-pdf.html"><a href="exportación-en-pdf.html"><i class="fa fa-check"></i><b>13.3</b> Exportación en PDF</a></li>
 </ul></li>
+<li class="part"><span><b>SOLUCIONARIO</b></span></li>
+<li class="chapter" data-level="14" data-path="solucionario-de-los-ejercicios-del-libro.html"><a href="solucionario-de-los-ejercicios-del-libro.html"><i class="fa fa-check"></i><b>14</b> <strong>Solucionario de los ejercicios del libro</strong></a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="cap.-2-primer-contacto-con-r.html"><a href="cap.-2-primer-contacto-con-r.html"><i class="fa fa-check"></i><b>14.1</b> Cap. 2: Primer contacto con R</a></li>
+<li class="chapter" data-level="14.2" data-path="preg-estructurasdatos.html"><a href="preg-estructurasdatos.html"><i class="fa fa-check"></i><b>14.2</b> Cap. 3: Estructuras de datos</a></li>
+</ul></li>
 <li class="divider"></li>
 <li class='after'">
   <center>
@@ -354,18 +363,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">3.5</span> Data Frames</h2>
 <p>Esta estructura de datos de dos dimensiones es la más parecida a lo que una hoja de cálculo permite: colocar diferentes tipos de elementos dentro de la tabla, como texto, números, elementos lógicos, entre otros. Al cargar en RStudio una base de datos de un estudio, esta se almacenará como data frame casi siempre (cuando no, podrá ser un tibble o una lista).</p>
 <p>Para crear data frames manualmente en R, se utiliza la función <code>data.frame()</code>, especificando como elementos el contenido de cada columna.</p>
-<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="data-frames.html#cb61-1" aria-hidden="true" tabindex="-1"></a>DF <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Col1 =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, </span>
-<span id="cb61-2"><a href="data-frames.html#cb61-2" aria-hidden="true" tabindex="-1"></a>                 <span class="at">Col2 =</span> <span class="fu">c</span>(<span class="st">&quot;Sit1&quot;</span>,<span class="st">&quot;Sit1&quot;</span>,<span class="st">&quot;Sit2&quot;</span>,<span class="st">&quot;Sit2&quot;</span>,<span class="st">&quot;Sit3&quot;</span>),</span>
-<span id="cb61-3"><a href="data-frames.html#cb61-3" aria-hidden="true" tabindex="-1"></a>                 <span class="at">Log =</span> <span class="fu">c</span>(T,T,F,F,T),</span>
-<span id="cb61-4"><a href="data-frames.html#cb61-4" aria-hidden="true" tabindex="-1"></a>                 <span class="at">Fct =</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">&quot;A&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;C&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;A&quot;</span>)))</span>
-<span id="cb61-5"><a href="data-frames.html#cb61-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb61-6"><a href="data-frames.html#cb61-6" aria-hidden="true" tabindex="-1"></a>DF</span>
-<span id="cb61-7"><a href="data-frames.html#cb61-7" aria-hidden="true" tabindex="-1"></a><span class="co">#   Col1 Col2   Log Fct</span></span>
-<span id="cb61-8"><a href="data-frames.html#cb61-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 1    1 Sit1  TRUE   A</span></span>
-<span id="cb61-9"><a href="data-frames.html#cb61-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 2    2 Sit1  TRUE   B</span></span>
-<span id="cb61-10"><a href="data-frames.html#cb61-10" aria-hidden="true" tabindex="-1"></a><span class="co"># 3    3 Sit2 FALSE   C</span></span>
-<span id="cb61-11"><a href="data-frames.html#cb61-11" aria-hidden="true" tabindex="-1"></a><span class="co"># 4    4 Sit2 FALSE   B</span></span>
-<span id="cb61-12"><a href="data-frames.html#cb61-12" aria-hidden="true" tabindex="-1"></a><span class="co"># 5    5 Sit3  TRUE   A</span></span></code></pre></div>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="data-frames.html#cb62-1" aria-hidden="true" tabindex="-1"></a>DF <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Col1 =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, </span>
+<span id="cb62-2"><a href="data-frames.html#cb62-2" aria-hidden="true" tabindex="-1"></a>                 <span class="at">Col2 =</span> <span class="fu">c</span>(<span class="st">&quot;Sit1&quot;</span>,<span class="st">&quot;Sit1&quot;</span>,<span class="st">&quot;Sit2&quot;</span>,<span class="st">&quot;Sit2&quot;</span>,<span class="st">&quot;Sit3&quot;</span>),</span>
+<span id="cb62-3"><a href="data-frames.html#cb62-3" aria-hidden="true" tabindex="-1"></a>                 <span class="at">Log =</span> <span class="fu">c</span>(T,T,F,F,T),</span>
+<span id="cb62-4"><a href="data-frames.html#cb62-4" aria-hidden="true" tabindex="-1"></a>                 <span class="at">Fct =</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">&quot;A&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;C&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;A&quot;</span>)))</span>
+<span id="cb62-5"><a href="data-frames.html#cb62-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb62-6"><a href="data-frames.html#cb62-6" aria-hidden="true" tabindex="-1"></a>DF</span>
+<span id="cb62-7"><a href="data-frames.html#cb62-7" aria-hidden="true" tabindex="-1"></a><span class="co">#   Col1 Col2   Log Fct</span></span>
+<span id="cb62-8"><a href="data-frames.html#cb62-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 1    1 Sit1  TRUE   A</span></span>
+<span id="cb62-9"><a href="data-frames.html#cb62-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 2    2 Sit1  TRUE   B</span></span>
+<span id="cb62-10"><a href="data-frames.html#cb62-10" aria-hidden="true" tabindex="-1"></a><span class="co"># 3    3 Sit2 FALSE   C</span></span>
+<span id="cb62-11"><a href="data-frames.html#cb62-11" aria-hidden="true" tabindex="-1"></a><span class="co"># 4    4 Sit2 FALSE   B</span></span>
+<span id="cb62-12"><a href="data-frames.html#cb62-12" aria-hidden="true" tabindex="-1"></a><span class="co"># 5    5 Sit3  TRUE   A</span></span></code></pre></div>
 <p>No obstante, el modo de trabajo habitual implica cargar archivos desde el computador hacia RStudio para guardar tablas de datos como objetos data frame en el ambiente. Para cargar archivos excel (.xlsx) o delimitados (.csv, .txt), o incluso archivos desde SPSS (.SAV), revisa la sección <a href="lectura-de-bases-de-datos.html#lectura-de-bases-de-datos">4.2 Lectura de bases de datos</a>.</p>
 </div>
             </section>

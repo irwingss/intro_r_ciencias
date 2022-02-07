@@ -128,7 +128,8 @@ Table: (\#tab:unnamed-chunk-9)Operadores relacionales y lógicos en R, modos de 
 Operador     Operación                                                                                                                                  Ejemplo               Resultado 
 -----------  -----------------------------------------------------------------------------------------------------------------------------------------  --------------------  ----------
 `!a`         `a` no es verdadero (negación de `a`)                                                                                                      `!TRUE`               FALSE     
-`==`         `a` es igual `b`                                                                                                                           `A == A`              TRUE      
+`==`         `a` es igual `b`, donde `b` es un solo elemento                                                                                            `1 == 2`              FALSE     
+`%in%`       `a` es igual `b`, donde `b` es un conjunto de elementos                                                                                    `1 %in% c(2,3,1)`     TRUE      
 `!=`         `a` no es igual `b`                                                                                                                        `A != A`              FALSE     
 `>`          `a` es mayor que `b`                                                                                                                       `10 > 9`              TRUE      
 `<`          `a` es menor que `b`                                                                                                                       `10 < 9`              FALSE     
@@ -241,7 +242,7 @@ sd
 # function (x, na.rm = FALSE) 
 # sqrt(var(if (is.vector(x) || is.factor(x)) x else as.double(x), 
 #     na.rm = na.rm))
-# <bytecode: 0x0000000025bb81a0>
+# <bytecode: 0x00000000263439f0>
 # <environment: namespace:stats>
 ```
 
@@ -319,4 +320,17 @@ Función                Descripción                                            
 `subset()`             Devuelve un subgrupo de filas en una base de datos, filtradas si cumplen con una condición lógica.                                                                                         `subset(iris, Petal.Length > 6.5)`           
 `sample()`             Devuelve un muestreo aleatorio de tamaño definido de un conjunto de datos x.                                                                                                               `sample(x, 3)`                               
 `data()`               Permite cargar una base de datos de ejemplo preinstalada en RStudio dentro de algún paquete activo.                                                                                        `data("iris")`                               
+
+## Ejercicios del capítulo
+
+<div class="question">
+  1. Soluciona la ecuación $\frac{24+12}{(2 * 3)^2}$.
+  1. Crea un vector con llamado `num1` conteniendo 1000 números aleatorios con distribución normal, con promedio 19 y desviación estándar 1.29 (revisa la [TABLA 2.4](#funciones-básica-útiles)).
+  Asegúrate de ejecutar previamente la función `set.seed(123)` para que el ejercicio sea replicable.
+  1. Calcula el promedio y la desviación estándar del objeto `num1`. ¿Son exactamente iguales a los valores definidos con los que creaste el conjunto de datos usando `rnorm()`?
+  1. Calcula los cuartiles de dicho conjunto de datos. ¿Cuál es el valor del cuartil 50% (que es conocido como mediana) (revisa la [TABLA 2.4](#funciones-básica-útiles))?
+  1. Utilizando los operadores relacionales, convierte el vector numérico `num1` a vector lógico, aplicando la pregunta lógica "números mayores a 20.0". Guarda el resultado en el ambiente con el nombre `VL20` (revisa la [TABLA 2.3](#operadores-lógicos-y-relacionales)).
+  1. Coloca el objeto `VL20` dentro de la función `mean()`. La función mean calcula normalmente el promedio de un conjunto de datos numéricos. No obstante, cuando se le ofrece un vector lógico, contabiliza la cantidad de elementos `TRUE` y ofrece la proporción de verdaderos respecto al total de elemento del conjunto. ¿Cuál es la proporción de elementos `FALSE` del vector `VL20`? (revisa la [TABLA 2.3](#operadores-lógicos-y-relacionales)).
+  1. Utilizando los operadores lógicos y relacionales, convierte el vector numérico `num1` a vector lógico, aplicando la pregunta lógica "números menor igual a 19.5 y números mayor a 15.7" (revisa la [TABLA 2.3](#operadores-lógicos-y-relacionales)).
+</div>
 

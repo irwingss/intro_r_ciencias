@@ -1,0 +1,136 @@
+# (PART\*) SOLUCIONARIO {.unnumbered}
+
+# **Solucionario de los ejercicios del libro**
+
+Este capítulo extra del libro permitirá al lector revisar si las soluciones realizadas a los ejercicios de cada capítulo son correctos. Recuerda que no existe una única solución a un problema en R. Uno es libre de *programar las soluciones* según su propio pensamiento creativo, nivel de conocimiento del código y practicidad. 
+
+Se recomienda no revisar este capítulo antes de realizar los ejercicios, principalmente para permitir que el alumno desarrolle su pensamiento lógico respecto al código en R. Recuerda que la práctica hace al maestro.
+
+
+## Cap. 2: Primer contacto con R
+<div class="question">
+  1. Soluciona la ecuación $\sqrt({\frac{24+12}{(2 * 3)^3})}$.
+</div>
+
+
+```r
+sqrt((24+12)/(2*3)^3)
+# [1] 0.4082
+```
+
+
+<div class="question">
+  1. Crea un vector con llamado `num1` conteniendo 1000 números aleatorios con distribución normal, con promedio 19 y desviación estándar 1.29 (revisa la [TABLA 2.4](#funciones-básica-útiles)).
+  Asegúrate de ejecutar previamente la función `set.seed(123)` para que el ejercicio sea replicable.
+</div>
+
+
+```r
+set.seed(123)
+num1 <- rnorm(1000, mean=19, sd=1.29)
+
+# La función head() permite ver los primeros N elementos del vector
+# Aquí se define N como 20 elementos
+head(num1, 20)
+#  [1] 18.28 18.70 21.01 19.09 19.17 21.21 19.59 17.37 18.11 18.43 20.58 19.46 19.52
+# [14] 19.14 18.28 21.31 19.64 16.46 19.90 18.39
+```
+
+
+<div class="question">
+  1. Calcula el promedio y la desviación estándar del objeto `num1`. ¿Son exactamente iguales a los valores definidos con los que creaste el conjunto de datos usando `rnorm()`?.
+</div>
+
+
+```r
+mean(num1)
+# [1] 19.02
+sd(num1)
+# [1] 1.279
+```
+
+Como habrás notado. Los valores obtenidos no son exactamente los valores de promedio y desviación estándar con los que se generaron los mil números aleatorios con `rnorm()`. La aleatorización impide que los valores sean idénticos, no obstante siempre tienden a lo solicitado. No que sucede exclusivamente en R, de hecho ningún lenguaje de programación lo hace idéntico.
+
+<div class="question">
+  1. Calcula los cuartiles de dicho conjunto de datos. ¿Cuál es el valor del cuartil 50% (que es conocido como mediana) (revisa la [TABLA 2.4](#funciones-básica-útiles))?
+</div>
+
+
+```r
+# Para ver los cuartiles por defecto
+quantile(num1)
+#    0%   25%   50%   75%  100% 
+# 15.38 18.19 19.01 19.86 23.18
+
+# Para obtener el cuartil 50% o mediana
+quantile(num1, probs=0.5)
+#   50% 
+# 19.01
+```
+
+<div class="question">
+  1. Utilizando los operadores relacionales, convierte el vector numérico `num1` a vector lógico, aplicando la pregunta lógica "números mayores a 20.0". Guarda el resultado en el ambiente con el nombre `VL20` (revisa la [TABLA 2.3](#operadores-lógicos-y-relacionales)).
+</div>
+
+
+```r
+VL20 <- num1 > 20.0
+
+# La función head() permite ver los primeros N elementos del vector
+# Aquí se define N como 35 elementos
+head(VL20, 35)
+#  [1] FALSE FALSE  TRUE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE
+# [14] FALSE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+# [27]  TRUE FALSE FALSE  TRUE FALSE FALSE  TRUE  TRUE  TRUE
+```
+
+<div class="question">
+  1. Coloca el objeto `VL20` dentro de la función `mean()`. La función mean calcula normalmente el promedio de un conjunto de datos numéricos. No obstante, cuando se le ofrece un vector lógico, contabiliza la cantidad de elementos `TRUE` y ofrece la proporción de verdaderos respecto al total de elemento del conjunto. ¿Cuál es la proporción de elementos `FALSE` del vector `VL20`? (revisa la [TABLA 2.3](#operadores-lógicos-y-relacionales)).
+</div>
+
+
+```r
+# Proporción de TRUE en el conjunto
+mean(VL20)
+# [1] 0.221
+
+# Proporción de FALSE en el conjunto
+1 - mean(VL20)
+# [1] 0.779
+```
+
+
+<div class="question">
+  1. Utilizando los operadores lógicos y relacionales, convierte el vector numérico `num1` a vector lógico, aplicando la pregunta lógica "números menor igual a 19.5 y números mayor a 15.7". (revisa la [TABLA 2.3](#operadores-lógicos-y-relacionales)). Si se sabe que son 1000 elementos los que contiene el vector, ¿Cuántos elementos del conjunto encajan dentro de la premisa lógica anterior?.
+</div>
+
+
+```r
+# Crear el vector lógico, dándole un nombre cualquiera
+num1LOGICO <- (num1 < 19 & num1 > 15.7)
+
+# Proporción de elementos TRUE
+# Es decir, que cumplieron la premisa anterior
+mean(num1LOGICO)
+# [1] 0.491
+
+# Convertir proporción a cantidad,
+# multiplicando por el total de datos del vector
+mean(num1LOGICO) * length(num1LOGICO)
+# [1] 491
+```
+
+
+## Cap. 3: Estructuras de datos {#preg-estructurasdatos}
+
+<div class="question">
+  1. Crea una variable llamada `datosNumeros` que contenga los números del 1 al 100 cada 5 unidades.
+</div>
+
+
+```r
+datosNumeros <- seq(1,100, by=5)
+datosNumeros
+#  [1]  1  6 11 16 21 26 31 36 41 46 51 56 61 66 71 76 81 86 91 96
+```
+

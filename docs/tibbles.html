@@ -24,7 +24,7 @@
 <meta name="author" content="Irwing S. Saldaña" />
 
 
-<meta name="date" content="2022-02-04" />
+<meta name="date" content="2022-02-07" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -178,6 +178,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.5" data-path="creación-de-variables.html"><a href="creación-de-variables.html"><i class="fa fa-check"></i><b>2.5</b> Creación de variables</a></li>
 <li class="chapter" data-level="2.6" data-path="funciones.html"><a href="funciones.html"><i class="fa fa-check"></i><b>2.6</b> Funciones</a></li>
 <li class="chapter" data-level="2.7" data-path="funciones-básica-útiles.html"><a href="funciones-básica-útiles.html"><i class="fa fa-check"></i><b>2.7</b> Funciones básica útiles</a></li>
+<li class="chapter" data-level="2.8" data-path="ejercicios-del-capítulo.html"><a href="ejercicios-del-capítulo.html"><i class="fa fa-check"></i><b>2.8</b> Ejercicios del capítulo</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="estructurasdatos.html"><a href="estructurasdatos.html"><i class="fa fa-check"></i><b>3</b> <strong>Estructuras de datos</strong></a>
 <ul>
@@ -194,6 +195,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.2.4" data-path="vectores.html"><a href="vectores.html#operaciones-numéricas-con-vectores"><i class="fa fa-check"></i><b>3.2.4</b> Operaciones numéricas con vectores</a></li>
 <li class="chapter" data-level="3.2.5" data-path="vectores.html"><a href="vectores.html#valores-perdidos-en-vectores"><i class="fa fa-check"></i><b>3.2.5</b> Valores perdidos en vectores</a></li>
 <li class="chapter" data-level="3.2.6" data-path="vectores.html"><a href="vectores.html#indexación-de-vectores"><i class="fa fa-check"></i><b>3.2.6</b> Indexación de vectores</a></li>
+<li class="chapter" data-level="3.2.7" data-path="vectores.html"><a href="vectores.html#muestreo-de-vectores"><i class="fa fa-check"></i><b>3.2.7</b> Muestreo de vectores</a></li>
 </ul></li>
 <li class="chapter" data-level="3.3" data-path="factores.html"><a href="factores.html"><i class="fa fa-check"></i><b>3.3</b> Factores</a>
 <ul>
@@ -209,6 +211,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.6" data-path="tibbles.html"><a href="tibbles.html"><i class="fa fa-check"></i><b>3.6</b> Tibbles</a></li>
 <li class="chapter" data-level="3.7" data-path="listas.html"><a href="listas.html"><i class="fa fa-check"></i><b>3.7</b> Listas</a></li>
 <li class="chapter" data-level="3.8" data-path="coerción-de-variables.html"><a href="coerción-de-variables.html"><i class="fa fa-check"></i><b>3.8</b> Coerción de variables</a></li>
+<li class="chapter" data-level="3.9" data-path="ejercicios-del-capítulo-1.html"><a href="ejercicios-del-capítulo-1.html"><i class="fa fa-check"></i><b>3.9</b> Ejercicios del capítulo</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="carga-y-exportación-de-datos.html"><a href="carga-y-exportación-de-datos.html"><i class="fa fa-check"></i><b>4</b> <strong>Carga y exportación de datos</strong></a>
 <ul>
@@ -315,6 +318,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="13.2" data-path="exportacion-en-png-o-jpeg.html"><a href="exportacion-en-png-o-jpeg.html"><i class="fa fa-check"></i><b>13.2</b> Exportaci[on] en PNG o JPEG</a></li>
 <li class="chapter" data-level="13.3" data-path="exportación-en-pdf.html"><a href="exportación-en-pdf.html"><i class="fa fa-check"></i><b>13.3</b> Exportación en PDF</a></li>
 </ul></li>
+<li class="part"><span><b>SOLUCIONARIO</b></span></li>
+<li class="chapter" data-level="14" data-path="solucionario-de-los-ejercicios-del-libro.html"><a href="solucionario-de-los-ejercicios-del-libro.html"><i class="fa fa-check"></i><b>14</b> <strong>Solucionario de los ejercicios del libro</strong></a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="cap.-2-primer-contacto-con-r.html"><a href="cap.-2-primer-contacto-con-r.html"><i class="fa fa-check"></i><b>14.1</b> Cap. 2: Primer contacto con R</a></li>
+<li class="chapter" data-level="14.2" data-path="preg-estructurasdatos.html"><a href="preg-estructurasdatos.html"><i class="fa fa-check"></i><b>14.2</b> Cap. 3: Estructuras de datos</a></li>
+</ul></li>
 <li class="divider"></li>
 <li class='after'">
   <center>
@@ -358,19 +367,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Al imprimir sus resultados en consola, brindan información extra sobre el tamaño de la tabla (filas por columnas), y el tipo de datos que almacena de cada columna (su clase).</li>
 <li>También, al ser vistos en consola, solo muestran las filas y columnas adecuadas para el pequeño tamaño de la consola, sin desbordarse como lo hacen los data frame. Esto último se verá reflejado cuando visualices en consola bases de datos grandes.</li>
 </ul>
-<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="tibbles.html#cb62-1" aria-hidden="true" tabindex="-1"></a>TB <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">Col1 =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, </span>
-<span id="cb62-2"><a href="tibbles.html#cb62-2" aria-hidden="true" tabindex="-1"></a>                 <span class="at">Col2 =</span> <span class="fu">c</span>(<span class="st">&quot;Sit1&quot;</span>,<span class="st">&quot;Sit1&quot;</span>,<span class="st">&quot;Sit2&quot;</span>,<span class="st">&quot;Sit2&quot;</span>,<span class="st">&quot;Sit3&quot;</span>),</span>
-<span id="cb62-3"><a href="tibbles.html#cb62-3" aria-hidden="true" tabindex="-1"></a>                 <span class="at">Log =</span> <span class="fu">c</span>(T,T,F,F,T),</span>
-<span id="cb62-4"><a href="tibbles.html#cb62-4" aria-hidden="true" tabindex="-1"></a>                 <span class="at">Fct =</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">&quot;A&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;C&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;A&quot;</span>)))</span>
-<span id="cb62-5"><a href="tibbles.html#cb62-5" aria-hidden="true" tabindex="-1"></a>TB</span>
-<span id="cb62-6"><a href="tibbles.html#cb62-6" aria-hidden="true" tabindex="-1"></a><span class="co"># # A tibble: 5 x 4</span></span>
-<span id="cb62-7"><a href="tibbles.html#cb62-7" aria-hidden="true" tabindex="-1"></a><span class="co">#    Col1 Col2  Log   Fct  </span></span>
-<span id="cb62-8"><a href="tibbles.html#cb62-8" aria-hidden="true" tabindex="-1"></a><span class="co">#   &lt;int&gt; &lt;chr&gt; &lt;lgl&gt; &lt;fct&gt;</span></span>
-<span id="cb62-9"><a href="tibbles.html#cb62-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 1     1 Sit1  TRUE  A    </span></span>
-<span id="cb62-10"><a href="tibbles.html#cb62-10" aria-hidden="true" tabindex="-1"></a><span class="co"># 2     2 Sit1  TRUE  B    </span></span>
-<span id="cb62-11"><a href="tibbles.html#cb62-11" aria-hidden="true" tabindex="-1"></a><span class="co"># 3     3 Sit2  FALSE C    </span></span>
-<span id="cb62-12"><a href="tibbles.html#cb62-12" aria-hidden="true" tabindex="-1"></a><span class="co"># 4     4 Sit2  FALSE B    </span></span>
-<span id="cb62-13"><a href="tibbles.html#cb62-13" aria-hidden="true" tabindex="-1"></a><span class="co"># 5     5 Sit3  TRUE  A</span></span></code></pre></div>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="tibbles.html#cb63-1" aria-hidden="true" tabindex="-1"></a>TB <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">Col1 =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, </span>
+<span id="cb63-2"><a href="tibbles.html#cb63-2" aria-hidden="true" tabindex="-1"></a>                 <span class="at">Col2 =</span> <span class="fu">c</span>(<span class="st">&quot;Sit1&quot;</span>,<span class="st">&quot;Sit1&quot;</span>,<span class="st">&quot;Sit2&quot;</span>,<span class="st">&quot;Sit2&quot;</span>,<span class="st">&quot;Sit3&quot;</span>),</span>
+<span id="cb63-3"><a href="tibbles.html#cb63-3" aria-hidden="true" tabindex="-1"></a>                 <span class="at">Log =</span> <span class="fu">c</span>(T,T,F,F,T),</span>
+<span id="cb63-4"><a href="tibbles.html#cb63-4" aria-hidden="true" tabindex="-1"></a>                 <span class="at">Fct =</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">&quot;A&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;C&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;A&quot;</span>)))</span>
+<span id="cb63-5"><a href="tibbles.html#cb63-5" aria-hidden="true" tabindex="-1"></a>TB</span>
+<span id="cb63-6"><a href="tibbles.html#cb63-6" aria-hidden="true" tabindex="-1"></a><span class="co"># # A tibble: 5 x 4</span></span>
+<span id="cb63-7"><a href="tibbles.html#cb63-7" aria-hidden="true" tabindex="-1"></a><span class="co">#    Col1 Col2  Log   Fct  </span></span>
+<span id="cb63-8"><a href="tibbles.html#cb63-8" aria-hidden="true" tabindex="-1"></a><span class="co">#   &lt;int&gt; &lt;chr&gt; &lt;lgl&gt; &lt;fct&gt;</span></span>
+<span id="cb63-9"><a href="tibbles.html#cb63-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 1     1 Sit1  TRUE  A    </span></span>
+<span id="cb63-10"><a href="tibbles.html#cb63-10" aria-hidden="true" tabindex="-1"></a><span class="co"># 2     2 Sit1  TRUE  B    </span></span>
+<span id="cb63-11"><a href="tibbles.html#cb63-11" aria-hidden="true" tabindex="-1"></a><span class="co"># 3     3 Sit2  FALSE C    </span></span>
+<span id="cb63-12"><a href="tibbles.html#cb63-12" aria-hidden="true" tabindex="-1"></a><span class="co"># 4     4 Sit2  FALSE B    </span></span>
+<span id="cb63-13"><a href="tibbles.html#cb63-13" aria-hidden="true" tabindex="-1"></a><span class="co"># 5     5 Sit3  TRUE  A</span></span></code></pre></div>
 </div>
             </section>
 

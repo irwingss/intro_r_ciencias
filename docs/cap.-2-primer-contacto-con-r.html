@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>14.1 Cap. 2: Primer contacto con R | Introducción a R para Ciencias</title>
+  <meta name="description" content="Libro introductorio al uso del lenguaje de programación R, con ejemplos orientados a ciencias" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="14.1 Cap. 2: Primer contacto con R | Introducción a R para Ciencias" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="https://github.com/irwingss/intro_r_ciencias/" />
+  <meta property="og:image" content="https://github.com/irwingss/intro_r_ciencias//Cover/cover R.png" />
+  <meta property="og:description" content="Libro introductorio al uso del lenguaje de programación R, con ejemplos orientados a ciencias" />
+  <meta name="github-repo" content="irwingss/intro_r_ciencias/" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="14.1 Cap. 2: Primer contacto con R | Introducción a R para Ciencias" />
+  
+  <meta name="twitter:description" content="Libro introductorio al uso del lenguaje de programación R, con ejemplos orientados a ciencias" />
+  <meta name="twitter:image" content="https://github.com/irwingss/intro_r_ciencias//Cover/cover R.png" />
+
+<meta name="author" content="Irwing S. Saldaña" />
+
+
+<meta name="date" content="2022-02-07" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  <link rel="shortcut icon" href="figs/favicon.ico" type="image/x-icon" />
+<link rel="prev" href="solucionario-de-los-ejercicios-del-libro.html"/>
+<link rel="next" href="preg-estructurasdatos.html"/>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style/book.css" type="text/css" />
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class='before'><a href="./">Introducción a R para Ciencias</a></li>
+
+<li class="divider"></li>
+<li><a href="index.html#bienvenida"><strong>Bienvenida</strong></a>
+<ul>
+<li class="chapter" data-level="" data-path="el-paquete-del-libro.html"><a href="el-paquete-del-libro.html"><i class="fa fa-check"></i>El paquete del libro</a></li>
+<li class="chapter" data-level="" data-path="cómo-usar-el-libro.html"><a href="cómo-usar-el-libro.html"><i class="fa fa-check"></i>¿Cómo usar el libro?</a></li>
+</ul></li>
+<li><a href="prefacio.html#prefacio"><strong>Prefacio</strong></a>
+<ul>
+<li class="chapter" data-level="" data-path="por-qué-aprender-r.html"><a href="por-qué-aprender-r.html"><i class="fa fa-check"></i>¿Por qué aprender R?</a></li>
+<li class="chapter" data-level="" data-path="a-quién-está-dirigido-este-libro.html"><a href="a-quién-está-dirigido-este-libro.html"><i class="fa fa-check"></i>¿A quién está dirigido este libro?</a></li>
+<li class="chapter" data-level="" data-path="agradecimientos.html"><a href="agradecimientos.html"><i class="fa fa-check"></i>Agradecimientos</a></li>
+</ul></li>
+<li class="part"><span><b>INTRODUCCIÓN A <br>R PARA CIENCIAS </br></b></span></li>
+<li class="chapter" data-level="1" data-path="esencialesRRStudio.html"><a href="esencialesRRStudio.html"><i class="fa fa-check"></i><b>1</b> <strong>Esenciales de R y RStudio</strong></a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="instalación-de-r-y-rstudio.html"><a href="instalación-de-r-y-rstudio.html"><i class="fa fa-check"></i><b>1.1</b> Instalación de R y RStudio</a></li>
+<li class="chapter" data-level="1.2" data-path="configuración-de-rstudio.html"><a href="configuración-de-rstudio.html"><i class="fa fa-check"></i><b>1.2</b> Configuración de RStudio</a></li>
+<li class="chapter" data-level="1.3" data-path="tema-brackinstitute-2022.html"><a href="tema-brackinstitute-2022.html"><i class="fa fa-check"></i><b>1.3</b> Tema BrackInstitute (2022)</a></li>
+<li class="chapter" data-level="1.4" data-path="panelesRStudio.html"><a href="panelesRStudio.html"><i class="fa fa-check"></i><b>1.4</b> Paneles de RStudio</a></li>
+<li class="chapter" data-level="1.5" data-path="librerías-y-repositorios.html"><a href="librerías-y-repositorios.html"><i class="fa fa-check"></i><b>1.5</b> Librerías y Repositorios</a></li>
+<li class="chapter" data-level="1.6" data-path="actualización-de-librerías.html"><a href="actualización-de-librerías.html"><i class="fa fa-check"></i><b>1.6</b> Actualización de librerías</a></li>
+<li class="chapter" data-level="1.7" data-path="tipos-de-documentos-en-rstudio.html"><a href="tipos-de-documentos-en-rstudio.html"><i class="fa fa-check"></i><b>1.7</b> Tipos de documentos en RStudio</a>
+<ul>
+<li class="chapter" data-level="1.7.1" data-path="tipos-de-documentos-en-rstudio.html"><a href="tipos-de-documentos-en-rstudio.html#r-script-.r"><i class="fa fa-check"></i><b>1.7.1</b> R Script (.R)</a></li>
+<li class="chapter" data-level="1.7.2" data-path="tipos-de-documentos-en-rstudio.html"><a href="tipos-de-documentos-en-rstudio.html#r-markdown-.rmd"><i class="fa fa-check"></i><b>1.7.2</b> R Markdown (.Rmd)</a></li>
+</ul></li>
+<li class="chapter" data-level="1.8" data-path="proyectos-de-rstudio.html"><a href="proyectos-de-rstudio.html"><i class="fa fa-check"></i><b>1.8</b> Proyectos de RStudio</a></li>
+<li class="chapter" data-level="1.9" data-path="pedir-ayuda.html"><a href="pedir-ayuda.html"><i class="fa fa-check"></i><b>1.9</b> Pedir ayuda</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="rbasico.html"><a href="rbasico.html"><i class="fa fa-check"></i><b>2</b> <strong>Primer contacto con R</strong></a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="ejecutar-código.html"><a href="ejecutar-código.html"><i class="fa fa-check"></i><b>2.1</b> Ejecutar código</a></li>
+<li class="chapter" data-level="2.2" data-path="r-como-calculadora.html"><a href="r-como-calculadora.html"><i class="fa fa-check"></i><b>2.2</b> R como calculadora</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="r-como-calculadora.html"><a href="r-como-calculadora.html#funciones-matemáticas"><i class="fa fa-check"></i><b>2.2.1</b> Funciones matemáticas</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="operadores-lógicos-y-relacionales.html"><a href="operadores-lógicos-y-relacionales.html"><i class="fa fa-check"></i><b>2.3</b> Operadores lógicos y relacionales</a></li>
+<li class="chapter" data-level="2.4" data-path="comentar-el-código.html"><a href="comentar-el-código.html"><i class="fa fa-check"></i><b>2.4</b> Comentar el código</a></li>
+<li class="chapter" data-level="2.5" data-path="creación-de-variables.html"><a href="creación-de-variables.html"><i class="fa fa-check"></i><b>2.5</b> Creación de variables</a></li>
+<li class="chapter" data-level="2.6" data-path="funciones.html"><a href="funciones.html"><i class="fa fa-check"></i><b>2.6</b> Funciones</a></li>
+<li class="chapter" data-level="2.7" data-path="funciones-básica-útiles.html"><a href="funciones-básica-útiles.html"><i class="fa fa-check"></i><b>2.7</b> Funciones básica útiles</a></li>
+<li class="chapter" data-level="2.8" data-path="ejercicios-del-capítulo.html"><a href="ejercicios-del-capítulo.html"><i class="fa fa-check"></i><b>2.8</b> Ejercicios del capítulo</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="estructurasdatos.html"><a href="estructurasdatos.html"><i class="fa fa-check"></i><b>3</b> <strong>Estructuras de datos</strong></a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="clasificación-de-variables.html"><a href="clasificación-de-variables.html"><i class="fa fa-check"></i><b>3.1</b> Clasificación de variables</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="clasificación-de-variables.html"><a href="clasificación-de-variables.html#clases-atómicas"><i class="fa fa-check"></i><b>3.1.1</b> Clases atómicas</a></li>
+<li class="chapter" data-level="3.1.2" data-path="clasificación-de-variables.html"><a href="clasificación-de-variables.html#estructuras-de-datos"><i class="fa fa-check"></i><b>3.1.2</b> Estructuras de datos</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="vectores.html"><a href="vectores.html"><i class="fa fa-check"></i><b>3.2</b> Vectores</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="vectores.html"><a href="vectores.html#crear-un-vector"><i class="fa fa-check"></i><b>3.2.1</b> Crear un vector</a></li>
+<li class="chapter" data-level="3.2.2" data-path="vectores.html"><a href="vectores.html#vectores-de-secuencias-y-repeticiones"><i class="fa fa-check"></i><b>3.2.2</b> Vectores de secuencias y repeticiones</a></li>
+<li class="chapter" data-level="3.2.3" data-path="vectores.html"><a href="vectores.html#funciones-útiles-para-vectores"><i class="fa fa-check"></i><b>3.2.3</b> Funciones útiles para vectores</a></li>
+<li class="chapter" data-level="3.2.4" data-path="vectores.html"><a href="vectores.html#operaciones-numéricas-con-vectores"><i class="fa fa-check"></i><b>3.2.4</b> Operaciones numéricas con vectores</a></li>
+<li class="chapter" data-level="3.2.5" data-path="vectores.html"><a href="vectores.html#valores-perdidos-en-vectores"><i class="fa fa-check"></i><b>3.2.5</b> Valores perdidos en vectores</a></li>
+<li class="chapter" data-level="3.2.6" data-path="vectores.html"><a href="vectores.html#indexación-de-vectores"><i class="fa fa-check"></i><b>3.2.6</b> Indexación de vectores</a></li>
+<li class="chapter" data-level="3.2.7" data-path="vectores.html"><a href="vectores.html#muestreo-de-vectores"><i class="fa fa-check"></i><b>3.2.7</b> Muestreo de vectores</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="factores.html"><a href="factores.html"><i class="fa fa-check"></i><b>3.3</b> Factores</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="factores.html"><a href="factores.html#crear-un-factor"><i class="fa fa-check"></i><b>3.3.1</b> Crear un factor</a></li>
+<li class="chapter" data-level="3.3.2" data-path="factores.html"><a href="factores.html#niveles-de-un-factor"><i class="fa fa-check"></i><b>3.3.2</b> Niveles de un factor</a></li>
+<li class="chapter" data-level="3.3.3" data-path="factores.html"><a href="factores.html#reordenar-los-niveles"><i class="fa fa-check"></i><b>3.3.3</b> Reordenar los niveles</a></li>
+<li class="chapter" data-level="3.3.4" data-path="factores.html"><a href="factores.html#etiquetas-de-un-factor"><i class="fa fa-check"></i><b>3.3.4</b> Etiquetas de un factor</a></li>
+<li class="chapter" data-level="3.3.5" data-path="factores.html"><a href="factores.html#valores-perdidos-en-un-factor"><i class="fa fa-check"></i><b>3.3.5</b> Valores perdidos en un factor</a></li>
+<li class="chapter" data-level="3.3.6" data-path="factores.html"><a href="factores.html#indexación-de-factores"><i class="fa fa-check"></i><b>3.3.6</b> Indexación de factores</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="matrices.html"><a href="matrices.html"><i class="fa fa-check"></i><b>3.4</b> Matrices</a></li>
+<li class="chapter" data-level="3.5" data-path="data-frames.html"><a href="data-frames.html"><i class="fa fa-check"></i><b>3.5</b> Data Frames</a></li>
+<li class="chapter" data-level="3.6" data-path="tibbles.html"><a href="tibbles.html"><i class="fa fa-check"></i><b>3.6</b> Tibbles</a></li>
+<li class="chapter" data-level="3.7" data-path="listas.html"><a href="listas.html"><i class="fa fa-check"></i><b>3.7</b> Listas</a></li>
+<li class="chapter" data-level="3.8" data-path="coerción-de-variables.html"><a href="coerción-de-variables.html"><i class="fa fa-check"></i><b>3.8</b> Coerción de variables</a></li>
+<li class="chapter" data-level="3.9" data-path="ejercicios-del-capítulo-1.html"><a href="ejercicios-del-capítulo-1.html"><i class="fa fa-check"></i><b>3.9</b> Ejercicios del capítulo</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="carga-y-exportación-de-datos.html"><a href="carga-y-exportación-de-datos.html"><i class="fa fa-check"></i><b>4</b> <strong>Carga y exportación de datos</strong></a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="directorios-de-trabajo.html"><a href="directorios-de-trabajo.html"><i class="fa fa-check"></i><b>4.1</b> Directorios de trabajo</a></li>
+<li class="chapter" data-level="4.2" data-path="lectura-de-bases-de-datos.html"><a href="lectura-de-bases-de-datos.html"><i class="fa fa-check"></i><b>4.2</b> Lectura de bases de datos</a></li>
+<li class="chapter" data-level="4.3" data-path="exportar-basas-de-datos.html"><a href="exportar-basas-de-datos.html"><i class="fa fa-check"></i><b>4.3</b> Exportar basas de datos</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="manejo-de-datos-con-tidyverse.html"><a href="manejo-de-datos-con-tidyverse.html"><i class="fa fa-check"></i><b>5</b> <strong>Manejo de datos con</strong> <code>tidyverse</code></a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="datos-ordenados-tidy.html"><a href="datos-ordenados-tidy.html"><i class="fa fa-check"></i><b>5.1</b> Datos ordenados (tidy)</a></li>
+<li class="chapter" data-level="5.2" data-path="pipelines-con-tidyverse.html"><a href="pipelines-con-tidyverse.html"><i class="fa fa-check"></i><b>5.2</b> Pipelines con tidyverse</a></li>
+<li class="chapter" data-level="5.3" data-path="tablas-anchas-y-largas-con-tidyr.html"><a href="tablas-anchas-y-largas-con-tidyr.html"><i class="fa fa-check"></i><b>5.3</b> Tablas anchas y largas con tidyr</a></li>
+<li class="chapter" data-level="5.4" data-path="filtrado.html"><a href="filtrado.html"><i class="fa fa-check"></i><b>5.4</b> Filtrado</a></li>
+<li class="chapter" data-level="5.5" data-path="selección.html"><a href="selección.html"><i class="fa fa-check"></i><b>5.5</b> Selección</a></li>
+<li class="chapter" data-level="5.6" data-path="agrupamiento.html"><a href="agrupamiento.html"><i class="fa fa-check"></i><b>5.6</b> Agrupamiento</a></li>
+<li class="chapter" data-level="5.7" data-path="reordenamiento.html"><a href="reordenamiento.html"><i class="fa fa-check"></i><b>5.7</b> Reordenamiento</a></li>
+<li class="chapter" data-level="5.8" data-path="conteo.html"><a href="conteo.html"><i class="fa fa-check"></i><b>5.8</b> Conteo</a></li>
+<li class="chapter" data-level="5.9" data-path="creación-y-transformación-de-columnas.html"><a href="creación-y-transformación-de-columnas.html"><i class="fa fa-check"></i><b>5.9</b> Creación y transformación de columnas</a></li>
+<li class="chapter" data-level="5.10" data-path="resúmenes-estadísticos.html"><a href="resúmenes-estadísticos.html"><i class="fa fa-check"></i><b>5.10</b> Resúmenes estadísticos</a></li>
+<li class="chapter" data-level="5.11" data-path="combinar-bases-de-datos.html"><a href="combinar-bases-de-datos.html"><i class="fa fa-check"></i><b>5.11</b> Combinar bases de datos</a></li>
+<li class="chapter" data-level="5.12" data-path="valores-perdidos.html"><a href="valores-perdidos.html"><i class="fa fa-check"></i><b>5.12</b> Valores perdidos</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="programación-funcional-e-iteraciones.html"><a href="programación-funcional-e-iteraciones.html"><i class="fa fa-check"></i><b>6</b> <strong>Programación Funcional e iteraciones</strong></a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="control-de-flujo.html"><a href="control-de-flujo.html"><i class="fa fa-check"></i><b>6.1</b> Control de flujo</a></li>
+<li class="chapter" data-level="6.2" data-path="creacion-fun.html"><a href="creacion-fun.html"><i class="fa fa-check"></i><b>6.2</b> Creación de funciones</a></li>
+<li class="chapter" data-level="6.3" data-path="ifelse.html"><a href="ifelse.html"><i class="fa fa-check"></i><b>6.3</b> <code>ifelse()</code></a></li>
+<li class="chapter" data-level="6.4" data-path="iteraciones-con-for-loops.html"><a href="iteraciones-con-for-loops.html"><i class="fa fa-check"></i><b>6.4</b> Iteraciones con for loops</a></li>
+<li class="chapter" data-level="6.5" data-path="aplicación-de-purrrmap.html"><a href="aplicación-de-purrrmap.html"><i class="fa fa-check"></i><b>6.5</b> Aplicación de <code>purrr::map()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="potencialidades-de-r-markdown.html"><a href="potencialidades-de-r-markdown.html"><i class="fa fa-check"></i><b>7</b> <strong>Potencialidades de R Markdown</strong></a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="diapositivas-con-xaringan.html"><a href="diapositivas-con-xaringan.html"><i class="fa fa-check"></i><b>7.1</b> Diapositivas con Xaringan</a></li>
+<li class="chapter" data-level="7.2" data-path="crear-blogs-con-blogdown.html"><a href="crear-blogs-con-blogdown.html"><i class="fa fa-check"></i><b>7.2</b> Crear blogs con Blogdown</a></li>
+<li class="chapter" data-level="7.3" data-path="crear-libros-bookdown.html"><a href="crear-libros-bookdown.html"><i class="fa fa-check"></i><b>7.3</b> Crear libros Bookdown</a></li>
+</ul></li>
+<li class="part"><span><b>GRÁFICOS AVANZADOS<br>CON ggplot2</b></span></li>
+<li class="chapter" data-level="8" data-path="visualización-avanzada-de-gráficos.html"><a href="visualización-avanzada-de-gráficos.html"><i class="fa fa-check"></i><b>8</b> <strong>Visualización avanzada de gráficos</strong></a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="gramática-de-gráficos-sintaxis-de-ggplot2.html"><a href="gramática-de-gráficos-sintaxis-de-ggplot2.html"><i class="fa fa-check"></i><b>8.1</b> Gramática de gráficos: sintaxis de ggplot2</a></li>
+<li class="chapter" data-level="8.2" data-path="visualización-por-capas.html"><a href="visualización-por-capas.html"><i class="fa fa-check"></i><b>8.2</b> Visualización por capas</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="componentes-clave-de-un-gráfico-con-ggplot2.html"><a href="componentes-clave-de-un-gráfico-con-ggplot2.html"><i class="fa fa-check"></i><b>9</b> <strong>Componentes clave de un gráfico con ggplot2</strong></a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="geométricas.html"><a href="geométricas.html"><i class="fa fa-check"></i><b>9.1</b> Geométricas</a></li>
+<li class="chapter" data-level="9.2" data-path="stats.html"><a href="stats.html"><i class="fa fa-check"></i><b>9.2</b> Stats</a></li>
+<li class="chapter" data-level="9.3" data-path="coloreo-rellenado-formas-y-tipos-de-línea.html"><a href="coloreo-rellenado-formas-y-tipos-de-línea.html"><i class="fa fa-check"></i><b>9.3</b> Coloreo, rellenado, formas y tipos de línea</a></li>
+<li class="chapter" data-level="9.4" data-path="facetas.html"><a href="facetas.html"><i class="fa fa-check"></i><b>9.4</b> Facetas</a></li>
+<li class="chapter" data-level="9.5" data-path="etiquetas.html"><a href="etiquetas.html"><i class="fa fa-check"></i><b>9.5</b> Etiquetas</a></li>
+<li class="chapter" data-level="9.6" data-path="modificando-los-ejes.html"><a href="modificando-los-ejes.html"><i class="fa fa-check"></i><b>9.6</b> Modificando los ejes</a></li>
+<li class="chapter" data-level="9.7" data-path="temas.html"><a href="temas.html"><i class="fa fa-check"></i><b>9.7</b> Temas</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="creando-gráficos.html"><a href="creando-gráficos.html"><i class="fa fa-check"></i><b>10</b> <strong>Creando gráficos</strong></a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="una-variable-x-continua.html"><a href="una-variable-x-continua.html"><i class="fa fa-check"></i><b>10.1</b> Una variable X continua</a>
+<ul>
+<li class="chapter" data-level="10.1.1" data-path="una-variable-x-continua.html"><a href="una-variable-x-continua.html#polígonos-de-frecuencias"><i class="fa fa-check"></i><b>10.1.1</b> Polígonos de frecuencias</a></li>
+<li class="chapter" data-level="10.1.2" data-path="una-variable-x-continua.html"><a href="una-variable-x-continua.html#gráfico-de-área"><i class="fa fa-check"></i><b>10.1.2</b> Gráfico de área</a></li>
+<li class="chapter" data-level="10.1.3" data-path="una-variable-x-continua.html"><a href="una-variable-x-continua.html#gráfico-de-densidad"><i class="fa fa-check"></i><b>10.1.3</b> Gráfico de densidad</a></li>
+<li class="chapter" data-level="10.1.4" data-path="una-variable-x-continua.html"><a href="una-variable-x-continua.html#histograma-de-frecuencias"><i class="fa fa-check"></i><b>10.1.4</b> Histograma de frecuencias</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="una-variable-x-discreta.html"><a href="una-variable-x-discreta.html"><i class="fa fa-check"></i><b>10.2</b> Una variable X discreta</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="una-variable-x-discreta.html"><a href="una-variable-x-discreta.html#gráficos-de-barras"><i class="fa fa-check"></i><b>10.2.1</b> Gráficos de barras</a></li>
+<li class="chapter" data-level="10.2.2" data-path="una-variable-x-discreta.html"><a href="una-variable-x-discreta.html#gráficos-de-barras-polares"><i class="fa fa-check"></i><b>10.2.2</b> Gráficos de barras polares</a></li>
+<li class="chapter" data-level="10.2.3" data-path="una-variable-x-discreta.html"><a href="una-variable-x-discreta.html#gráfios-de-discrepancia"><i class="fa fa-check"></i><b>10.2.3</b> Gráfios de discrepancia</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="dos-variables-x-vs-y-continuas.html"><a href="dos-variables-x-vs-y-continuas.html"><i class="fa fa-check"></i><b>10.3</b> Dos variables: X vs Y continuas</a>
+<ul>
+<li class="chapter" data-level="10.3.1" data-path="dos-variables-x-vs-y-continuas.html"><a href="dos-variables-x-vs-y-continuas.html#gráfico-de-dispersión-de-puntos"><i class="fa fa-check"></i><b>10.3.1</b> Gráfico de dispersión de puntos</a></li>
+<li class="chapter" data-level="10.3.2" data-path="dos-variables-x-vs-y-continuas.html"><a href="dos-variables-x-vs-y-continuas.html#gráfico-de-etiquetas-y-texto"><i class="fa fa-check"></i><b>10.3.2</b> Gráfico de etiquetas y texto</a></li>
+<li class="chapter" data-level="10.3.3" data-path="dos-variables-x-vs-y-continuas.html"><a href="dos-variables-x-vs-y-continuas.html#gráficos-de-densidad-2d"><i class="fa fa-check"></i><b>10.3.3</b> Gráficos de densidad 2D</a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="dos-variables-x-discreta-vs-y-continua.html"><a href="dos-variables-x-discreta-vs-y-continua.html"><i class="fa fa-check"></i><b>10.4</b> Dos variables: X discreta vs Y continua</a>
+<ul>
+<li class="chapter" data-level="10.4.1" data-path="dos-variables-x-discreta-vs-y-continua.html"><a href="dos-variables-x-discreta-vs-y-continua.html#gráficos-de-cajas"><i class="fa fa-check"></i><b>10.4.1</b> Gráficos de cajas</a></li>
+<li class="chapter" data-level="10.4.2" data-path="dos-variables-x-discreta-vs-y-continua.html"><a href="dos-variables-x-discreta-vs-y-continua.html#gráfico-de-violín"><i class="fa fa-check"></i><b>10.4.2</b> Gráfico de violín</a></li>
+</ul></li>
+<li class="chapter" data-level="10.5" data-path="dos-variables-x-vs-y-discretas.html"><a href="dos-variables-x-vs-y-discretas.html"><i class="fa fa-check"></i><b>10.5</b> Dos variables: X vs Y discretas</a>
+<ul>
+<li class="chapter" data-level="10.5.1" data-path="dos-variables-x-vs-y-discretas.html"><a href="dos-variables-x-vs-y-discretas.html#gráficos-de-conteos"><i class="fa fa-check"></i><b>10.5.1</b> Gráficos de conteos</a></li>
+<li class="chapter" data-level="10.5.2" data-path="dos-variables-x-vs-y-discretas.html"><a href="dos-variables-x-vs-y-discretas.html#gráficos-de-calor"><i class="fa fa-check"></i><b>10.5.2</b> Gráficos de calor</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="adicionando-líneas.html"><a href="adicionando-líneas.html"><i class="fa fa-check"></i><b>11</b> <strong>Adicionando Líneas</strong></a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="gráficos-de-regresión.html"><a href="gráficos-de-regresión.html"><i class="fa fa-check"></i><b>11.1</b> Gráficos de Regresión</a></li>
+<li class="chapter" data-level="11.2" data-path="segmentos-y-flechas.html"><a href="segmentos-y-flechas.html"><i class="fa fa-check"></i><b>11.2</b> Segmentos y flechas</a></li>
+<li class="chapter" data-level="11.3" data-path="curvas-y-flechas.html"><a href="curvas-y-flechas.html"><i class="fa fa-check"></i><b>11.3</b> Curvas y flechas</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="gráficos-estadísticos-semiautomáticos.html"><a href="gráficos-estadísticos-semiautomáticos.html"><i class="fa fa-check"></i><b>12</b> <strong>Gráficos estadísticos semiautomáticos</strong></a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="funciones-de-ggpubr.html"><a href="funciones-de-ggpubr.html"><i class="fa fa-check"></i><b>12.1</b> Funciones de <code>ggpubr</code></a></li>
+<li class="chapter" data-level="12.2" data-path="funciones-de-ggstatsplot.html"><a href="funciones-de-ggstatsplot.html"><i class="fa fa-check"></i><b>12.2</b> Funciones de <code>ggstatsplot</code></a></li>
+<li class="chapter" data-level="12.3" data-path="funciones-de-ggcorplot.html"><a href="funciones-de-ggcorplot.html"><i class="fa fa-check"></i><b>12.3</b> Funciones de <code>ggcorplot</code></a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="exportación-de-gráficos.html"><a href="exportación-de-gráficos.html"><i class="fa fa-check"></i><b>13</b> <strong>Exportación de Gráficos</strong></a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="composición-de-múltiples-gráficos.html"><a href="composición-de-múltiples-gráficos.html"><i class="fa fa-check"></i><b>13.1</b> Composición de múltiples gráficos</a>
+<ul>
+<li class="chapter" data-level="13.1.1" data-path="composición-de-múltiples-gráficos.html"><a href="composición-de-múltiples-gráficos.html#utilizando-patchwork"><i class="fa fa-check"></i><b>13.1.1</b> Utilizando <code>patchwork</code></a></li>
+<li class="chapter" data-level="13.1.2" data-path="composición-de-múltiples-gráficos.html"><a href="composición-de-múltiples-gráficos.html#utilizando-ggpubr"><i class="fa fa-check"></i><b>13.1.2</b> Utilizando <code>ggpubr</code></a></li>
+</ul></li>
+<li class="chapter" data-level="13.2" data-path="exportacion-en-png-o-jpeg.html"><a href="exportacion-en-png-o-jpeg.html"><i class="fa fa-check"></i><b>13.2</b> Exportaci[on] en PNG o JPEG</a></li>
+<li class="chapter" data-level="13.3" data-path="exportación-en-pdf.html"><a href="exportación-en-pdf.html"><i class="fa fa-check"></i><b>13.3</b> Exportación en PDF</a></li>
+</ul></li>
+<li class="part"><span><b>SOLUCIONARIO</b></span></li>
+<li class="chapter" data-level="14" data-path="solucionario-de-los-ejercicios-del-libro.html"><a href="solucionario-de-los-ejercicios-del-libro.html"><i class="fa fa-check"></i><b>14</b> <strong>Solucionario de los ejercicios del libro</strong></a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="cap.-2-primer-contacto-con-r.html"><a href="cap.-2-primer-contacto-con-r.html"><i class="fa fa-check"></i><b>14.1</b> Cap. 2: Primer contacto con R</a></li>
+<li class="chapter" data-level="14.2" data-path="preg-estructurasdatos.html"><a href="preg-estructurasdatos.html"><i class="fa fa-check"></i><b>14.2</b> Cap. 3: Estructuras de datos</a></li>
+</ul></li>
+<li class="divider"></li>
+<li class='after'">
+  <center>
+   <a href="https://github.com/irwingss/">
+      <img src="figs/banner completo.png" style="width:100%; padding:0px 0; display:block; margin: 0 auto;" alt="MC logo">
+   </center>
+   </a>
+</li>
+<li class='after'">
+   <div style='text-align:center'>
+      <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">
+         <i class="fab fa-creative-commons fa-lg"></i>
+         <i class="fab fa-creative-commons-by fa-lg"></i>
+         <i class="fab fa-creative-commons-sa fa-lg"></i>
+      </a>
+   </div>
+</li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introducción a R para Ciencias</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="cap.-2-primer-contacto-con-r" class="section level2" number="14.1">
+<h2><span class="header-section-number">14.1</span> Cap. 2: Primer contacto con R</h2>
+<div class="question">
+<ol style="list-style-type: decimal">
+<li>Soluciona la ecuación <span class="math inline">\(\sqrt({\frac{24+12}{(2 * 3)^3})}\)</span>.</li>
+</ol>
+</div>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="cap.-2-primer-contacto-con-r.html#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>((<span class="dv">24</span><span class="sc">+</span><span class="dv">12</span>)<span class="sc">/</span>(<span class="dv">2</span><span class="sc">*</span><span class="dv">3</span>)<span class="sc">^</span><span class="dv">3</span>)</span>
+<span id="cb71-2"><a href="cap.-2-primer-contacto-con-r.html#cb71-2" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] 0.4082</span></span></code></pre></div>
+<div class="question">
+<ol style="list-style-type: decimal">
+<li>Crea un vector con llamado <code>num1</code> conteniendo 1000 números aleatorios con distribución normal, con promedio 19 y desviación estándar 1.29 (revisa la <a href="funciones-básica-útiles.html#funciones-básica-útiles">TABLA 2.4</a>).
+Asegúrate de ejecutar previamente la función <code>set.seed(123)</code> para que el ejercicio sea replicable.</li>
+</ol>
+</div>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="cap.-2-primer-contacto-con-r.html#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb72-2"><a href="cap.-2-primer-contacto-con-r.html#cb72-2" aria-hidden="true" tabindex="-1"></a>num1 <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">1000</span>, <span class="at">mean=</span><span class="dv">19</span>, <span class="at">sd=</span><span class="fl">1.29</span>)</span>
+<span id="cb72-3"><a href="cap.-2-primer-contacto-con-r.html#cb72-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb72-4"><a href="cap.-2-primer-contacto-con-r.html#cb72-4" aria-hidden="true" tabindex="-1"></a><span class="co"># La función head() permite ver los primeros N elementos del vector</span></span>
+<span id="cb72-5"><a href="cap.-2-primer-contacto-con-r.html#cb72-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Aquí se define N como 20 elementos</span></span>
+<span id="cb72-6"><a href="cap.-2-primer-contacto-con-r.html#cb72-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(num1, <span class="dv">20</span>)</span>
+<span id="cb72-7"><a href="cap.-2-primer-contacto-con-r.html#cb72-7" aria-hidden="true" tabindex="-1"></a><span class="co">#  [1] 18.28 18.70 21.01 19.09 19.17 21.21 19.59 17.37 18.11 18.43 20.58 19.46 19.52</span></span>
+<span id="cb72-8"><a href="cap.-2-primer-contacto-con-r.html#cb72-8" aria-hidden="true" tabindex="-1"></a><span class="co"># [14] 19.14 18.28 21.31 19.64 16.46 19.90 18.39</span></span></code></pre></div>
+<div class="question">
+<ol style="list-style-type: decimal">
+<li>Calcula el promedio y la desviación estándar del objeto <code>num1</code>. ¿Son exactamente iguales a los valores definidos con los que creaste el conjunto de datos usando <code>rnorm()</code>?.</li>
+</ol>
+</div>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="cap.-2-primer-contacto-con-r.html#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(num1)</span>
+<span id="cb73-2"><a href="cap.-2-primer-contacto-con-r.html#cb73-2" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] 19.02</span></span>
+<span id="cb73-3"><a href="cap.-2-primer-contacto-con-r.html#cb73-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(num1)</span>
+<span id="cb73-4"><a href="cap.-2-primer-contacto-con-r.html#cb73-4" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] 1.279</span></span></code></pre></div>
+<p>Como habrás notado. Los valores obtenidos no son exactamente los valores de promedio y desviación estándar con los que se generaron los mil números aleatorios con <code>rnorm()</code>. La aleatorización impide que los valores sean idénticos, no obstante siempre tienden a lo solicitado. No que sucede exclusivamente en R, de hecho ningún lenguaje de programación lo hace idéntico.</p>
+<div class="question">
+<ol style="list-style-type: decimal">
+<li>Calcula los cuartiles de dicho conjunto de datos. ¿Cuál es el valor del cuartil 50% (que es conocido como mediana) (revisa la <a href="funciones-básica-útiles.html#funciones-básica-útiles">TABLA 2.4</a>)?</li>
+</ol>
+</div>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="cap.-2-primer-contacto-con-r.html#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Para ver los cuartiles por defecto</span></span>
+<span id="cb74-2"><a href="cap.-2-primer-contacto-con-r.html#cb74-2" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(num1)</span>
+<span id="cb74-3"><a href="cap.-2-primer-contacto-con-r.html#cb74-3" aria-hidden="true" tabindex="-1"></a><span class="co">#    0%   25%   50%   75%  100% </span></span>
+<span id="cb74-4"><a href="cap.-2-primer-contacto-con-r.html#cb74-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 15.38 18.19 19.01 19.86 23.18</span></span>
+<span id="cb74-5"><a href="cap.-2-primer-contacto-con-r.html#cb74-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-6"><a href="cap.-2-primer-contacto-con-r.html#cb74-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Para obtener el cuartil 50% o mediana</span></span>
+<span id="cb74-7"><a href="cap.-2-primer-contacto-con-r.html#cb74-7" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(num1, <span class="at">probs=</span><span class="fl">0.5</span>)</span>
+<span id="cb74-8"><a href="cap.-2-primer-contacto-con-r.html#cb74-8" aria-hidden="true" tabindex="-1"></a><span class="co">#   50% </span></span>
+<span id="cb74-9"><a href="cap.-2-primer-contacto-con-r.html#cb74-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 19.01</span></span></code></pre></div>
+<div class="question">
+<ol style="list-style-type: decimal">
+<li>Utilizando los operadores relacionales, convierte el vector numérico <code>num1</code> a vector lógico, aplicando la pregunta lógica “números mayores a 20.0”. Guarda el resultado en el ambiente con el nombre <code>VL20</code> (revisa la <a href="operadores-lógicos-y-relacionales.html#operadores-lógicos-y-relacionales">TABLA 2.3</a>).</li>
+</ol>
+</div>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="cap.-2-primer-contacto-con-r.html#cb75-1" aria-hidden="true" tabindex="-1"></a>VL20 <span class="ot">&lt;-</span> num1 <span class="sc">&gt;</span> <span class="fl">20.0</span></span>
+<span id="cb75-2"><a href="cap.-2-primer-contacto-con-r.html#cb75-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-3"><a href="cap.-2-primer-contacto-con-r.html#cb75-3" aria-hidden="true" tabindex="-1"></a><span class="co"># La función head() permite ver los primeros N elementos del vector</span></span>
+<span id="cb75-4"><a href="cap.-2-primer-contacto-con-r.html#cb75-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Aquí se define N como 35 elementos</span></span>
+<span id="cb75-5"><a href="cap.-2-primer-contacto-con-r.html#cb75-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(VL20, <span class="dv">35</span>)</span>
+<span id="cb75-6"><a href="cap.-2-primer-contacto-con-r.html#cb75-6" aria-hidden="true" tabindex="-1"></a><span class="co">#  [1] FALSE FALSE  TRUE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE</span></span>
+<span id="cb75-7"><a href="cap.-2-primer-contacto-con-r.html#cb75-7" aria-hidden="true" tabindex="-1"></a><span class="co"># [14] FALSE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE</span></span>
+<span id="cb75-8"><a href="cap.-2-primer-contacto-con-r.html#cb75-8" aria-hidden="true" tabindex="-1"></a><span class="co"># [27]  TRUE FALSE FALSE  TRUE FALSE FALSE  TRUE  TRUE  TRUE</span></span></code></pre></div>
+<div class="question">
+<ol style="list-style-type: decimal">
+<li>Coloca el objeto <code>VL20</code> dentro de la función <code>mean()</code>. La función mean calcula normalmente el promedio de un conjunto de datos numéricos. No obstante, cuando se le ofrece un vector lógico, contabiliza la cantidad de elementos <code>TRUE</code> y ofrece la proporción de verdaderos respecto al total de elemento del conjunto. ¿Cuál es la proporción de elementos <code>FALSE</code> del vector <code>VL20</code>? (revisa la <a href="operadores-lógicos-y-relacionales.html#operadores-lógicos-y-relacionales">TABLA 2.3</a>).</li>
+</ol>
+</div>
+<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="cap.-2-primer-contacto-con-r.html#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Proporción de TRUE en el conjunto</span></span>
+<span id="cb76-2"><a href="cap.-2-primer-contacto-con-r.html#cb76-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(VL20)</span>
+<span id="cb76-3"><a href="cap.-2-primer-contacto-con-r.html#cb76-3" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] 0.221</span></span>
+<span id="cb76-4"><a href="cap.-2-primer-contacto-con-r.html#cb76-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb76-5"><a href="cap.-2-primer-contacto-con-r.html#cb76-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Proporción de FALSE en el conjunto</span></span>
+<span id="cb76-6"><a href="cap.-2-primer-contacto-con-r.html#cb76-6" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">-</span> <span class="fu">mean</span>(VL20)</span>
+<span id="cb76-7"><a href="cap.-2-primer-contacto-con-r.html#cb76-7" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] 0.779</span></span></code></pre></div>
+<div class="question">
+<ol style="list-style-type: decimal">
+<li>Utilizando los operadores lógicos y relacionales, convierte el vector numérico <code>num1</code> a vector lógico, aplicando la pregunta lógica “números menor igual a 19.5 y números mayor a 15.7”. (revisa la <a href="operadores-lógicos-y-relacionales.html#operadores-lógicos-y-relacionales">TABLA 2.3</a>). Si se sabe que son 1000 elementos los que contiene el vector, ¿Cuántos elementos del conjunto encajan dentro de la premisa lógica anterior?.</li>
+</ol>
+</div>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="cap.-2-primer-contacto-con-r.html#cb77-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear el vector lógico, dándole un nombre cualquiera</span></span>
+<span id="cb77-2"><a href="cap.-2-primer-contacto-con-r.html#cb77-2" aria-hidden="true" tabindex="-1"></a>num1LOGICO <span class="ot">&lt;-</span> (num1 <span class="sc">&lt;</span> <span class="dv">19</span> <span class="sc">&amp;</span> num1 <span class="sc">&gt;</span> <span class="fl">15.7</span>)</span>
+<span id="cb77-3"><a href="cap.-2-primer-contacto-con-r.html#cb77-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb77-4"><a href="cap.-2-primer-contacto-con-r.html#cb77-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Proporción de elementos TRUE</span></span>
+<span id="cb77-5"><a href="cap.-2-primer-contacto-con-r.html#cb77-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Es decir, que cumplieron la premisa anterior</span></span>
+<span id="cb77-6"><a href="cap.-2-primer-contacto-con-r.html#cb77-6" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(num1LOGICO)</span>
+<span id="cb77-7"><a href="cap.-2-primer-contacto-con-r.html#cb77-7" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] 0.491</span></span>
+<span id="cb77-8"><a href="cap.-2-primer-contacto-con-r.html#cb77-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb77-9"><a href="cap.-2-primer-contacto-con-r.html#cb77-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Convertir proporción a cantidad,</span></span>
+<span id="cb77-10"><a href="cap.-2-primer-contacto-con-r.html#cb77-10" aria-hidden="true" tabindex="-1"></a><span class="co"># multiplicando por el total de datos del vector</span></span>
+<span id="cb77-11"><a href="cap.-2-primer-contacto-con-r.html#cb77-11" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(num1LOGICO) <span class="sc">*</span> <span class="fu">length</span>(num1LOGICO)</span>
+<span id="cb77-12"><a href="cap.-2-primer-contacto-con-r.html#cb77-12" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] 491</span></span></code></pre></div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="solucionario-de-los-ejercicios-del-libro.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="preg-estructurasdatos.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": true,
+"twitter": true,
+"linkedin": true,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/irwingss/intro_r_ciencias/blob/master/09-solucionario.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section",
+"depth": 2,
+"scroll_highlight": true
+},
+"df_print": "kable"
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

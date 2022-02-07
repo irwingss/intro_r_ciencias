@@ -295,6 +295,39 @@ vectorNA[which(vectorNA>=25)]
 # [1] 40 50
 ```
 
+### Muestreo de vectores
+
+En ocasiones es requerido realizar muestreos virtuales, en la que se especifique cuántos elementos se requieren extraer de un vector. En R, la extracción se realiza con la función `sample()`, como:
+
+- **Muestreo con reemplazamiento:** donde cada elemento extraído se devuelve al conjunto inicial. Este elemento ya muestreado permanecer disponible para aparecer en siguiente muestreo aleatorio. Se especifica con el argumento `replace = TRUE`.
+
+- **Muestreo sin reemplazamiento:** donde cada elemento extraído no vuelve a aparecer en el conjunto inicial. Este elemento ya muestreado no estará disponible para aparecer en siguiente muestreo aleatorio. Se especifica con el argumento `replace = FALSE`.
+
+Si el muestreo es sin reemplazamiento, solo se puede extraer un máximo de elementos igual a la cantidad de elementos del conjunto inicial.
+
+\BeginKnitrBlock{rmdnote}<div class="rmdnote">Antes de cualquier función de aleatorización, es importante establecer un conjunto de números aleatorios para que el código sea replicable. Asegurar replicabilidad de los experimentos y análisis es importante para las publicaciones científicas. Utiliza la función `set.seed(123)` definiendo un número cualquiera, como aquí se colocó 123.</div>\EndKnitrBlock{rmdnote}
+
+
+```r
+# Muestreo con reemplazamiento
+# de un conjunto de 2 elementos
+conjuntoInicial <- c("A","Z")
+
+set.seed(123)
+sample(conjuntoInicial, 25, replace = TRUE)
+#  [1] "A" "A" "A" "Z" "A" "Z" "Z" "Z" "A" "A" "Z" "Z" "Z" "A" "Z" "A" "Z" "A" "A" "A"
+# [21] "A" "Z" "A" "A" "A"
+
+# Muestreo sin reemplazamiento
+# de un conjunto con 30 elementos
+conjuntoInicial2 <- rep(c("A","Z"), c(10,20))
+
+set.seed(321)
+sample(conjuntoInicial2, 25, replace = FALSE)
+#  [1] "Z" "Z" "Z" "Z" "Z" "Z" "Z" "A" "Z" "Z" "Z" "Z" "A" "A" "Z" "Z" "Z" "Z" "A" "Z"
+# [21] "Z" "A" "Z" "A" "A"
+```
+
 ## Factores
 
 Los factores son tipos especiales de vectores, donde R evalúa los valores únicos de la secuencia y los define como categorías. Son muy útiles en programación dado que permiten graficar, por ejemplo, con un color diferenciado cada nivel de una variable categorica. Imagina que se requiere hacer un gráfico de dispersión de puntos para ver la relación entre dos variables, pero permitiendo que el color de los puntos refleje el grupo al que pertenece cada observación:
@@ -302,8 +335,8 @@ Los factores son tipos especiales de vectores, donde R evalúa los valores únic
 (ref:factoresEjemplo) Ejemplo de uso del conjunto de datos _Grupos_ (que es un Factor) empleada para colorear los puntos del gráfico de enfrentamiento de las variables _Pétalo_ y _Sépalo_.
 
 <div class="figure" style="text-align: center">
-<img src="03-estructuras-datos_files/figure-html/unnamed-chunk-22-1.svg" alt="(ref:factoresEjemplo)" width="100%" />
-<p class="caption">(\#fig:unnamed-chunk-22)(ref:factoresEjemplo)</p>
+<img src="03-estructuras-datos_files/figure-html/unnamed-chunk-24-1.svg" alt="(ref:factoresEjemplo)" width="100%" />
+<p class="caption">(\#fig:unnamed-chunk-24)(ref:factoresEjemplo)</p>
 </div>
 
 ### Crear un factor
@@ -488,7 +521,6 @@ fctConjunto1[which(index)]
 # [1] 3 3 3 3
 # Levels: 1 2 3
 ```
-
 
 ## Matrices
 
@@ -707,4 +739,51 @@ Es más que seguro que en el futuro encontrarás ventajoso tener listas nombrada
 
 ## Coerción de variables
 
+Existe la posibilidad de cambiar la naturaleza digital, es decir, la clase y/o estructura, de un objeto en R. Coercionar implica permitir que un objeto transforme su clase o estructura a otra diferente a la inicial, permitiendo flexibilizar el manejo de datos de una manera increíblemente sencilla. 
 
+Para coercionar basta con usar las variables del grupo `as.---()`. Los tres guiones equivalen a un texto variable que le da la característica a cada función de dicho grupo. A continuación se muestran algunas de las funciones de coerción más importantes:
+
+
+Table: (\#tab:unnamed-chunk-46)Principales funciones de coerción de clase de variable.
+
+Función            Descripción                                                          
+-----------------  ---------------------------------------------------------------------
+`as.numeric()`     Cambia la naturaleza de un vector hacia clase numérica (decimales).  
+`as.integer()`     Cambia la naturaleza de un vector hacia clase numérica (enteros).    
+`as.character()`   Cambia la naturaleza de un vector hacia clase texto o carácter.      
+`as.logical()`     Cambia la naturaleza de un vector hacia clase lógica (TRUE o FALSE). 
+
+
+
+Table: (\#tab:unnamed-chunk-47)Principales funciones de coerción de estructura de variable.
+
+Función                Descripción                                                              
+---------------------  -------------------------------------------------------------------------
+`as.vector()`          Coerciona un factor a vector.                                            
+`as.factor()`          Coerciona un vector a factor.                                            
+`as.matrix()`          Coerciona una estructura 2D cualquiera hacia matriz.                     
+`as.data.frame()`      Coerciona una estructura 2D cualquiera hacia data frame.                 
+`as.list()`            Coerciona una estructura N dimensional hacia una lista.                  
+`dplyr::as_tibble()`   Coerciona una estructura 2D hacia Tibble (del entorno de **tidyverse**). 
+
+
+
+Table: (\#tab:unnamed-chunk-48)Algunas funciones de coerción especiales.
+
+Función             Descripción                                                                  
+------------------  -----------------------------------------------------------------------------
+`as.Date()`         Coerciona un texto o elemento numérico hacia fecha (formato calendario).     
+`as.POSIXct()`      Coerciona un texto o elemento numérico hacia fecha UTC (formato calendario). 
+`as.dengrogram()`   Coerciona un objeto de ordenamiento hcluster hacia dendrogram.               
+`as.hclust()`       Coerciona un objeto de ordenamiento dendrogram hacia hcluster.               
+`as.formula()`      Coerciona un texto hacia una fórmula estadística. Identico a `formula()`.    
+`as.roman()`        Coerciona números enteros hacia números romanos.                             
+`image()`           Coerciona una matriz numérica hacia una imagen raster.                       
+
+## Ejercicios del capítulo
+
+<div class="question">
+  1. Crea una variable llamada `datosNumeros` que contenga 200 números (decimales) entre el 20 y 80. 
+  1. Utilizando la función `sample()`, crea una variable llamada `niveles` que contenga el muestreo de 200 elementos (con repetición) 
+  1. Coerciona hacia texto el objeto `datosNumeros`.
+  1.</div>

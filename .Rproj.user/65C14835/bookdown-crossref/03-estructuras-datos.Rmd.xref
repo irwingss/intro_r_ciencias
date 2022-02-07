@@ -12,6 +12,7 @@ tab:echo Operaciones (símbolos) aritméticas en R
 h3:operaciones-numéricas-con-vectores Operaciones numéricas con vectores
 h3:valores-perdidos-en-vectores Valores perdidos en vectores
 h3:indexación-de-vectores Indexación de vectores
+h3:muestreo-de-vectores Muestreo de vectores
 h2:factores Factores
 (ref:factoresEjemplo) Ejemplo de uso del conjunto de datos  (que es un Factor) empleada para colorear los puntos del gráfico de enfrentamiento de las variables  y .
 h3:crear-un-factor Crear un factor
@@ -25,4 +26,8 @@ h2:data-frames Data Frames
 h2:tibbles Tibbles
 h2:listas Listas
 h2:coerción-de-variables Coerción de variables
+tab:echo Principales funciones de coerción de clase de variable.
+tab:echo Principales funciones de coerción de estructura de variable.
+tab:echo Algunas funciones de coerción especiales.
+h2:ejercicios-del-capítulo Ejercicios del capítulo
 
