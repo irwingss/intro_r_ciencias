@@ -216,6 +216,21 @@ openxlsx::read.xlsx("bases/tabla4.xlsx")%>%
 
 <div class="question">
   1. Soluciona la ecuación $\frac{24+12}{(2 * 3)^2}$.
+  1. Resuelve $\mathrm{log_{10}}(|\frac{\mathrm{exp(10)}^2}{-10*9^{6}}|)$. Las barras verticales implican aplicar valor absoluto antes de calcular el logaritmo en base 10.
+  1.La función sigmoidal $\sigma(\mathrm{z}) = \frac{1}{1+e^{-\mathrm{z}}}$ es muy importante en estadística. Permite convertir el resultado de una regresión logística (Odds ratios) en probabilidades, facilitando la interpretación. Utiliza la fórmula $z = -1.69 + 1*0.56$, emulando el resultado hipotético de una regresión logística, como insumo para calcular su probabilidad correspondiente utilizando la función sigmoidal. Como dato extra, el resultado de $\sigma(\mathrm{z})$ por 100 para convertirlo a probabilidad porcentual.
+  1. Este ejercicio avanzado es de carácter explicativo. Sigue el ejercicio en la sección del [Solucionario: Cap. 2, pregunta 3](#cap.-2-primer-contacto-con-r) correspondiente. Para calcular la derivaba de una función matemática, primero se debe crear la estructura matemática utilizando la función `expression()`. Una vez guardada la expresión, se utiliza la función `D()` para derivar. <br>
+  <br>Calcula la primera derivada de:
+  <br>$f(x)=-2x+2$
+  <br>$f(x)=-2x^2-5$
+  <br>$f(x)=\frac{x^3+2}{3}$
+  <br>
+  <br>
+  Calcula la primera derivada de una expresión con dos variables:
+  <br>$f(x)=x^2+y^2+2*x*y-3*x+4*y+4$
+  <br>
+  <br>
+  Calcula la segunda derivada de:
+  <br>$f(x)=x^2+3*x$
   1. Crea un vector con llamado `num1` conteniendo 1000 números aleatorios con distribución normal, con promedio 19 y desviación estándar 1.29 (revisa la [TABLA 2.4](#funciones-básica-útiles)).
   Asegúrate de ejecutar previamente la función `set.seed(123)` para que el ejercicio sea replicable.
   1. Calcula el promedio y la desviación estándar del objeto `num1`. ¿Son exactamente iguales a los valores definidos con los que creaste el conjunto de datos usando `rnorm()`?

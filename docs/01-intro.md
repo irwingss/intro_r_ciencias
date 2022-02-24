@@ -34,13 +34,13 @@ Para efectos de este libro, se deberá utilizar **las versiones listadas (o post
 #### Para Windows: {-}
 
 - R version 4.1.2 (2021-11-01) -- "Bird Hippie" [Descarga](https://cran.r-project.org/bin/windows/base/R-4.1.2-win.exe)
-- RStudio Desktop 2021.09.1+372 [Descarga](https://download1.rstudio.org/desktop/windows/RStudio-2021.09.1-372.exe)
+- RStudio Desktop 2022.02.0+443 [Descarga](https://download1.rstudio.org/desktop/windows/RStudio-2022.02.0-443.exe)
 - Rtools4.0 [Descarga](https://cran.r-project.org/bin/windows/Rtools/rtools40v2-x86_64.exe)
 
 #### Para macOS: {-}
 
 - R version 4.1.2 (2021-11-01) -- "Bird Hippie" [Descarga](https://cran.r-project.org/bin/macosx/base/R-4.1.2.pkg)
-- RStudio Desktop 2021.09.1+372 [Descarga](https://download1.rstudio.org/desktop/macos/RStudio-2021.09.1-372.dmg)
+- RStudio Desktop 2021.09.1+372 [Descarga](https://download1.rstudio.org/desktop/macos/RStudio-2022.02.0-443.dmg)
 - XQuartz 2.8.1. [Descarga](https://github.com/XQuartz/XQuartz/releases/download/XQuartz-2.8.1/XQuartz-2.8.1.dmg)
 
 #### Para Ubuntu/Debian: {-}
@@ -76,7 +76,7 @@ Para Instalar RStudio para Ubuntu 18, Ubuntu 20 o Debian 10
 
 ```
 sudo apt-get install gdebi-core
-wget https://download2.rstudio.org/server/bionic/amd64/rstudio-server-2021.09.2-382-amd64.deb
+wget https://download1.rstudio.org/desktop/bionic/amd64/rstudio-2022.02.0-443-amd64.deb
 sudo gdebi rstudio-server-2021.09.2-382-amd64.deb
 ```
 
@@ -158,6 +158,17 @@ La siguiente es una configuración sugerida para que RStudio sea visualizado de 
 </div>
 <br>
 
+## Nuevas características de RStudio versión 2022 (Actualizado: 23-02-22)
+
+Durante febrero de 2022 se actualizó RStudio a la primera versión del año: 2022.02.0+443. En esta versión, el soporte gráfico fue actualizado, además de permitir algunos cambios en la visualización de R Markdown. El detalle de la actualización publicada por Studio Blog está [disponible aquí](https://www.rstudio.com/blog/rstudio-2022-02-0-what-s-new/).
+
+(ref:act2022) En la sección de R Markdown, pestaña Visual, apareció una nueva opción para numerar las líneas de código dentro de cada code chunk (flecha roja izquierda, cambio visualizado en la flecha roja derecha). Además, la forma de cambiar del modo editor visual (Visual) a editor de código (Source) está dispuesto de manera más elegante. Estos cambios, están acompañados en mejoras en la salida gráfica y corrección de algunos problemas menores de los R Markdown.
+
+<div class="figure" style="text-align: center">
+<img src="figs/screenshots/actualizacion RStudio 2022.jpg" alt="(ref:act2022)" width="100%" />
+<p class="caption">(\#fig:unnamed-chunk-12)(ref:act2022)</p>
+</div>
+
 ## Tema BrackInstitute (2022)
 
 Este es un requerimiento especial para los estudiantes que usen este libro en las clases, en vivo o grabadas, del [Instituto de Ciencias Antonio Brack](https://www.brackinstitute.com/) a través de la plataforma educativa online [masterX](https://www.masterx.org/). Se les solicita instalen el tema de color de RStudio `BrackInstitute` para que la sintaxis del código sea del mismo color que el mostrado en clase, facilitando así su comprensión. Si eres un lector que no está llevando el programa, sientete libre instalar el tema también.
@@ -166,7 +177,7 @@ Este es un requerimiento especial para los estudiantes que usen este libro en la
 
 <div class="figure" style="text-align: center">
 <img src="figs/screenshots/tema BrackInstitute.png" alt="(ref:tema0)" width="100%" />
-<p class="caption">(\#fig:unnamed-chunk-12)(ref:tema0)</p>
+<p class="caption">(\#fig:unnamed-chunk-13)(ref:tema0)</p>
 </div>
 <br>
 
@@ -186,7 +197,7 @@ Como se muestra a continuación:
 
 <div class="figure" style="text-align: center">
 <img src="figs/screenshots/tema en consola.jpg" alt="(ref:tema)" width="100%" />
-<p class="caption">(\#fig:unnamed-chunk-14)(ref:tema)</p>
+<p class="caption">(\#fig:unnamed-chunk-15)(ref:tema)</p>
 </div>
 <br>
 
@@ -202,7 +213,7 @@ Existen diversos editores de código que permiten trabajar con R, pero ninguno c
 
 <div class="figure" style="text-align: center">
 <img src="figs/screenshots/Slide1.PNG" alt="(ref:paneles1)" width="100%" />
-<p class="caption">(\#fig:unnamed-chunk-15)(ref:paneles1)</p>
+<p class="caption">(\#fig:unnamed-chunk-16)(ref:paneles1)</p>
 </div>
 <br>
 
@@ -210,7 +221,7 @@ Existen diversos editores de código que permiten trabajar con R, pero ninguno c
 
 <div class="figure" style="text-align: center">
 <img src="figs/screenshots/Slide2.PNG" alt="(ref:paneles2)" width="100%" />
-<p class="caption">(\#fig:unnamed-chunk-16)(ref:paneles2)</p>
+<p class="caption">(\#fig:unnamed-chunk-17)(ref:paneles2)</p>
 </div>
 <br>
 
@@ -218,7 +229,7 @@ Existen diversos editores de código que permiten trabajar con R, pero ninguno c
 
 <div class="figure" style="text-align: center">
 <img src="figs/screenshots/Slide3.PNG" alt="(ref:paneles3)" width="100%" />
-<p class="caption">(\#fig:unnamed-chunk-17)(ref:paneles3)</p>
+<p class="caption">(\#fig:unnamed-chunk-18)(ref:paneles3)</p>
 </div>
 <br>
 
@@ -226,14 +237,14 @@ Existen diversos editores de código que permiten trabajar con R, pero ninguno c
 
 <div class="figure" style="text-align: center">
 <img src="figs/screenshots/Slide6.PNG" alt="(ref:paneles6)" width="100%" />
-<p class="caption">(\#fig:unnamed-chunk-18)(ref:paneles6)</p>
+<p class="caption">(\#fig:unnamed-chunk-19)(ref:paneles6)</p>
 </div>
 
 (ref:paneles5) Barra de menús. De las pestañas más importantes: File nos permite crear o cargar archivos; Session, definir espacio de trabajo actual; y Tools, ingresar a las configuraciones de RStudio. Usos más avanzados, como la depuración de código o el uso de versiones de control (Git), también se manejan desde las opciones de esta barra. 
 
 <div class="figure" style="text-align: center">
 <img src="figs/screenshots/Slide5.PNG" alt="(ref:paneles5)" width="100%" />
-<p class="caption">(\#fig:unnamed-chunk-19)(ref:paneles5)</p>
+<p class="caption">(\#fig:unnamed-chunk-20)(ref:paneles5)</p>
 </div>
 <br>
 
@@ -251,7 +262,7 @@ Una de las mayores virtudes de R es la enorme comunidad de desarrollo que ha cre
 
 <div class="figure" style="text-align: center">
 <img src="figs/screenshots/paquetes instalacion.jpg" alt="(ref:paquetes)" width="100%" />
-<p class="caption">(\#fig:unnamed-chunk-20)(ref:paquetes)</p>
+<p class="caption">(\#fig:unnamed-chunk-21)(ref:paquetes)</p>
 </div>
 
 Si se requiere instalar paquetes de CRAN (e.g., **tidyverse**) con código, se utilizará un código similar a este:
@@ -277,7 +288,7 @@ Es importante mantener actualizada la paquetería. En los repositorios de cada p
 
 <div class="figure" style="text-align: center">
 <img src="figs/screenshots/paquetes actualizacion.jpg" alt="(ref:paquetesActualizacion)" width="100%" />
-<p class="caption">(\#fig:unnamed-chunk-23)(ref:paquetesActualizacion)</p>
+<p class="caption">(\#fig:unnamed-chunk-24)(ref:paquetesActualizacion)</p>
 </div>
 
 Los paquetes instalados desde repositorio no oficial, deberán ser actualizados "reinstalándolos" de manera forzada. Para forzar la instalación de un paquete ya instalado desde github, se usa el argumento `force=TRUE`:
@@ -330,7 +341,7 @@ Es el documento más simple donde puedo escribir R. Es un editor de texto como e
 
 <div class="figure" style="text-align: center">
 <img src="figs/screenshots/Rscript.jpg" alt="(ref:rscript2)" width="100%" />
-<p class="caption">(\#fig:unnamed-chunk-30)(ref:rscript2)</p>
+<p class="caption">(\#fig:unnamed-chunk-31)(ref:rscript2)</p>
 </div>
 
 
@@ -346,7 +357,7 @@ No se profundizará en el uso de R Markdown, dado que no es el objetivo del prog
  
 <div class="figure" style="text-align: center">
 <img src="figs/screenshots/abrir R Markdown 1.jpg" alt="(ref:rmarkdown1)" width="100%" />
-<p class="caption">(\#fig:unnamed-chunk-31)(ref:rmarkdown1)</p>
+<p class="caption">(\#fig:unnamed-chunk-32)(ref:rmarkdown1)</p>
 </div>
 
  
@@ -354,7 +365,7 @@ No se profundizará en el uso de R Markdown, dado que no es el objetivo del prog
 
 <div class="figure" style="text-align: center">
 <img src="figs/screenshots/abrir R Markdown 2.jpg" alt="(ref:rmarkdown2)" width="100%" />
-<p class="caption">(\#fig:unnamed-chunk-32)(ref:rmarkdown2)</p>
+<p class="caption">(\#fig:unnamed-chunk-33)(ref:rmarkdown2)</p>
 </div>
 
 
@@ -362,14 +373,14 @@ No se profundizará en el uso de R Markdown, dado que no es el objetivo del prog
  
 <div class="figure" style="text-align: center">
 <img src="figs/screenshots/abrir R Markdown 3.jpg" alt="(ref:rmarkdown3)" width="100%" />
-<p class="caption">(\#fig:unnamed-chunk-33)(ref:rmarkdown3)</p>
+<p class="caption">(\#fig:unnamed-chunk-34)(ref:rmarkdown3)</p>
 </div>
 
 (ref:rmarkdown4) `knit` es una función del paquete `knitr`, desarrollado por Yihui Xie y colaboradores, para la generación de reportes dinámicos con R Markdown. Haciendo clic en el botón se despliega la lista de posibles exportaciones del documento. La exportación `Knit to HTML` produce una página web de reporte.
 
 <div class="figure" style="text-align: center">
 <img src="figs/screenshots/abrir R Markdown 4.jpg" alt="(ref:rmarkdown4)" width="100%" />
-<p class="caption">(\#fig:unnamed-chunk-34)(ref:rmarkdown4)</p>
+<p class="caption">(\#fig:unnamed-chunk-35)(ref:rmarkdown4)</p>
 </div>
 
 
@@ -377,21 +388,21 @@ No se profundizará en el uso de R Markdown, dado que no es el objetivo del prog
 
 <div class="figure" style="text-align: center">
 <img src="figs/screenshots/abrir R Markdown 5.jpg" alt="(ref:rmarkdown5)" width="100%" />
-<p class="caption">(\#fig:unnamed-chunk-35)(ref:rmarkdown5)</p>
+<p class="caption">(\#fig:unnamed-chunk-36)(ref:rmarkdown5)</p>
 </div>
 
 (ref:rmarkdown6) En la consola, o en una pestaña Render, comenzará a mostrarse la ejecución del código que `knit` desplegó para exportar el R Markdown a página web HTML.
 
 <div class="figure" style="text-align: center">
 <img src="figs/screenshots/abrir R Markdown 6.jpg" alt="(ref:rmarkdown6)" width="100%" />
-<p class="caption">(\#fig:unnamed-chunk-36)(ref:rmarkdown6)</p>
+<p class="caption">(\#fig:unnamed-chunk-37)(ref:rmarkdown6)</p>
 </div>
 
 (ref:rmarkdown7) Vista del archivo HTML generado a partir del R Markdown de ejemplo.
 
 <div class="figure" style="text-align: center">
 <img src="figs/screenshots/abrir R Markdown 7.jpg" alt="(ref:rmarkdown7)" width="100%" />
-<p class="caption">(\#fig:unnamed-chunk-37)(ref:rmarkdown7)</p>
+<p class="caption">(\#fig:unnamed-chunk-38)(ref:rmarkdown7)</p>
 </div>
 
 ## Proyectos de RStudio
@@ -406,49 +417,49 @@ Aquí se muestran los pasos para crear un proyecto local:
 
 <div class="figure" style="text-align: center">
 <img src="figs/screenshots/proyectos1.jpg" alt="(ref:proyecto1)" width="100%" />
-<p class="caption">(\#fig:unnamed-chunk-38)(ref:proyecto1)</p>
+<p class="caption">(\#fig:unnamed-chunk-39)(ref:proyecto1)</p>
 </div>
 
 (ref:proyecto2) Para efectos de este libro, selecciona la primera opción. Clic en `New Directory` para crear en el almacenamiento de tu computador una carpeta nueva donde se almacenará todo los respecto a este proyecto. `Existing Directory` solo se usará cuando ya se ha creado de antemano una carpeta donde se quiere almacenar el proyecto. Para versiones de control con Git y GitHub, el proceso se inicia con `Version Control`, para crear la carpeta de trabajo (tal como las anteriores opciones), pero el proyecto estará _casi_ listo para hacer _commit_ y publicar los cambios en GitHub. 
 
 <div class="figure" style="text-align: center">
 <img src="figs/screenshots/proyectos2.jpg" alt="(ref:proyecto2)" width="100%" />
-<p class="caption">(\#fig:unnamed-chunk-39)(ref:proyecto2)</p>
+<p class="caption">(\#fig:unnamed-chunk-40)(ref:proyecto2)</p>
 </div>
 
 (ref:proyecto3) En `Directory name:` escribe el nombre del proyecto, mismo que también tendrá la nueva carpeta de trabajo que se creará en tu computador. En el botón `Browse...`, podrás ubicar una carpeta _madre_ donde irás creando proyectos para mantenerlos todos ordenados y accesibles. Puede ser una subcarpeta dentro de documentos, con algún nombre genérico como "proyectos", "proyectos de R", entre otros. Finalmente, clic en `Create Project`.
 
 <div class="figure" style="text-align: center">
 <img src="figs/screenshots/proyectos3.jpg" alt="(ref:proyecto3)" width="100%" />
-<p class="caption">(\#fig:unnamed-chunk-40)(ref:proyecto3)</p>
+<p class="caption">(\#fig:unnamed-chunk-41)(ref:proyecto3)</p>
 </div>
 
 (ref:proyecto4) Se abrirá una nueva sesión con título idéntico a la carpeta de proyecto creada (aquí "Investigación A"). Nótese el ambiente (environment) en blanco. Todas las variables y funciones que se creen o carguen en el proyecto permanecerán en este ambiente específico del proyecto.  
 
 <div class="figure" style="text-align: center">
 <img src="figs/screenshots/proyectos4.jpg" alt="(ref:proyecto4)" width="100%" />
-<p class="caption">(\#fig:unnamed-chunk-41)(ref:proyecto4)</p>
+<p class="caption">(\#fig:unnamed-chunk-42)(ref:proyecto4)</p>
 </div>
 
 (ref:proyecto5) En la pestaña de `Files` se verá el contenido de todo lo que copiemos dentro de la carpeta del proyecto. Puedes acceder a la carpeta de trabajo haciendo clic en `More/ Show Folder in New Windows`. Allí podrás pegar archivos o documentos que necesites cargar posteriormente en tu proyecto.
 
 <div class="figure" style="text-align: center">
 <img src="figs/screenshots/proyectos5.jpg" alt="(ref:proyecto5)" width="100%" />
-<p class="caption">(\#fig:unnamed-chunk-42)(ref:proyecto5)</p>
+<p class="caption">(\#fig:unnamed-chunk-43)(ref:proyecto5)</p>
 </div>
 
 (ref:proyecto6) Para crear un nuevo proyecto, abrir uno existente  o cerrar el proyecto actual (flecha roja), existe el menú de acceso rápido que tiene el mismo nombre que tu proyecto actual. Para ver la dirección de la carpeta de trabajo en consola, ejecuta la función `getwd()`.
 
 <div class="figure" style="text-align: center">
 <img src="figs/screenshots/proyectos6.jpg" alt="(ref:proyecto6)" width="100%" />
-<p class="caption">(\#fig:unnamed-chunk-43)(ref:proyecto6)</p>
+<p class="caption">(\#fig:unnamed-chunk-44)(ref:proyecto6)</p>
 </div>
 
 (ref:proyecto7) En tu computador, encontrarás creada la carpeta del proyecto, en la dirección que especificaste, donde podrás pegar los archivos que aparecerán en la pestaña de Files del Panel de Ambiente del proyecto.
 
 <div class="figure" style="text-align: center">
 <img src="figs/screenshots/proyectos7.jpg" alt="(ref:proyecto7)" width="100%" />
-<p class="caption">(\#fig:unnamed-chunk-44)(ref:proyecto7)</p>
+<p class="caption">(\#fig:unnamed-chunk-45)(ref:proyecto7)</p>
 </div>
 
 \BeginKnitrBlock{rmdnote}<div class="rmdnote">- Para ver la dirección de la carpeta de trabajo en consola, ejecuta la función `getwd()`.
@@ -468,14 +479,14 @@ Para acceder a ella, se debe acceder a la pestaña Help.
 
 <div class="figure" style="text-align: center">
 <img src="figs/screenshots/help1.jpg" alt="(ref:help1)" width="100%" />
-<p class="caption">(\#fig:unnamed-chunk-46)(ref:help1)</p>
+<p class="caption">(\#fig:unnamed-chunk-47)(ref:help1)</p>
 </div>
 
 (ref:help2) Detalle de la ayuda de la función `mean()`. Es muy útil revisar la sección Arguments donde se describen los argumentos, además los ejemplos de uso.
 
 <div class="figure" style="text-align: center">
 <img src="figs/screenshots/help2.jpg" alt="(ref:help2)" width="100%" />
-<p class="caption">(\#fig:unnamed-chunk-47)(ref:help2)</p>
+<p class="caption">(\#fig:unnamed-chunk-48)(ref:help2)</p>
 </div>
 
 
@@ -491,5 +502,5 @@ Para pedir ayuda en internet, se recomienda el uso del buscador exclusivo de tem
 
 <div class="figure" style="text-align: center">
 <img src="figs/screenshots/rseek.jpg" alt="(ref:help3)" width="100%" />
-<p class="caption">(\#fig:unnamed-chunk-49)(ref:help3)</p>
+<p class="caption">(\#fig:unnamed-chunk-50)(ref:help3)</p>
 </div>

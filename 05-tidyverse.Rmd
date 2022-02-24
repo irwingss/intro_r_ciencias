@@ -11,3 +11,9 @@
 ## Resúmenes estadísticos
 ## Combinar bases de datos
 ## Valores perdidos
+
+## Ejercicios del capítulo
+
+<div class="question">
+  1. C
+</div>

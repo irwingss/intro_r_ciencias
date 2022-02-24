@@ -39,7 +39,7 @@ https://lindeloev.github.io/tests-as-linear/
 https://bookdown.org/ajsage/statistics_for_data_science_notes/
 
 https://www.muscardinus.be/2018/09/number-random-effect-levels/
-
+https://pegasus.uprm.edu/~pedro.torres/book/Chapter2.html#metodos-de-minimos-cuadrados
 
 # Random Effects levels explanation
 https://www.muscardinus.be/2018/09/number-random-effect-levels/

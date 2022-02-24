@@ -739,9 +739,9 @@ Es más que seguro que en el futuro encontrarás ventajoso tener listas nombrada
 
 ## Coerción de variables
 
-Existe la posibilidad de cambiar la naturaleza digital, es decir, la clase y/o estructura, de un objeto en R. Coercionar implica permitir que un objeto transforme su clase o estructura a otra diferente a la inicial, permitiendo flexibilizar el manejo de datos de una manera increíblemente sencilla. 
+Existe la posibilidad de cambiar la naturaleza digital, es decir, la clase y/o estructura, de un objeto en R. Coercer implica permitir que un objeto transforme su clase o estructura a otra diferente a la inicial, permitiendo flexibilizar el manejo de datos de una manera increíblemente sencilla. 
 
-Para coercionar basta con usar las variables del grupo `as.---()`. Los tres guiones equivalen a un texto variable que le da la característica a cada función de dicho grupo. A continuación se muestran algunas de las funciones de coerción más importantes:
+Para coercer basta con usar las variables del grupo `as.---()`. Los tres guiones equivalen a un texto variable que le da la característica a cada función de dicho grupo. A continuación se muestran algunas de las funciones de coerción más importantes:
 
 
 Table: (\#tab:unnamed-chunk-46)Principales funciones de coerción de clase de variable.
@@ -766,6 +766,7 @@ Función                Descripción
 `as.list()`            Coerciona una estructura N dimensional hacia una lista.                  
 `dplyr::as_tibble()`   Coerciona una estructura 2D hacia Tibble (del entorno de **tidyverse**). 
 
+Más allá de las funciones convencionales, existen muchas más funciones de coerción que modificas conjuntos de datos particulares. Por ejemplo, para trabajar con fechas, objetos especiales de R como dendrogramas, fórmulas, entre otros.
 
 
 Table: (\#tab:unnamed-chunk-48)Algunas funciones de coerción especiales.
@@ -780,10 +781,22 @@ Función             Descripción
 `as.roman()`        Coerciona números enteros hacia números romanos.                             
 `image()`           Coerciona una matriz numérica hacia una imagen raster.                       
 
+
+\BeginKnitrBlock{rmdtip}<div class="rmdtip">Para casos incluso más especiales, como tópicos relacionados a sistemas de información geográfica, bioinformática, entre otros, encontrarás las funciones de coerción respectivas dentro de cada paquetes específico que utilices.</div>\EndKnitrBlock{rmdtip}
+ 
 ## Ejercicios del capítulo
 
 <div class="question">
   1. Crea una variable llamada `datosNumeros` que contenga 200 números (decimales) entre el 20 y 80. 
-  1. Utilizando la función `sample()`, crea una variable llamada `niveles` que contenga el muestreo de 200 elementos (con repetición) 
-  1. Coerciona hacia texto el objeto `datosNumeros`.
-  1.</div>
+  1. Utilizando la función `sample()`, crea una variable llamada `muestr4` que contenga el muestreo de 10 elementos (con repetición) del objeto `datosNumeros`. Utiliza `set.seed(123)`
+antes del muestro para asegurar la replicabilidad del mismo.
+  1. Redondea todos los elementos del vector `datosNumeros` a dos decimales, coerciona el objeto a texto, y guarda el resultado en el ambiente con el nombre `coer`.
+  1. Utiliza `coer` para coercer el objeto hacia número nuevamente.
+  1. Crea el vector `miPais` que contenga únicamente el nombre de tu país de residencia. Coerce `miPais`hacia vector numérico. ¿Notas la advertencia?
+  1. Crea una data frame llamada `DF10`, cuyo contenido sea: una columna numérica, otra de texto, y otra lógica, todas de 5 elementos. Coerce `DF10` hacia matriz. ¿Notas algo particular en los elementos de la matriz?
+  1. Crea una lista llamda `list1` que contenga los objetos: `muestr4`, `datosNumeros`,`DF10`. Luego, indexa las posiciones:
+    <br>- Fila 2, columna 3 del objeto `DF10`.
+    <br>- Elemento 150 del objeto `datosNumeros`.
+    <br>- El elemento 5 del objeto `muestr4`.<br>
+  <br>Realiza esto utilizando tanto una lista nombra como no nombrada.
+</div>

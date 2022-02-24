@@ -30,3 +30,17 @@ ADVERTENCIAS
 openxlsx::read.xlsx("bases/tabla1.xlsx")%>%
   kable(format = "pandoc", caption = 'Operaciones (símbolos) aritméticas en R')
 ```
+
+
+<div class="question">
+  1. Carga la base de datos `BOD` que muestra unos datos sencillos sobre demanda bioquímica de oxígeno (BOD en inglés). Calcula el promedio y desvición estándar de la columna `demand`. Utiliza la forma de código utilizando **dplyr** y sin usar **dplyr**.
+</div>
+
+  ```{r}
+# Sin dplyr
+mean(BOD$demand)
+sd(BOD$demand)
+
+# Con dplyr
+```
+

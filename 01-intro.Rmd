@@ -35,13 +35,13 @@ Para efectos de este libro, se deberá utilizar **las versiones listadas (o post
 #### Para Windows: {-}
 
 - R version 4.1.2 (2021-11-01) -- "Bird Hippie" [Descarga](https://cran.r-project.org/bin/windows/base/R-4.1.2-win.exe)
-- RStudio Desktop 2021.09.1+372 [Descarga](https://download1.rstudio.org/desktop/windows/RStudio-2021.09.1-372.exe)
+- RStudio Desktop 2022.02.0+443 [Descarga](https://download1.rstudio.org/desktop/windows/RStudio-2022.02.0-443.exe)
 - Rtools4.0 [Descarga](https://cran.r-project.org/bin/windows/Rtools/rtools40v2-x86_64.exe)
 
 #### Para macOS: {-}
 
 - R version 4.1.2 (2021-11-01) -- "Bird Hippie" [Descarga](https://cran.r-project.org/bin/macosx/base/R-4.1.2.pkg)
-- RStudio Desktop 2021.09.1+372 [Descarga](https://download1.rstudio.org/desktop/macos/RStudio-2021.09.1-372.dmg)
+- RStudio Desktop 2021.09.1+372 [Descarga](https://download1.rstudio.org/desktop/macos/RStudio-2022.02.0-443.dmg)
 - XQuartz 2.8.1. [Descarga](https://github.com/XQuartz/XQuartz/releases/download/XQuartz-2.8.1/XQuartz-2.8.1.dmg)
 
 #### Para Ubuntu/Debian: {-}
@@ -77,7 +77,7 @@ Para Instalar RStudio para Ubuntu 18, Ubuntu 20 o Debian 10
 
 ```
 sudo apt-get install gdebi-core
-wget https://download2.rstudio.org/server/bionic/amd64/rstudio-server-2021.09.2-382-amd64.deb
+wget https://download1.rstudio.org/desktop/bionic/amd64/rstudio-2022.02.0-443-amd64.deb
 sudo gdebi rstudio-server-2021.09.2-382-amd64.deb
 ```
 
@@ -149,6 +149,16 @@ knitr::include_graphics("figs/screenshots/configRStudio-9.jpg")
 knitr::include_graphics("figs/screenshots/configRStudio-10.jpg")
 ```
 <br>
+
+## Nuevas características de RStudio versión 2022 (Actualizado: 23-02-22)
+
+Durante febrero de 2022 se actualizó RStudio a la primera versión del año: 2022.02.0+443. En esta versión, el soporte gráfico fue actualizado, además de permitir algunos cambios en la visualización de R Markdown. El detalle de la actualización publicada por Studio Blog está [disponible aquí](https://www.rstudio.com/blog/rstudio-2022-02-0-what-s-new/).
+
+(ref:act2022) En la sección de R Markdown, pestaña Visual, apareció una nueva opción para numerar las líneas de código dentro de cada code chunk (flecha roja izquierda, cambio visualizado en la flecha roja derecha). Además, la forma de cambiar del modo editor visual (Visual) a editor de código (Source) está dispuesto de manera más elegante. Estos cambios, están acompañados en mejoras en la salida gráfica y corrección de algunos problemas menores de los R Markdown.
+
+```{r, echo=FALSE, fig.cap='(ref:act2022)', fig.align='center', out.width="100%"}
+knitr::include_graphics("figs/screenshots/actualizacion RStudio 2022.jpg")
+```
 
 ## Tema BrackInstitute (2022)
 

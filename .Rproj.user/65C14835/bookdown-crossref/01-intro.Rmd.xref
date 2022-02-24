@@ -15,6 +15,8 @@ h2:configuración-de-rstudio Configuración de RStudio
 (ref:config8) El siguiente paso es cambiar la ubicación de TabSet haciendo clic y cambiando el panel por Console. Clic en Aplicar para definir los cambios.
 (ref:config9) La configuración de R Markdown es solo para evitar que se cuelgue al usar los documentos. Definir todas las casillas y selectores como se muestra a continuación en las pestañas Basic y Advanced.
 (ref:config10) Para trabajar correctamente con los documentos R Markdown y evitar que se cuelguen, desmarcar la casilla con flecha roja. En la pestaña Spelling, se especifica el uso del lenguaje para el texto de los documentos. Selecciona de la lista . Clic en Aplicar para definir los cambios.
+h2:nuevas-características-de-rstudio-versión-2022-actualizado-23-02-22 Nuevas características de RStudio versión 2022 (Actualizado: 23-02-22)
+(ref:act2022) En la sección de R Markdown, pestaña Visual, apareció una nueva opción para numerar las líneas de código dentro de cada code chunk (flecha roja izquierda, cambio visualizado en la flecha roja derecha). Además, la forma de cambiar del modo editor visual (Visual) a editor de código (Source) está dispuesto de manera más elegante. Estos cambios, están acompañados en mejoras en la salida gráfica y corrección de algunos problemas menores de los R Markdown.
 h2:tema-brackinstitute-2022 Tema BrackInstitute (2022)
 (ref:tema0) Vista previa del tema .
 (ref:tema) Código de instalación del tema  en la consola, listo para ser ejecutado.
