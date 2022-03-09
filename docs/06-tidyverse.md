@@ -1,17 +1,19 @@
-# **Flujos de trabajo con** `tidyverse`
-
-## Pipe
-
-## Tablas anchas y largas
-
+# **Manejo de datos con** `tidyverse`
+## Datos ordenados (tidy)
+## Pipelines con tidyverse
+## Tablas anchas y largas con tidyr
 ## Filtrado
-
 ## Selección
-
-## Agrupamiento, Reordenamiento y conteo
-
-## Transformación y creación de columnas
-
+## Agrupamiento
+## Reordenamiento
+## Conteo
+## Creación y transformación de columnas
 ## Resúmenes estadísticos
-
 ## Combinar bases de datos
+## Valores perdidos
+
+## Ejercicios del capítulo
+
+<div class="question">
+  1. C
+</div>

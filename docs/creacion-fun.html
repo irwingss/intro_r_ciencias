@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>6.2 Creación de funciones | Introducción a R para Ciencias</title>
+  <title>5.1 Creación de funciones | Introducción a R para Ciencias</title>
   <meta name="description" content="Libro introductorio al uso del lenguaje de programación R, con ejemplos orientados a ciencias" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="6.2 Creación de funciones | Introducción a R para Ciencias" />
+  <meta property="og:title" content="5.1 Creación de funciones | Introducción a R para Ciencias" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://github.com/irwingss/intro_r_ciencias/" />
   <meta property="og:image" content="https://github.com/irwingss/intro_r_ciencias//Cover/cover R.png" />
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="irwingss/intro_r_ciencias/" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="6.2 Creación de funciones | Introducción a R para Ciencias" />
+  <meta name="twitter:title" content="5.1 Creación de funciones | Introducción a R para Ciencias" />
   
   <meta name="twitter:description" content="Libro introductorio al uso del lenguaje de programación R, con ejemplos orientados a ciencias" />
   <meta name="twitter:image" content="https://github.com/irwingss/intro_r_ciencias//Cover/cover R.png" />
@@ -24,15 +24,15 @@
 <meta name="author" content="Irwing S. Saldaña" />
 
 
-<meta name="date" content="2022-02-23" />
+<meta name="date" content="2022-03-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="figs/favicon.ico" type="image/x-icon" />
-<link rel="prev" href="control-de-flujo.html"/>
-<link rel="next" href="ifelse.html"/>
+<link rel="prev" href="programación-funcional.html"/>
+<link rel="next" href="control-de-flujo.html"/>
 <script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -226,29 +226,49 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="4.2" data-path="exportar-basas-de-datos.html"><a href="exportar-basas-de-datos.html"><i class="fa fa-check"></i><b>4.2</b> Exportar basas de datos</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="manejo-de-datos-con-tidyverse.html"><a href="manejo-de-datos-con-tidyverse.html"><i class="fa fa-check"></i><b>5</b> <strong>Manejo de datos con</strong> <code>tidyverse</code></a>
+<li class="chapter" data-level="5" data-path="programación-funcional.html"><a href="programación-funcional.html"><i class="fa fa-check"></i><b>5</b> <strong>Programación funcional</strong></a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="datos-ordenados-tidy.html"><a href="datos-ordenados-tidy.html"><i class="fa fa-check"></i><b>5.1</b> Datos ordenados (tidy)</a></li>
-<li class="chapter" data-level="5.2" data-path="pipelines-con-tidyverse.html"><a href="pipelines-con-tidyverse.html"><i class="fa fa-check"></i><b>5.2</b> Pipelines con tidyverse</a></li>
-<li class="chapter" data-level="5.3" data-path="tablas-anchas-y-largas-con-tidyr.html"><a href="tablas-anchas-y-largas-con-tidyr.html"><i class="fa fa-check"></i><b>5.3</b> Tablas anchas y largas con tidyr</a></li>
-<li class="chapter" data-level="5.4" data-path="filtrado.html"><a href="filtrado.html"><i class="fa fa-check"></i><b>5.4</b> Filtrado</a></li>
-<li class="chapter" data-level="5.5" data-path="selección.html"><a href="selección.html"><i class="fa fa-check"></i><b>5.5</b> Selección</a></li>
-<li class="chapter" data-level="5.6" data-path="agrupamiento.html"><a href="agrupamiento.html"><i class="fa fa-check"></i><b>5.6</b> Agrupamiento</a></li>
-<li class="chapter" data-level="5.7" data-path="reordenamiento.html"><a href="reordenamiento.html"><i class="fa fa-check"></i><b>5.7</b> Reordenamiento</a></li>
-<li class="chapter" data-level="5.8" data-path="conteo.html"><a href="conteo.html"><i class="fa fa-check"></i><b>5.8</b> Conteo</a></li>
-<li class="chapter" data-level="5.9" data-path="creación-y-transformación-de-columnas.html"><a href="creación-y-transformación-de-columnas.html"><i class="fa fa-check"></i><b>5.9</b> Creación y transformación de columnas</a></li>
-<li class="chapter" data-level="5.10" data-path="resúmenes-estadísticos.html"><a href="resúmenes-estadísticos.html"><i class="fa fa-check"></i><b>5.10</b> Resúmenes estadísticos</a></li>
-<li class="chapter" data-level="5.11" data-path="combinar-bases-de-datos.html"><a href="combinar-bases-de-datos.html"><i class="fa fa-check"></i><b>5.11</b> Combinar bases de datos</a></li>
-<li class="chapter" data-level="5.12" data-path="valores-perdidos.html"><a href="valores-perdidos.html"><i class="fa fa-check"></i><b>5.12</b> Valores perdidos</a></li>
-<li class="chapter" data-level="5.13" data-path="ejercicios-del-capítulo-2.html"><a href="ejercicios-del-capítulo-2.html"><i class="fa fa-check"></i><b>5.13</b> Ejercicios del capítulo</a></li>
+<li class="chapter" data-level="5.1" data-path="creacion-fun.html"><a href="creacion-fun.html"><i class="fa fa-check"></i><b>5.1</b> Creación de funciones</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="creacion-fun.html"><a href="creacion-fun.html#ejemplo-simple"><i class="fa fa-check"></i><b>5.1.1</b> Ejemplo simple</a></li>
+<li class="chapter" data-level="5.1.2" data-path="creacion-fun.html"><a href="creacion-fun.html#función-de-gauss"><i class="fa fa-check"></i><b>5.1.2</b> Función de Gauss</a></li>
+<li class="chapter" data-level="5.1.3" data-path="creacion-fun.html"><a href="creacion-fun.html#variables-y-valores-por-defecto"><i class="fa fa-check"></i><b>5.1.3</b> Variables y valores por defecto</a></li>
+<li class="chapter" data-level="5.1.4" data-path="creacion-fun.html"><a href="creacion-fun.html#almacenar-variables-directamente-en-el-ambiente"><i class="fa fa-check"></i><b>5.1.4</b> Almacenar variables directamente en el ambiente</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="programación-funcional-e-iteraciones.html"><a href="programación-funcional-e-iteraciones.html"><i class="fa fa-check"></i><b>6</b> <strong>Programación Funcional e iteraciones</strong></a>
+<li class="chapter" data-level="5.2" data-path="control-de-flujo.html"><a href="control-de-flujo.html"><i class="fa fa-check"></i><b>5.2</b> Control de flujo</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="control-de-flujo.html"><a href="control-de-flujo.html"><i class="fa fa-check"></i><b>6.1</b> Control de flujo</a></li>
-<li class="chapter" data-level="6.2" data-path="creacion-fun.html"><a href="creacion-fun.html"><i class="fa fa-check"></i><b>6.2</b> Creación de funciones</a></li>
-<li class="chapter" data-level="6.3" data-path="ifelse.html"><a href="ifelse.html"><i class="fa fa-check"></i><b>6.3</b> <code>ifelse()</code></a></li>
-<li class="chapter" data-level="6.4" data-path="iteraciones-con-for-loops.html"><a href="iteraciones-con-for-loops.html"><i class="fa fa-check"></i><b>6.4</b> Iteraciones con for loops</a></li>
-<li class="chapter" data-level="6.5" data-path="aplicación-de-purrrmap.html"><a href="aplicación-de-purrrmap.html"><i class="fa fa-check"></i><b>6.5</b> Aplicación de <code>purrr::map()</code></a></li>
+<li class="chapter" data-level="5.2.1" data-path="control-de-flujo.html"><a href="control-de-flujo.html#control-con-if"><i class="fa fa-check"></i><b>5.2.1</b> Control con <code>if</code></a></li>
+<li class="chapter" data-level="5.2.2" data-path="control-de-flujo.html"><a href="control-de-flujo.html#control-completo-con-if-y-else"><i class="fa fa-check"></i><b>5.2.2</b> Control completo con <code>if</code> y <code>else</code></a></li>
+<li class="chapter" data-level="5.2.3" data-path="control-de-flujo.html"><a href="control-de-flujo.html#condicionales-en-vectores-de-más-de-un-elemento-con-ifelse"><i class="fa fa-check"></i><b>5.2.3</b> Condicionales en vectores de más de un elemento con <code>ifelse()</code></a></li>
+<li class="chapter" data-level="5.2.4" data-path="control-de-flujo.html"><a href="control-de-flujo.html#condicionales-en-vectores-case_when-de-dplyr"><i class="fa fa-check"></i><b>5.2.4</b> Condicionales en vectores <code>case_when()</code> de <strong>dplyr</strong></a></li>
+<li class="chapter" data-level="5.2.5" data-path="control-de-flujo.html"><a href="control-de-flujo.html#ciclos-o-loops-con-for"><i class="fa fa-check"></i><b>5.2.5</b> Ciclos o Loops con <code>for</code></a></li>
+<li class="chapter" data-level="5.2.6" data-path="control-de-flujo.html"><a href="control-de-flujo.html#ciclos-o-loops-con-replicate"><i class="fa fa-check"></i><b>5.2.6</b> Ciclos o loops con <code>replicate()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="operadoresfuncion.html"><a href="operadoresfuncion.html"><i class="fa fa-check"></i><b>5.3</b> Operadores de función</a></li>
+<li class="chapter" data-level="5.4" data-path="familia-apply.html"><a href="familia-apply.html"><i class="fa fa-check"></i><b>5.4</b> Familia <code>apply()</code></a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="familia-apply.html"><a href="familia-apply.html#función-apply"><i class="fa fa-check"></i><b>5.4.1</b> Función <code>apply()</code></a></li>
+<li class="chapter" data-level="5.4.2" data-path="familia-apply.html"><a href="familia-apply.html#función-lapply"><i class="fa fa-check"></i><b>5.4.2</b> Función <code>lapply()</code></a></li>
+<li class="chapter" data-level="5.4.3" data-path="familia-apply.html"><a href="familia-apply.html#función-tapply"><i class="fa fa-check"></i><b>5.4.3</b> Función <code>tapply()</code></a></li>
+<li class="chapter" data-level="5.4.4" data-path="familia-apply.html"><a href="familia-apply.html#función-sapply"><i class="fa fa-check"></i><b>5.4.4</b> Función <code>sapply()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="ejercicios-del-capítulo-2.html"><a href="ejercicios-del-capítulo-2.html"><i class="fa fa-check"></i><b>5.5</b> Ejercicios del capítulo</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="manejo-de-datos-con-tidyverse.html"><a href="manejo-de-datos-con-tidyverse.html"><i class="fa fa-check"></i><b>6</b> <strong>Manejo de datos con</strong> <code>tidyverse</code></a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="datos-ordenados-tidy.html"><a href="datos-ordenados-tidy.html"><i class="fa fa-check"></i><b>6.1</b> Datos ordenados (tidy)</a></li>
+<li class="chapter" data-level="6.2" data-path="pipelines-con-tidyverse.html"><a href="pipelines-con-tidyverse.html"><i class="fa fa-check"></i><b>6.2</b> Pipelines con tidyverse</a></li>
+<li class="chapter" data-level="6.3" data-path="tablas-anchas-y-largas-con-tidyr.html"><a href="tablas-anchas-y-largas-con-tidyr.html"><i class="fa fa-check"></i><b>6.3</b> Tablas anchas y largas con tidyr</a></li>
+<li class="chapter" data-level="6.4" data-path="filtrado.html"><a href="filtrado.html"><i class="fa fa-check"></i><b>6.4</b> Filtrado</a></li>
+<li class="chapter" data-level="6.5" data-path="selección.html"><a href="selección.html"><i class="fa fa-check"></i><b>6.5</b> Selección</a></li>
+<li class="chapter" data-level="6.6" data-path="agrupamiento.html"><a href="agrupamiento.html"><i class="fa fa-check"></i><b>6.6</b> Agrupamiento</a></li>
+<li class="chapter" data-level="6.7" data-path="reordenamiento.html"><a href="reordenamiento.html"><i class="fa fa-check"></i><b>6.7</b> Reordenamiento</a></li>
+<li class="chapter" data-level="6.8" data-path="conteo.html"><a href="conteo.html"><i class="fa fa-check"></i><b>6.8</b> Conteo</a></li>
+<li class="chapter" data-level="6.9" data-path="creación-y-transformación-de-columnas.html"><a href="creación-y-transformación-de-columnas.html"><i class="fa fa-check"></i><b>6.9</b> Creación y transformación de columnas</a></li>
+<li class="chapter" data-level="6.10" data-path="resúmenes-estadísticos.html"><a href="resúmenes-estadísticos.html"><i class="fa fa-check"></i><b>6.10</b> Resúmenes estadísticos</a></li>
+<li class="chapter" data-level="6.11" data-path="combinar-bases-de-datos.html"><a href="combinar-bases-de-datos.html"><i class="fa fa-check"></i><b>6.11</b> Combinar bases de datos</a></li>
+<li class="chapter" data-level="6.12" data-path="valores-perdidos.html"><a href="valores-perdidos.html"><i class="fa fa-check"></i><b>6.12</b> Valores perdidos</a></li>
+<li class="chapter" data-level="6.13" data-path="ejercicios-del-capítulo-3.html"><a href="ejercicios-del-capítulo-3.html"><i class="fa fa-check"></i><b>6.13</b> Ejercicios del capítulo</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="potencialidades-de-r-markdown.html"><a href="potencialidades-de-r-markdown.html"><i class="fa fa-check"></i><b>7</b> <strong>Potencialidades de R Markdown</strong></a>
 <ul>
@@ -367,74 +387,103 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="creacion-fun" class="section level2" number="6.2">
-<h2><span class="header-section-number">6.2</span> Creación de funciones</h2>
-<p>La gran comunidad de desarrollo detrás de R ha creado una infinidad de funciones, almacenados en los miles de paquetes, o librerías, disponibles en el repositorio oficial <code>CRAN</code> y otras fuentes (ver sección <a href="librerías-y-repositorios.html#librerías-y-repositorios">Librerías y repositorios</a>. No obstante, algunas veces se necesita crear funciones personalizadas a los requerimientos del usuario.</p>
-<p>Cuando se detecta que algunas secuencias de órdenes se suelen repetir en el código, crear una función que empaquete dicha secuencia permitirá
-<em>automatizar procedimientos y simplificar el código</em>. Como regla general, si copias y pegas una secuencia de órdenes para usarla más de 2 veces, ya se debería pensar en crear una función que compile la tarea.</p>
+<div id="creacion-fun" class="section level2" number="5.1">
+<h2><span class="header-section-number">5.1</span> Creación de funciones</h2>
+<p>La gran comunidad de desarrollo detrás de R ha creado una infinidad de funciones, almacenadas en los miles de paquetes (o librerías), disponibles en el repositorio oficial <code>CRAN</code>, así como en repositorios secundarios (ver sección <a href="librerías-y-repositorios.html#librerías-y-repositorios">1.6 Librerías y repositorios</a>). Es casi seguro que más adelante te será útil crear funciones con las que suplir alguna necesidad en el análisis de datos. Cuando se detecta que algunas secuencias de órdenes se suelen repetir, crear una función que empaquete dicha secuencia permitirá <em>automatizar procedimientos y simplificar el código</em>. Como regla general, si copias y pegas una secuencia de órdenes para usarla más de 2 veces, ya se debería pensar en crear una función que compile la tarea.</p>
 
 <div class="rmdnote">
-<p>Crear un función involucra los siguientes pasos:</p>
+<p><strong>Crear un función involucra los siguientes pasos:</strong></p>
 <ol style="list-style-type: decimal">
 <li>Darle un nombre. Crear una función es como crear una variable: hay que asignarle un contenido a un nombre.</li>
 <li>Luego de escribir el nombre, se tiene que usar la función llamada <code>function()</code>para indicar qué argumentos tendrá la nueva función.</li>
 <li>Definir el contenido de la función, la secuencia de órdenes, dentro de corchetes. Dentro de ellos se usarán los argumentos establecidos en <code>function()</code>.
 </div></li>
 </ol>
-<p>Para crear una función que le sume 100 a un número, se puede usar:</p>
-<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="creacion-fun.html#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Esta función admitirá como objeto de entrada un </span></span>
-<span id="cb80-2"><a href="creacion-fun.html#cb80-2" aria-hidden="true" tabindex="-1"></a><span class="co"># valor x, definido en function(), para sumarle 100</span></span>
-<span id="cb80-3"><a href="creacion-fun.html#cb80-3" aria-hidden="true" tabindex="-1"></a>mi.fun <span class="ot">&lt;-</span> <span class="cf">function</span>(x){</span>
+<div id="ejemplo-simple" class="section level3" number="5.1.1">
+<h3><span class="header-section-number">5.1.1</span> Ejemplo simple</h3>
+<p>Comenzando con ejemplo muy simple, se creará una función que le sume 100 a un número dado:</p>
+<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="creacion-fun.html#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="do">### Modo 1: </span></span>
+<span id="cb80-2"><a href="creacion-fun.html#cb80-2" aria-hidden="true" tabindex="-1"></a><span class="do">### Crear la función con corchetes</span></span>
+<span id="cb80-3"><a href="creacion-fun.html#cb80-3" aria-hidden="true" tabindex="-1"></a>mi.fun1 <span class="ot">&lt;-</span> <span class="cf">function</span>(x){</span>
 <span id="cb80-4"><a href="creacion-fun.html#cb80-4" aria-hidden="true" tabindex="-1"></a>  x<span class="sc">+</span><span class="dv">100</span></span>
 <span id="cb80-5"><a href="creacion-fun.html#cb80-5" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb80-6"><a href="creacion-fun.html#cb80-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb80-7"><a href="creacion-fun.html#cb80-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Usando mi.fun() con 10</span></span>
-<span id="cb80-8"><a href="creacion-fun.html#cb80-8" aria-hidden="true" tabindex="-1"></a><span class="fu">mi.fun</span>(<span class="dv">10</span>)</span>
-<span id="cb80-9"><a href="creacion-fun.html#cb80-9" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] 110</span></span></code></pre></div>
-<p>Para recrear la famosa función de <a href="https://es.wikipedia.org/wiki/Carl_Friedrich_Gauss">Carl Friedrich Gauss</a> para calcular la suma de todos los números dentro de un rango numérico, usaremos la fórmula matemática:</p>
+<span id="cb80-7"><a href="creacion-fun.html#cb80-7" aria-hidden="true" tabindex="-1"></a><span class="do">### Modo 2:</span></span>
+<span id="cb80-8"><a href="creacion-fun.html#cb80-8" aria-hidden="true" tabindex="-1"></a><span class="do">### Cuando el contenido de una función es muy sencillo,</span></span>
+<span id="cb80-9"><a href="creacion-fun.html#cb80-9" aria-hidden="true" tabindex="-1"></a><span class="do">### el contenido puede ir sin llaves y en una sola línea:</span></span>
+<span id="cb80-10"><a href="creacion-fun.html#cb80-10" aria-hidden="true" tabindex="-1"></a>mi.fun2 <span class="ot">&lt;-</span> <span class="cf">function</span>(x) x<span class="sc">+</span><span class="dv">100</span></span>
+<span id="cb80-11"><a href="creacion-fun.html#cb80-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb80-12"><a href="creacion-fun.html#cb80-12" aria-hidden="true" tabindex="-1"></a><span class="do">### Ambas funciones brindan el mismo resultado</span></span>
+<span id="cb80-13"><a href="creacion-fun.html#cb80-13" aria-hidden="true" tabindex="-1"></a><span class="fu">mi.fun1</span>(<span class="dv">156</span>)</span>
+<span id="cb80-14"><a href="creacion-fun.html#cb80-14" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] 256</span></span>
+<span id="cb80-15"><a href="creacion-fun.html#cb80-15" aria-hidden="true" tabindex="-1"></a><span class="fu">mi.fun2</span>(<span class="dv">156</span>)</span>
+<span id="cb80-16"><a href="creacion-fun.html#cb80-16" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] 256</span></span></code></pre></div>
+</div>
+<div id="función-de-gauss" class="section level3" number="5.1.2">
+<h3><span class="header-section-number">5.1.2</span> Función de Gauss</h3>
+<p>Recrear la famosa función de <a href="https://es.wikipedia.org/wiki/Carl_Friedrich_Gauss">Carl Friedrich Gauss</a> para calcular la suma de todos los números dentro de un rango numérico, implicar tomar su fórmula matemática:</p>
 <p><span class="math display">\[ k = \frac{n * ( n + 1 )}{2} \]</span></p>
-<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="creacion-fun.html#cb81-1" aria-hidden="true" tabindex="-1"></a>k.Gauss <span class="ot">&lt;-</span> <span class="cf">function</span>(n) {</span>
-<span id="cb81-2"><a href="creacion-fun.html#cb81-2" aria-hidden="true" tabindex="-1"></a>  (n <span class="sc">*</span> (n<span class="sc">+</span><span class="dv">1</span>))<span class="sc">/</span><span class="dv">2</span></span>
-<span id="cb81-3"><a href="creacion-fun.html#cb81-3" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb81-4"><a href="creacion-fun.html#cb81-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb81-5"><a href="creacion-fun.html#cb81-5" aria-hidden="true" tabindex="-1"></a><span class="fu">k.Gauss</span>(<span class="dv">100</span>)</span>
-<span id="cb81-6"><a href="creacion-fun.html#cb81-6" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] 5050</span></span></code></pre></div>
-<p>Adicionalmente, se puede predefinir valores por defecto en <code>function()</code>, mismos que se podrán modificar al usar la función ya creada.</p>
-<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="creacion-fun.html#cb82-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Esta función hallará el logaritmo con base 2 </span></span>
-<span id="cb82-2"><a href="creacion-fun.html#cb82-2" aria-hidden="true" tabindex="-1"></a><span class="co"># (por defecto) de la función matemática de Gauss</span></span>
-<span id="cb82-3"><a href="creacion-fun.html#cb82-3" aria-hidden="true" tabindex="-1"></a>log.Gauss <span class="ot">&lt;-</span> <span class="cf">function</span>(n, <span class="at">base =</span> <span class="dv">2</span>) {</span>
-<span id="cb82-4"><a href="creacion-fun.html#cb82-4" aria-hidden="true" tabindex="-1"></a>  resultado.Gauss <span class="ot">&lt;-</span> (n <span class="sc">*</span> (n<span class="sc">+</span><span class="dv">1</span>))<span class="sc">/</span><span class="dv">2</span></span>
-<span id="cb82-5"><a href="creacion-fun.html#cb82-5" aria-hidden="true" tabindex="-1"></a>  logaritmo <span class="ot">&lt;-</span> <span class="fu">log</span>(resultado.Gauss, <span class="at">base=</span>base)</span>
-<span id="cb82-6"><a href="creacion-fun.html#cb82-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(logaritmo)</span>
-<span id="cb82-7"><a href="creacion-fun.html#cb82-7" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb82-8"><a href="creacion-fun.html#cb82-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb82-9"><a href="creacion-fun.html#cb82-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Aplicando la función al valor 100</span></span>
-<span id="cb82-10"><a href="creacion-fun.html#cb82-10" aria-hidden="true" tabindex="-1"></a><span class="fu">log.Gauss</span>(<span class="dv">100</span>)</span>
-<span id="cb82-11"><a href="creacion-fun.html#cb82-11" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] 12.3</span></span></code></pre></div>
-<p>Como es notorio, se pueden crear variables dentro de una función, pero estas serán temporales. Una vez se imprime el resultado en consola, la variable desaparece. Para que algún paso realizado dentro de la función se guarde como una variable permanentemente en el ambiente, usa el símbolo especial <code>&lt;&lt;-</code>.</p>
-<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="creacion-fun.html#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Se guardará resultado.Gauss en la consola</span></span>
+<p>y convertirla en código funcional:</p>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="creacion-fun.html#cb81-1" aria-hidden="true" tabindex="-1"></a><span class="do">### Crear la función</span></span>
+<span id="cb81-2"><a href="creacion-fun.html#cb81-2" aria-hidden="true" tabindex="-1"></a>k.Gauss <span class="ot">&lt;-</span> <span class="cf">function</span>(n) {</span>
+<span id="cb81-3"><a href="creacion-fun.html#cb81-3" aria-hidden="true" tabindex="-1"></a>  (n <span class="sc">*</span> (n<span class="sc">+</span><span class="dv">1</span>))<span class="sc">/</span><span class="dv">2</span></span>
+<span id="cb81-4"><a href="creacion-fun.html#cb81-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb81-5"><a href="creacion-fun.html#cb81-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb81-6"><a href="creacion-fun.html#cb81-6" aria-hidden="true" tabindex="-1"></a><span class="do">### Usar la función</span></span>
+<span id="cb81-7"><a href="creacion-fun.html#cb81-7" aria-hidden="true" tabindex="-1"></a><span class="fu">k.Gauss</span>(<span class="dv">100</span>)</span>
+<span id="cb81-8"><a href="creacion-fun.html#cb81-8" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] 5050</span></span></code></pre></div>
+</div>
+<div id="variables-y-valores-por-defecto" class="section level3" number="5.1.3">
+<h3><span class="header-section-number">5.1.3</span> Variables y valores por defecto</h3>
+<p>Esa letra o palabra que se ha colocado dentro de la función <code>function()</code> recibe el nombre de variable de la función. Hasta aquí se definió una única variable dentro de cada función: <code>x</code> para <code>mi.fun1()</code> y <code>mi.fun2()</code>, o <code>n</code> para <code>k.Gaus()</code>. Pero se puede colocar más de una, e incluso definir valores por defecto en <code>function()</code>, mismos que se podrán modificar al usar la función ya creada. La siguiente función permitirá hallar el logaritmo en base 2 (definido por defecto) de la función matemática de Gauss, pero podrás modificar el valor cuando quieras posteriormente:</p>
+<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="creacion-fun.html#cb82-1" aria-hidden="true" tabindex="-1"></a><span class="do">### Crear la función</span></span>
+<span id="cb82-2"><a href="creacion-fun.html#cb82-2" aria-hidden="true" tabindex="-1"></a>log.Gauss <span class="ot">&lt;-</span> <span class="cf">function</span>(n, <span class="at">base =</span> <span class="dv">2</span>) {</span>
+<span id="cb82-3"><a href="creacion-fun.html#cb82-3" aria-hidden="true" tabindex="-1"></a>  resultado.Gauss <span class="ot">&lt;-</span> (n <span class="sc">*</span> (n<span class="sc">+</span><span class="dv">1</span>))<span class="sc">/</span><span class="dv">2</span></span>
+<span id="cb82-4"><a href="creacion-fun.html#cb82-4" aria-hidden="true" tabindex="-1"></a>  logaritmo <span class="ot">&lt;-</span> <span class="fu">log</span>(resultado.Gauss, <span class="at">base=</span>base)</span>
+<span id="cb82-5"><a href="creacion-fun.html#cb82-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(logaritmo)</span>
+<span id="cb82-6"><a href="creacion-fun.html#cb82-6" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb82-7"><a href="creacion-fun.html#cb82-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb82-8"><a href="creacion-fun.html#cb82-8" aria-hidden="true" tabindex="-1"></a><span class="do">### Usar la función</span></span>
+<span id="cb82-9"><a href="creacion-fun.html#cb82-9" aria-hidden="true" tabindex="-1"></a><span class="fu">log.Gauss</span>(<span class="dv">100</span>)</span>
+<span id="cb82-10"><a href="creacion-fun.html#cb82-10" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] 12.3</span></span>
+<span id="cb82-11"><a href="creacion-fun.html#cb82-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb82-12"><a href="creacion-fun.html#cb82-12" aria-hidden="true" tabindex="-1"></a><span class="do">### Cambiando la base del logaritmo</span></span>
+<span id="cb82-13"><a href="creacion-fun.html#cb82-13" aria-hidden="true" tabindex="-1"></a><span class="fu">log.Gauss</span>(<span class="dv">100</span>, <span class="at">base =</span> <span class="dv">10</span>)</span>
+<span id="cb82-14"><a href="creacion-fun.html#cb82-14" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] 3.703</span></span>
+<span id="cb82-15"><a href="creacion-fun.html#cb82-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb82-16"><a href="creacion-fun.html#cb82-16" aria-hidden="true" tabindex="-1"></a><span class="do">### En casos como estos, donde la posición</span></span>
+<span id="cb82-17"><a href="creacion-fun.html#cb82-17" aria-hidden="true" tabindex="-1"></a><span class="do">### de un argumento es única, puedes obviar</span></span>
+<span id="cb82-18"><a href="creacion-fun.html#cb82-18" aria-hidden="true" tabindex="-1"></a><span class="do">### el nombre del mismo (base)</span></span>
+<span id="cb82-19"><a href="creacion-fun.html#cb82-19" aria-hidden="true" tabindex="-1"></a><span class="fu">log.Gauss</span>(<span class="dv">100</span>, <span class="dv">10</span>)</span>
+<span id="cb82-20"><a href="creacion-fun.html#cb82-20" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] 3.703</span></span></code></pre></div>
+</div>
+<div id="almacenar-variables-directamente-en-el-ambiente" class="section level3" number="5.1.4">
+<h3><span class="header-section-number">5.1.4</span> Almacenar variables directamente en el ambiente</h3>
+<p>Como es evidente en el ejemplo anterior, se pueden crear variables dentro de una función utilizando el operador <code>&lt;-</code>, pero estas son de carácter temporal. Una vez se imprime el resultado en consola, la variable temporal desaparece. Para que algún paso realizado dentro de una función se guarde como un objeto permanentemente en el ambiente, usa el símbolo especial <code>&lt;&lt;-</code>. En el siguiente ejemplo permitiremos que un paso de la función <code>log.Gauss()</code> se guarde en el ambiente:</p>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="creacion-fun.html#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="do">### Crear la función con guardado especial</span></span>
 <span id="cb83-2"><a href="creacion-fun.html#cb83-2" aria-hidden="true" tabindex="-1"></a>log.Gauss <span class="ot">&lt;-</span> <span class="cf">function</span>(n, <span class="at">base =</span> <span class="dv">2</span>) {</span>
-<span id="cb83-3"><a href="creacion-fun.html#cb83-3" aria-hidden="true" tabindex="-1"></a>  resultado.Gauss <span class="ot">&lt;&lt;-</span> (n <span class="sc">*</span> (n<span class="sc">+</span><span class="dv">1</span>))<span class="sc">/</span><span class="dv">2</span></span>
+<span id="cb83-3"><a href="creacion-fun.html#cb83-3" aria-hidden="true" tabindex="-1"></a>  resultado.Gauss <span class="ot">&lt;&lt;-</span> (n <span class="sc">*</span> (n<span class="sc">+</span><span class="dv">1</span>))<span class="sc">/</span><span class="dv">2</span>   <span class="co"># Este objeto se guardará</span></span>
 <span id="cb83-4"><a href="creacion-fun.html#cb83-4" aria-hidden="true" tabindex="-1"></a>  logaritmo <span class="ot">&lt;-</span> <span class="fu">log</span>(resultado.Gauss, <span class="at">base=</span>base)</span>
 <span id="cb83-5"><a href="creacion-fun.html#cb83-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(logaritmo)</span>
 <span id="cb83-6"><a href="creacion-fun.html#cb83-6" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb83-7"><a href="creacion-fun.html#cb83-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb83-8"><a href="creacion-fun.html#cb83-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Aplicando la función al valor 100</span></span>
-<span id="cb83-9"><a href="creacion-fun.html#cb83-9" aria-hidden="true" tabindex="-1"></a><span class="fu">log.Gauss</span>(<span class="dv">100</span>)</span>
-<span id="cb83-10"><a href="creacion-fun.html#cb83-10" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] 12.3</span></span>
+<span id="cb83-8"><a href="creacion-fun.html#cb83-8" aria-hidden="true" tabindex="-1"></a><span class="do">### Usar la función</span></span>
+<span id="cb83-9"><a href="creacion-fun.html#cb83-9" aria-hidden="true" tabindex="-1"></a><span class="fu">log.Gauss</span>(<span class="dv">100</span>, <span class="at">base =</span> <span class="dv">5</span>)</span>
+<span id="cb83-10"><a href="creacion-fun.html#cb83-10" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] 5.298</span></span>
 <span id="cb83-11"><a href="creacion-fun.html#cb83-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb83-12"><a href="creacion-fun.html#cb83-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Mostrando el objeto que se creó automáticamente</span></span>
-<span id="cb83-13"><a href="creacion-fun.html#cb83-13" aria-hidden="true" tabindex="-1"></a><span class="co"># en el ambiente tras ejecutar log.Gauss()</span></span>
+<span id="cb83-12"><a href="creacion-fun.html#cb83-12" aria-hidden="true" tabindex="-1"></a><span class="do">### Mostrar el objeto resultado.Gauss que se creó </span></span>
+<span id="cb83-13"><a href="creacion-fun.html#cb83-13" aria-hidden="true" tabindex="-1"></a><span class="do">### automáticamente tras ejecutar log.Gauss()</span></span>
 <span id="cb83-14"><a href="creacion-fun.html#cb83-14" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(resultado.Gauss)</span>
 <span id="cb83-15"><a href="creacion-fun.html#cb83-15" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] 5050</span></span></code></pre></div>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="control-de-flujo.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="ifelse.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="programación-funcional.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="control-de-flujo.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -465,7 +514,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/irwingss/intro_r_ciencias/blob/master/06-programacion.Rmd",
+"link": "https://github.com/irwingss/intro_r_ciencias/blob/master/05-programacion.Rmd",
 "text": "Edit"
 },
 "history": {

@@ -13,8 +13,8 @@ rmd_files: [
   "02-primer-contacto.Rmd",
   "03-estructuras-datos.Rmd",
   "04-carga-datos.Rmd",
-  "05-tidyverse.Rmd",
-  "06-programacion.Rmd",
+  "05-programacion.Rmd",
+  "06-tidyverse.Rmd",
   "07-potencialidades.Rmd",
   "08-ggplot2.Rmd",
   "09-solucionario.Rmd"

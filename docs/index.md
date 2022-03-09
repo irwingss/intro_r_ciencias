@@ -6,7 +6,7 @@ title: "Introducción a R para Ciencias"
 subtitle: "Una gentil introducción al mundo de <br>la programación para investigadores"
 author: "Irwing S. Saldaña"
 description: "Libro introductorio al uso del lenguaje de programación R, con ejemplos orientados a ciencias"
-date: "2022-02-23"
+date: "2022-03-09"
 bibliography: [book.bib, packages.bib]
 biblio-style: apalike
 colorlinks: yes
@@ -36,9 +36,9 @@ Este libro busca:
 
 En tal sentido, para usar este libro, no se necesita saber de antemano el lenguaje de programación R ni conocimientos estadísticos.
 
-Este libro ha sido completamente escrito en [R Markdown](https://bookdown.org/yihui/rmarkdown/), utilizando [RStudio](https://www.rstudio.com/). Si tienes alguna sugerencia, o detectas algún fallo ortográfico, error de forma o de fondo, por favor envia un mensaje a `isaldanau@gmail.com` con el asunto de correo "Corrección Libro Estadística".
+Este libro ha sido completamente escrito en [R Markdown](https://bookdown.org/yihui/rmarkdown/), utilizando [RStudio](https://www.rstudio.com/). Si tienes alguna sugerencia, o detectas algún fallo ortográfico, error de forma o de fondo, por favor envía un mensaje a `isaldanau@gmail.com` con el asunto de correo "Corrección Libro Estadística".
 
-Esta página web es de *libre uso dentro de los términos autorizados* bajo la [Licencia Internacional Reconocimiento No Comercial - Sin Derivadas 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/legalcode). Además, esta obra utiliza un [Código de conducta para colaboradores](https://www.contributor-covenant.org/version/2/0/code_of_conduct/). Al contribuir a este libro, acepta cumplir sus términos. Finalmente, esta obra está alojada en [Netlify](https://www.netlify.com), con código abierto disponible en [Github](https://github.com/irwingss/libro-eadc).
+Esta página web es de *libre uso dentro de los términos autorizados* bajo la [Licencia Internacional Reconocimiento No Comercial - Sin Derivadas 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/legalcode). Además, esta obra utiliza un [Código de conducta para colaboradores](https://www.contributor-covenant.org/version/2/0/code_of_conduct/). Al contribuir a este libro, acepta cumplir sus términos. Finalmente, esta obra está alojada en [Netlify](https://www.netlify.com), con código abierto disponible en la cuenta de [Github](https://github.com/irwingss/) del autor.
 
 > La **portada del libro** ha sido creada utilizando una fotografía de acceso abierto de <a href="https://unsplash.com/@pawel_czerwinski?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Pawel Czerwinski</a> publicada en <a href="https://unsplash.com/s/photos/abstract?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>.
 

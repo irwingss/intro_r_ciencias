@@ -155,13 +155,14 @@ read.xlsx("archivo.xslx", # Nombre o ruta completa al archivo
 
 ### Bases de datos de R
 
-Los archivos de extensión `.rda` o `.rdata` son la forma más sencilla de compartir bases de datos que solo serán abiertas en el entorno de R. No son leídas con otro programa. Lo interesante de estas bases es que almacenan el nombre del objeto original con el que fueron creadas en R. Una vez cargas el archivo con la función `load()`, el objeto aparecerá en el ambiente con su nombre original (no necesariamente el mismo nombre que el archivo.rda):
+Los archivos de extensión `.rda` son la forma más sencilla de compartir bases de datos que solo serán abiertas en el entorno de R. No son leídas con otro programa. Lo interesante de estas bases es que almacenan el nombre del objeto original con el que fueron creadas en R. Una vez cargas el archivo con la función `load()`, el objeto aparecerá en el ambiente con su nombre original (no necesariamente el mismo nombre que el archivo.rda):
 
 
 ```r
 load("archivo.rda")
 ```
 
+\BeginKnitrBlock{rmdtip}<div class="rmdtip">También existen archivos `.RData` que aparecen automáticamente uno crea un proyecto. Estos son los archivos que almacenan el ambiente de un proyecto, es decir, todas las variables creadas durante la sesión de RStudio, y que fueron guardadas al cerrar esta misma.</div>\EndKnitrBlock{rmdtip}
 
 ### Archivos de SPSS
 
