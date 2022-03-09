@@ -123,14 +123,14 @@ uri class is for urls
 
 .book .book-header {
     overflow: visible;
-    height: 48px;    /* adjust to match title space*/
+    height: 50px;    /* adjust to match title space*/
     padding: 0 8px;
     z-index: 2;
     font-family: Roboto sans-serif;
     font-size: .85em;
     color: #7e888b;
     background-color: #ffffff;
-    /* background: 0 0; */
+    background: 0 0;
 }
 
 /* only way to set bgcolor of top bar?*/
@@ -138,16 +138,17 @@ uri class is for urls
   background-color: #ffffff;
 }
 
-/* Rather than resize the header, just get rid of line */
-.book.with-summary .book-header.fixed {
+
+.book .book-header.fixed {
   background-color: #ffffff;
   font-variant: small-caps;
-  /*font-family: Stalemate Roboto Sans; ignored as all it is doing is taking from index title*/
-  border-bottom: 0 solid rgba(0,0,0,.07);  /*just remove it; this makes height in .book-header above moot*/
-  border-bottom-width: 0;
-  border-bottom-style: solid;
-  border-bottom-color: rgba(0, 0, 0, 0.07);
+  position: fixed;
+  right: 0;
+  top: 0;
+  left: 0;
+  border-bottom: 1px solid rgba(0,0,0,.07);
 }
+
 
 i {
   background-color: #ffffff;
