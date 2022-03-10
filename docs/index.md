@@ -3,10 +3,10 @@ site: bookdown::bookdown_site
 output:
   bookdown::gitbook
 title: "Introducción a R para Ciencias"
-subtitle: "Una gentil introducción al mundo de <br>la programación para investigadores"
+subtitle: "Una gentil introducción al mundo de la programación para investigadores"
 author: "Irwing S. Saldaña"
 description: "Libro introductorio al uso del lenguaje de programación R, con ejemplos orientados a ciencias"
-date: "2022-03-09"
+date: "2022-03-10"
 bibliography: [book.bib, packages.bib]
 biblio-style: apalike
 colorlinks: yes

@@ -24,7 +24,7 @@
 <meta name="author" content="Irwing S. Saldaña" />
 
 
-<meta name="date" content="2022-03-09" />
+<meta name="date" content="2022-03-10" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -243,6 +243,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.2.4" data-path="control-de-flujo.html"><a href="control-de-flujo.html#condicionales-en-vectores-case_when-de-dplyr"><i class="fa fa-check"></i><b>5.2.4</b> Condicionales en vectores <code>case_when()</code> de <strong>dplyr</strong></a></li>
 <li class="chapter" data-level="5.2.5" data-path="control-de-flujo.html"><a href="control-de-flujo.html#ciclos-o-loops-con-for"><i class="fa fa-check"></i><b>5.2.5</b> Ciclos o Loops con <code>for</code></a></li>
 <li class="chapter" data-level="5.2.6" data-path="control-de-flujo.html"><a href="control-de-flujo.html#ciclos-o-loops-con-replicate"><i class="fa fa-check"></i><b>5.2.6</b> Ciclos o loops con <code>replicate()</code></a></li>
+<li class="chapter" data-level="5.2.7" data-path="control-de-flujo.html"><a href="control-de-flujo.html#ciclos-o-loops-con-while"><i class="fa fa-check"></i><b>5.2.7</b> Ciclos o Loops con <code>while</code></a></li>
 </ul></li>
 <li class="chapter" data-level="5.3" data-path="operadoresfuncion.html"><a href="operadoresfuncion.html"><i class="fa fa-check"></i><b>5.3</b> Operadores de función</a></li>
 <li class="chapter" data-level="5.4" data-path="familia-apply.html"><a href="familia-apply.html"><i class="fa fa-check"></i><b>5.4</b> Familia <code>apply()</code></a>
@@ -351,6 +352,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="14.1" data-path="cap.-2-primer-contacto-con-r.html"><a href="cap.-2-primer-contacto-con-r.html"><i class="fa fa-check"></i><b>14.1</b> Cap. 2: Primer contacto con R</a></li>
 <li class="chapter" data-level="14.2" data-path="preg-estructurasdatos.html"><a href="preg-estructurasdatos.html"><i class="fa fa-check"></i><b>14.2</b> Cap. 3: Estructuras de datos</a></li>
+<li class="chapter" data-level="14.3" data-path="cap.-5-programación-funcional.html"><a href="cap.-5-programación-funcional.html"><i class="fa fa-check"></i><b>14.3</b> Cap. 5: Programación funcional</a></li>
+<li class="chapter" data-level="14.4" data-path="ejercicios-del-capítulo-4.html"><a href="ejercicios-del-capítulo-4.html"><i class="fa fa-check"></i><b>14.4</b> Ejercicios del capítulo</a></li>
 </ul></li>
 <li class="divider"></li>
 <li class='after'">
@@ -391,8 +394,79 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">5.5</span> Ejercicios del capítulo</h2>
 <div class="question">
 <ol style="list-style-type: decimal">
-<li>Soluciona la ecuación <span class="math inline">\(\frac{24+12}{(2 * 3)^2}\)</span>.</li>
+<li>Reproduce el resultado del siguiente loop <code>for</code>, utilizando la función replicate():</li>
 </ol>
+<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb134-1"><a href="ejercicios-del-capítulo-2.html#cb134-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb134-2"><a href="ejercicios-del-capítulo-2.html#cb134-2" aria-hidden="true" tabindex="-1"></a>lista1 <span class="ot">&lt;-</span> <span class="fu">list</span>() <span class="co"># Lista vacía</span></span>
+<span id="cb134-3"><a href="ejercicios-del-capítulo-2.html#cb134-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>) { <span class="co"># Número de iteraciones = 5</span></span>
+<span id="cb134-4"><a href="ejercicios-del-capítulo-2.html#cb134-4" aria-hidden="true" tabindex="-1"></a>  lista1[[i]] <span class="ot">=</span> <span class="fu">rnorm</span>(<span class="dv">6</span>, <span class="dv">0</span>, <span class="dv">1</span>) <span class="co"># Conjunto aleatorio normal para cada iteración</span></span>
+<span id="cb134-5"><a href="ejercicios-del-capítulo-2.html#cb134-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb134-6"><a href="ejercicios-del-capítulo-2.html#cb134-6" aria-hidden="true" tabindex="-1"></a>lista1</span>
+<span id="cb134-7"><a href="ejercicios-del-capítulo-2.html#cb134-7" aria-hidden="true" tabindex="-1"></a><span class="co"># [[1]]</span></span>
+<span id="cb134-8"><a href="ejercicios-del-capítulo-2.html#cb134-8" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] -0.56048 -0.23018  1.55871  0.07051  0.12929  1.71506</span></span>
+<span id="cb134-9"><a href="ejercicios-del-capítulo-2.html#cb134-9" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb134-10"><a href="ejercicios-del-capítulo-2.html#cb134-10" aria-hidden="true" tabindex="-1"></a><span class="co"># [[2]]</span></span>
+<span id="cb134-11"><a href="ejercicios-del-capítulo-2.html#cb134-11" aria-hidden="true" tabindex="-1"></a><span class="co"># [1]  0.4609 -1.2651 -0.6869 -0.4457  1.2241  0.3598</span></span>
+<span id="cb134-12"><a href="ejercicios-del-capítulo-2.html#cb134-12" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb134-13"><a href="ejercicios-del-capítulo-2.html#cb134-13" aria-hidden="true" tabindex="-1"></a><span class="co"># [[3]]</span></span>
+<span id="cb134-14"><a href="ejercicios-del-capítulo-2.html#cb134-14" aria-hidden="true" tabindex="-1"></a><span class="co"># [1]  0.4008  0.1107 -0.5558  1.7869  0.4979 -1.9666</span></span></code></pre></div>
+<ol style="list-style-type: decimal">
+<li>Crea la base de datos DF numérica (código ya definido en el siguiente chunk), que tiene las dimensiones 12 (filas) x 5 (columnas):</li>
+</ol>
+<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb135-1"><a href="ejercicios-del-capítulo-2.html#cb135-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Base de datos DF</span></span>
+<span id="cb135-2"><a href="ejercicios-del-capítulo-2.html#cb135-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb135-3"><a href="ejercicios-del-capítulo-2.html#cb135-3" aria-hidden="true" tabindex="-1"></a>secuencia <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">seq</span>(<span class="fl">0.5</span>, <span class="fl">7.9</span>, <span class="at">length =</span> <span class="dv">10</span>), <span class="sc">-</span><span class="dv">999</span>, <span class="dv">5555</span>)</span>
+<span id="cb135-4"><a href="ejercicios-del-capítulo-2.html#cb135-4" aria-hidden="true" tabindex="-1"></a>DF <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="fu">replicate</span>(<span class="dv">5</span>, </span>
+<span id="cb135-5"><a href="ejercicios-del-capítulo-2.html#cb135-5" aria-hidden="true" tabindex="-1"></a>                           <span class="fu">sample</span>(secuencia, <span class="dv">12</span>, <span class="at">rep =</span> <span class="cn">TRUE</span>)))</span>
+<span id="cb135-6"><a href="ejercicios-del-capítulo-2.html#cb135-6" aria-hidden="true" tabindex="-1"></a>DF <span class="ot">&lt;-</span> <span class="fu">round</span>(DF,<span class="dv">2</span>)</span>
+<span id="cb135-7"><a href="ejercicios-del-capítulo-2.html#cb135-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb135-8"><a href="ejercicios-del-capítulo-2.html#cb135-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Darle nombre a sus columnas</span></span>
+<span id="cb135-9"><a href="ejercicios-del-capítulo-2.html#cb135-9" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(DF) <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&quot;Var&quot;</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>)</span>
+<span id="cb135-10"><a href="ejercicios-del-capítulo-2.html#cb135-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb135-11"><a href="ejercicios-del-capítulo-2.html#cb135-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Revisar el contenido de DF</span></span>
+<span id="cb135-12"><a href="ejercicios-del-capítulo-2.html#cb135-12" aria-hidden="true" tabindex="-1"></a>DF </span>
+<span id="cb135-13"><a href="ejercicios-del-capítulo-2.html#cb135-13" aria-hidden="true" tabindex="-1"></a><span class="co">#       Var1    Var2    Var3    Var4    Var5</span></span>
+<span id="cb135-14"><a href="ejercicios-del-capítulo-2.html#cb135-14" aria-hidden="true" tabindex="-1"></a><span class="co"># 1     2.14    3.79    7.08    7.90    6.26</span></span>
+<span id="cb135-15"><a href="ejercicios-del-capítulo-2.html#cb135-15" aria-hidden="true" tabindex="-1"></a><span class="co"># 2     2.14    2.14    2.14    5.43 5555.00</span></span>
+<span id="cb135-16"><a href="ejercicios-del-capítulo-2.html#cb135-16" aria-hidden="true" tabindex="-1"></a><span class="co"># 3     7.90 -999.00    2.97 -999.00    1.32</span></span>
+<span id="cb135-17"><a href="ejercicios-del-capítulo-2.html#cb135-17" aria-hidden="true" tabindex="-1"></a><span class="co"># 4     1.32    7.08    0.50 5555.00    0.50</span></span>
+<span id="cb135-18"><a href="ejercicios-del-capítulo-2.html#cb135-18" aria-hidden="true" tabindex="-1"></a><span class="co"># 5     4.61 5555.00 -999.00    3.79    7.08</span></span>
+<span id="cb135-19"><a href="ejercicios-del-capítulo-2.html#cb135-19" aria-hidden="true" tabindex="-1"></a><span class="co"># 6  -999.00    7.08    5.43    5.43 -999.00</span></span>
+<span id="cb135-20"><a href="ejercicios-del-capítulo-2.html#cb135-20" aria-hidden="true" tabindex="-1"></a><span class="co"># 7     3.79    7.08    3.79    3.79    7.08</span></span>
+<span id="cb135-21"><a href="ejercicios-del-capítulo-2.html#cb135-21" aria-hidden="true" tabindex="-1"></a><span class="co"># 8     2.97    2.14 5555.00 -999.00    4.61</span></span>
+<span id="cb135-22"><a href="ejercicios-del-capítulo-2.html#cb135-22" aria-hidden="true" tabindex="-1"></a><span class="co"># 9     4.61    6.26    7.90    4.61    3.79</span></span>
+<span id="cb135-23"><a href="ejercicios-del-capítulo-2.html#cb135-23" aria-hidden="true" tabindex="-1"></a><span class="co"># 10    7.08    7.90    5.43    7.08    7.08</span></span>
+<span id="cb135-24"><a href="ejercicios-del-capítulo-2.html#cb135-24" aria-hidden="true" tabindex="-1"></a><span class="co"># 11    7.90    5.43    7.08    1.32    7.90</span></span>
+<span id="cb135-25"><a href="ejercicios-del-capítulo-2.html#cb135-25" aria-hidden="true" tabindex="-1"></a><span class="co"># 12 -999.00    7.90    7.08    3.79 5555.00</span></span></code></pre></div>
+<p>La base de datos DF contiene valores no deseados: <code>-999</code>. Crea y utiliza una función llamada <code>cambiarNA()</code> que te permita cambiar estos valores por <code>NA</code>.</p>
+<ol style="list-style-type: decimal">
+<li><p>Utilizando la base de datos DF creada inicialmente en el ejercicio 2, modifica la función <code>cambiarNA()</code> para que no solo cambie <code>-999</code> a <code>NA</code>, sino que cambie cualquier valor que tú le proporciones con un argumento. Llama a esta función <code>cambiarNA2()</code>. Utilízala para reemplazar los valores <code>5555</code> a <code>NA</code>.</p></li>
+<li><p>Utilizando la base de datos DF creada inicialmente en el ejercicio 2, modifica la función <code>cambiarNA2()</code> de tal manera que te permita definir más de un valor (un vector numérico) como elementos a ser reemplazados por <code>NA</code>. Llama a esta función <code>cambiarNA3()</code>. Cambia por <code>NA</code> los valores <code>-999</code> y <code>5555</code>. Pista: Esta función deberá contener un loop para aplicarle la función de cambio por NA a un elemento del vector a la vez en cada iteración.</p></li>
+<li><p>Crea un loop <code>for</code> que itere sobre los números del 1 al 50 y calcule el cubo de cada número, de manera que los resultados se vayan guardando en un vector llamado <code>preliminar</code>. Luego, crea un segundo loop que te permita identificar y almacenar solamente los números menores a la mediana <code>median()</code> del conjunto de datos <code>preliminar</code> en un nuevo vector llamado <code>final</code>.</p></li>
+<li><p>En R ya existe una función para calcular la varianza y es <code>var()</code>. Pero este ejercicio se trata de poner en juego lo que aprendiste sobre programación en R. Teniendo en cuenta que la fórmula matemática de la varianza poblacional, con denominador <span class="math inline">\(n\)</span>:</p></li>
+</ol>
+<p><span class="math display">\[ \sigma^2 = \frac{1}{n}*{\displaystyle\sum_{i=1}^{n}(x_i - \mu)^2}\]</span></p>
+<p>Pero la función <code>var()</code> está creada para calcular la varianza de muestras no de poblaciones enteras. La fórmula matemática de la varianza muestral que usa R tiene como denominador <span class="math inline">\(n-1\)</span>:</p>
+<pre><code>$$ \sigma^2 = \frac{1}{n-1}*{\displaystyle\sum_{i=1}^{n}(x_i - \mu)^2}$$</code></pre>
+<p>Crea una función llamada <code>var2()</code> que calcule la varianza del siguiente vector:</p>
+<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="ejercicios-del-capítulo-2.html#cb137-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb137-2"><a href="ejercicios-del-capítulo-2.html#cb137-2" aria-hidden="true" tabindex="-1"></a>vector <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">50</span>, <span class="dv">21</span>, <span class="fl">1.6</span>)</span></code></pre></div>
+<p>Finalmente, compara tus resultados con los obtenidos por <code>var()</code>.</p>
+<ol style="list-style-type: decimal">
+<li>Carga la base de datos npk. Usando una función de la familia apply(), calcula la el promedio, mediana y desviación estándar de la columna <code>yield</code> para cada categoría (numérica) de la columna <code>block</code>. Con ello, se conocerá el promedio de producción que se obtuvo en cada bloque para un estudio de mejora fitogenética:</li>
+</ol>
+<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="ejercicios-del-capítulo-2.html#cb138-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;npk&quot;</span>)</span></code></pre></div>
+<ol style="list-style-type: decimal">
+<li>Ejecuta el siguiente código para crear una lista llamada <code>iris3Lista</code> a partir de la base de datos de ejemplo <code>iris3</code> (un array). Si revisas <code>iris3Lista</code>, notarás que continene 3 elementos, cada uno de ellos es una matriz de datos de cuatro columnas (<code>Sepal L.</code>, <code>Sepal W.</code>, <code>Petal L.</code>, y <code>Petal W.</code>).</li>
+</ol>
+<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="ejercicios-del-capítulo-2.html#cb139-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cargar iris3</span></span>
+<span id="cb139-2"><a href="ejercicios-del-capítulo-2.html#cb139-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;iris3&quot;</span>)</span>
+<span id="cb139-3"><a href="ejercicios-del-capítulo-2.html#cb139-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb139-4"><a href="ejercicios-del-capítulo-2.html#cb139-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Convertirla a lista</span></span>
+<span id="cb139-5"><a href="ejercicios-del-capítulo-2.html#cb139-5" aria-hidden="true" tabindex="-1"></a>iris3Lista <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">setosa =</span> iris3[,,<span class="dv">1</span>],</span>
+<span id="cb139-6"><a href="ejercicios-del-capítulo-2.html#cb139-6" aria-hidden="true" tabindex="-1"></a>                <span class="at">versicolor =</span> iris3[,,<span class="dv">2</span>],</span>
+<span id="cb139-7"><a href="ejercicios-del-capítulo-2.html#cb139-7" aria-hidden="true" tabindex="-1"></a>                <span class="at">virginica =</span> iris3[,,<span class="dv">3</span>])</span></code></pre></div>
+<p>Utilizando dos funciones de la familia <code>apply()</code>, calcula el promedio de cada columna de cada elemento de la lista <code>iris3Lista</code>.</p>
 </div>
 
 </div>

@@ -366,3 +366,356 @@ list2[[2]][150]
 list2[[1]][5]
 # [1] 70.95
 ```
+
+## Cap. 5: Programación funcional
+
+## Ejercicios del capítulo
+
+<div class="question">
+  1. Reproduce el resultado del siguiente loop `for`, utilizando la función replicate():
+
+
+```r
+set.seed(123)
+lista1 <- list() # Lista vacía
+for (i in 1:3) { # Número de iteraciones = 5
+  lista1[[i]] = rnorm(6, 0, 1) # Conjunto aleatorio normal para cada iteración
+}
+lista1
+# [[1]]
+# [1] -0.56048 -0.23018  1.55871  0.07051  0.12929  1.71506
+# 
+# [[2]]
+# [1]  0.4609 -1.2651 -0.6869 -0.4457  1.2241  0.3598
+# 
+# [[3]]
+# [1]  0.4008  0.1107 -0.5558  1.7869  0.4979 -1.9666
+```
+
+Solución:
+
+
+```r
+# Importante simplify = FALSE para obtener una lista 
+# de vectores y no un solo vector con todos los resultados
+set.seed(123)
+lista1 <- replicate(3, {
+  rnorm(6, 0, 1)
+  }, 
+  simplify = FALSE) 
+
+### Resultado
+lista1
+# [[1]]
+# [1] -0.56048 -0.23018  1.55871  0.07051  0.12929  1.71506
+# 
+# [[2]]
+# [1]  0.4609 -1.2651 -0.6869 -0.4457  1.2241  0.3598
+# 
+# [[3]]
+# [1]  0.4008  0.1107 -0.5558  1.7869  0.4979 -1.9666
+```
+  
+  1. Crea la base de datos DF numérica (código ya definido en el siguiente chunk), que tiene las dimensiones 12 (filas) x 5 (columnas):
+
+
+```r
+# Base de datos DF
+set.seed(123)
+secuencia <- c(seq(0.5, 7.9, length = 10), -999, 5555)
+DF <- data.frame(replicate(5, 
+                           sample(secuencia, 12, rep = TRUE)))
+DF <- round(DF,2)
+
+# Darle nombre a sus columnas
+colnames(DF) <- paste0("Var", 1:5)
+
+# Revisar el contenido de DF
+DF 
+#       Var1    Var2    Var3    Var4    Var5
+# 1     2.14    3.79    7.08    7.90    6.26
+# 2     2.14    2.14    2.14    5.43 5555.00
+# 3     7.90 -999.00    2.97 -999.00    1.32
+# 4     1.32    7.08    0.50 5555.00    0.50
+# 5     4.61 5555.00 -999.00    3.79    7.08
+# 6  -999.00    7.08    5.43    5.43 -999.00
+# 7     3.79    7.08    3.79    3.79    7.08
+# 8     2.97    2.14 5555.00 -999.00    4.61
+# 9     4.61    6.26    7.90    4.61    3.79
+# 10    7.08    7.90    5.43    7.08    7.08
+# 11    7.90    5.43    7.08    1.32    7.90
+# 12 -999.00    7.90    7.08    3.79 5555.00
+```
+
+La base de datos DF contiene valores no deseados: `-999`. Crea y utiliza una función llamada `cambiarNA()` que te permita cambiar estos valores por `NA`. 
+
+Solución:
+
+
+```r
+### Crear función
+cambiarNA <- function(x) {
+  x[x == -999] <- NA
+  print(x)
+}
+
+### Usar la función
+cambiarNA(DF)
+#    Var1    Var2    Var3    Var4    Var5
+# 1  2.14    3.79    7.08    7.90    6.26
+# 2  2.14    2.14    2.14    5.43 5555.00
+# 3  7.90      NA    2.97      NA    1.32
+# 4  1.32    7.08    0.50 5555.00    0.50
+# 5  4.61 5555.00      NA    3.79    7.08
+# 6    NA    7.08    5.43    5.43      NA
+# 7  3.79    7.08    3.79    3.79    7.08
+# 8  2.97    2.14 5555.00      NA    4.61
+# 9  4.61    6.26    7.90    4.61    3.79
+# 10 7.08    7.90    5.43    7.08    7.08
+# 11 7.90    5.43    7.08    1.32    7.90
+# 12   NA    7.90    7.08    3.79 5555.00
+
+### Para guardar sus resultados permanentemente
+resultados <- cambiarNA(DF)
+#    Var1    Var2    Var3    Var4    Var5
+# 1  2.14    3.79    7.08    7.90    6.26
+# 2  2.14    2.14    2.14    5.43 5555.00
+# 3  7.90      NA    2.97      NA    1.32
+# 4  1.32    7.08    0.50 5555.00    0.50
+# 5  4.61 5555.00      NA    3.79    7.08
+# 6    NA    7.08    5.43    5.43      NA
+# 7  3.79    7.08    3.79    3.79    7.08
+# 8  2.97    2.14 5555.00      NA    4.61
+# 9  4.61    6.26    7.90    4.61    3.79
+# 10 7.08    7.90    5.43    7.08    7.08
+# 11 7.90    5.43    7.08    1.32    7.90
+# 12   NA    7.90    7.08    3.79 5555.00
+resultados
+#    Var1    Var2    Var3    Var4    Var5
+# 1  2.14    3.79    7.08    7.90    6.26
+# 2  2.14    2.14    2.14    5.43 5555.00
+# 3  7.90      NA    2.97      NA    1.32
+# 4  1.32    7.08    0.50 5555.00    0.50
+# 5  4.61 5555.00      NA    3.79    7.08
+# 6    NA    7.08    5.43    5.43      NA
+# 7  3.79    7.08    3.79    3.79    7.08
+# 8  2.97    2.14 5555.00      NA    4.61
+# 9  4.61    6.26    7.90    4.61    3.79
+# 10 7.08    7.90    5.43    7.08    7.08
+# 11 7.90    5.43    7.08    1.32    7.90
+# 12   NA    7.90    7.08    3.79 5555.00
+```
+
+  1. Utilizando la base de datos DF creada inicialmente en el ejercicio 2, modifica la función `cambiarNA()` para que no solo cambie `-999` a `NA`, sino que cambie cualquier valor que tú le proporciones con un argumento. Llama a esta función `cambiarNA2()`. Utilízala para reemplazar los valores `5555` a `NA`.
+
+Solución:
+
+
+```r
+# Crear la función con un argumento extra que te 
+# permita modificar el número a reemplazar por NA 
+cambiarNA2 <- function(x, valor) {
+  x[x == valor] <- NA
+  print(x)
+}
+
+# Usar la función
+cambiarNA2(DF, 5555)
+#       Var1    Var2    Var3    Var4    Var5
+# 1     2.14    3.79    7.08    7.90    6.26
+# 2     2.14    2.14    2.14    5.43      NA
+# 3     7.90 -999.00    2.97 -999.00    1.32
+# 4     1.32    7.08    0.50      NA    0.50
+# 5     4.61      NA -999.00    3.79    7.08
+# 6  -999.00    7.08    5.43    5.43 -999.00
+# 7     3.79    7.08    3.79    3.79    7.08
+# 8     2.97    2.14      NA -999.00    4.61
+# 9     4.61    6.26    7.90    4.61    3.79
+# 10    7.08    7.90    5.43    7.08    7.08
+# 11    7.90    5.43    7.08    1.32    7.90
+# 12 -999.00    7.90    7.08    3.79      NA
+```
+  
+  1. Utilizando la base de datos DF creada inicialmente en el ejercicio 2, modifica la función `cambiarNA2()` de tal manera que te permita definir más de un valor (un vector numérico) como elementos a ser reemplazados por `NA`. Llama a esta función `cambiarNA3()`. Cambia por `NA` los valores `-999` y `5555`. Pista: Esta función deberá contener un loop para aplicarle la función de cambio por NA a un elemento del vector a la vez en cada iteración.
+  
+  Solución:
+  
+
+```r
+### Crear la función con un argumento que admita 
+### un vector de varios elementos a cambiar por NA
+cambiarNA3 <- function(x, vector) {
+  for (i in seq_along(vector)) {
+    x[x == vector[i]] <- NA
+  }
+  print(x)
+}
+
+### Usar la función
+cambiarNA3(DF, c(5555, -999))
+#    Var1 Var2 Var3 Var4 Var5
+# 1  2.14 3.79 7.08 7.90 6.26
+# 2  2.14 2.14 2.14 5.43   NA
+# 3  7.90   NA 2.97   NA 1.32
+# 4  1.32 7.08 0.50   NA 0.50
+# 5  4.61   NA   NA 3.79 7.08
+# 6    NA 7.08 5.43 5.43   NA
+# 7  3.79 7.08 3.79 3.79 7.08
+# 8  2.97 2.14   NA   NA 4.61
+# 9  4.61 6.26 7.90 4.61 3.79
+# 10 7.08 7.90 5.43 7.08 7.08
+# 11 7.90 5.43 7.08 1.32 7.90
+# 12   NA 7.90 7.08 3.79   NA
+```
+  
+
+  1. Crea un loop `for` que itere sobre los números del 1 al 50 y calcule el cubo de cada número, de manera que los resultados se vayan guardando en un vector llamado `preliminar`. Luego, crea un segundo loop que te permita identificar y almacenar solamente los números menores a la mediana `median()` del conjunto de datos `preliminar` en un nuevo vector llamado `final`.
+ 
+ Solución:
+ 
+
+```r
+### Secuencia numérica
+secuencia <- 1:50
+
+### Primer loop con for
+preliminar <- c()
+for(i in seq_along(secuencia)){
+  preliminar[i] <- secuencia[i]^3
+}
+
+### Resultado preliminar
+preliminar
+#  [1]      1      8     27     64    125    216    343    512    729   1000   1331
+# [12]   1728   2197   2744   3375   4096   4913   5832   6859   8000   9261  10648
+# [23]  12167  13824  15625  17576  19683  21952  24389  27000  29791  32768  35937
+# [34]  39304  42875  46656  50653  54872  59319  64000  68921  74088  79507  85184
+# [45]  91125  97336 103823 110592 117649 125000
+
+### Segundo loop con for
+final <- c()
+for( i in seq_along(preliminar)) {
+  if(preliminar[i] <= median(preliminar)){
+    final <- c(final, preliminar[i])
+  }
+}
+
+### Resultado final
+final
+#  [1]     1     8    27    64   125   216   343   512   729  1000  1331  1728  2197
+# [14]  2744  3375  4096  4913  5832  6859  8000  9261 10648 12167 13824 15625
+```
+  
+
+  1. En R ya existe una función para calcular la varianza y es `var()`. Pero este ejercicio se trata de poner en juego lo que aprendiste sobre programación en R. Teniendo en cuenta que la fórmula matemática de la varianza poblacional, con denominador $n$:
+  
+  $$ \sigma^2 = \frac{1}{n}*{\displaystyle\sum_{i=1}^{n}(x_i - \mu)^2}$$
+  
+ Pero la función `var()` está creada para calcular la varianza de muestras no de poblaciones enteras. La fórmula matemática de la varianza muestral que usa R tiene como denominador $n-1$:
+  
+    $$ \sigma^2 = \frac{1}{n-1}*{\displaystyle\sum_{i=1}^{n}(x_i - \mu)^2}$$
+  
+  Crea una función llamada `var2()` que calcule la varianza del siguiente vector: 
+
+
+```r
+set.seed(123)
+vector <- rnorm(50, 21, 1.6)
+```
+  
+  Finalmente, compara tus resultados con los obtenidos por `var()`.
+  
+  Solución:
+  
+  Dentro de la función necesitas:
+  
+  - Un código que calcule el promedio de los valores de `vector`.
+  - Una estructura que le reste el promedio a cada elemento de `vector` y eleve cada resta al cuadrado.
+  - Sumar todos los cuadrados de la resta del elemento y el promedio.
+  - Identificar la longitud de `vector`(n). Y dividir la sumatoria entre `n`.
+  
+
+```r
+### Crear la función
+var2 <- function(x) {
+  promedio <- mean(x)
+  cuadrados <- c()
+  for(i in seq_along(x)) {
+    valor <- (x[i] - promedio)^2
+    cuadrados <- c(cuadrados, valor)
+  }
+  n <- length(x)
+  sumatoria <- sum(cuadrados)
+  varianza <- sumatoria / (n-1)
+  return(varianza)
+}
+
+### Usar la función
+var2(vector)
+# [1] 2.195
+
+### Comparar con la el resultado de var()
+var(vector)
+# [1] 2.195
+```
+  
+  Si necesitas en algún momento, ya conoces cómo crear la fórmula de la varianza poblacional en R.
+
+  1. Carga la base de datos npk. Usando una función de la familia apply(), calcula la el promedio, mediana y desviación estándar de la columna `yield` para cada categoría (numérica) de la columna `block`. Con ello, se conocerá el promedio de producción que se obtuvo en cada bloque para un estudio de mejora fitogenética:
+
+
+```r
+data("npk")
+```
+  
+  Solución:
+  
+
+```r
+tapply(npk$yield, npk$block, FUN = mean)
+#     1     2     3     4     5     6 
+# 54.02 57.45 60.77 50.12 50.52 56.35
+tapply(npk$yield, npk$block, FUN = median)
+#     1     2     3     4     5     6 
+# 53.25 57.25 59.30 47.15 50.65 56.60
+tapply(npk$yield, npk$block, FUN = sd)
+#     1     2     3     4     5     6 
+# 7.269 2.044 6.790 8.150 1.486 2.435
+```
+  
+  1. Ejecuta el siguiente código para crear una lista llamada `iris3Lista` a partir de la base de datos de ejemplo `iris3` (un array). Si revisas `iris3Lista`, notarás que continene 3 elementos, cada uno de ellos es una matriz de datos de cuatro columnas (`Sepal L.`, `Sepal W.`, `Petal L.`, y `Petal W.`).
+  
+
+```r
+# Cargar iris3
+data("iris3")
+
+# Convertirla a lista
+iris3Lista <- list(setosa = iris3[,,1],
+                versicolor = iris3[,,2],
+                virginica = iris3[,,3])
+```
+  
+  Utilizando dos funciones de la familia `apply()`, calcula el promedio de cada columna de cada elemento de la lista `iris3Lista`.
+  
+  Solución:
+  
+
+```r
+lapply(iris3Lista, FUN = function(x) {
+  apply(x, 2, mean)
+})
+# $setosa
+# Sepal L. Sepal W. Petal L. Petal W. 
+#    5.006    3.428    1.462    0.246 
+# 
+# $versicolor
+# Sepal L. Sepal W. Petal L. Petal W. 
+#    5.936    2.770    4.260    1.326 
+# 
+# $virginica
+# Sepal L. Sepal W. Petal L. Petal W. 
+#    6.588    2.974    5.552    2.026
+```
+
+</div>

@@ -24,7 +24,7 @@
 <meta name="author" content="Irwing S. Saldaña" />
 
 
-<meta name="date" content="2022-03-09" />
+<meta name="date" content="2022-03-10" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -243,6 +243,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.2.4" data-path="control-de-flujo.html"><a href="control-de-flujo.html#condicionales-en-vectores-case_when-de-dplyr"><i class="fa fa-check"></i><b>5.2.4</b> Condicionales en vectores <code>case_when()</code> de <strong>dplyr</strong></a></li>
 <li class="chapter" data-level="5.2.5" data-path="control-de-flujo.html"><a href="control-de-flujo.html#ciclos-o-loops-con-for"><i class="fa fa-check"></i><b>5.2.5</b> Ciclos o Loops con <code>for</code></a></li>
 <li class="chapter" data-level="5.2.6" data-path="control-de-flujo.html"><a href="control-de-flujo.html#ciclos-o-loops-con-replicate"><i class="fa fa-check"></i><b>5.2.6</b> Ciclos o loops con <code>replicate()</code></a></li>
+<li class="chapter" data-level="5.2.7" data-path="control-de-flujo.html"><a href="control-de-flujo.html#ciclos-o-loops-con-while"><i class="fa fa-check"></i><b>5.2.7</b> Ciclos o Loops con <code>while</code></a></li>
 </ul></li>
 <li class="chapter" data-level="5.3" data-path="operadoresfuncion.html"><a href="operadoresfuncion.html"><i class="fa fa-check"></i><b>5.3</b> Operadores de función</a></li>
 <li class="chapter" data-level="5.4" data-path="familia-apply.html"><a href="familia-apply.html"><i class="fa fa-check"></i><b>5.4</b> Familia <code>apply()</code></a>
@@ -351,6 +352,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="14.1" data-path="cap.-2-primer-contacto-con-r.html"><a href="cap.-2-primer-contacto-con-r.html"><i class="fa fa-check"></i><b>14.1</b> Cap. 2: Primer contacto con R</a></li>
 <li class="chapter" data-level="14.2" data-path="preg-estructurasdatos.html"><a href="preg-estructurasdatos.html"><i class="fa fa-check"></i><b>14.2</b> Cap. 3: Estructuras de datos</a></li>
+<li class="chapter" data-level="14.3" data-path="cap.-5-programación-funcional.html"><a href="cap.-5-programación-funcional.html"><i class="fa fa-check"></i><b>14.3</b> Cap. 5: Programación funcional</a></li>
+<li class="chapter" data-level="14.4" data-path="ejercicios-del-capítulo-4.html"><a href="ejercicios-del-capítulo-4.html"><i class="fa fa-check"></i><b>14.4</b> Ejercicios del capítulo</a></li>
 </ul></li>
 <li class="divider"></li>
 <li class='after'">
@@ -440,7 +443,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb82-2"><a href="creacion-fun.html#cb82-2" aria-hidden="true" tabindex="-1"></a>log.Gauss <span class="ot">&lt;-</span> <span class="cf">function</span>(n, <span class="at">base =</span> <span class="dv">2</span>) {</span>
 <span id="cb82-3"><a href="creacion-fun.html#cb82-3" aria-hidden="true" tabindex="-1"></a>  resultado.Gauss <span class="ot">&lt;-</span> (n <span class="sc">*</span> (n<span class="sc">+</span><span class="dv">1</span>))<span class="sc">/</span><span class="dv">2</span></span>
 <span id="cb82-4"><a href="creacion-fun.html#cb82-4" aria-hidden="true" tabindex="-1"></a>  logaritmo <span class="ot">&lt;-</span> <span class="fu">log</span>(resultado.Gauss, <span class="at">base=</span>base)</span>
-<span id="cb82-5"><a href="creacion-fun.html#cb82-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(logaritmo)</span>
+<span id="cb82-5"><a href="creacion-fun.html#cb82-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(logaritmo)</span>
 <span id="cb82-6"><a href="creacion-fun.html#cb82-6" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb82-7"><a href="creacion-fun.html#cb82-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb82-8"><a href="creacion-fun.html#cb82-8" aria-hidden="true" tabindex="-1"></a><span class="do">### Usar la función</span></span>

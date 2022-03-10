@@ -4,7 +4,7 @@ R, en esencia, es un lenguaje de programación funcional. En R existen muchas he
 
 Estos tópicos son considerados por muchos autores como el una introducción a R Avanzado, donde se explota al máximo el pensamiento funcional para aplicarlo en análisis de datos. Siéntete libre de revisar repetidamente el siguiente contenido porque será de muchísima utilidad en tu desarrollo como investigador usuario de R.
 
-(ref:programming1) Ejemplo sencillo del uso de programación funcional con loops (ciclos) para obtener un resultado.
+(ref:programming1) Ejemplo sencillo del uso de programación funcional con loops (ciclos o iteraciones repetidas *i* veces) para obtener un resultado.
 
 <div class="figure" style="text-align: center">
 <img src="figs/screenshots/programming.png" alt="(ref:programming1)" width="100%" />
@@ -75,7 +75,7 @@ Esa letra o palabra que se ha colocado dentro de la función `function()` recibe
 log.Gauss <- function(n, base = 2) {
   resultado.Gauss <- (n * (n+1))/2
   logaritmo <- log(resultado.Gauss, base=base)
-  print(logaritmo)
+  return(logaritmo)
 }
 
 ### Usar la función
@@ -118,7 +118,7 @@ print(resultado.Gauss)
 
 ## Control de flujo
 
-En R existen algunos operadores para controlar el flujo de las acciones a tomar en la ejecución. Esto sucede solamente cuando se cumple una condición dada. Recordemos que las condiciones lógicas se resuelven como verdadera `TRUE` o falsa `FALSE`. Existen operadores de elección (`if`, `else`) y de ciclo o *loop* (`for`,  `while`). Se revisará a detalle sus usos en las siguientes secciones.
+En R existen algunos operadores para controlar el flujo de las acciones a tomar en la ejecución. Esto sucede solamente cuando se cumple una condición dada. Recordemos que las condiciones lógicas se resuelven como verdadera `TRUE` o falsa `FALSE`. Existen operadores de elección (`if`, `else`) y de iteración o *loop* (`for`,  `while`). Se revisará a detalle sus usos en las siguientes secciones.
 
 ### Control con `if`
 
@@ -367,7 +367,7 @@ dist
 #         class = "dist")
 #     .Call(C_Cdist, x, method, attrs, p)
 # }
-# <bytecode: 0x0000000025ba07c0>
+# <bytecode: 0x00000000274fbdb8>
 # <environment: namespace:stats>
 ```
 
@@ -479,7 +479,7 @@ case_when(
 
 ### Ciclos o Loops con `for`
 
-El segundo grupo de operadores de control de flujo incluye a los responsables de ciclos o loops. Un loop con `for` tienen la siguiente estructura básica:
+El segundo grupo de operadores de control de flujo incluye a los responsables de ciclos, iteraciones o loops. Un loop con `for` tienen la siguiente estructura básica:
 
 
 ```r
@@ -552,7 +552,7 @@ res
 # [196] 31.18 23.36
 ```
 
-Para no generar `NA` en el resultado se usa un truco: ir adicionando el resultado a `res` como un vector que concatena el contenido de hasta el ciclo anterior de `res`, más el contenido del ciclo actual:
+Para no generar `NA` en el resultado se usa un truco: ir adicionando el resultado a `res` como un vector que concatena el contenido de hasta la iteración anterior de `res`, más el contenido de la iteración actual:
 
 
 ```r
@@ -603,7 +603,7 @@ res
 # [92] 21.20 20.53 31.18 23.36
 ```
 
-Si es requerido frenar el loop antes de que culmine, en base a una nueva condición definida, se debe utilizar `break`. En nuestro ejemplo, para frenar el loop cuando aparezca el primer valor mayor a 30.5, es necesario ir evaluando en cada ciclo del loop si existe al menos un valor `> 30.5` en el objeto `res`. Esto se obtiene con `any(res > 30.5)`. En el momento que se cumpla, `break` frena el loop.
+Si es requerido frenar el loop antes de que culmine, en base a una nueva condición definida, se debe utilizar `break`. En nuestro ejemplo, para frenar el loop cuando aparezca el primer valor mayor a 30.5, es necesario ir evaluando en cada iteración del loop si existe al menos un valor `> 30.5` en el objeto `res`. Esto se obtiene con `any(res > 30.5)`. En el momento que se cumpla, `break` frena el loop.
 
 
 ```r
@@ -628,7 +628,7 @@ res
 
 ### Ciclos o loops con `replicate()`
 
-Replicate facilita mucho procesos iterativos para simulación. Permite replicar una o varias líneas de código las veces que sean definidas, para almacenarlas como una lista de vectores (con el argumento `simplify = FALSE`), o como un vector único (con el argumento `simplify = TRUE`, como está por defecto). Ejemplificaremos su uso con un **caso de estudio**: 
+La función `replicate()` facilita mucho procesos iterativos para simulación. Permite replicar una o varias líneas de código las veces que sean definidas, para almacenarlas como una lista de vectores (con el argumento `simplify = FALSE`), o como un vector único (con el argumento `simplify = TRUE`, como está por defecto). Ejemplificaremos su uso con un **caso de estudio**: 
 
 Se ha evaluado una población, de la cual se obtuvo como muestra 100 medidas de una longitud. Al obtener el valor más grande de dicha muestra se obtiene:
 
@@ -685,10 +685,10 @@ muestra_simulada
 #  [92] 165.6 163.2 156.3 172.1 156.5 178.7 173.5 159.4 153.1
 ```
 
-Para repetir esta simulación diez mil veces, y obtener estadísticos descriptivos de los valores máximos de dichas muchas simuladas, utilizaremos `replicate()` con dos pasos internos por cada ciclo:
+Para repetir esta simulación diez mil veces, y obtener estadísticos descriptivos de los valores máximos de dichas muchas simuladas, utilizaremos `replicate()` con dos pasos internos por cada iteración del loop:
 
-- Crear un conjunto de números aleatorios para el ciclo
-- Hallar el valor máximo de la longitud de dicho ciclo
+- Crear un conjunto de números aleatorios para la iteración.
+- Hallar el valor máximo de la longitud en dicho conjunto.
 
 
 ```r
@@ -715,6 +715,124 @@ max(muestra)
 ```
 
 Con ello nos hemos dado cuenta que, asumiendo que la variable tiene distribución de probabilidades normal, el valor máximo de la muestra original (179.53), es menor al promedio poblacional simulado con diez mil réplicas (199.809). Por el contrario, está más cerca del valor máximo más pequeño dentro de los diez mil datos (171.7636).
+
+### Ciclos o Loops con `while`
+
+Otro operador de control de flujo con el que se crea loops es `while`. A diferencia de `for`, que opera hasta que se acaben las iteraciones definidas por el rango `1:n`, `while` se detendrá solo hasta que se cumpla una condición. Si dicha condición nunca se cumple, se crea un loop infinito. Un loop con `while` tienen la siguiente estructura básica:
+
+
+```r
+# Posición inicial
+index <- 1
+
+# Loop con while
+while (condicion_respecto_a_index) {
+  acciones a realizar
+  index <- index + 1
+  }
+```
+
+Es la segunda línea de la condición a realizar dentro del loop while lo que le da la continuidad. En alguna iteración, el ir "sumando" valores al index hará que se cumpla la condición, por ejemplo:
+
+
+```r
+# Posición inicial
+index <- 1
+
+# Loop con while
+while (index <= 5) {
+  # Acción a realizar
+  print(paste("El número es", index))
+  # Suma una posición para la siguiente iteración
+  index <- index + 1
+}
+# [1] "El número es 1"
+# [1] "El número es 2"
+# [1] "El número es 3"
+# [1] "El número es 4"
+# [1] "El número es 5"
+```
+
+Una segunda manera de operar es indicar que se frene el loop hasta que una condición lógica cambie de estado (`FALSE` a `TRUE`, o viceversa). En el siguiente ejemplo se aplicará el imprimir la secuencia de bases nitrogenadas (letras `A`, `C`, `G`, `T`) hasta que se ubique la primera base G. Trata de interpretar cada paso dentro de una iteración del loop `while`:
+
+
+```r
+### Vector sobre el cual hacer la impresión de elementos
+vector <- c("A","T","C","A","T","G","G","G","G","C","C")
+
+### Condición en estado falso
+condicion <- FALSE
+
+### Índice
+index <- 1
+
+### Loop con while
+### Aquí !condicion significa: 
+### "mientras que condición no sea verdadera, continuar" 
+while ( !condicion ) { 
+  print(vector[index]) # imprime el elemento
+  index <- index + 1   # adiciona una posición
+  condicion <- vector[index] == "G" # evalúa si es G la siguiente posición
+}
+# [1] "A"
+# [1] "T"
+# [1] "C"
+# [1] "A"
+# [1] "T"
+```
+
+Intentar esto con `for` llevaría al **resultado erróneo** de imprimir todo menos los elementos que se soliciten, como "G":
+
+
+```r
+### Vector sobre el cual hacer la impresión de elementos
+vector <- c("A","T","C","A","G","T","C","A",
+            "T","G","G","C","G","G","C","C")
+
+### Loop con for
+for(i in seq_along(vector)){
+  if(vector[i]!="G")
+  print(vector[i])
+}
+# [1] "A"
+# [1] "T"
+# [1] "C"
+# [1] "A"
+# [1] "T"
+# [1] "C"
+# [1] "A"
+# [1] "T"
+# [1] "C"
+# [1] "C"
+# [1] "C"
+```
+
+Algo más interesante para el loop `while` podría ser frenar la impresión de elementos cuando se identifique que a partir de la siguiente iteración aparecerá una secuencia definida. Imagina que necesitas frenar la impresión hasta que aparezca la primera secuencia `TGC`, en ese orden:
+
+
+```r
+# Objetos necesarios
+vector <- c("A","T","C","A","G","T","C","A",
+            "T","G","G","C","G","G","C","C")
+condicion <- FALSE
+index <- 1
+
+### Loop con while
+while ( !condicion ) { 
+  print(vector[index]) 
+  index <- index + 1 
+  condicion <- identical(c(vector[index], vector[index+1], 
+                           vector[index+2]), c("T","G","G"))
+}
+# [1] "A"
+# [1] "T"
+# [1] "C"
+# [1] "A"
+# [1] "G"
+# [1] "T"
+# [1] "C"
+# [1] "A"
+```
 
 ## Operadores de función {#operadoresfuncion}
 
@@ -779,7 +897,7 @@ sec[primoV(sec)]
 
 De manera similar a lo mostrado con `Vectorize()`, existen otros enfoques en R que utilizan funciones de la familia `apply()`. Este tema es abordado en la siguiente sección.
 
-## Familia `apply()`
+## Familia `apply()` 
 
 ### Función `apply()`
 
@@ -839,6 +957,20 @@ apply(iris[,1:4], 2, FUN = mean)
 # Sepal.Length  Sepal.Width Petal.Length  Petal.Width 
 #        5.843        3.057        3.758        1.199
 ```
+
+Dentro de la familia `apply()` podrás encontrar:
+
+
+Table: (\#tab:unnamed-chunk-50)Funciones de la familia apply() que se pueden utilizar en R para automatizar la aplicación de funciones sobre diferentes estructuras de datos.
+
+Función      Descripción                                                                                                                                                                                                                                                                                  
+-----------  ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+`apply()`    Aplica una función a las columnas (MARGIN = 2) o filas (MARGIN = 1) de una base de datos en dos dimensiones (tablas, matrices, data frames). Produce un vector nombrado como resultado.                                                                                                      
+`lapply()`   Aplicar una función sobre un vector o lista. Produce una lista como resultado.                                                                                                                                                                                                               
+`sapply()`   Igual que `lapply()` pero produce un vector o matriz como resultado.                                                                                                                                                                                                                         
+`vapply()`   Igual que `sapply()` pero produce un resultado con estructura predefinida por el usuario.                                                                                                                                                                                                    
+`tapply()`   Aplica una función a un vector separándolo primero por grupos en base a otro vector. Devuelve como resultado un array.                                                                                                                                                                       
+`mapply()`   Es la versión "multivariada" de `sapply()`. Aplica una función a la vez sobre varios vectores. En estos evalúa sobre la función de manera agrupada los primeros elementos, segundos elementos, terceros elementos, y así para delante, hasta acabar con los elementos de todos los vectores. 
 
 ### Función `lapply()`
 
@@ -951,6 +1083,104 @@ sapply(sec, FUN = primo.logic)
 ## Ejercicios del capítulo
 
 <div class="question">
-  1. Soluciona la ecuación $\frac{24+12}{(2 * 3)^2}$.
+  1. Reproduce el resultado del siguiente loop `for`, utilizando la función replicate():
+
+
+```r
+set.seed(123)
+lista1 <- list() # Lista vacía
+for (i in 1:3) { # Número de iteraciones = 5
+  lista1[[i]] = rnorm(6, 0, 1) # Conjunto aleatorio normal para cada iteración
+}
+lista1
+# [[1]]
+# [1] -0.56048 -0.23018  1.55871  0.07051  0.12929  1.71506
+# 
+# [[2]]
+# [1]  0.4609 -1.2651 -0.6869 -0.4457  1.2241  0.3598
+# 
+# [[3]]
+# [1]  0.4008  0.1107 -0.5558  1.7869  0.4979 -1.9666
+```
+
+  1. Crea la base de datos DF numérica (código ya definido en el siguiente chunk), que tiene las dimensiones 12 (filas) x 5 (columnas):
+
+
+```r
+# Base de datos DF
+set.seed(123)
+secuencia <- c(seq(0.5, 7.9, length = 10), -999, 5555)
+DF <- data.frame(replicate(5, 
+                           sample(secuencia, 12, rep = TRUE)))
+DF <- round(DF,2)
+
+# Darle nombre a sus columnas
+colnames(DF) <- paste0("Var", 1:5)
+
+# Revisar el contenido de DF
+DF 
+#       Var1    Var2    Var3    Var4    Var5
+# 1     2.14    3.79    7.08    7.90    6.26
+# 2     2.14    2.14    2.14    5.43 5555.00
+# 3     7.90 -999.00    2.97 -999.00    1.32
+# 4     1.32    7.08    0.50 5555.00    0.50
+# 5     4.61 5555.00 -999.00    3.79    7.08
+# 6  -999.00    7.08    5.43    5.43 -999.00
+# 7     3.79    7.08    3.79    3.79    7.08
+# 8     2.97    2.14 5555.00 -999.00    4.61
+# 9     4.61    6.26    7.90    4.61    3.79
+# 10    7.08    7.90    5.43    7.08    7.08
+# 11    7.90    5.43    7.08    1.32    7.90
+# 12 -999.00    7.90    7.08    3.79 5555.00
+```
+
+La base de datos DF contiene valores no deseados: `-999`. Crea y utiliza una función llamada `cambiarNA()` que te permita cambiar estos valores por `NA`. 
+
+  1. Utilizando la base de datos DF creada inicialmente en el ejercicio 2, modifica la función `cambiarNA()` para que no solo cambie `-999` a `NA`, sino que cambie cualquier valor que tú le proporciones con un argumento. Llama a esta función `cambiarNA2()`. Utilízala para reemplazar los valores `5555` a `NA`.
+ 
+  1. Utilizando la base de datos DF creada inicialmente en el ejercicio 2, modifica la función `cambiarNA2()` de tal manera que te permita definir más de un valor (un vector numérico) como elementos a ser reemplazados por `NA`. Llama a esta función `cambiarNA3()`. Cambia por `NA` los valores `-999` y `5555`. Pista: Esta función deberá contener un loop para aplicarle la función de cambio por NA a un elemento del vector a la vez en cada iteración.
+
+  1. Crea un loop `for` que itere sobre los números del 1 al 50 y calcule el cubo de cada número, de manera que los resultados se vayan guardando en un vector llamado `preliminar`. Luego, crea un segundo loop que te permita identificar y almacenar solamente los números menores a la mediana `median()` del conjunto de datos `preliminar` en un nuevo vector llamado `final`.
+
+  1. En R ya existe una función para calcular la varianza y es `var()`. Pero este ejercicio se trata de poner en juego lo que aprendiste sobre programación en R. Teniendo en cuenta que la fórmula matemática de la varianza poblacional, con denominador $n$:
+  
+  $$ \sigma^2 = \frac{1}{n}*{\displaystyle\sum_{i=1}^{n}(x_i - \mu)^2}$$
+  
+ Pero la función `var()` está creada para calcular la varianza de muestras no de poblaciones enteras. La fórmula matemática de la varianza muestral que usa R tiene como denominador $n-1$:
+  
+    $$ \sigma^2 = \frac{1}{n-1}*{\displaystyle\sum_{i=1}^{n}(x_i - \mu)^2}$$
+  
+  Crea una función llamada `var2()` que calcule la varianza del siguiente vector: 
+
+
+```r
+set.seed(123)
+vector <- rnorm(50, 21, 1.6)
+```
+  
+  Finalmente, compara tus resultados con los obtenidos por `var()`.
+
+  1. Carga la base de datos npk. Usando una función de la familia apply(), calcula la el promedio, mediana y desviación estándar de la columna `yield` para cada categoría (numérica) de la columna `block`. Con ello, se conocerá el promedio de producción que se obtuvo en cada bloque para un estudio de mejora fitogenética:
+
+
+```r
+data("npk")
+```
+
+  1. Ejecuta el siguiente código para crear una lista llamada `iris3Lista` a partir de la base de datos de ejemplo `iris3` (un array). Si revisas `iris3Lista`, notarás que continene 3 elementos, cada uno de ellos es una matriz de datos de cuatro columnas (`Sepal L.`, `Sepal W.`, `Petal L.`, y `Petal W.`).
+  
+
+```r
+# Cargar iris3
+data("iris3")
+
+# Convertirla a lista
+iris3Lista <- list(setosa = iris3[,,1],
+                versicolor = iris3[,,2],
+                virginica = iris3[,,3])
+```
+  
+  Utilizando dos funciones de la familia `apply()`, calcula el promedio de cada columna de cada elemento de la lista `iris3Lista`.
+
 </div>
 

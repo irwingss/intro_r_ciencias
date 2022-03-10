@@ -24,7 +24,7 @@
 <meta name="author" content="Irwing S. Saldaña" />
 
 
-<meta name="date" content="2022-03-09" />
+<meta name="date" content="2022-03-10" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -243,6 +243,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.2.4" data-path="control-de-flujo.html"><a href="control-de-flujo.html#condicionales-en-vectores-case_when-de-dplyr"><i class="fa fa-check"></i><b>5.2.4</b> Condicionales en vectores <code>case_when()</code> de <strong>dplyr</strong></a></li>
 <li class="chapter" data-level="5.2.5" data-path="control-de-flujo.html"><a href="control-de-flujo.html#ciclos-o-loops-con-for"><i class="fa fa-check"></i><b>5.2.5</b> Ciclos o Loops con <code>for</code></a></li>
 <li class="chapter" data-level="5.2.6" data-path="control-de-flujo.html"><a href="control-de-flujo.html#ciclos-o-loops-con-replicate"><i class="fa fa-check"></i><b>5.2.6</b> Ciclos o loops con <code>replicate()</code></a></li>
+<li class="chapter" data-level="5.2.7" data-path="control-de-flujo.html"><a href="control-de-flujo.html#ciclos-o-loops-con-while"><i class="fa fa-check"></i><b>5.2.7</b> Ciclos o Loops con <code>while</code></a></li>
 </ul></li>
 <li class="chapter" data-level="5.3" data-path="operadoresfuncion.html"><a href="operadoresfuncion.html"><i class="fa fa-check"></i><b>5.3</b> Operadores de función</a></li>
 <li class="chapter" data-level="5.4" data-path="familia-apply.html"><a href="familia-apply.html"><i class="fa fa-check"></i><b>5.4</b> Familia <code>apply()</code></a>
@@ -351,6 +352,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="14.1" data-path="cap.-2-primer-contacto-con-r.html"><a href="cap.-2-primer-contacto-con-r.html"><i class="fa fa-check"></i><b>14.1</b> Cap. 2: Primer contacto con R</a></li>
 <li class="chapter" data-level="14.2" data-path="preg-estructurasdatos.html"><a href="preg-estructurasdatos.html"><i class="fa fa-check"></i><b>14.2</b> Cap. 3: Estructuras de datos</a></li>
+<li class="chapter" data-level="14.3" data-path="cap.-5-programación-funcional.html"><a href="cap.-5-programación-funcional.html"><i class="fa fa-check"></i><b>14.3</b> Cap. 5: Programación funcional</a></li>
+<li class="chapter" data-level="14.4" data-path="ejercicios-del-capítulo-4.html"><a href="ejercicios-del-capítulo-4.html"><i class="fa fa-check"></i><b>14.4</b> Ejercicios del capítulo</a></li>
 </ul></li>
 <li class="divider"></li>
 <li class='after'">
@@ -391,52 +394,52 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">5.3</span> Operadores de función</h2>
 <p>Los <strong>operadores de función</strong> son funciones que toman como entrada una función y devuelven como resultado otra función generada como una modificación de la inicial. Esto es diferente de lo mostrado hasta el momento, donde una función usualmente genera un objeto como resultado.</p>
 <p>Veamos un ejemplo sobre la identificación de números primos. La forma más sencilla de hacer es creando una función que identifique si un número dado es primo o no. El proceso de idear esta función comienza con crear una función que identifique si un número es primo o no. Esta función inicial debe ser pensada como una función que se le puede aplicar a un solo elemento, no a un conjunto de datos.</p>
-<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="operadoresfuncion.html#cb115-1" aria-hidden="true" tabindex="-1"></a><span class="do">### Crear la función primo.logic() para identificar números primos</span></span>
-<span id="cb115-2"><a href="operadoresfuncion.html#cb115-2" aria-hidden="true" tabindex="-1"></a>primo.logic <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
-<span id="cb115-3"><a href="operadoresfuncion.html#cb115-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (x <span class="sc">==</span> <span class="dv">2</span>) {</span>
-<span id="cb115-4"><a href="operadoresfuncion.html#cb115-4" aria-hidden="true" tabindex="-1"></a>    <span class="cn">TRUE</span></span>
-<span id="cb115-5"><a href="operadoresfuncion.html#cb115-5" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (<span class="fu">any</span>(x <span class="sc">%%</span> <span class="dv">2</span><span class="sc">:</span>(x<span class="dv">-1</span>) <span class="sc">==</span> <span class="dv">0</span>)) {</span>
-<span id="cb115-6"><a href="operadoresfuncion.html#cb115-6" aria-hidden="true" tabindex="-1"></a>    <span class="cn">FALSE</span></span>
-<span id="cb115-7"><a href="operadoresfuncion.html#cb115-7" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> { </span>
-<span id="cb115-8"><a href="operadoresfuncion.html#cb115-8" aria-hidden="true" tabindex="-1"></a>    <span class="cn">TRUE</span></span>
-<span id="cb115-9"><a href="operadoresfuncion.html#cb115-9" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb115-10"><a href="operadoresfuncion.html#cb115-10" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb115-11"><a href="operadoresfuncion.html#cb115-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb115-12"><a href="operadoresfuncion.html#cb115-12" aria-hidden="true" tabindex="-1"></a><span class="do">### Probar la función con los números primos 2, 3, 5, y no primos 4, 9, 27</span></span>
-<span id="cb115-13"><a href="operadoresfuncion.html#cb115-13" aria-hidden="true" tabindex="-1"></a><span class="fu">primo.logic</span>(<span class="dv">2</span>)</span>
-<span id="cb115-14"><a href="operadoresfuncion.html#cb115-14" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] TRUE</span></span>
-<span id="cb115-15"><a href="operadoresfuncion.html#cb115-15" aria-hidden="true" tabindex="-1"></a><span class="fu">primo.logic</span>(<span class="dv">3</span>)</span>
-<span id="cb115-16"><a href="operadoresfuncion.html#cb115-16" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] TRUE</span></span>
-<span id="cb115-17"><a href="operadoresfuncion.html#cb115-17" aria-hidden="true" tabindex="-1"></a><span class="fu">primo.logic</span>(<span class="dv">5</span>)</span>
-<span id="cb115-18"><a href="operadoresfuncion.html#cb115-18" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] TRUE</span></span>
-<span id="cb115-19"><a href="operadoresfuncion.html#cb115-19" aria-hidden="true" tabindex="-1"></a><span class="fu">primo.logic</span>(<span class="dv">4</span>)</span>
-<span id="cb115-20"><a href="operadoresfuncion.html#cb115-20" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] FALSE</span></span>
-<span id="cb115-21"><a href="operadoresfuncion.html#cb115-21" aria-hidden="true" tabindex="-1"></a><span class="fu">primo.logic</span>(<span class="dv">9</span>)</span>
-<span id="cb115-22"><a href="operadoresfuncion.html#cb115-22" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] FALSE</span></span>
-<span id="cb115-23"><a href="operadoresfuncion.html#cb115-23" aria-hidden="true" tabindex="-1"></a><span class="fu">primo.logic</span>(<span class="dv">27</span>)</span>
-<span id="cb115-24"><a href="operadoresfuncion.html#cb115-24" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] FALSE</span></span></code></pre></div>
+<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="operadoresfuncion.html#cb120-1" aria-hidden="true" tabindex="-1"></a><span class="do">### Crear la función primo.logic() para identificar números primos</span></span>
+<span id="cb120-2"><a href="operadoresfuncion.html#cb120-2" aria-hidden="true" tabindex="-1"></a>primo.logic <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb120-3"><a href="operadoresfuncion.html#cb120-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (x <span class="sc">==</span> <span class="dv">2</span>) {</span>
+<span id="cb120-4"><a href="operadoresfuncion.html#cb120-4" aria-hidden="true" tabindex="-1"></a>    <span class="cn">TRUE</span></span>
+<span id="cb120-5"><a href="operadoresfuncion.html#cb120-5" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (<span class="fu">any</span>(x <span class="sc">%%</span> <span class="dv">2</span><span class="sc">:</span>(x<span class="dv">-1</span>) <span class="sc">==</span> <span class="dv">0</span>)) {</span>
+<span id="cb120-6"><a href="operadoresfuncion.html#cb120-6" aria-hidden="true" tabindex="-1"></a>    <span class="cn">FALSE</span></span>
+<span id="cb120-7"><a href="operadoresfuncion.html#cb120-7" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> { </span>
+<span id="cb120-8"><a href="operadoresfuncion.html#cb120-8" aria-hidden="true" tabindex="-1"></a>    <span class="cn">TRUE</span></span>
+<span id="cb120-9"><a href="operadoresfuncion.html#cb120-9" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb120-10"><a href="operadoresfuncion.html#cb120-10" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb120-11"><a href="operadoresfuncion.html#cb120-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb120-12"><a href="operadoresfuncion.html#cb120-12" aria-hidden="true" tabindex="-1"></a><span class="do">### Probar la función con los números primos 2, 3, 5, y no primos 4, 9, 27</span></span>
+<span id="cb120-13"><a href="operadoresfuncion.html#cb120-13" aria-hidden="true" tabindex="-1"></a><span class="fu">primo.logic</span>(<span class="dv">2</span>)</span>
+<span id="cb120-14"><a href="operadoresfuncion.html#cb120-14" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] TRUE</span></span>
+<span id="cb120-15"><a href="operadoresfuncion.html#cb120-15" aria-hidden="true" tabindex="-1"></a><span class="fu">primo.logic</span>(<span class="dv">3</span>)</span>
+<span id="cb120-16"><a href="operadoresfuncion.html#cb120-16" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] TRUE</span></span>
+<span id="cb120-17"><a href="operadoresfuncion.html#cb120-17" aria-hidden="true" tabindex="-1"></a><span class="fu">primo.logic</span>(<span class="dv">5</span>)</span>
+<span id="cb120-18"><a href="operadoresfuncion.html#cb120-18" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] TRUE</span></span>
+<span id="cb120-19"><a href="operadoresfuncion.html#cb120-19" aria-hidden="true" tabindex="-1"></a><span class="fu">primo.logic</span>(<span class="dv">4</span>)</span>
+<span id="cb120-20"><a href="operadoresfuncion.html#cb120-20" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] FALSE</span></span>
+<span id="cb120-21"><a href="operadoresfuncion.html#cb120-21" aria-hidden="true" tabindex="-1"></a><span class="fu">primo.logic</span>(<span class="dv">9</span>)</span>
+<span id="cb120-22"><a href="operadoresfuncion.html#cb120-22" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] FALSE</span></span>
+<span id="cb120-23"><a href="operadoresfuncion.html#cb120-23" aria-hidden="true" tabindex="-1"></a><span class="fu">primo.logic</span>(<span class="dv">27</span>)</span>
+<span id="cb120-24"><a href="operadoresfuncion.html#cb120-24" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] FALSE</span></span></code></pre></div>
 <p>El resultado es excelente, <code>primo.logic()</code> identifica si un número es primo o no. Sin embargo, no es eficiente ir probando elemento a elemento el contenido de un conjunto de datos. Automatizar <code>primo.logic()</code> para que aplique la búsqueda de números primos elemento a elemento (<em>element-wise</em>) a un vector completo, implica vectorizar <code>primo.logic()</code> usando la función <code>Vectorize()</code>. Este es el <strong>operador de funciones</strong> que nos devolverá como resultado la función <code>primo.logic()</code> aplicable a un vector:</p>
-<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="operadoresfuncion.html#cb116-1" aria-hidden="true" tabindex="-1"></a><span class="do">### Crear un vector para buscar los números primos en él</span></span>
-<span id="cb116-2"><a href="operadoresfuncion.html#cb116-2" aria-hidden="true" tabindex="-1"></a>sec <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">100</span></span>
-<span id="cb116-3"><a href="operadoresfuncion.html#cb116-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb116-4"><a href="operadoresfuncion.html#cb116-4" aria-hidden="true" tabindex="-1"></a><span class="do">### Vectorizar la función primo.logic() y </span></span>
-<span id="cb116-5"><a href="operadoresfuncion.html#cb116-5" aria-hidden="true" tabindex="-1"></a><span class="do">### guardarla como una nueva función primoV</span></span>
-<span id="cb116-6"><a href="operadoresfuncion.html#cb116-6" aria-hidden="true" tabindex="-1"></a>primoV <span class="ot">&lt;-</span> <span class="fu">Vectorize</span>(primo.logic) </span>
-<span id="cb116-7"><a href="operadoresfuncion.html#cb116-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb116-8"><a href="operadoresfuncion.html#cb116-8" aria-hidden="true" tabindex="-1"></a><span class="do">### Usar primoV()</span></span>
-<span id="cb116-9"><a href="operadoresfuncion.html#cb116-9" aria-hidden="true" tabindex="-1"></a><span class="fu">primoV</span>(sec)</span>
-<span id="cb116-10"><a href="operadoresfuncion.html#cb116-10" aria-hidden="true" tabindex="-1"></a><span class="co">#   [1] FALSE  TRUE  TRUE FALSE  TRUE FALSE  TRUE FALSE FALSE FALSE  TRUE FALSE  TRUE</span></span>
-<span id="cb116-11"><a href="operadoresfuncion.html#cb116-11" aria-hidden="true" tabindex="-1"></a><span class="co">#  [14] FALSE FALSE FALSE  TRUE FALSE  TRUE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE</span></span>
-<span id="cb116-12"><a href="operadoresfuncion.html#cb116-12" aria-hidden="true" tabindex="-1"></a><span class="co">#  [27] FALSE FALSE  TRUE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE</span></span>
-<span id="cb116-13"><a href="operadoresfuncion.html#cb116-13" aria-hidden="true" tabindex="-1"></a><span class="co">#  [40] FALSE  TRUE FALSE  TRUE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE</span></span>
-<span id="cb116-14"><a href="operadoresfuncion.html#cb116-14" aria-hidden="true" tabindex="-1"></a><span class="co">#  [53]  TRUE FALSE FALSE FALSE FALSE FALSE  TRUE FALSE  TRUE FALSE FALSE FALSE FALSE</span></span>
-<span id="cb116-15"><a href="operadoresfuncion.html#cb116-15" aria-hidden="true" tabindex="-1"></a><span class="co">#  [66] FALSE  TRUE FALSE FALSE FALSE  TRUE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE</span></span>
-<span id="cb116-16"><a href="operadoresfuncion.html#cb116-16" aria-hidden="true" tabindex="-1"></a><span class="co">#  [79]  TRUE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE</span></span>
-<span id="cb116-17"><a href="operadoresfuncion.html#cb116-17" aria-hidden="true" tabindex="-1"></a><span class="co">#  [92] FALSE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE</span></span>
-<span id="cb116-18"><a href="operadoresfuncion.html#cb116-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb116-19"><a href="operadoresfuncion.html#cb116-19" aria-hidden="true" tabindex="-1"></a><span class="do">### Filtrar los números primos de la secuencia</span></span>
-<span id="cb116-20"><a href="operadoresfuncion.html#cb116-20" aria-hidden="true" tabindex="-1"></a>sec[<span class="fu">primoV</span>(sec)]</span>
-<span id="cb116-21"><a href="operadoresfuncion.html#cb116-21" aria-hidden="true" tabindex="-1"></a><span class="co">#  [1]  2  3  5  7 11 13 17 19 23 29 31 37 41 43 47 53 59 61 67 71 73 79 83 89 97</span></span></code></pre></div>
+<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="operadoresfuncion.html#cb121-1" aria-hidden="true" tabindex="-1"></a><span class="do">### Crear un vector para buscar los números primos en él</span></span>
+<span id="cb121-2"><a href="operadoresfuncion.html#cb121-2" aria-hidden="true" tabindex="-1"></a>sec <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">100</span></span>
+<span id="cb121-3"><a href="operadoresfuncion.html#cb121-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-4"><a href="operadoresfuncion.html#cb121-4" aria-hidden="true" tabindex="-1"></a><span class="do">### Vectorizar la función primo.logic() y </span></span>
+<span id="cb121-5"><a href="operadoresfuncion.html#cb121-5" aria-hidden="true" tabindex="-1"></a><span class="do">### guardarla como una nueva función primoV</span></span>
+<span id="cb121-6"><a href="operadoresfuncion.html#cb121-6" aria-hidden="true" tabindex="-1"></a>primoV <span class="ot">&lt;-</span> <span class="fu">Vectorize</span>(primo.logic) </span>
+<span id="cb121-7"><a href="operadoresfuncion.html#cb121-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-8"><a href="operadoresfuncion.html#cb121-8" aria-hidden="true" tabindex="-1"></a><span class="do">### Usar primoV()</span></span>
+<span id="cb121-9"><a href="operadoresfuncion.html#cb121-9" aria-hidden="true" tabindex="-1"></a><span class="fu">primoV</span>(sec)</span>
+<span id="cb121-10"><a href="operadoresfuncion.html#cb121-10" aria-hidden="true" tabindex="-1"></a><span class="co">#   [1] FALSE  TRUE  TRUE FALSE  TRUE FALSE  TRUE FALSE FALSE FALSE  TRUE FALSE  TRUE</span></span>
+<span id="cb121-11"><a href="operadoresfuncion.html#cb121-11" aria-hidden="true" tabindex="-1"></a><span class="co">#  [14] FALSE FALSE FALSE  TRUE FALSE  TRUE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE</span></span>
+<span id="cb121-12"><a href="operadoresfuncion.html#cb121-12" aria-hidden="true" tabindex="-1"></a><span class="co">#  [27] FALSE FALSE  TRUE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE</span></span>
+<span id="cb121-13"><a href="operadoresfuncion.html#cb121-13" aria-hidden="true" tabindex="-1"></a><span class="co">#  [40] FALSE  TRUE FALSE  TRUE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE</span></span>
+<span id="cb121-14"><a href="operadoresfuncion.html#cb121-14" aria-hidden="true" tabindex="-1"></a><span class="co">#  [53]  TRUE FALSE FALSE FALSE FALSE FALSE  TRUE FALSE  TRUE FALSE FALSE FALSE FALSE</span></span>
+<span id="cb121-15"><a href="operadoresfuncion.html#cb121-15" aria-hidden="true" tabindex="-1"></a><span class="co">#  [66] FALSE  TRUE FALSE FALSE FALSE  TRUE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE</span></span>
+<span id="cb121-16"><a href="operadoresfuncion.html#cb121-16" aria-hidden="true" tabindex="-1"></a><span class="co">#  [79]  TRUE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE</span></span>
+<span id="cb121-17"><a href="operadoresfuncion.html#cb121-17" aria-hidden="true" tabindex="-1"></a><span class="co">#  [92] FALSE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE</span></span>
+<span id="cb121-18"><a href="operadoresfuncion.html#cb121-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-19"><a href="operadoresfuncion.html#cb121-19" aria-hidden="true" tabindex="-1"></a><span class="do">### Filtrar los números primos de la secuencia</span></span>
+<span id="cb121-20"><a href="operadoresfuncion.html#cb121-20" aria-hidden="true" tabindex="-1"></a>sec[<span class="fu">primoV</span>(sec)]</span>
+<span id="cb121-21"><a href="operadoresfuncion.html#cb121-21" aria-hidden="true" tabindex="-1"></a><span class="co">#  [1]  2  3  5  7 11 13 17 19 23 29 31 37 41 43 47 53 59 61 67 71 73 79 83 89 97</span></span></code></pre></div>
 <p>De manera similar a lo mostrado con <code>Vectorize()</code>, existen otros enfoques en R que utilizan funciones de la familia <code>apply()</code>. Este tema es abordado en la siguiente sección.</p>
 </div>
             </section>

@@ -24,7 +24,7 @@
 <meta name="author" content="Irwing S. Saldaña" />
 
 
-<meta name="date" content="2022-03-09" />
+<meta name="date" content="2022-03-10" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -243,6 +243,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.2.4" data-path="control-de-flujo.html"><a href="control-de-flujo.html#condicionales-en-vectores-case_when-de-dplyr"><i class="fa fa-check"></i><b>5.2.4</b> Condicionales en vectores <code>case_when()</code> de <strong>dplyr</strong></a></li>
 <li class="chapter" data-level="5.2.5" data-path="control-de-flujo.html"><a href="control-de-flujo.html#ciclos-o-loops-con-for"><i class="fa fa-check"></i><b>5.2.5</b> Ciclos o Loops con <code>for</code></a></li>
 <li class="chapter" data-level="5.2.6" data-path="control-de-flujo.html"><a href="control-de-flujo.html#ciclos-o-loops-con-replicate"><i class="fa fa-check"></i><b>5.2.6</b> Ciclos o loops con <code>replicate()</code></a></li>
+<li class="chapter" data-level="5.2.7" data-path="control-de-flujo.html"><a href="control-de-flujo.html#ciclos-o-loops-con-while"><i class="fa fa-check"></i><b>5.2.7</b> Ciclos o Loops con <code>while</code></a></li>
 </ul></li>
 <li class="chapter" data-level="5.3" data-path="operadoresfuncion.html"><a href="operadoresfuncion.html"><i class="fa fa-check"></i><b>5.3</b> Operadores de función</a></li>
 <li class="chapter" data-level="5.4" data-path="familia-apply.html"><a href="familia-apply.html"><i class="fa fa-check"></i><b>5.4</b> Familia <code>apply()</code></a>
@@ -351,6 +352,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="14.1" data-path="cap.-2-primer-contacto-con-r.html"><a href="cap.-2-primer-contacto-con-r.html"><i class="fa fa-check"></i><b>14.1</b> Cap. 2: Primer contacto con R</a></li>
 <li class="chapter" data-level="14.2" data-path="preg-estructurasdatos.html"><a href="preg-estructurasdatos.html"><i class="fa fa-check"></i><b>14.2</b> Cap. 3: Estructuras de datos</a></li>
+<li class="chapter" data-level="14.3" data-path="cap.-5-programación-funcional.html"><a href="cap.-5-programación-funcional.html"><i class="fa fa-check"></i><b>14.3</b> Cap. 5: Programación funcional</a></li>
+<li class="chapter" data-level="14.4" data-path="ejercicios-del-capítulo-4.html"><a href="ejercicios-del-capítulo-4.html"><i class="fa fa-check"></i><b>14.4</b> Ejercicios del capítulo</a></li>
 </ul></li>
 <li class="divider"></li>
 <li class='after'">
@@ -402,7 +405,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb24-2"><a href="funciones.html#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="co"># function (x, na.rm = FALSE) </span></span>
 <span id="cb24-3"><a href="funciones.html#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="co"># sqrt(var(if (is.vector(x) || is.factor(x)) x else as.double(x), </span></span>
 <span id="cb24-4"><a href="funciones.html#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="co">#     na.rm = na.rm))</span></span>
-<span id="cb24-5"><a href="funciones.html#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="co"># &lt;bytecode: 0x00000000263396c0&gt;</span></span>
+<span id="cb24-5"><a href="funciones.html#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="co"># &lt;bytecode: 0x0000000027b47ff0&gt;</span></span>
 <span id="cb24-6"><a href="funciones.html#cb24-6" aria-hidden="true" tabindex="-1"></a><span class="co"># &lt;environment: namespace:stats&gt;</span></span></code></pre></div>
 <p>La secuencia de órdenes dentro de <code>sd</code> es corta. Básicamente utiliza la función <code>sqrt()</code> para sacarle la raíz cuadrada a la función <code>var()</code>, esta última calcula la varianza de un conjunto de datos. La estructura del código es propiamente la fórmula matemática para el cálculo de la desviación estándar. Aunque, a decir verdades, el código luce más complejo, y es debido a que aquí la función <code>var()</code> contiene argumentos condicionales para pedir que evalúe si el objeto <code>x</code> es correcto para la función, o si se necesita un cambio antes de procesar<code>x</code> en <code>sd()</code>. Pierde cuidado si no se entiende mucho por ahora, no es necesario comprender las funciones a este nivel al iniciar con R.</p>
 </div>

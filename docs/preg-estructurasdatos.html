@@ -24,7 +24,7 @@
 <meta name="author" content="Irwing S. Saldaña" />
 
 
-<meta name="date" content="2022-03-09" />
+<meta name="date" content="2022-03-10" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -32,7 +32,7 @@
   
   <link rel="shortcut icon" href="figs/favicon.ico" type="image/x-icon" />
 <link rel="prev" href="cap.-2-primer-contacto-con-r.html"/>
-
+<link rel="next" href="cap.-5-programación-funcional.html"/>
 <script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -243,6 +243,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.2.4" data-path="control-de-flujo.html"><a href="control-de-flujo.html#condicionales-en-vectores-case_when-de-dplyr"><i class="fa fa-check"></i><b>5.2.4</b> Condicionales en vectores <code>case_when()</code> de <strong>dplyr</strong></a></li>
 <li class="chapter" data-level="5.2.5" data-path="control-de-flujo.html"><a href="control-de-flujo.html#ciclos-o-loops-con-for"><i class="fa fa-check"></i><b>5.2.5</b> Ciclos o Loops con <code>for</code></a></li>
 <li class="chapter" data-level="5.2.6" data-path="control-de-flujo.html"><a href="control-de-flujo.html#ciclos-o-loops-con-replicate"><i class="fa fa-check"></i><b>5.2.6</b> Ciclos o loops con <code>replicate()</code></a></li>
+<li class="chapter" data-level="5.2.7" data-path="control-de-flujo.html"><a href="control-de-flujo.html#ciclos-o-loops-con-while"><i class="fa fa-check"></i><b>5.2.7</b> Ciclos o Loops con <code>while</code></a></li>
 </ul></li>
 <li class="chapter" data-level="5.3" data-path="operadoresfuncion.html"><a href="operadoresfuncion.html"><i class="fa fa-check"></i><b>5.3</b> Operadores de función</a></li>
 <li class="chapter" data-level="5.4" data-path="familia-apply.html"><a href="familia-apply.html"><i class="fa fa-check"></i><b>5.4</b> Familia <code>apply()</code></a>
@@ -351,6 +352,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="14.1" data-path="cap.-2-primer-contacto-con-r.html"><a href="cap.-2-primer-contacto-con-r.html"><i class="fa fa-check"></i><b>14.1</b> Cap. 2: Primer contacto con R</a></li>
 <li class="chapter" data-level="14.2" data-path="preg-estructurasdatos.html"><a href="preg-estructurasdatos.html"><i class="fa fa-check"></i><b>14.2</b> Cap. 3: Estructuras de datos</a></li>
+<li class="chapter" data-level="14.3" data-path="cap.-5-programación-funcional.html"><a href="cap.-5-programación-funcional.html"><i class="fa fa-check"></i><b>14.3</b> Cap. 5: Programación funcional</a></li>
+<li class="chapter" data-level="14.4" data-path="ejercicios-del-capítulo-4.html"><a href="ejercicios-del-capítulo-4.html"><i class="fa fa-check"></i><b>14.4</b> Ejercicios del capítulo</a></li>
 </ul></li>
 <li class="divider"></li>
 <li class='after'">
@@ -394,97 +397,97 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Crea una variable llamada <code>datosNumeros</code> que contenga 200 números (decimales) entre el 20 y 80.</li>
 </ol>
 </div>
-<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="preg-estructurasdatos.html#cb140-1" aria-hidden="true" tabindex="-1"></a>datosNumeros <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">20</span>, <span class="dv">80</span>, <span class="at">length=</span><span class="dv">200</span>)</span>
-<span id="cb140-2"><a href="preg-estructurasdatos.html#cb140-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb140-3"><a href="preg-estructurasdatos.html#cb140-3" aria-hidden="true" tabindex="-1"></a><span class="do">### Función head() para ver los 20 primeros elementos del vector</span></span>
-<span id="cb140-4"><a href="preg-estructurasdatos.html#cb140-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(datosNumeros, <span class="dv">20</span>)</span>
-<span id="cb140-5"><a href="preg-estructurasdatos.html#cb140-5" aria-hidden="true" tabindex="-1"></a><span class="co">#  [1] 20.00 20.30 20.60 20.90 21.21 21.51 21.81 22.11 22.41 22.71 23.02 23.32 23.62</span></span>
-<span id="cb140-6"><a href="preg-estructurasdatos.html#cb140-6" aria-hidden="true" tabindex="-1"></a><span class="co"># [14] 23.92 24.22 24.52 24.82 25.13 25.43 25.73</span></span></code></pre></div>
+<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="preg-estructurasdatos.html#cb151-1" aria-hidden="true" tabindex="-1"></a>datosNumeros <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">20</span>, <span class="dv">80</span>, <span class="at">length=</span><span class="dv">200</span>)</span>
+<span id="cb151-2"><a href="preg-estructurasdatos.html#cb151-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb151-3"><a href="preg-estructurasdatos.html#cb151-3" aria-hidden="true" tabindex="-1"></a><span class="do">### Función head() para ver los 20 primeros elementos del vector</span></span>
+<span id="cb151-4"><a href="preg-estructurasdatos.html#cb151-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(datosNumeros, <span class="dv">20</span>)</span>
+<span id="cb151-5"><a href="preg-estructurasdatos.html#cb151-5" aria-hidden="true" tabindex="-1"></a><span class="co">#  [1] 20.00 20.30 20.60 20.90 21.21 21.51 21.81 22.11 22.41 22.71 23.02 23.32 23.62</span></span>
+<span id="cb151-6"><a href="preg-estructurasdatos.html#cb151-6" aria-hidden="true" tabindex="-1"></a><span class="co"># [14] 23.92 24.22 24.52 24.82 25.13 25.43 25.73</span></span></code></pre></div>
 <div class="question">
 <ol style="list-style-type: decimal">
 <li>Utilizando la función <code>sample()</code>, crea una variable llamada <code>muestr4</code> que contenga el muestreo de 10 elementos (con repetición) del objeto <code>datosNumeros</code>. Utiliza <code>set.seed(123)</code>
 antes del muestro para asegurar la replicabilidad del mismo.</li>
 </ol>
 </div>
-<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="preg-estructurasdatos.html#cb141-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
-<span id="cb141-2"><a href="preg-estructurasdatos.html#cb141-2" aria-hidden="true" tabindex="-1"></a>muestr4 <span class="ot">&lt;-</span> <span class="fu">sample</span>(datosNumeros, <span class="dv">10</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb141-3"><a href="preg-estructurasdatos.html#cb141-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb141-4"><a href="preg-estructurasdatos.html#cb141-4" aria-hidden="true" tabindex="-1"></a><span class="do">### Revisar el contenido</span></span>
-<span id="cb141-5"><a href="preg-estructurasdatos.html#cb141-5" aria-hidden="true" tabindex="-1"></a>muestr4</span>
-<span id="cb141-6"><a href="preg-estructurasdatos.html#cb141-6" aria-hidden="true" tabindex="-1"></a><span class="co">#  [1] 67.64 73.67 23.92 78.49 70.95 34.77 55.28 32.66 23.92 55.28</span></span></code></pre></div>
+<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="preg-estructurasdatos.html#cb152-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb152-2"><a href="preg-estructurasdatos.html#cb152-2" aria-hidden="true" tabindex="-1"></a>muestr4 <span class="ot">&lt;-</span> <span class="fu">sample</span>(datosNumeros, <span class="dv">10</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb152-3"><a href="preg-estructurasdatos.html#cb152-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb152-4"><a href="preg-estructurasdatos.html#cb152-4" aria-hidden="true" tabindex="-1"></a><span class="do">### Revisar el contenido</span></span>
+<span id="cb152-5"><a href="preg-estructurasdatos.html#cb152-5" aria-hidden="true" tabindex="-1"></a>muestr4</span>
+<span id="cb152-6"><a href="preg-estructurasdatos.html#cb152-6" aria-hidden="true" tabindex="-1"></a><span class="co">#  [1] 67.64 73.67 23.92 78.49 70.95 34.77 55.28 32.66 23.92 55.28</span></span></code></pre></div>
 <div class="question">
 <ol style="list-style-type: decimal">
 <li>Redondea todos los elementos del vector <code>datosNumeros</code> a dos decimales, coerciona el objeto a texto, y guarda el resultado en el ambiente con el nombre <code>coer</code>.</li>
 </ol>
 </div>
-<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="preg-estructurasdatos.html#cb142-1" aria-hidden="true" tabindex="-1"></a><span class="do">### Redondear datosNumeros</span></span>
-<span id="cb142-2"><a href="preg-estructurasdatos.html#cb142-2" aria-hidden="true" tabindex="-1"></a>r <span class="ot">&lt;-</span> <span class="fu">round</span>(datosNumeros, <span class="dv">2</span>)</span>
-<span id="cb142-3"><a href="preg-estructurasdatos.html#cb142-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb142-4"><a href="preg-estructurasdatos.html#cb142-4" aria-hidden="true" tabindex="-1"></a><span class="do">### Coercer hacia texto</span></span>
-<span id="cb142-5"><a href="preg-estructurasdatos.html#cb142-5" aria-hidden="true" tabindex="-1"></a>coer <span class="ot">&lt;-</span> <span class="fu">as.character</span>(r) </span>
-<span id="cb142-6"><a href="preg-estructurasdatos.html#cb142-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb142-7"><a href="preg-estructurasdatos.html#cb142-7" aria-hidden="true" tabindex="-1"></a><span class="do">### Revisar el contenido</span></span>
-<span id="cb142-8"><a href="preg-estructurasdatos.html#cb142-8" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(coer, <span class="dv">20</span>)</span>
-<span id="cb142-9"><a href="preg-estructurasdatos.html#cb142-9" aria-hidden="true" tabindex="-1"></a><span class="co">#  [1] &quot;20&quot;    &quot;20.3&quot;  &quot;20.6&quot;  &quot;20.9&quot;  &quot;21.21&quot; &quot;21.51&quot; &quot;21.81&quot; &quot;22.11&quot; &quot;22.41&quot; &quot;22.71&quot;</span></span>
-<span id="cb142-10"><a href="preg-estructurasdatos.html#cb142-10" aria-hidden="true" tabindex="-1"></a><span class="co"># [11] &quot;23.02&quot; &quot;23.32&quot; &quot;23.62&quot; &quot;23.92&quot; &quot;24.22&quot; &quot;24.52&quot; &quot;24.82&quot; &quot;25.13&quot; &quot;25.43&quot; &quot;25.73&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="preg-estructurasdatos.html#cb153-1" aria-hidden="true" tabindex="-1"></a><span class="do">### Redondear datosNumeros</span></span>
+<span id="cb153-2"><a href="preg-estructurasdatos.html#cb153-2" aria-hidden="true" tabindex="-1"></a>r <span class="ot">&lt;-</span> <span class="fu">round</span>(datosNumeros, <span class="dv">2</span>)</span>
+<span id="cb153-3"><a href="preg-estructurasdatos.html#cb153-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb153-4"><a href="preg-estructurasdatos.html#cb153-4" aria-hidden="true" tabindex="-1"></a><span class="do">### Coercer hacia texto</span></span>
+<span id="cb153-5"><a href="preg-estructurasdatos.html#cb153-5" aria-hidden="true" tabindex="-1"></a>coer <span class="ot">&lt;-</span> <span class="fu">as.character</span>(r) </span>
+<span id="cb153-6"><a href="preg-estructurasdatos.html#cb153-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb153-7"><a href="preg-estructurasdatos.html#cb153-7" aria-hidden="true" tabindex="-1"></a><span class="do">### Revisar el contenido</span></span>
+<span id="cb153-8"><a href="preg-estructurasdatos.html#cb153-8" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(coer, <span class="dv">20</span>)</span>
+<span id="cb153-9"><a href="preg-estructurasdatos.html#cb153-9" aria-hidden="true" tabindex="-1"></a><span class="co">#  [1] &quot;20&quot;    &quot;20.3&quot;  &quot;20.6&quot;  &quot;20.9&quot;  &quot;21.21&quot; &quot;21.51&quot; &quot;21.81&quot; &quot;22.11&quot; &quot;22.41&quot; &quot;22.71&quot;</span></span>
+<span id="cb153-10"><a href="preg-estructurasdatos.html#cb153-10" aria-hidden="true" tabindex="-1"></a><span class="co"># [11] &quot;23.02&quot; &quot;23.32&quot; &quot;23.62&quot; &quot;23.92&quot; &quot;24.22&quot; &quot;24.52&quot; &quot;24.82&quot; &quot;25.13&quot; &quot;25.43&quot; &quot;25.73&quot;</span></span></code></pre></div>
 <p>Se puede coercer un número a texto, dado que solo se necesita colocar el número entre comillas para sea considerado así.</p>
 <div class="question">
 <ol style="list-style-type: decimal">
 <li>Utiliza <code>coer</code> para coercer el objeto hacia número nuevamente.</li>
 </ol>
 </div>
-<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="preg-estructurasdatos.html#cb143-1" aria-hidden="true" tabindex="-1"></a><span class="do">### Redondear datosNumeros</span></span>
-<span id="cb143-2"><a href="preg-estructurasdatos.html#cb143-2" aria-hidden="true" tabindex="-1"></a><span class="fu">as.numeric</span>(coer)</span>
-<span id="cb143-3"><a href="preg-estructurasdatos.html#cb143-3" aria-hidden="true" tabindex="-1"></a><span class="co">#   [1] 20.00 20.30 20.60 20.90 21.21 21.51 21.81 22.11 22.41 22.71 23.02 23.32 23.62</span></span>
-<span id="cb143-4"><a href="preg-estructurasdatos.html#cb143-4" aria-hidden="true" tabindex="-1"></a><span class="co">#  [14] 23.92 24.22 24.52 24.82 25.13 25.43 25.73 26.03 26.33 26.63 26.93 27.24 27.54</span></span>
-<span id="cb143-5"><a href="preg-estructurasdatos.html#cb143-5" aria-hidden="true" tabindex="-1"></a><span class="co">#  [27] 27.84 28.14 28.44 28.74 29.05 29.35 29.65 29.95 30.25 30.55 30.85 31.16 31.46</span></span>
-<span id="cb143-6"><a href="preg-estructurasdatos.html#cb143-6" aria-hidden="true" tabindex="-1"></a><span class="co">#  [40] 31.76 32.06 32.36 32.66 32.96 33.27 33.57 33.87 34.17 34.47 34.77 35.08 35.38</span></span>
-<span id="cb143-7"><a href="preg-estructurasdatos.html#cb143-7" aria-hidden="true" tabindex="-1"></a><span class="co">#  [53] 35.68 35.98 36.28 36.58 36.88 37.19 37.49 37.79 38.09 38.39 38.69 38.99 39.30</span></span>
-<span id="cb143-8"><a href="preg-estructurasdatos.html#cb143-8" aria-hidden="true" tabindex="-1"></a><span class="co">#  [66] 39.60 39.90 40.20 40.50 40.80 41.11 41.41 41.71 42.01 42.31 42.61 42.91 43.22</span></span>
-<span id="cb143-9"><a href="preg-estructurasdatos.html#cb143-9" aria-hidden="true" tabindex="-1"></a><span class="co">#  [79] 43.52 43.82 44.12 44.42 44.72 45.03 45.33 45.63 45.93 46.23 46.53 46.83 47.14</span></span>
-<span id="cb143-10"><a href="preg-estructurasdatos.html#cb143-10" aria-hidden="true" tabindex="-1"></a><span class="co">#  [92] 47.44 47.74 48.04 48.34 48.64 48.94 49.25 49.55 49.85 50.15 50.45 50.75 51.06</span></span>
-<span id="cb143-11"><a href="preg-estructurasdatos.html#cb143-11" aria-hidden="true" tabindex="-1"></a><span class="co"># [105] 51.36 51.66 51.96 52.26 52.56 52.86 53.17 53.47 53.77 54.07 54.37 54.67 54.97</span></span>
-<span id="cb143-12"><a href="preg-estructurasdatos.html#cb143-12" aria-hidden="true" tabindex="-1"></a><span class="co"># [118] 55.28 55.58 55.88 56.18 56.48 56.78 57.09 57.39 57.69 57.99 58.29 58.59 58.89</span></span>
-<span id="cb143-13"><a href="preg-estructurasdatos.html#cb143-13" aria-hidden="true" tabindex="-1"></a><span class="co"># [131] 59.20 59.50 59.80 60.10 60.40 60.70 61.01 61.31 61.61 61.91 62.21 62.51 62.81</span></span>
-<span id="cb143-14"><a href="preg-estructurasdatos.html#cb143-14" aria-hidden="true" tabindex="-1"></a><span class="co"># [144] 63.12 63.42 63.72 64.02 64.32 64.62 64.92 65.23 65.53 65.83 66.13 66.43 66.73</span></span>
-<span id="cb143-15"><a href="preg-estructurasdatos.html#cb143-15" aria-hidden="true" tabindex="-1"></a><span class="co"># [157] 67.04 67.34 67.64 67.94 68.24 68.54 68.84 69.15 69.45 69.75 70.05 70.35 70.65</span></span>
-<span id="cb143-16"><a href="preg-estructurasdatos.html#cb143-16" aria-hidden="true" tabindex="-1"></a><span class="co"># [170] 70.95 71.26 71.56 71.86 72.16 72.46 72.76 73.07 73.37 73.67 73.97 74.27 74.57</span></span>
-<span id="cb143-17"><a href="preg-estructurasdatos.html#cb143-17" aria-hidden="true" tabindex="-1"></a><span class="co"># [183] 74.87 75.18 75.48 75.78 76.08 76.38 76.68 76.98 77.29 77.59 77.89 78.19 78.49</span></span>
-<span id="cb143-18"><a href="preg-estructurasdatos.html#cb143-18" aria-hidden="true" tabindex="-1"></a><span class="co"># [196] 78.79 79.10 79.40 79.70 80.00</span></span></code></pre></div>
+<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="preg-estructurasdatos.html#cb154-1" aria-hidden="true" tabindex="-1"></a><span class="do">### Redondear datosNumeros</span></span>
+<span id="cb154-2"><a href="preg-estructurasdatos.html#cb154-2" aria-hidden="true" tabindex="-1"></a><span class="fu">as.numeric</span>(coer)</span>
+<span id="cb154-3"><a href="preg-estructurasdatos.html#cb154-3" aria-hidden="true" tabindex="-1"></a><span class="co">#   [1] 20.00 20.30 20.60 20.90 21.21 21.51 21.81 22.11 22.41 22.71 23.02 23.32 23.62</span></span>
+<span id="cb154-4"><a href="preg-estructurasdatos.html#cb154-4" aria-hidden="true" tabindex="-1"></a><span class="co">#  [14] 23.92 24.22 24.52 24.82 25.13 25.43 25.73 26.03 26.33 26.63 26.93 27.24 27.54</span></span>
+<span id="cb154-5"><a href="preg-estructurasdatos.html#cb154-5" aria-hidden="true" tabindex="-1"></a><span class="co">#  [27] 27.84 28.14 28.44 28.74 29.05 29.35 29.65 29.95 30.25 30.55 30.85 31.16 31.46</span></span>
+<span id="cb154-6"><a href="preg-estructurasdatos.html#cb154-6" aria-hidden="true" tabindex="-1"></a><span class="co">#  [40] 31.76 32.06 32.36 32.66 32.96 33.27 33.57 33.87 34.17 34.47 34.77 35.08 35.38</span></span>
+<span id="cb154-7"><a href="preg-estructurasdatos.html#cb154-7" aria-hidden="true" tabindex="-1"></a><span class="co">#  [53] 35.68 35.98 36.28 36.58 36.88 37.19 37.49 37.79 38.09 38.39 38.69 38.99 39.30</span></span>
+<span id="cb154-8"><a href="preg-estructurasdatos.html#cb154-8" aria-hidden="true" tabindex="-1"></a><span class="co">#  [66] 39.60 39.90 40.20 40.50 40.80 41.11 41.41 41.71 42.01 42.31 42.61 42.91 43.22</span></span>
+<span id="cb154-9"><a href="preg-estructurasdatos.html#cb154-9" aria-hidden="true" tabindex="-1"></a><span class="co">#  [79] 43.52 43.82 44.12 44.42 44.72 45.03 45.33 45.63 45.93 46.23 46.53 46.83 47.14</span></span>
+<span id="cb154-10"><a href="preg-estructurasdatos.html#cb154-10" aria-hidden="true" tabindex="-1"></a><span class="co">#  [92] 47.44 47.74 48.04 48.34 48.64 48.94 49.25 49.55 49.85 50.15 50.45 50.75 51.06</span></span>
+<span id="cb154-11"><a href="preg-estructurasdatos.html#cb154-11" aria-hidden="true" tabindex="-1"></a><span class="co"># [105] 51.36 51.66 51.96 52.26 52.56 52.86 53.17 53.47 53.77 54.07 54.37 54.67 54.97</span></span>
+<span id="cb154-12"><a href="preg-estructurasdatos.html#cb154-12" aria-hidden="true" tabindex="-1"></a><span class="co"># [118] 55.28 55.58 55.88 56.18 56.48 56.78 57.09 57.39 57.69 57.99 58.29 58.59 58.89</span></span>
+<span id="cb154-13"><a href="preg-estructurasdatos.html#cb154-13" aria-hidden="true" tabindex="-1"></a><span class="co"># [131] 59.20 59.50 59.80 60.10 60.40 60.70 61.01 61.31 61.61 61.91 62.21 62.51 62.81</span></span>
+<span id="cb154-14"><a href="preg-estructurasdatos.html#cb154-14" aria-hidden="true" tabindex="-1"></a><span class="co"># [144] 63.12 63.42 63.72 64.02 64.32 64.62 64.92 65.23 65.53 65.83 66.13 66.43 66.73</span></span>
+<span id="cb154-15"><a href="preg-estructurasdatos.html#cb154-15" aria-hidden="true" tabindex="-1"></a><span class="co"># [157] 67.04 67.34 67.64 67.94 68.24 68.54 68.84 69.15 69.45 69.75 70.05 70.35 70.65</span></span>
+<span id="cb154-16"><a href="preg-estructurasdatos.html#cb154-16" aria-hidden="true" tabindex="-1"></a><span class="co"># [170] 70.95 71.26 71.56 71.86 72.16 72.46 72.76 73.07 73.37 73.67 73.97 74.27 74.57</span></span>
+<span id="cb154-17"><a href="preg-estructurasdatos.html#cb154-17" aria-hidden="true" tabindex="-1"></a><span class="co"># [183] 74.87 75.18 75.48 75.78 76.08 76.38 76.68 76.98 77.29 77.59 77.89 78.19 78.49</span></span>
+<span id="cb154-18"><a href="preg-estructurasdatos.html#cb154-18" aria-hidden="true" tabindex="-1"></a><span class="co"># [196] 78.79 79.10 79.40 79.70 80.00</span></span></code></pre></div>
 <p>Como es notorio, se puede coercer un texto que contenga “números” hacia numeric sin problema, dado que R, al quitarle las comillas a cada elemento, se encuentra con un valor numérico correcto.</p>
 <div class="question">
 <ol style="list-style-type: decimal">
 <li>Crea el vector <code>miPais</code> que contenga únicamente el nombre de tu país de residencia. Coerce <code>miPais</code>hacia vector numérico. ¿Notas la advertencia?</li>
 </ol>
 </div>
-<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="preg-estructurasdatos.html#cb144-1" aria-hidden="true" tabindex="-1"></a><span class="do">### Crear la variable</span></span>
-<span id="cb144-2"><a href="preg-estructurasdatos.html#cb144-2" aria-hidden="true" tabindex="-1"></a>miPais <span class="ot">&lt;-</span> <span class="st">&quot;Peru&quot;</span></span>
-<span id="cb144-3"><a href="preg-estructurasdatos.html#cb144-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb144-4"><a href="preg-estructurasdatos.html#cb144-4" aria-hidden="true" tabindex="-1"></a><span class="do">### Coercer hacia número</span></span>
-<span id="cb144-5"><a href="preg-estructurasdatos.html#cb144-5" aria-hidden="true" tabindex="-1"></a><span class="fu">as.numeric</span>(miPais)</span>
-<span id="cb144-6"><a href="preg-estructurasdatos.html#cb144-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Warning: NAs introduced by coercion</span></span>
-<span id="cb144-7"><a href="preg-estructurasdatos.html#cb144-7" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] NA</span></span></code></pre></div>
+<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="preg-estructurasdatos.html#cb155-1" aria-hidden="true" tabindex="-1"></a><span class="do">### Crear la variable</span></span>
+<span id="cb155-2"><a href="preg-estructurasdatos.html#cb155-2" aria-hidden="true" tabindex="-1"></a>miPais <span class="ot">&lt;-</span> <span class="st">&quot;Peru&quot;</span></span>
+<span id="cb155-3"><a href="preg-estructurasdatos.html#cb155-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb155-4"><a href="preg-estructurasdatos.html#cb155-4" aria-hidden="true" tabindex="-1"></a><span class="do">### Coercer hacia número</span></span>
+<span id="cb155-5"><a href="preg-estructurasdatos.html#cb155-5" aria-hidden="true" tabindex="-1"></a><span class="fu">as.numeric</span>(miPais)</span>
+<span id="cb155-6"><a href="preg-estructurasdatos.html#cb155-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Warning: NAs introduced by coercion</span></span>
+<span id="cb155-7"><a href="preg-estructurasdatos.html#cb155-7" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] NA</span></span></code></pre></div>
 <p>La advertencia <em>NAs introduced by coercion</em> implica que como al quitar las comillas, lo que queda es una palabra en lugar de un número, R no puede darle valor numérico y lo reemplaza por un <code>NA</code>.</p>
 <div class="question">
 <ol style="list-style-type: decimal">
 <li>Crea una data frame llamada <code>DF10</code>, cuyo contenido sea: una columna numérica, otra de texto, y otra lógica, todas de 5 elementos. Coerce <code>DF10</code> hacia matriz. ¿Notas algo particular en los elementos de la matriz?</li>
 </ol>
 </div>
-<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="preg-estructurasdatos.html#cb145-1" aria-hidden="true" tabindex="-1"></a><span class="do">### Crear la variable</span></span>
-<span id="cb145-2"><a href="preg-estructurasdatos.html#cb145-2" aria-hidden="true" tabindex="-1"></a>DF10 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb145-3"><a href="preg-estructurasdatos.html#cb145-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">COL1 =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>,</span>
-<span id="cb145-4"><a href="preg-estructurasdatos.html#cb145-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">COL2 =</span> <span class="fu">c</span>(<span class="st">&quot;Text1&quot;</span>, <span class="st">&quot;Text2&quot;</span>, <span class="st">&quot;Text3&quot;</span>, <span class="st">&quot;Text4&quot;</span>, <span class="st">&quot;Text5&quot;</span>),</span>
-<span id="cb145-5"><a href="preg-estructurasdatos.html#cb145-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">COL3 =</span> <span class="fu">c</span>(T, F, T, F, T)</span>
-<span id="cb145-6"><a href="preg-estructurasdatos.html#cb145-6" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb145-7"><a href="preg-estructurasdatos.html#cb145-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb145-8"><a href="preg-estructurasdatos.html#cb145-8" aria-hidden="true" tabindex="-1"></a><span class="do">### Coercer hacia matriz</span></span>
-<span id="cb145-9"><a href="preg-estructurasdatos.html#cb145-9" aria-hidden="true" tabindex="-1"></a><span class="fu">as.matrix</span>(DF10)</span>
-<span id="cb145-10"><a href="preg-estructurasdatos.html#cb145-10" aria-hidden="true" tabindex="-1"></a><span class="co">#      COL1 COL2    COL3   </span></span>
-<span id="cb145-11"><a href="preg-estructurasdatos.html#cb145-11" aria-hidden="true" tabindex="-1"></a><span class="co"># [1,] &quot;1&quot;  &quot;Text1&quot; &quot;TRUE&quot; </span></span>
-<span id="cb145-12"><a href="preg-estructurasdatos.html#cb145-12" aria-hidden="true" tabindex="-1"></a><span class="co"># [2,] &quot;2&quot;  &quot;Text2&quot; &quot;FALSE&quot;</span></span>
-<span id="cb145-13"><a href="preg-estructurasdatos.html#cb145-13" aria-hidden="true" tabindex="-1"></a><span class="co"># [3,] &quot;3&quot;  &quot;Text3&quot; &quot;TRUE&quot; </span></span>
-<span id="cb145-14"><a href="preg-estructurasdatos.html#cb145-14" aria-hidden="true" tabindex="-1"></a><span class="co"># [4,] &quot;4&quot;  &quot;Text4&quot; &quot;FALSE&quot;</span></span>
-<span id="cb145-15"><a href="preg-estructurasdatos.html#cb145-15" aria-hidden="true" tabindex="-1"></a><span class="co"># [5,] &quot;5&quot;  &quot;Text5&quot; &quot;TRUE&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb156-1"><a href="preg-estructurasdatos.html#cb156-1" aria-hidden="true" tabindex="-1"></a><span class="do">### Crear la variable</span></span>
+<span id="cb156-2"><a href="preg-estructurasdatos.html#cb156-2" aria-hidden="true" tabindex="-1"></a>DF10 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb156-3"><a href="preg-estructurasdatos.html#cb156-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">COL1 =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>,</span>
+<span id="cb156-4"><a href="preg-estructurasdatos.html#cb156-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">COL2 =</span> <span class="fu">c</span>(<span class="st">&quot;Text1&quot;</span>, <span class="st">&quot;Text2&quot;</span>, <span class="st">&quot;Text3&quot;</span>, <span class="st">&quot;Text4&quot;</span>, <span class="st">&quot;Text5&quot;</span>),</span>
+<span id="cb156-5"><a href="preg-estructurasdatos.html#cb156-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">COL3 =</span> <span class="fu">c</span>(T, F, T, F, T)</span>
+<span id="cb156-6"><a href="preg-estructurasdatos.html#cb156-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb156-7"><a href="preg-estructurasdatos.html#cb156-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb156-8"><a href="preg-estructurasdatos.html#cb156-8" aria-hidden="true" tabindex="-1"></a><span class="do">### Coercer hacia matriz</span></span>
+<span id="cb156-9"><a href="preg-estructurasdatos.html#cb156-9" aria-hidden="true" tabindex="-1"></a><span class="fu">as.matrix</span>(DF10)</span>
+<span id="cb156-10"><a href="preg-estructurasdatos.html#cb156-10" aria-hidden="true" tabindex="-1"></a><span class="co">#      COL1 COL2    COL3   </span></span>
+<span id="cb156-11"><a href="preg-estructurasdatos.html#cb156-11" aria-hidden="true" tabindex="-1"></a><span class="co"># [1,] &quot;1&quot;  &quot;Text1&quot; &quot;TRUE&quot; </span></span>
+<span id="cb156-12"><a href="preg-estructurasdatos.html#cb156-12" aria-hidden="true" tabindex="-1"></a><span class="co"># [2,] &quot;2&quot;  &quot;Text2&quot; &quot;FALSE&quot;</span></span>
+<span id="cb156-13"><a href="preg-estructurasdatos.html#cb156-13" aria-hidden="true" tabindex="-1"></a><span class="co"># [3,] &quot;3&quot;  &quot;Text3&quot; &quot;TRUE&quot; </span></span>
+<span id="cb156-14"><a href="preg-estructurasdatos.html#cb156-14" aria-hidden="true" tabindex="-1"></a><span class="co"># [4,] &quot;4&quot;  &quot;Text4&quot; &quot;FALSE&quot;</span></span>
+<span id="cb156-15"><a href="preg-estructurasdatos.html#cb156-15" aria-hidden="true" tabindex="-1"></a><span class="co"># [5,] &quot;5&quot;  &quot;Text5&quot; &quot;TRUE&quot;</span></span></code></pre></div>
 <p>Todos los elementos de una matriz deben pertenecer a la misma clase. No puede haber matrices con columnas numérica y de texto a la vez. Aquí entra en juego el <strong>concepto de supremacía de clase</strong>. Esto aplica cuando la estructura hacia la cual se está coerciendo tiene como limitación el contener solo una clase de elementos (i.e., vectores y matrices).</p>
 <ul>
 <li>La clase carácter prima sobre las demás clases en el lenguaje R. En presencia de tan solo un elemento de texto, toda la matriz se convierte en elementos textuales.</li>
@@ -499,37 +502,35 @@ antes del muestro para asegurar la replicabilidad del mismo.</li>
 <br>Realiza esto utilizando tanto una lista nombra (<code>list1</code>) como no nombrada (<code>list2</code>).</li>
 </ol>
 </div>
-<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="preg-estructurasdatos.html#cb146-1" aria-hidden="true" tabindex="-1"></a><span class="do">### Crear la lista nombrada</span></span>
-<span id="cb146-2"><a href="preg-estructurasdatos.html#cb146-2" aria-hidden="true" tabindex="-1"></a>list1 <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">lst</span>(muestr4, datosNumeros, DF10)</span>
-<span id="cb146-3"><a href="preg-estructurasdatos.html#cb146-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb146-4"><a href="preg-estructurasdatos.html#cb146-4" aria-hidden="true" tabindex="-1"></a><span class="do">### Ubicar las indexaciones de la lista nombrada</span></span>
-<span id="cb146-5"><a href="preg-estructurasdatos.html#cb146-5" aria-hidden="true" tabindex="-1"></a>list1<span class="sc">$</span>DF10<span class="sc">$</span>COL3[<span class="dv">2</span>]</span>
-<span id="cb146-6"><a href="preg-estructurasdatos.html#cb146-6" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] FALSE</span></span>
-<span id="cb146-7"><a href="preg-estructurasdatos.html#cb146-7" aria-hidden="true" tabindex="-1"></a>list1<span class="sc">$</span>datosNumeros[<span class="dv">150</span>]</span>
-<span id="cb146-8"><a href="preg-estructurasdatos.html#cb146-8" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] 64.92</span></span>
-<span id="cb146-9"><a href="preg-estructurasdatos.html#cb146-9" aria-hidden="true" tabindex="-1"></a>list1<span class="sc">$</span>muestr4[<span class="dv">5</span>]</span>
-<span id="cb146-10"><a href="preg-estructurasdatos.html#cb146-10" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] 70.95</span></span>
-<span id="cb146-11"><a href="preg-estructurasdatos.html#cb146-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb146-12"><a href="preg-estructurasdatos.html#cb146-12" aria-hidden="true" tabindex="-1"></a><span class="do">### Crear la lista no nombrada</span></span>
-<span id="cb146-13"><a href="preg-estructurasdatos.html#cb146-13" aria-hidden="true" tabindex="-1"></a>list2 <span class="ot">&lt;-</span> <span class="fu">list</span>(muestr4, datosNumeros, DF10)</span>
-<span id="cb146-14"><a href="preg-estructurasdatos.html#cb146-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb146-15"><a href="preg-estructurasdatos.html#cb146-15" aria-hidden="true" tabindex="-1"></a><span class="do">### Ubicar las indexaciones de la lista no nombrada</span></span>
-<span id="cb146-16"><a href="preg-estructurasdatos.html#cb146-16" aria-hidden="true" tabindex="-1"></a>list2[[<span class="dv">3</span>]][<span class="dv">2</span>,<span class="dv">3</span>]</span>
-<span id="cb146-17"><a href="preg-estructurasdatos.html#cb146-17" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] FALSE</span></span>
-<span id="cb146-18"><a href="preg-estructurasdatos.html#cb146-18" aria-hidden="true" tabindex="-1"></a>list2[[<span class="dv">2</span>]][<span class="dv">150</span>]</span>
-<span id="cb146-19"><a href="preg-estructurasdatos.html#cb146-19" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] 64.92</span></span>
-<span id="cb146-20"><a href="preg-estructurasdatos.html#cb146-20" aria-hidden="true" tabindex="-1"></a>list2[[<span class="dv">1</span>]][<span class="dv">5</span>]</span>
-<span id="cb146-21"><a href="preg-estructurasdatos.html#cb146-21" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] 70.95</span></span></code></pre></div>
-
+<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="preg-estructurasdatos.html#cb157-1" aria-hidden="true" tabindex="-1"></a><span class="do">### Crear la lista nombrada</span></span>
+<span id="cb157-2"><a href="preg-estructurasdatos.html#cb157-2" aria-hidden="true" tabindex="-1"></a>list1 <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">lst</span>(muestr4, datosNumeros, DF10)</span>
+<span id="cb157-3"><a href="preg-estructurasdatos.html#cb157-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb157-4"><a href="preg-estructurasdatos.html#cb157-4" aria-hidden="true" tabindex="-1"></a><span class="do">### Ubicar las indexaciones de la lista nombrada</span></span>
+<span id="cb157-5"><a href="preg-estructurasdatos.html#cb157-5" aria-hidden="true" tabindex="-1"></a>list1<span class="sc">$</span>DF10<span class="sc">$</span>COL3[<span class="dv">2</span>]</span>
+<span id="cb157-6"><a href="preg-estructurasdatos.html#cb157-6" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] FALSE</span></span>
+<span id="cb157-7"><a href="preg-estructurasdatos.html#cb157-7" aria-hidden="true" tabindex="-1"></a>list1<span class="sc">$</span>datosNumeros[<span class="dv">150</span>]</span>
+<span id="cb157-8"><a href="preg-estructurasdatos.html#cb157-8" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] 64.92</span></span>
+<span id="cb157-9"><a href="preg-estructurasdatos.html#cb157-9" aria-hidden="true" tabindex="-1"></a>list1<span class="sc">$</span>muestr4[<span class="dv">5</span>]</span>
+<span id="cb157-10"><a href="preg-estructurasdatos.html#cb157-10" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] 70.95</span></span>
+<span id="cb157-11"><a href="preg-estructurasdatos.html#cb157-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb157-12"><a href="preg-estructurasdatos.html#cb157-12" aria-hidden="true" tabindex="-1"></a><span class="do">### Crear la lista no nombrada</span></span>
+<span id="cb157-13"><a href="preg-estructurasdatos.html#cb157-13" aria-hidden="true" tabindex="-1"></a>list2 <span class="ot">&lt;-</span> <span class="fu">list</span>(muestr4, datosNumeros, DF10)</span>
+<span id="cb157-14"><a href="preg-estructurasdatos.html#cb157-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb157-15"><a href="preg-estructurasdatos.html#cb157-15" aria-hidden="true" tabindex="-1"></a><span class="do">### Ubicar las indexaciones de la lista no nombrada</span></span>
+<span id="cb157-16"><a href="preg-estructurasdatos.html#cb157-16" aria-hidden="true" tabindex="-1"></a>list2[[<span class="dv">3</span>]][<span class="dv">2</span>,<span class="dv">3</span>]</span>
+<span id="cb157-17"><a href="preg-estructurasdatos.html#cb157-17" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] FALSE</span></span>
+<span id="cb157-18"><a href="preg-estructurasdatos.html#cb157-18" aria-hidden="true" tabindex="-1"></a>list2[[<span class="dv">2</span>]][<span class="dv">150</span>]</span>
+<span id="cb157-19"><a href="preg-estructurasdatos.html#cb157-19" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] 64.92</span></span>
+<span id="cb157-20"><a href="preg-estructurasdatos.html#cb157-20" aria-hidden="true" tabindex="-1"></a>list2[[<span class="dv">1</span>]][<span class="dv">5</span>]</span>
+<span id="cb157-21"><a href="preg-estructurasdatos.html#cb157-21" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] 70.95</span></span></code></pre></div>
 </div>
-<!-- </div> -->
             </section>
 
           </div>
         </div>
       </div>
-<a href="cap.-2-primer-contacto-con-r.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="cap.-2-primer-contacto-con-r.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="cap.-5-programación-funcional.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

@@ -46,6 +46,7 @@ tab:unnamed-chunk-10
 tab:unnamed-chunk-46
 tab:unnamed-chunk-47
 tab:unnamed-chunk-48
+tab:unnamed-chunk-50
 esencialesRRStudio
 instalación-de-r-y-rstudio
 configuración-de-rstudio
@@ -118,6 +119,7 @@ ciclos-o-loops-con-for
 entendiendo-la-estructura-básica-de-for
 uso-de-for
 ciclos-o-loops-con-replicate
+ciclos-o-loops-con-while
 operadoresfuncion
 familia-apply
 función-apply
@@ -191,3 +193,5 @@ exportación-en-pdf
 solucionario-de-los-ejercicios-del-libro
 cap.-2-primer-contacto-con-r
 preg-estructurasdatos
+cap.-5-programación-funcional
+ejercicios-del-capítulo-4

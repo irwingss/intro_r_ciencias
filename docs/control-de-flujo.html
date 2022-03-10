@@ -24,7 +24,7 @@
 <meta name="author" content="Irwing S. Saldaña" />
 
 
-<meta name="date" content="2022-03-09" />
+<meta name="date" content="2022-03-10" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -243,6 +243,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.2.4" data-path="control-de-flujo.html"><a href="control-de-flujo.html#condicionales-en-vectores-case_when-de-dplyr"><i class="fa fa-check"></i><b>5.2.4</b> Condicionales en vectores <code>case_when()</code> de <strong>dplyr</strong></a></li>
 <li class="chapter" data-level="5.2.5" data-path="control-de-flujo.html"><a href="control-de-flujo.html#ciclos-o-loops-con-for"><i class="fa fa-check"></i><b>5.2.5</b> Ciclos o Loops con <code>for</code></a></li>
 <li class="chapter" data-level="5.2.6" data-path="control-de-flujo.html"><a href="control-de-flujo.html#ciclos-o-loops-con-replicate"><i class="fa fa-check"></i><b>5.2.6</b> Ciclos o loops con <code>replicate()</code></a></li>
+<li class="chapter" data-level="5.2.7" data-path="control-de-flujo.html"><a href="control-de-flujo.html#ciclos-o-loops-con-while"><i class="fa fa-check"></i><b>5.2.7</b> Ciclos o Loops con <code>while</code></a></li>
 </ul></li>
 <li class="chapter" data-level="5.3" data-path="operadoresfuncion.html"><a href="operadoresfuncion.html"><i class="fa fa-check"></i><b>5.3</b> Operadores de función</a></li>
 <li class="chapter" data-level="5.4" data-path="familia-apply.html"><a href="familia-apply.html"><i class="fa fa-check"></i><b>5.4</b> Familia <code>apply()</code></a>
@@ -351,6 +352,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="14.1" data-path="cap.-2-primer-contacto-con-r.html"><a href="cap.-2-primer-contacto-con-r.html"><i class="fa fa-check"></i><b>14.1</b> Cap. 2: Primer contacto con R</a></li>
 <li class="chapter" data-level="14.2" data-path="preg-estructurasdatos.html"><a href="preg-estructurasdatos.html"><i class="fa fa-check"></i><b>14.2</b> Cap. 3: Estructuras de datos</a></li>
+<li class="chapter" data-level="14.3" data-path="cap.-5-programación-funcional.html"><a href="cap.-5-programación-funcional.html"><i class="fa fa-check"></i><b>14.3</b> Cap. 5: Programación funcional</a></li>
+<li class="chapter" data-level="14.4" data-path="ejercicios-del-capítulo-4.html"><a href="ejercicios-del-capítulo-4.html"><i class="fa fa-check"></i><b>14.4</b> Ejercicios del capítulo</a></li>
 </ul></li>
 <li class="divider"></li>
 <li class='after'">
@@ -389,7 +392,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="control-de-flujo" class="section level2" number="5.2">
 <h2><span class="header-section-number">5.2</span> Control de flujo</h2>
-<p>En R existen algunos operadores para controlar el flujo de las acciones a tomar en la ejecución. Esto sucede solamente cuando se cumple una condición dada. Recordemos que las condiciones lógicas se resuelven como verdadera <code>TRUE</code> o falsa <code>FALSE</code>. Existen operadores de elección (<code>if</code>, <code>else</code>) y de ciclo o <em>loop</em> (<code>for</code>, <code>while</code>). Se revisará a detalle sus usos en las siguientes secciones.</p>
+<p>En R existen algunos operadores para controlar el flujo de las acciones a tomar en la ejecución. Esto sucede solamente cuando se cumple una condición dada. Recordemos que las condiciones lógicas se resuelven como verdadera <code>TRUE</code> o falsa <code>FALSE</code>. Existen operadores de elección (<code>if</code>, <code>else</code>) y de iteración o <em>loop</em> (<code>for</code>, <code>while</code>). Se revisará a detalle sus usos en las siguientes secciones.</p>
 <div id="control-con-if" class="section level3" number="5.2.1">
 <h3><span class="header-section-number">5.2.1</span> Control con <code>if</code></h3>
 <p>El primer operador de control de flujo a destacar es el condicional <code>if</code>. Este significa <code>si</code>, y ejecuta la expresión: <em>si A se cumple (es decir, si A es <code>TRUE</code>), muestro un resultado</em>. Este tienen la estructura básica:</p>
@@ -571,7 +574,7 @@ Tanto <code>if</code> como <code>else</code> permiten evaluar elementos dentro d
 <span id="cb97-22"><a href="control-de-flujo.html#cb97-22" aria-hidden="true" tabindex="-1"></a><span class="co">#         class = &quot;dist&quot;)</span></span>
 <span id="cb97-23"><a href="control-de-flujo.html#cb97-23" aria-hidden="true" tabindex="-1"></a><span class="co">#     .Call(C_Cdist, x, method, attrs, p)</span></span>
 <span id="cb97-24"><a href="control-de-flujo.html#cb97-24" aria-hidden="true" tabindex="-1"></a><span class="co"># }</span></span>
-<span id="cb97-25"><a href="control-de-flujo.html#cb97-25" aria-hidden="true" tabindex="-1"></a><span class="co"># &lt;bytecode: 0x0000000025ba07c0&gt;</span></span>
+<span id="cb97-25"><a href="control-de-flujo.html#cb97-25" aria-hidden="true" tabindex="-1"></a><span class="co"># &lt;bytecode: 0x00000000274fbdb8&gt;</span></span>
 <span id="cb97-26"><a href="control-de-flujo.html#cb97-26" aria-hidden="true" tabindex="-1"></a><span class="co"># &lt;environment: namespace:stats&gt;</span></span></code></pre></div>
 </div>
 <div id="condicionales-en-vectores-de-más-de-un-elemento-con-ifelse" class="section level3" number="5.2.3">
@@ -654,7 +657,7 @@ Tanto <code>if</code> como <code>else</code> permiten evaluar elementos dentro d
 </div>
 <div id="ciclos-o-loops-con-for" class="section level3" number="5.2.5">
 <h3><span class="header-section-number">5.2.5</span> Ciclos o Loops con <code>for</code></h3>
-<p>El segundo grupo de operadores de control de flujo incluye a los responsables de ciclos o loops. Un loop con <code>for</code> tienen la siguiente estructura básica:</p>
+<p>El segundo grupo de operadores de control de flujo incluye a los responsables de ciclos, iteraciones o loops. Un loop con <code>for</code> tienen la siguiente estructura básica:</p>
 <div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="control-de-flujo.html#cb104-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (elemento <span class="cf">in</span> vector_secuencial) {acciones a realizar}</span></code></pre></div>
 <div id="entendiendo-la-estructura-básica-de-for" class="section level4" number="5.2.5.1">
 <h4><span class="header-section-number">5.2.5.1</span> Entendiendo la estructura básica de <code>for</code></h4>
@@ -708,7 +711,7 @@ Tanto <code>if</code> como <code>else</code> permiten evaluar elementos dentro d
 <span id="cb107-32"><a href="control-de-flujo.html#cb107-32" aria-hidden="true" tabindex="-1"></a><span class="co"># [170] 22.07    NA 20.37    NA 31.92    NA    NA 20.21 21.74 22.44    NA    NA 27.07</span></span>
 <span id="cb107-33"><a href="control-de-flujo.html#cb107-33" aria-hidden="true" tabindex="-1"></a><span class="co"># [183]    NA    NA    NA    NA 26.22 20.47 24.22    NA 21.20    NA 20.53    NA    NA</span></span>
 <span id="cb107-34"><a href="control-de-flujo.html#cb107-34" aria-hidden="true" tabindex="-1"></a><span class="co"># [196] 31.18 23.36</span></span></code></pre></div>
-<p>Para no generar <code>NA</code> en el resultado se usa un truco: ir adicionando el resultado a <code>res</code> como un vector que concatena el contenido de hasta el ciclo anterior de <code>res</code>, más el contenido del ciclo actual:</p>
+<p>Para no generar <code>NA</code> en el resultado se usa un truco: ir adicionando el resultado a <code>res</code> como un vector que concatena el contenido de hasta la iteración anterior de <code>res</code>, más el contenido de la iteración actual:</p>
 <div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="control-de-flujo.html#cb108-1" aria-hidden="true" tabindex="-1"></a><span class="do">### Loop sin NA</span></span>
 <span id="cb108-2"><a href="control-de-flujo.html#cb108-2" aria-hidden="true" tabindex="-1"></a>res <span class="ot">&lt;-</span> <span class="fu">c</span>()</span>
 <span id="cb108-3"><a href="control-de-flujo.html#cb108-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_along</span>(aleatorio)){</span>
@@ -748,7 +751,7 @@ Tanto <code>if</code> como <code>else</code> permiten evaluar elementos dentro d
 <span id="cb109-18"><a href="control-de-flujo.html#cb109-18" aria-hidden="true" tabindex="-1"></a><span class="co"># [66] 26.34 24.14 30.69 23.93 23.85 31.76 24.41 24.31 21.86 23.15 25.47 25.90 38.15</span></span>
 <span id="cb109-19"><a href="control-de-flujo.html#cb109-19" aria-hidden="true" tabindex="-1"></a><span class="co"># [79] 21.67 23.56 22.89 22.07 20.37 31.92 20.21 21.74 22.44 27.07 26.22 20.47 24.22</span></span>
 <span id="cb109-20"><a href="control-de-flujo.html#cb109-20" aria-hidden="true" tabindex="-1"></a><span class="co"># [92] 21.20 20.53 31.18 23.36</span></span></code></pre></div>
-<p>Si es requerido frenar el loop antes de que culmine, en base a una nueva condición definida, se debe utilizar <code>break</code>. En nuestro ejemplo, para frenar el loop cuando aparezca el primer valor mayor a 30.5, es necesario ir evaluando en cada ciclo del loop si existe al menos un valor <code>&gt; 30.5</code> en el objeto <code>res</code>. Esto se obtiene con <code>any(res &gt; 30.5)</code>. En el momento que se cumpla, <code>break</code> frena el loop.</p>
+<p>Si es requerido frenar el loop antes de que culmine, en base a una nueva condición definida, se debe utilizar <code>break</code>. En nuestro ejemplo, para frenar el loop cuando aparezca el primer valor mayor a 30.5, es necesario ir evaluando en cada iteración del loop si existe al menos un valor <code>&gt; 30.5</code> en el objeto <code>res</code>. Esto se obtiene con <code>any(res &gt; 30.5)</code>. En el momento que se cumpla, <code>break</code> frena el loop.</p>
 <div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="control-de-flujo.html#cb110-1" aria-hidden="true" tabindex="-1"></a><span class="do">### Crear un objeto vacío </span></span>
 <span id="cb110-2"><a href="control-de-flujo.html#cb110-2" aria-hidden="true" tabindex="-1"></a>res <span class="ot">&lt;-</span> <span class="fu">c</span>()</span>
 <span id="cb110-3"><a href="control-de-flujo.html#cb110-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -770,7 +773,7 @@ Tanto <code>if</code> como <code>else</code> permiten evaluar elementos dentro d
 </div>
 <div id="ciclos-o-loops-con-replicate" class="section level3" number="5.2.6">
 <h3><span class="header-section-number">5.2.6</span> Ciclos o loops con <code>replicate()</code></h3>
-<p>Replicate facilita mucho procesos iterativos para simulación. Permite replicar una o varias líneas de código las veces que sean definidas, para almacenarlas como una lista de vectores (con el argumento <code>simplify = FALSE</code>), o como un vector único (con el argumento <code>simplify = TRUE</code>, como está por defecto). Ejemplificaremos su uso con un <strong>caso de estudio</strong>:</p>
+<p>La función <code>replicate()</code> facilita mucho procesos iterativos para simulación. Permite replicar una o varias líneas de código las veces que sean definidas, para almacenarlas como una lista de vectores (con el argumento <code>simplify = FALSE</code>), o como un vector único (con el argumento <code>simplify = TRUE</code>, como está por defecto). Ejemplificaremos su uso con un <strong>caso de estudio</strong>:</p>
 <p>Se ha evaluado una población, de la cual se obtuvo como muestra 100 medidas de una longitud. Al obtener el valor más grande de dicha muestra se obtiene:</p>
 <div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="control-de-flujo.html#cb111-1" aria-hidden="true" tabindex="-1"></a><span class="do">### Valores del estudio</span></span>
 <span id="cb111-2"><a href="control-de-flujo.html#cb111-2" aria-hidden="true" tabindex="-1"></a>muestra <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">155.62</span>, <span class="fl">158.5</span>, <span class="fl">174.06</span>, <span class="fl">161.11</span>, <span class="fl">161.62</span>, <span class="fl">175.42</span>, <span class="fl">164.51</span>, <span class="fl">149.49</span>, </span>
@@ -811,10 +814,10 @@ Tanto <code>if</code> como <code>else</code> permiten evaluar elementos dentro d
 <span id="cb113-12"><a href="control-de-flujo.html#cb113-12" aria-hidden="true" tabindex="-1"></a><span class="co">#  [66] 163.7 164.8 161.7 168.6 177.6 157.4 142.9 169.3 155.7 155.8 169.4 159.0 151.6</span></span>
 <span id="cb113-13"><a href="control-de-flujo.html#cb113-13" aria-hidden="true" tabindex="-1"></a><span class="co">#  [79] 162.7 160.2 161.3 164.3 158.3 166.4 159.5 163.9 170.0 164.7 158.7 170.4 169.2</span></span>
 <span id="cb113-14"><a href="control-de-flujo.html#cb113-14" aria-hidden="true" tabindex="-1"></a><span class="co">#  [92] 165.6 163.2 156.3 172.1 156.5 178.7 173.5 159.4 153.1</span></span></code></pre></div>
-<p>Para repetir esta simulación diez mil veces, y obtener estadísticos descriptivos de los valores máximos de dichas muchas simuladas, utilizaremos <code>replicate()</code> con dos pasos internos por cada ciclo:</p>
+<p>Para repetir esta simulación diez mil veces, y obtener estadísticos descriptivos de los valores máximos de dichas muchas simuladas, utilizaremos <code>replicate()</code> con dos pasos internos por cada iteración del loop:</p>
 <ul>
-<li>Crear un conjunto de números aleatorios para el ciclo</li>
-<li>Hallar el valor máximo de la longitud de dicho ciclo</li>
+<li>Crear un conjunto de números aleatorios para la iteración.</li>
+<li>Hallar el valor máximo de la longitud en dicho conjunto.</li>
 </ul>
 <div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="control-de-flujo.html#cb114-1" aria-hidden="true" tabindex="-1"></a><span class="do">### Usar replicate()</span></span>
 <span id="cb114-2"><a href="control-de-flujo.html#cb114-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
@@ -837,6 +840,100 @@ Tanto <code>if</code> como <code>else</code> permiten evaluar elementos dentro d
 <span id="cb114-19"><a href="control-de-flujo.html#cb114-19" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(muestra)</span>
 <span id="cb114-20"><a href="control-de-flujo.html#cb114-20" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] 179.5</span></span></code></pre></div>
 <p>Con ello nos hemos dado cuenta que, asumiendo que la variable tiene distribución de probabilidades normal, el valor máximo de la muestra original (179.53), es menor al promedio poblacional simulado con diez mil réplicas (199.809). Por el contrario, está más cerca del valor máximo más pequeño dentro de los diez mil datos (171.7636).</p>
+</div>
+<div id="ciclos-o-loops-con-while" class="section level3" number="5.2.7">
+<h3><span class="header-section-number">5.2.7</span> Ciclos o Loops con <code>while</code></h3>
+<p>Otro operador de control de flujo con el que se crea loops es <code>while</code>. A diferencia de <code>for</code>, que opera hasta que se acaben las iteraciones definidas por el rango <code>1:n</code>, <code>while</code> se detendrá solo hasta que se cumpla una condición. Si dicha condición nunca se cumple, se crea un loop infinito. Un loop con <code>while</code> tienen la siguiente estructura básica:</p>
+<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="control-de-flujo.html#cb115-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Posición inicial</span></span>
+<span id="cb115-2"><a href="control-de-flujo.html#cb115-2" aria-hidden="true" tabindex="-1"></a>index <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb115-3"><a href="control-de-flujo.html#cb115-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb115-4"><a href="control-de-flujo.html#cb115-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Loop con while</span></span>
+<span id="cb115-5"><a href="control-de-flujo.html#cb115-5" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> (condicion_respecto_a_index) {</span>
+<span id="cb115-6"><a href="control-de-flujo.html#cb115-6" aria-hidden="true" tabindex="-1"></a>  acciones a realizar</span>
+<span id="cb115-7"><a href="control-de-flujo.html#cb115-7" aria-hidden="true" tabindex="-1"></a>  index <span class="ot">&lt;-</span> index <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb115-8"><a href="control-de-flujo.html#cb115-8" aria-hidden="true" tabindex="-1"></a>  }</span></code></pre></div>
+<p>Es la segunda línea de la condición a realizar dentro del loop while lo que le da la continuidad. En alguna iteración, el ir “sumando” valores al index hará que se cumpla la condición, por ejemplo:</p>
+<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="control-de-flujo.html#cb116-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Posición inicial</span></span>
+<span id="cb116-2"><a href="control-de-flujo.html#cb116-2" aria-hidden="true" tabindex="-1"></a>index <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb116-3"><a href="control-de-flujo.html#cb116-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb116-4"><a href="control-de-flujo.html#cb116-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Loop con while</span></span>
+<span id="cb116-5"><a href="control-de-flujo.html#cb116-5" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> (index <span class="sc">&lt;=</span> <span class="dv">5</span>) {</span>
+<span id="cb116-6"><a href="control-de-flujo.html#cb116-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Acción a realizar</span></span>
+<span id="cb116-7"><a href="control-de-flujo.html#cb116-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;El número es&quot;</span>, index))</span>
+<span id="cb116-8"><a href="control-de-flujo.html#cb116-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Suma una posición para la siguiente iteración</span></span>
+<span id="cb116-9"><a href="control-de-flujo.html#cb116-9" aria-hidden="true" tabindex="-1"></a>  index <span class="ot">&lt;-</span> index <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb116-10"><a href="control-de-flujo.html#cb116-10" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb116-11"><a href="control-de-flujo.html#cb116-11" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] &quot;El número es 1&quot;</span></span>
+<span id="cb116-12"><a href="control-de-flujo.html#cb116-12" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] &quot;El número es 2&quot;</span></span>
+<span id="cb116-13"><a href="control-de-flujo.html#cb116-13" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] &quot;El número es 3&quot;</span></span>
+<span id="cb116-14"><a href="control-de-flujo.html#cb116-14" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] &quot;El número es 4&quot;</span></span>
+<span id="cb116-15"><a href="control-de-flujo.html#cb116-15" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] &quot;El número es 5&quot;</span></span></code></pre></div>
+<p>Una segunda manera de operar es indicar que se frene el loop hasta que una condición lógica cambie de estado (<code>FALSE</code> a <code>TRUE</code>, o viceversa). En el siguiente ejemplo se aplicará el imprimir la secuencia de bases nitrogenadas (letras <code>A</code>, <code>C</code>, <code>G</code>, <code>T</code>) hasta que se ubique la primera base G. Trata de interpretar cada paso dentro de una iteración del loop <code>while</code>:</p>
+<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="control-de-flujo.html#cb117-1" aria-hidden="true" tabindex="-1"></a><span class="do">### Vector sobre el cual hacer la impresión de elementos</span></span>
+<span id="cb117-2"><a href="control-de-flujo.html#cb117-2" aria-hidden="true" tabindex="-1"></a>vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;A&quot;</span>,<span class="st">&quot;T&quot;</span>,<span class="st">&quot;C&quot;</span>,<span class="st">&quot;A&quot;</span>,<span class="st">&quot;T&quot;</span>,<span class="st">&quot;G&quot;</span>,<span class="st">&quot;G&quot;</span>,<span class="st">&quot;G&quot;</span>,<span class="st">&quot;G&quot;</span>,<span class="st">&quot;C&quot;</span>,<span class="st">&quot;C&quot;</span>)</span>
+<span id="cb117-3"><a href="control-de-flujo.html#cb117-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb117-4"><a href="control-de-flujo.html#cb117-4" aria-hidden="true" tabindex="-1"></a><span class="do">### Condición en estado falso</span></span>
+<span id="cb117-5"><a href="control-de-flujo.html#cb117-5" aria-hidden="true" tabindex="-1"></a>condicion <span class="ot">&lt;-</span> <span class="cn">FALSE</span></span>
+<span id="cb117-6"><a href="control-de-flujo.html#cb117-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb117-7"><a href="control-de-flujo.html#cb117-7" aria-hidden="true" tabindex="-1"></a><span class="do">### Índice</span></span>
+<span id="cb117-8"><a href="control-de-flujo.html#cb117-8" aria-hidden="true" tabindex="-1"></a>index <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb117-9"><a href="control-de-flujo.html#cb117-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb117-10"><a href="control-de-flujo.html#cb117-10" aria-hidden="true" tabindex="-1"></a><span class="do">### Loop con while</span></span>
+<span id="cb117-11"><a href="control-de-flujo.html#cb117-11" aria-hidden="true" tabindex="-1"></a><span class="do">### Aquí !condicion significa: </span></span>
+<span id="cb117-12"><a href="control-de-flujo.html#cb117-12" aria-hidden="true" tabindex="-1"></a><span class="do">### &quot;mientras que condición no sea verdadera, continuar&quot; </span></span>
+<span id="cb117-13"><a href="control-de-flujo.html#cb117-13" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> ( <span class="sc">!</span>condicion ) { </span>
+<span id="cb117-14"><a href="control-de-flujo.html#cb117-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(vector[index]) <span class="co"># imprime el elemento</span></span>
+<span id="cb117-15"><a href="control-de-flujo.html#cb117-15" aria-hidden="true" tabindex="-1"></a>  index <span class="ot">&lt;-</span> index <span class="sc">+</span> <span class="dv">1</span>   <span class="co"># adiciona una posición</span></span>
+<span id="cb117-16"><a href="control-de-flujo.html#cb117-16" aria-hidden="true" tabindex="-1"></a>  condicion <span class="ot">&lt;-</span> vector[index] <span class="sc">==</span> <span class="st">&quot;G&quot;</span> <span class="co"># evalúa si es G la siguiente posición</span></span>
+<span id="cb117-17"><a href="control-de-flujo.html#cb117-17" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb117-18"><a href="control-de-flujo.html#cb117-18" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] &quot;A&quot;</span></span>
+<span id="cb117-19"><a href="control-de-flujo.html#cb117-19" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] &quot;T&quot;</span></span>
+<span id="cb117-20"><a href="control-de-flujo.html#cb117-20" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] &quot;C&quot;</span></span>
+<span id="cb117-21"><a href="control-de-flujo.html#cb117-21" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] &quot;A&quot;</span></span>
+<span id="cb117-22"><a href="control-de-flujo.html#cb117-22" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] &quot;T&quot;</span></span></code></pre></div>
+<p>Intentar esto con <code>for</code> llevaría al <strong>resultado erróneo</strong> de imprimir todo menos los elementos que se soliciten, como “G”:</p>
+<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="control-de-flujo.html#cb118-1" aria-hidden="true" tabindex="-1"></a><span class="do">### Vector sobre el cual hacer la impresión de elementos</span></span>
+<span id="cb118-2"><a href="control-de-flujo.html#cb118-2" aria-hidden="true" tabindex="-1"></a>vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;A&quot;</span>,<span class="st">&quot;T&quot;</span>,<span class="st">&quot;C&quot;</span>,<span class="st">&quot;A&quot;</span>,<span class="st">&quot;G&quot;</span>,<span class="st">&quot;T&quot;</span>,<span class="st">&quot;C&quot;</span>,<span class="st">&quot;A&quot;</span>,</span>
+<span id="cb118-3"><a href="control-de-flujo.html#cb118-3" aria-hidden="true" tabindex="-1"></a>            <span class="st">&quot;T&quot;</span>,<span class="st">&quot;G&quot;</span>,<span class="st">&quot;G&quot;</span>,<span class="st">&quot;C&quot;</span>,<span class="st">&quot;G&quot;</span>,<span class="st">&quot;G&quot;</span>,<span class="st">&quot;C&quot;</span>,<span class="st">&quot;C&quot;</span>)</span>
+<span id="cb118-4"><a href="control-de-flujo.html#cb118-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb118-5"><a href="control-de-flujo.html#cb118-5" aria-hidden="true" tabindex="-1"></a><span class="do">### Loop con for</span></span>
+<span id="cb118-6"><a href="control-de-flujo.html#cb118-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="fu">seq_along</span>(vector)){</span>
+<span id="cb118-7"><a href="control-de-flujo.html#cb118-7" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(vector[i]<span class="sc">!=</span><span class="st">&quot;G&quot;</span>)</span>
+<span id="cb118-8"><a href="control-de-flujo.html#cb118-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(vector[i])</span>
+<span id="cb118-9"><a href="control-de-flujo.html#cb118-9" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb118-10"><a href="control-de-flujo.html#cb118-10" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] &quot;A&quot;</span></span>
+<span id="cb118-11"><a href="control-de-flujo.html#cb118-11" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] &quot;T&quot;</span></span>
+<span id="cb118-12"><a href="control-de-flujo.html#cb118-12" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] &quot;C&quot;</span></span>
+<span id="cb118-13"><a href="control-de-flujo.html#cb118-13" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] &quot;A&quot;</span></span>
+<span id="cb118-14"><a href="control-de-flujo.html#cb118-14" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] &quot;T&quot;</span></span>
+<span id="cb118-15"><a href="control-de-flujo.html#cb118-15" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] &quot;C&quot;</span></span>
+<span id="cb118-16"><a href="control-de-flujo.html#cb118-16" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] &quot;A&quot;</span></span>
+<span id="cb118-17"><a href="control-de-flujo.html#cb118-17" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] &quot;T&quot;</span></span>
+<span id="cb118-18"><a href="control-de-flujo.html#cb118-18" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] &quot;C&quot;</span></span>
+<span id="cb118-19"><a href="control-de-flujo.html#cb118-19" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] &quot;C&quot;</span></span>
+<span id="cb118-20"><a href="control-de-flujo.html#cb118-20" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] &quot;C&quot;</span></span></code></pre></div>
+<p>Algo más interesante para el loop <code>while</code> podría ser frenar la impresión de elementos cuando se identifique que a partir de la siguiente iteración aparecerá una secuencia definida. Imagina que necesitas frenar la impresión hasta que aparezca la primera secuencia <code>TGC</code>, en ese orden:</p>
+<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="control-de-flujo.html#cb119-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Objetos necesarios</span></span>
+<span id="cb119-2"><a href="control-de-flujo.html#cb119-2" aria-hidden="true" tabindex="-1"></a>vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;A&quot;</span>,<span class="st">&quot;T&quot;</span>,<span class="st">&quot;C&quot;</span>,<span class="st">&quot;A&quot;</span>,<span class="st">&quot;G&quot;</span>,<span class="st">&quot;T&quot;</span>,<span class="st">&quot;C&quot;</span>,<span class="st">&quot;A&quot;</span>,</span>
+<span id="cb119-3"><a href="control-de-flujo.html#cb119-3" aria-hidden="true" tabindex="-1"></a>            <span class="st">&quot;T&quot;</span>,<span class="st">&quot;G&quot;</span>,<span class="st">&quot;G&quot;</span>,<span class="st">&quot;C&quot;</span>,<span class="st">&quot;G&quot;</span>,<span class="st">&quot;G&quot;</span>,<span class="st">&quot;C&quot;</span>,<span class="st">&quot;C&quot;</span>)</span>
+<span id="cb119-4"><a href="control-de-flujo.html#cb119-4" aria-hidden="true" tabindex="-1"></a>condicion <span class="ot">&lt;-</span> <span class="cn">FALSE</span></span>
+<span id="cb119-5"><a href="control-de-flujo.html#cb119-5" aria-hidden="true" tabindex="-1"></a>index <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb119-6"><a href="control-de-flujo.html#cb119-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb119-7"><a href="control-de-flujo.html#cb119-7" aria-hidden="true" tabindex="-1"></a><span class="do">### Loop con while</span></span>
+<span id="cb119-8"><a href="control-de-flujo.html#cb119-8" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> ( <span class="sc">!</span>condicion ) { </span>
+<span id="cb119-9"><a href="control-de-flujo.html#cb119-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(vector[index]) </span>
+<span id="cb119-10"><a href="control-de-flujo.html#cb119-10" aria-hidden="true" tabindex="-1"></a>  index <span class="ot">&lt;-</span> index <span class="sc">+</span> <span class="dv">1</span> </span>
+<span id="cb119-11"><a href="control-de-flujo.html#cb119-11" aria-hidden="true" tabindex="-1"></a>  condicion <span class="ot">&lt;-</span> <span class="fu">identical</span>(<span class="fu">c</span>(vector[index], vector[index<span class="sc">+</span><span class="dv">1</span>], </span>
+<span id="cb119-12"><a href="control-de-flujo.html#cb119-12" aria-hidden="true" tabindex="-1"></a>                           vector[index<span class="sc">+</span><span class="dv">2</span>]), <span class="fu">c</span>(<span class="st">&quot;T&quot;</span>,<span class="st">&quot;G&quot;</span>,<span class="st">&quot;G&quot;</span>))</span>
+<span id="cb119-13"><a href="control-de-flujo.html#cb119-13" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb119-14"><a href="control-de-flujo.html#cb119-14" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] &quot;A&quot;</span></span>
+<span id="cb119-15"><a href="control-de-flujo.html#cb119-15" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] &quot;T&quot;</span></span>
+<span id="cb119-16"><a href="control-de-flujo.html#cb119-16" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] &quot;C&quot;</span></span>
+<span id="cb119-17"><a href="control-de-flujo.html#cb119-17" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] &quot;A&quot;</span></span>
+<span id="cb119-18"><a href="control-de-flujo.html#cb119-18" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] &quot;G&quot;</span></span>
+<span id="cb119-19"><a href="control-de-flujo.html#cb119-19" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] &quot;T&quot;</span></span>
+<span id="cb119-20"><a href="control-de-flujo.html#cb119-20" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] &quot;C&quot;</span></span>
+<span id="cb119-21"><a href="control-de-flujo.html#cb119-21" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] &quot;A&quot;</span></span></code></pre></div>
 </div>
 </div>
             </section>
