@@ -42,11 +42,14 @@ tab:unnamed-chunk-8
 tab:unnamed-chunk-9
 tab:unnamed-chunk-21
 fig:unnamed-chunk-2
-tab:unnamed-chunk-10
-tab:unnamed-chunk-46
+tab:unnamed-chunk-11
+fig:unnamed-chunk-25
 tab:unnamed-chunk-47
 tab:unnamed-chunk-48
+tab:unnamed-chunk-49
 tab:unnamed-chunk-50
+eq:varianzapob
+eq:varianzamuestral
 esencialesRRStudio
 instalación-de-r-y-rstudio
 configuración-de-rstudio
@@ -141,10 +144,6 @@ resúmenes-estadísticos
 combinar-bases-de-datos
 valores-perdidos
 ejercicios-del-capítulo-3
-potencialidades-de-r-markdown
-diapositivas-con-xaringan
-crear-blogs-con-blogdown
-crear-libros-bookdown
 visualización-avanzada-de-gráficos
 gramática-de-gráficos-sintaxis-de-ggplot2
 visualización-por-capas
@@ -194,4 +193,3 @@ solucionario-de-los-ejercicios-del-libro
 cap.-2-primer-contacto-con-r
 preg-estructurasdatos
 cap.-5-programación-funcional
-ejercicios-del-capítulo-4

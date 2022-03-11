@@ -396,216 +396,218 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol style="list-style-type: decimal">
 <li>Reproduce el resultado del siguiente loop <code>for</code>, utilizando la función replicate():</li>
 </ol>
-<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="ejercicios-del-capítulo-4.html#cb158-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
-<span id="cb158-2"><a href="ejercicios-del-capítulo-4.html#cb158-2" aria-hidden="true" tabindex="-1"></a>lista1 <span class="ot">&lt;-</span> <span class="fu">list</span>() <span class="co"># Lista vacía</span></span>
-<span id="cb158-3"><a href="ejercicios-del-capítulo-4.html#cb158-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>) { <span class="co"># Número de iteraciones = 5</span></span>
-<span id="cb158-4"><a href="ejercicios-del-capítulo-4.html#cb158-4" aria-hidden="true" tabindex="-1"></a>  lista1[[i]] <span class="ot">=</span> <span class="fu">rnorm</span>(<span class="dv">6</span>, <span class="dv">0</span>, <span class="dv">1</span>) <span class="co"># Conjunto aleatorio normal para cada iteración</span></span>
-<span id="cb158-5"><a href="ejercicios-del-capítulo-4.html#cb158-5" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb158-6"><a href="ejercicios-del-capítulo-4.html#cb158-6" aria-hidden="true" tabindex="-1"></a>lista1</span>
-<span id="cb158-7"><a href="ejercicios-del-capítulo-4.html#cb158-7" aria-hidden="true" tabindex="-1"></a><span class="co"># [[1]]</span></span>
-<span id="cb158-8"><a href="ejercicios-del-capítulo-4.html#cb158-8" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] -0.56048 -0.23018  1.55871  0.07051  0.12929  1.71506</span></span>
-<span id="cb158-9"><a href="ejercicios-del-capítulo-4.html#cb158-9" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb158-10"><a href="ejercicios-del-capítulo-4.html#cb158-10" aria-hidden="true" tabindex="-1"></a><span class="co"># [[2]]</span></span>
-<span id="cb158-11"><a href="ejercicios-del-capítulo-4.html#cb158-11" aria-hidden="true" tabindex="-1"></a><span class="co"># [1]  0.4609 -1.2651 -0.6869 -0.4457  1.2241  0.3598</span></span>
-<span id="cb158-12"><a href="ejercicios-del-capítulo-4.html#cb158-12" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb158-13"><a href="ejercicios-del-capítulo-4.html#cb158-13" aria-hidden="true" tabindex="-1"></a><span class="co"># [[3]]</span></span>
-<span id="cb158-14"><a href="ejercicios-del-capítulo-4.html#cb158-14" aria-hidden="true" tabindex="-1"></a><span class="co"># [1]  0.4008  0.1107 -0.5558  1.7869  0.4979 -1.9666</span></span></code></pre></div>
+<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="ejercicios-del-capítulo-4.html#cb157-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb157-2"><a href="ejercicios-del-capítulo-4.html#cb157-2" aria-hidden="true" tabindex="-1"></a>lista1 <span class="ot">&lt;-</span> <span class="fu">list</span>() <span class="co"># Lista vacía</span></span>
+<span id="cb157-3"><a href="ejercicios-del-capítulo-4.html#cb157-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>) { <span class="co"># Número de iteraciones = 5</span></span>
+<span id="cb157-4"><a href="ejercicios-del-capítulo-4.html#cb157-4" aria-hidden="true" tabindex="-1"></a>  lista1[[i]] <span class="ot">=</span> <span class="fu">rnorm</span>(<span class="dv">6</span>, <span class="dv">0</span>, <span class="dv">1</span>) <span class="co"># Conjunto aleatorio normal para cada iteración</span></span>
+<span id="cb157-5"><a href="ejercicios-del-capítulo-4.html#cb157-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb157-6"><a href="ejercicios-del-capítulo-4.html#cb157-6" aria-hidden="true" tabindex="-1"></a>lista1</span>
+<span id="cb157-7"><a href="ejercicios-del-capítulo-4.html#cb157-7" aria-hidden="true" tabindex="-1"></a><span class="co"># [[1]]</span></span>
+<span id="cb157-8"><a href="ejercicios-del-capítulo-4.html#cb157-8" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] -0.56048 -0.23018  1.55871  0.07051  0.12929  1.71506</span></span>
+<span id="cb157-9"><a href="ejercicios-del-capítulo-4.html#cb157-9" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb157-10"><a href="ejercicios-del-capítulo-4.html#cb157-10" aria-hidden="true" tabindex="-1"></a><span class="co"># [[2]]</span></span>
+<span id="cb157-11"><a href="ejercicios-del-capítulo-4.html#cb157-11" aria-hidden="true" tabindex="-1"></a><span class="co"># [1]  0.4609 -1.2651 -0.6869 -0.4457  1.2241  0.3598</span></span>
+<span id="cb157-12"><a href="ejercicios-del-capítulo-4.html#cb157-12" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb157-13"><a href="ejercicios-del-capítulo-4.html#cb157-13" aria-hidden="true" tabindex="-1"></a><span class="co"># [[3]]</span></span>
+<span id="cb157-14"><a href="ejercicios-del-capítulo-4.html#cb157-14" aria-hidden="true" tabindex="-1"></a><span class="co"># [1]  0.4008  0.1107 -0.5558  1.7869  0.4979 -1.9666</span></span></code></pre></div>
 <p>Solución:</p>
-<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="ejercicios-del-capítulo-4.html#cb159-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Importante simplify = FALSE para obtener una lista </span></span>
-<span id="cb159-2"><a href="ejercicios-del-capítulo-4.html#cb159-2" aria-hidden="true" tabindex="-1"></a><span class="co"># de vectores y no un solo vector con todos los resultados</span></span>
-<span id="cb159-3"><a href="ejercicios-del-capítulo-4.html#cb159-3" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
-<span id="cb159-4"><a href="ejercicios-del-capítulo-4.html#cb159-4" aria-hidden="true" tabindex="-1"></a>lista1 <span class="ot">&lt;-</span> <span class="fu">replicate</span>(<span class="dv">3</span>, {</span>
-<span id="cb159-5"><a href="ejercicios-del-capítulo-4.html#cb159-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rnorm</span>(<span class="dv">6</span>, <span class="dv">0</span>, <span class="dv">1</span>)</span>
-<span id="cb159-6"><a href="ejercicios-del-capítulo-4.html#cb159-6" aria-hidden="true" tabindex="-1"></a>  }, </span>
-<span id="cb159-7"><a href="ejercicios-del-capítulo-4.html#cb159-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">simplify =</span> <span class="cn">FALSE</span>) </span>
-<span id="cb159-8"><a href="ejercicios-del-capítulo-4.html#cb159-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb159-9"><a href="ejercicios-del-capítulo-4.html#cb159-9" aria-hidden="true" tabindex="-1"></a><span class="do">### Resultado</span></span>
-<span id="cb159-10"><a href="ejercicios-del-capítulo-4.html#cb159-10" aria-hidden="true" tabindex="-1"></a>lista1</span>
-<span id="cb159-11"><a href="ejercicios-del-capítulo-4.html#cb159-11" aria-hidden="true" tabindex="-1"></a><span class="co"># [[1]]</span></span>
-<span id="cb159-12"><a href="ejercicios-del-capítulo-4.html#cb159-12" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] -0.56048 -0.23018  1.55871  0.07051  0.12929  1.71506</span></span>
-<span id="cb159-13"><a href="ejercicios-del-capítulo-4.html#cb159-13" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb159-14"><a href="ejercicios-del-capítulo-4.html#cb159-14" aria-hidden="true" tabindex="-1"></a><span class="co"># [[2]]</span></span>
-<span id="cb159-15"><a href="ejercicios-del-capítulo-4.html#cb159-15" aria-hidden="true" tabindex="-1"></a><span class="co"># [1]  0.4609 -1.2651 -0.6869 -0.4457  1.2241  0.3598</span></span>
-<span id="cb159-16"><a href="ejercicios-del-capítulo-4.html#cb159-16" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb159-17"><a href="ejercicios-del-capítulo-4.html#cb159-17" aria-hidden="true" tabindex="-1"></a><span class="co"># [[3]]</span></span>
-<span id="cb159-18"><a href="ejercicios-del-capítulo-4.html#cb159-18" aria-hidden="true" tabindex="-1"></a><span class="co"># [1]  0.4008  0.1107 -0.5558  1.7869  0.4979 -1.9666</span></span></code></pre></div>
+<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="ejercicios-del-capítulo-4.html#cb158-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Importante simplify = FALSE para obtener una lista </span></span>
+<span id="cb158-2"><a href="ejercicios-del-capítulo-4.html#cb158-2" aria-hidden="true" tabindex="-1"></a><span class="co"># de vectores y no un solo vector con todos los resultados</span></span>
+<span id="cb158-3"><a href="ejercicios-del-capítulo-4.html#cb158-3" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb158-4"><a href="ejercicios-del-capítulo-4.html#cb158-4" aria-hidden="true" tabindex="-1"></a>lista1 <span class="ot">&lt;-</span> <span class="fu">replicate</span>(<span class="dv">3</span>, {</span>
+<span id="cb158-5"><a href="ejercicios-del-capítulo-4.html#cb158-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rnorm</span>(<span class="dv">6</span>, <span class="dv">0</span>, <span class="dv">1</span>)</span>
+<span id="cb158-6"><a href="ejercicios-del-capítulo-4.html#cb158-6" aria-hidden="true" tabindex="-1"></a>  }, </span>
+<span id="cb158-7"><a href="ejercicios-del-capítulo-4.html#cb158-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">simplify =</span> <span class="cn">FALSE</span>) </span>
+<span id="cb158-8"><a href="ejercicios-del-capítulo-4.html#cb158-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb158-9"><a href="ejercicios-del-capítulo-4.html#cb158-9" aria-hidden="true" tabindex="-1"></a><span class="do">### Resultado</span></span>
+<span id="cb158-10"><a href="ejercicios-del-capítulo-4.html#cb158-10" aria-hidden="true" tabindex="-1"></a>lista1</span>
+<span id="cb158-11"><a href="ejercicios-del-capítulo-4.html#cb158-11" aria-hidden="true" tabindex="-1"></a><span class="co"># [[1]]</span></span>
+<span id="cb158-12"><a href="ejercicios-del-capítulo-4.html#cb158-12" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] -0.56048 -0.23018  1.55871  0.07051  0.12929  1.71506</span></span>
+<span id="cb158-13"><a href="ejercicios-del-capítulo-4.html#cb158-13" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb158-14"><a href="ejercicios-del-capítulo-4.html#cb158-14" aria-hidden="true" tabindex="-1"></a><span class="co"># [[2]]</span></span>
+<span id="cb158-15"><a href="ejercicios-del-capítulo-4.html#cb158-15" aria-hidden="true" tabindex="-1"></a><span class="co"># [1]  0.4609 -1.2651 -0.6869 -0.4457  1.2241  0.3598</span></span>
+<span id="cb158-16"><a href="ejercicios-del-capítulo-4.html#cb158-16" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb158-17"><a href="ejercicios-del-capítulo-4.html#cb158-17" aria-hidden="true" tabindex="-1"></a><span class="co"># [[3]]</span></span>
+<span id="cb158-18"><a href="ejercicios-del-capítulo-4.html#cb158-18" aria-hidden="true" tabindex="-1"></a><span class="co"># [1]  0.4008  0.1107 -0.5558  1.7869  0.4979 -1.9666</span></span></code></pre></div>
 <ol style="list-style-type: decimal">
 <li>Crea la base de datos DF numérica (código ya definido en el siguiente chunk), que tiene las dimensiones 12 (filas) x 5 (columnas):</li>
 </ol>
-<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="ejercicios-del-capítulo-4.html#cb160-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Base de datos DF</span></span>
-<span id="cb160-2"><a href="ejercicios-del-capítulo-4.html#cb160-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
-<span id="cb160-3"><a href="ejercicios-del-capítulo-4.html#cb160-3" aria-hidden="true" tabindex="-1"></a>secuencia <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">seq</span>(<span class="fl">0.5</span>, <span class="fl">7.9</span>, <span class="at">length =</span> <span class="dv">10</span>), <span class="sc">-</span><span class="dv">999</span>, <span class="dv">5555</span>)</span>
-<span id="cb160-4"><a href="ejercicios-del-capítulo-4.html#cb160-4" aria-hidden="true" tabindex="-1"></a>DF <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="fu">replicate</span>(<span class="dv">5</span>, </span>
-<span id="cb160-5"><a href="ejercicios-del-capítulo-4.html#cb160-5" aria-hidden="true" tabindex="-1"></a>                           <span class="fu">sample</span>(secuencia, <span class="dv">12</span>, <span class="at">rep =</span> <span class="cn">TRUE</span>)))</span>
-<span id="cb160-6"><a href="ejercicios-del-capítulo-4.html#cb160-6" aria-hidden="true" tabindex="-1"></a>DF <span class="ot">&lt;-</span> <span class="fu">round</span>(DF,<span class="dv">2</span>)</span>
-<span id="cb160-7"><a href="ejercicios-del-capítulo-4.html#cb160-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb160-8"><a href="ejercicios-del-capítulo-4.html#cb160-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Darle nombre a sus columnas</span></span>
-<span id="cb160-9"><a href="ejercicios-del-capítulo-4.html#cb160-9" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(DF) <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&quot;Var&quot;</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>)</span>
-<span id="cb160-10"><a href="ejercicios-del-capítulo-4.html#cb160-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb160-11"><a href="ejercicios-del-capítulo-4.html#cb160-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Revisar el contenido de DF</span></span>
-<span id="cb160-12"><a href="ejercicios-del-capítulo-4.html#cb160-12" aria-hidden="true" tabindex="-1"></a>DF </span>
-<span id="cb160-13"><a href="ejercicios-del-capítulo-4.html#cb160-13" aria-hidden="true" tabindex="-1"></a><span class="co">#       Var1    Var2    Var3    Var4    Var5</span></span>
-<span id="cb160-14"><a href="ejercicios-del-capítulo-4.html#cb160-14" aria-hidden="true" tabindex="-1"></a><span class="co"># 1     2.14    3.79    7.08    7.90    6.26</span></span>
-<span id="cb160-15"><a href="ejercicios-del-capítulo-4.html#cb160-15" aria-hidden="true" tabindex="-1"></a><span class="co"># 2     2.14    2.14    2.14    5.43 5555.00</span></span>
-<span id="cb160-16"><a href="ejercicios-del-capítulo-4.html#cb160-16" aria-hidden="true" tabindex="-1"></a><span class="co"># 3     7.90 -999.00    2.97 -999.00    1.32</span></span>
-<span id="cb160-17"><a href="ejercicios-del-capítulo-4.html#cb160-17" aria-hidden="true" tabindex="-1"></a><span class="co"># 4     1.32    7.08    0.50 5555.00    0.50</span></span>
-<span id="cb160-18"><a href="ejercicios-del-capítulo-4.html#cb160-18" aria-hidden="true" tabindex="-1"></a><span class="co"># 5     4.61 5555.00 -999.00    3.79    7.08</span></span>
-<span id="cb160-19"><a href="ejercicios-del-capítulo-4.html#cb160-19" aria-hidden="true" tabindex="-1"></a><span class="co"># 6  -999.00    7.08    5.43    5.43 -999.00</span></span>
-<span id="cb160-20"><a href="ejercicios-del-capítulo-4.html#cb160-20" aria-hidden="true" tabindex="-1"></a><span class="co"># 7     3.79    7.08    3.79    3.79    7.08</span></span>
-<span id="cb160-21"><a href="ejercicios-del-capítulo-4.html#cb160-21" aria-hidden="true" tabindex="-1"></a><span class="co"># 8     2.97    2.14 5555.00 -999.00    4.61</span></span>
-<span id="cb160-22"><a href="ejercicios-del-capítulo-4.html#cb160-22" aria-hidden="true" tabindex="-1"></a><span class="co"># 9     4.61    6.26    7.90    4.61    3.79</span></span>
-<span id="cb160-23"><a href="ejercicios-del-capítulo-4.html#cb160-23" aria-hidden="true" tabindex="-1"></a><span class="co"># 10    7.08    7.90    5.43    7.08    7.08</span></span>
-<span id="cb160-24"><a href="ejercicios-del-capítulo-4.html#cb160-24" aria-hidden="true" tabindex="-1"></a><span class="co"># 11    7.90    5.43    7.08    1.32    7.90</span></span>
-<span id="cb160-25"><a href="ejercicios-del-capítulo-4.html#cb160-25" aria-hidden="true" tabindex="-1"></a><span class="co"># 12 -999.00    7.90    7.08    3.79 5555.00</span></span></code></pre></div>
+<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="ejercicios-del-capítulo-4.html#cb159-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Base de datos DF</span></span>
+<span id="cb159-2"><a href="ejercicios-del-capítulo-4.html#cb159-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb159-3"><a href="ejercicios-del-capítulo-4.html#cb159-3" aria-hidden="true" tabindex="-1"></a>secuencia <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">seq</span>(<span class="fl">0.5</span>, <span class="fl">7.9</span>, <span class="at">length =</span> <span class="dv">10</span>), <span class="sc">-</span><span class="dv">999</span>, <span class="dv">5555</span>)</span>
+<span id="cb159-4"><a href="ejercicios-del-capítulo-4.html#cb159-4" aria-hidden="true" tabindex="-1"></a>DF <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="fu">replicate</span>(<span class="dv">5</span>, </span>
+<span id="cb159-5"><a href="ejercicios-del-capítulo-4.html#cb159-5" aria-hidden="true" tabindex="-1"></a>                           <span class="fu">sample</span>(secuencia, <span class="dv">12</span>, <span class="at">rep =</span> <span class="cn">TRUE</span>)))</span>
+<span id="cb159-6"><a href="ejercicios-del-capítulo-4.html#cb159-6" aria-hidden="true" tabindex="-1"></a>DF <span class="ot">&lt;-</span> <span class="fu">round</span>(DF,<span class="dv">2</span>)</span>
+<span id="cb159-7"><a href="ejercicios-del-capítulo-4.html#cb159-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb159-8"><a href="ejercicios-del-capítulo-4.html#cb159-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Darle nombre a sus columnas</span></span>
+<span id="cb159-9"><a href="ejercicios-del-capítulo-4.html#cb159-9" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(DF) <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&quot;Var&quot;</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>)</span>
+<span id="cb159-10"><a href="ejercicios-del-capítulo-4.html#cb159-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb159-11"><a href="ejercicios-del-capítulo-4.html#cb159-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Revisar el contenido de DF</span></span>
+<span id="cb159-12"><a href="ejercicios-del-capítulo-4.html#cb159-12" aria-hidden="true" tabindex="-1"></a>DF </span>
+<span id="cb159-13"><a href="ejercicios-del-capítulo-4.html#cb159-13" aria-hidden="true" tabindex="-1"></a><span class="co">#       Var1    Var2    Var3    Var4    Var5</span></span>
+<span id="cb159-14"><a href="ejercicios-del-capítulo-4.html#cb159-14" aria-hidden="true" tabindex="-1"></a><span class="co"># 1     2.14    3.79    7.08    7.90    6.26</span></span>
+<span id="cb159-15"><a href="ejercicios-del-capítulo-4.html#cb159-15" aria-hidden="true" tabindex="-1"></a><span class="co"># 2     2.14    2.14    2.14    5.43 5555.00</span></span>
+<span id="cb159-16"><a href="ejercicios-del-capítulo-4.html#cb159-16" aria-hidden="true" tabindex="-1"></a><span class="co"># 3     7.90 -999.00    2.97 -999.00    1.32</span></span>
+<span id="cb159-17"><a href="ejercicios-del-capítulo-4.html#cb159-17" aria-hidden="true" tabindex="-1"></a><span class="co"># 4     1.32    7.08    0.50 5555.00    0.50</span></span>
+<span id="cb159-18"><a href="ejercicios-del-capítulo-4.html#cb159-18" aria-hidden="true" tabindex="-1"></a><span class="co"># 5     4.61 5555.00 -999.00    3.79    7.08</span></span>
+<span id="cb159-19"><a href="ejercicios-del-capítulo-4.html#cb159-19" aria-hidden="true" tabindex="-1"></a><span class="co"># 6  -999.00    7.08    5.43    5.43 -999.00</span></span>
+<span id="cb159-20"><a href="ejercicios-del-capítulo-4.html#cb159-20" aria-hidden="true" tabindex="-1"></a><span class="co"># 7     3.79    7.08    3.79    3.79    7.08</span></span>
+<span id="cb159-21"><a href="ejercicios-del-capítulo-4.html#cb159-21" aria-hidden="true" tabindex="-1"></a><span class="co"># 8     2.97    2.14 5555.00 -999.00    4.61</span></span>
+<span id="cb159-22"><a href="ejercicios-del-capítulo-4.html#cb159-22" aria-hidden="true" tabindex="-1"></a><span class="co"># 9     4.61    6.26    7.90    4.61    3.79</span></span>
+<span id="cb159-23"><a href="ejercicios-del-capítulo-4.html#cb159-23" aria-hidden="true" tabindex="-1"></a><span class="co"># 10    7.08    7.90    5.43    7.08    7.08</span></span>
+<span id="cb159-24"><a href="ejercicios-del-capítulo-4.html#cb159-24" aria-hidden="true" tabindex="-1"></a><span class="co"># 11    7.90    5.43    7.08    1.32    7.90</span></span>
+<span id="cb159-25"><a href="ejercicios-del-capítulo-4.html#cb159-25" aria-hidden="true" tabindex="-1"></a><span class="co"># 12 -999.00    7.90    7.08    3.79 5555.00</span></span></code></pre></div>
 <p>La base de datos DF contiene valores no deseados: <code>-999</code>. Crea y utiliza una función llamada <code>cambiarNA()</code> que te permita cambiar estos valores por <code>NA</code>.</p>
 <p>Solución:</p>
-<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb161-1"><a href="ejercicios-del-capítulo-4.html#cb161-1" aria-hidden="true" tabindex="-1"></a><span class="do">### Crear función</span></span>
-<span id="cb161-2"><a href="ejercicios-del-capítulo-4.html#cb161-2" aria-hidden="true" tabindex="-1"></a>cambiarNA <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
-<span id="cb161-3"><a href="ejercicios-del-capítulo-4.html#cb161-3" aria-hidden="true" tabindex="-1"></a>  x[x <span class="sc">==</span> <span class="sc">-</span><span class="dv">999</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
-<span id="cb161-4"><a href="ejercicios-del-capítulo-4.html#cb161-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(x)</span>
-<span id="cb161-5"><a href="ejercicios-del-capítulo-4.html#cb161-5" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb161-6"><a href="ejercicios-del-capítulo-4.html#cb161-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb161-7"><a href="ejercicios-del-capítulo-4.html#cb161-7" aria-hidden="true" tabindex="-1"></a><span class="do">### Usar la función</span></span>
-<span id="cb161-8"><a href="ejercicios-del-capítulo-4.html#cb161-8" aria-hidden="true" tabindex="-1"></a><span class="fu">cambiarNA</span>(DF)</span>
-<span id="cb161-9"><a href="ejercicios-del-capítulo-4.html#cb161-9" aria-hidden="true" tabindex="-1"></a><span class="co">#    Var1    Var2    Var3    Var4    Var5</span></span>
-<span id="cb161-10"><a href="ejercicios-del-capítulo-4.html#cb161-10" aria-hidden="true" tabindex="-1"></a><span class="co"># 1  2.14    3.79    7.08    7.90    6.26</span></span>
-<span id="cb161-11"><a href="ejercicios-del-capítulo-4.html#cb161-11" aria-hidden="true" tabindex="-1"></a><span class="co"># 2  2.14    2.14    2.14    5.43 5555.00</span></span>
-<span id="cb161-12"><a href="ejercicios-del-capítulo-4.html#cb161-12" aria-hidden="true" tabindex="-1"></a><span class="co"># 3  7.90      NA    2.97      NA    1.32</span></span>
-<span id="cb161-13"><a href="ejercicios-del-capítulo-4.html#cb161-13" aria-hidden="true" tabindex="-1"></a><span class="co"># 4  1.32    7.08    0.50 5555.00    0.50</span></span>
-<span id="cb161-14"><a href="ejercicios-del-capítulo-4.html#cb161-14" aria-hidden="true" tabindex="-1"></a><span class="co"># 5  4.61 5555.00      NA    3.79    7.08</span></span>
-<span id="cb161-15"><a href="ejercicios-del-capítulo-4.html#cb161-15" aria-hidden="true" tabindex="-1"></a><span class="co"># 6    NA    7.08    5.43    5.43      NA</span></span>
-<span id="cb161-16"><a href="ejercicios-del-capítulo-4.html#cb161-16" aria-hidden="true" tabindex="-1"></a><span class="co"># 7  3.79    7.08    3.79    3.79    7.08</span></span>
-<span id="cb161-17"><a href="ejercicios-del-capítulo-4.html#cb161-17" aria-hidden="true" tabindex="-1"></a><span class="co"># 8  2.97    2.14 5555.00      NA    4.61</span></span>
-<span id="cb161-18"><a href="ejercicios-del-capítulo-4.html#cb161-18" aria-hidden="true" tabindex="-1"></a><span class="co"># 9  4.61    6.26    7.90    4.61    3.79</span></span>
-<span id="cb161-19"><a href="ejercicios-del-capítulo-4.html#cb161-19" aria-hidden="true" tabindex="-1"></a><span class="co"># 10 7.08    7.90    5.43    7.08    7.08</span></span>
-<span id="cb161-20"><a href="ejercicios-del-capítulo-4.html#cb161-20" aria-hidden="true" tabindex="-1"></a><span class="co"># 11 7.90    5.43    7.08    1.32    7.90</span></span>
-<span id="cb161-21"><a href="ejercicios-del-capítulo-4.html#cb161-21" aria-hidden="true" tabindex="-1"></a><span class="co"># 12   NA    7.90    7.08    3.79 5555.00</span></span>
-<span id="cb161-22"><a href="ejercicios-del-capítulo-4.html#cb161-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb161-23"><a href="ejercicios-del-capítulo-4.html#cb161-23" aria-hidden="true" tabindex="-1"></a><span class="do">### Para guardar sus resultados permanentemente</span></span>
-<span id="cb161-24"><a href="ejercicios-del-capítulo-4.html#cb161-24" aria-hidden="true" tabindex="-1"></a>resultados <span class="ot">&lt;-</span> <span class="fu">cambiarNA</span>(DF)</span>
-<span id="cb161-25"><a href="ejercicios-del-capítulo-4.html#cb161-25" aria-hidden="true" tabindex="-1"></a><span class="co">#    Var1    Var2    Var3    Var4    Var5</span></span>
-<span id="cb161-26"><a href="ejercicios-del-capítulo-4.html#cb161-26" aria-hidden="true" tabindex="-1"></a><span class="co"># 1  2.14    3.79    7.08    7.90    6.26</span></span>
-<span id="cb161-27"><a href="ejercicios-del-capítulo-4.html#cb161-27" aria-hidden="true" tabindex="-1"></a><span class="co"># 2  2.14    2.14    2.14    5.43 5555.00</span></span>
-<span id="cb161-28"><a href="ejercicios-del-capítulo-4.html#cb161-28" aria-hidden="true" tabindex="-1"></a><span class="co"># 3  7.90      NA    2.97      NA    1.32</span></span>
-<span id="cb161-29"><a href="ejercicios-del-capítulo-4.html#cb161-29" aria-hidden="true" tabindex="-1"></a><span class="co"># 4  1.32    7.08    0.50 5555.00    0.50</span></span>
-<span id="cb161-30"><a href="ejercicios-del-capítulo-4.html#cb161-30" aria-hidden="true" tabindex="-1"></a><span class="co"># 5  4.61 5555.00      NA    3.79    7.08</span></span>
-<span id="cb161-31"><a href="ejercicios-del-capítulo-4.html#cb161-31" aria-hidden="true" tabindex="-1"></a><span class="co"># 6    NA    7.08    5.43    5.43      NA</span></span>
-<span id="cb161-32"><a href="ejercicios-del-capítulo-4.html#cb161-32" aria-hidden="true" tabindex="-1"></a><span class="co"># 7  3.79    7.08    3.79    3.79    7.08</span></span>
-<span id="cb161-33"><a href="ejercicios-del-capítulo-4.html#cb161-33" aria-hidden="true" tabindex="-1"></a><span class="co"># 8  2.97    2.14 5555.00      NA    4.61</span></span>
-<span id="cb161-34"><a href="ejercicios-del-capítulo-4.html#cb161-34" aria-hidden="true" tabindex="-1"></a><span class="co"># 9  4.61    6.26    7.90    4.61    3.79</span></span>
-<span id="cb161-35"><a href="ejercicios-del-capítulo-4.html#cb161-35" aria-hidden="true" tabindex="-1"></a><span class="co"># 10 7.08    7.90    5.43    7.08    7.08</span></span>
-<span id="cb161-36"><a href="ejercicios-del-capítulo-4.html#cb161-36" aria-hidden="true" tabindex="-1"></a><span class="co"># 11 7.90    5.43    7.08    1.32    7.90</span></span>
-<span id="cb161-37"><a href="ejercicios-del-capítulo-4.html#cb161-37" aria-hidden="true" tabindex="-1"></a><span class="co"># 12   NA    7.90    7.08    3.79 5555.00</span></span>
-<span id="cb161-38"><a href="ejercicios-del-capítulo-4.html#cb161-38" aria-hidden="true" tabindex="-1"></a>resultados</span>
-<span id="cb161-39"><a href="ejercicios-del-capítulo-4.html#cb161-39" aria-hidden="true" tabindex="-1"></a><span class="co">#    Var1    Var2    Var3    Var4    Var5</span></span>
-<span id="cb161-40"><a href="ejercicios-del-capítulo-4.html#cb161-40" aria-hidden="true" tabindex="-1"></a><span class="co"># 1  2.14    3.79    7.08    7.90    6.26</span></span>
-<span id="cb161-41"><a href="ejercicios-del-capítulo-4.html#cb161-41" aria-hidden="true" tabindex="-1"></a><span class="co"># 2  2.14    2.14    2.14    5.43 5555.00</span></span>
-<span id="cb161-42"><a href="ejercicios-del-capítulo-4.html#cb161-42" aria-hidden="true" tabindex="-1"></a><span class="co"># 3  7.90      NA    2.97      NA    1.32</span></span>
-<span id="cb161-43"><a href="ejercicios-del-capítulo-4.html#cb161-43" aria-hidden="true" tabindex="-1"></a><span class="co"># 4  1.32    7.08    0.50 5555.00    0.50</span></span>
-<span id="cb161-44"><a href="ejercicios-del-capítulo-4.html#cb161-44" aria-hidden="true" tabindex="-1"></a><span class="co"># 5  4.61 5555.00      NA    3.79    7.08</span></span>
-<span id="cb161-45"><a href="ejercicios-del-capítulo-4.html#cb161-45" aria-hidden="true" tabindex="-1"></a><span class="co"># 6    NA    7.08    5.43    5.43      NA</span></span>
-<span id="cb161-46"><a href="ejercicios-del-capítulo-4.html#cb161-46" aria-hidden="true" tabindex="-1"></a><span class="co"># 7  3.79    7.08    3.79    3.79    7.08</span></span>
-<span id="cb161-47"><a href="ejercicios-del-capítulo-4.html#cb161-47" aria-hidden="true" tabindex="-1"></a><span class="co"># 8  2.97    2.14 5555.00      NA    4.61</span></span>
-<span id="cb161-48"><a href="ejercicios-del-capítulo-4.html#cb161-48" aria-hidden="true" tabindex="-1"></a><span class="co"># 9  4.61    6.26    7.90    4.61    3.79</span></span>
-<span id="cb161-49"><a href="ejercicios-del-capítulo-4.html#cb161-49" aria-hidden="true" tabindex="-1"></a><span class="co"># 10 7.08    7.90    5.43    7.08    7.08</span></span>
-<span id="cb161-50"><a href="ejercicios-del-capítulo-4.html#cb161-50" aria-hidden="true" tabindex="-1"></a><span class="co"># 11 7.90    5.43    7.08    1.32    7.90</span></span>
-<span id="cb161-51"><a href="ejercicios-del-capítulo-4.html#cb161-51" aria-hidden="true" tabindex="-1"></a><span class="co"># 12   NA    7.90    7.08    3.79 5555.00</span></span></code></pre></div>
+<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="ejercicios-del-capítulo-4.html#cb160-1" aria-hidden="true" tabindex="-1"></a><span class="do">### Crear función</span></span>
+<span id="cb160-2"><a href="ejercicios-del-capítulo-4.html#cb160-2" aria-hidden="true" tabindex="-1"></a>cambiarNA <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb160-3"><a href="ejercicios-del-capítulo-4.html#cb160-3" aria-hidden="true" tabindex="-1"></a>  x[x <span class="sc">==</span> <span class="sc">-</span><span class="dv">999</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb160-4"><a href="ejercicios-del-capítulo-4.html#cb160-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(x)</span>
+<span id="cb160-5"><a href="ejercicios-del-capítulo-4.html#cb160-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb160-6"><a href="ejercicios-del-capítulo-4.html#cb160-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb160-7"><a href="ejercicios-del-capítulo-4.html#cb160-7" aria-hidden="true" tabindex="-1"></a><span class="do">### Usar la función</span></span>
+<span id="cb160-8"><a href="ejercicios-del-capítulo-4.html#cb160-8" aria-hidden="true" tabindex="-1"></a><span class="fu">cambiarNA</span>(DF)</span>
+<span id="cb160-9"><a href="ejercicios-del-capítulo-4.html#cb160-9" aria-hidden="true" tabindex="-1"></a><span class="co">#    Var1    Var2    Var3    Var4    Var5</span></span>
+<span id="cb160-10"><a href="ejercicios-del-capítulo-4.html#cb160-10" aria-hidden="true" tabindex="-1"></a><span class="co"># 1  2.14    3.79    7.08    7.90    6.26</span></span>
+<span id="cb160-11"><a href="ejercicios-del-capítulo-4.html#cb160-11" aria-hidden="true" tabindex="-1"></a><span class="co"># 2  2.14    2.14    2.14    5.43 5555.00</span></span>
+<span id="cb160-12"><a href="ejercicios-del-capítulo-4.html#cb160-12" aria-hidden="true" tabindex="-1"></a><span class="co"># 3  7.90      NA    2.97      NA    1.32</span></span>
+<span id="cb160-13"><a href="ejercicios-del-capítulo-4.html#cb160-13" aria-hidden="true" tabindex="-1"></a><span class="co"># 4  1.32    7.08    0.50 5555.00    0.50</span></span>
+<span id="cb160-14"><a href="ejercicios-del-capítulo-4.html#cb160-14" aria-hidden="true" tabindex="-1"></a><span class="co"># 5  4.61 5555.00      NA    3.79    7.08</span></span>
+<span id="cb160-15"><a href="ejercicios-del-capítulo-4.html#cb160-15" aria-hidden="true" tabindex="-1"></a><span class="co"># 6    NA    7.08    5.43    5.43      NA</span></span>
+<span id="cb160-16"><a href="ejercicios-del-capítulo-4.html#cb160-16" aria-hidden="true" tabindex="-1"></a><span class="co"># 7  3.79    7.08    3.79    3.79    7.08</span></span>
+<span id="cb160-17"><a href="ejercicios-del-capítulo-4.html#cb160-17" aria-hidden="true" tabindex="-1"></a><span class="co"># 8  2.97    2.14 5555.00      NA    4.61</span></span>
+<span id="cb160-18"><a href="ejercicios-del-capítulo-4.html#cb160-18" aria-hidden="true" tabindex="-1"></a><span class="co"># 9  4.61    6.26    7.90    4.61    3.79</span></span>
+<span id="cb160-19"><a href="ejercicios-del-capítulo-4.html#cb160-19" aria-hidden="true" tabindex="-1"></a><span class="co"># 10 7.08    7.90    5.43    7.08    7.08</span></span>
+<span id="cb160-20"><a href="ejercicios-del-capítulo-4.html#cb160-20" aria-hidden="true" tabindex="-1"></a><span class="co"># 11 7.90    5.43    7.08    1.32    7.90</span></span>
+<span id="cb160-21"><a href="ejercicios-del-capítulo-4.html#cb160-21" aria-hidden="true" tabindex="-1"></a><span class="co"># 12   NA    7.90    7.08    3.79 5555.00</span></span>
+<span id="cb160-22"><a href="ejercicios-del-capítulo-4.html#cb160-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb160-23"><a href="ejercicios-del-capítulo-4.html#cb160-23" aria-hidden="true" tabindex="-1"></a><span class="do">### Para guardar sus resultados permanentemente</span></span>
+<span id="cb160-24"><a href="ejercicios-del-capítulo-4.html#cb160-24" aria-hidden="true" tabindex="-1"></a>resultados <span class="ot">&lt;-</span> <span class="fu">cambiarNA</span>(DF)</span>
+<span id="cb160-25"><a href="ejercicios-del-capítulo-4.html#cb160-25" aria-hidden="true" tabindex="-1"></a><span class="co">#    Var1    Var2    Var3    Var4    Var5</span></span>
+<span id="cb160-26"><a href="ejercicios-del-capítulo-4.html#cb160-26" aria-hidden="true" tabindex="-1"></a><span class="co"># 1  2.14    3.79    7.08    7.90    6.26</span></span>
+<span id="cb160-27"><a href="ejercicios-del-capítulo-4.html#cb160-27" aria-hidden="true" tabindex="-1"></a><span class="co"># 2  2.14    2.14    2.14    5.43 5555.00</span></span>
+<span id="cb160-28"><a href="ejercicios-del-capítulo-4.html#cb160-28" aria-hidden="true" tabindex="-1"></a><span class="co"># 3  7.90      NA    2.97      NA    1.32</span></span>
+<span id="cb160-29"><a href="ejercicios-del-capítulo-4.html#cb160-29" aria-hidden="true" tabindex="-1"></a><span class="co"># 4  1.32    7.08    0.50 5555.00    0.50</span></span>
+<span id="cb160-30"><a href="ejercicios-del-capítulo-4.html#cb160-30" aria-hidden="true" tabindex="-1"></a><span class="co"># 5  4.61 5555.00      NA    3.79    7.08</span></span>
+<span id="cb160-31"><a href="ejercicios-del-capítulo-4.html#cb160-31" aria-hidden="true" tabindex="-1"></a><span class="co"># 6    NA    7.08    5.43    5.43      NA</span></span>
+<span id="cb160-32"><a href="ejercicios-del-capítulo-4.html#cb160-32" aria-hidden="true" tabindex="-1"></a><span class="co"># 7  3.79    7.08    3.79    3.79    7.08</span></span>
+<span id="cb160-33"><a href="ejercicios-del-capítulo-4.html#cb160-33" aria-hidden="true" tabindex="-1"></a><span class="co"># 8  2.97    2.14 5555.00      NA    4.61</span></span>
+<span id="cb160-34"><a href="ejercicios-del-capítulo-4.html#cb160-34" aria-hidden="true" tabindex="-1"></a><span class="co"># 9  4.61    6.26    7.90    4.61    3.79</span></span>
+<span id="cb160-35"><a href="ejercicios-del-capítulo-4.html#cb160-35" aria-hidden="true" tabindex="-1"></a><span class="co"># 10 7.08    7.90    5.43    7.08    7.08</span></span>
+<span id="cb160-36"><a href="ejercicios-del-capítulo-4.html#cb160-36" aria-hidden="true" tabindex="-1"></a><span class="co"># 11 7.90    5.43    7.08    1.32    7.90</span></span>
+<span id="cb160-37"><a href="ejercicios-del-capítulo-4.html#cb160-37" aria-hidden="true" tabindex="-1"></a><span class="co"># 12   NA    7.90    7.08    3.79 5555.00</span></span>
+<span id="cb160-38"><a href="ejercicios-del-capítulo-4.html#cb160-38" aria-hidden="true" tabindex="-1"></a>resultados</span>
+<span id="cb160-39"><a href="ejercicios-del-capítulo-4.html#cb160-39" aria-hidden="true" tabindex="-1"></a><span class="co">#    Var1    Var2    Var3    Var4    Var5</span></span>
+<span id="cb160-40"><a href="ejercicios-del-capítulo-4.html#cb160-40" aria-hidden="true" tabindex="-1"></a><span class="co"># 1  2.14    3.79    7.08    7.90    6.26</span></span>
+<span id="cb160-41"><a href="ejercicios-del-capítulo-4.html#cb160-41" aria-hidden="true" tabindex="-1"></a><span class="co"># 2  2.14    2.14    2.14    5.43 5555.00</span></span>
+<span id="cb160-42"><a href="ejercicios-del-capítulo-4.html#cb160-42" aria-hidden="true" tabindex="-1"></a><span class="co"># 3  7.90      NA    2.97      NA    1.32</span></span>
+<span id="cb160-43"><a href="ejercicios-del-capítulo-4.html#cb160-43" aria-hidden="true" tabindex="-1"></a><span class="co"># 4  1.32    7.08    0.50 5555.00    0.50</span></span>
+<span id="cb160-44"><a href="ejercicios-del-capítulo-4.html#cb160-44" aria-hidden="true" tabindex="-1"></a><span class="co"># 5  4.61 5555.00      NA    3.79    7.08</span></span>
+<span id="cb160-45"><a href="ejercicios-del-capítulo-4.html#cb160-45" aria-hidden="true" tabindex="-1"></a><span class="co"># 6    NA    7.08    5.43    5.43      NA</span></span>
+<span id="cb160-46"><a href="ejercicios-del-capítulo-4.html#cb160-46" aria-hidden="true" tabindex="-1"></a><span class="co"># 7  3.79    7.08    3.79    3.79    7.08</span></span>
+<span id="cb160-47"><a href="ejercicios-del-capítulo-4.html#cb160-47" aria-hidden="true" tabindex="-1"></a><span class="co"># 8  2.97    2.14 5555.00      NA    4.61</span></span>
+<span id="cb160-48"><a href="ejercicios-del-capítulo-4.html#cb160-48" aria-hidden="true" tabindex="-1"></a><span class="co"># 9  4.61    6.26    7.90    4.61    3.79</span></span>
+<span id="cb160-49"><a href="ejercicios-del-capítulo-4.html#cb160-49" aria-hidden="true" tabindex="-1"></a><span class="co"># 10 7.08    7.90    5.43    7.08    7.08</span></span>
+<span id="cb160-50"><a href="ejercicios-del-capítulo-4.html#cb160-50" aria-hidden="true" tabindex="-1"></a><span class="co"># 11 7.90    5.43    7.08    1.32    7.90</span></span>
+<span id="cb160-51"><a href="ejercicios-del-capítulo-4.html#cb160-51" aria-hidden="true" tabindex="-1"></a><span class="co"># 12   NA    7.90    7.08    3.79 5555.00</span></span></code></pre></div>
 <ol style="list-style-type: decimal">
 <li>Utilizando la base de datos DF creada inicialmente en el ejercicio 2, modifica la función <code>cambiarNA()</code> para que no solo cambie <code>-999</code> a <code>NA</code>, sino que cambie cualquier valor que tú le proporciones con un argumento. Llama a esta función <code>cambiarNA2()</code>. Utilízala para reemplazar los valores <code>5555</code> a <code>NA</code>.</li>
 </ol>
 <p>Solución:</p>
-<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="ejercicios-del-capítulo-4.html#cb162-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear la función con un argumento extra que te </span></span>
-<span id="cb162-2"><a href="ejercicios-del-capítulo-4.html#cb162-2" aria-hidden="true" tabindex="-1"></a><span class="co"># permita modificar el número a reemplazar por NA </span></span>
-<span id="cb162-3"><a href="ejercicios-del-capítulo-4.html#cb162-3" aria-hidden="true" tabindex="-1"></a>cambiarNA2 <span class="ot">&lt;-</span> <span class="cf">function</span>(x, valor) {</span>
-<span id="cb162-4"><a href="ejercicios-del-capítulo-4.html#cb162-4" aria-hidden="true" tabindex="-1"></a>  x[x <span class="sc">==</span> valor] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
-<span id="cb162-5"><a href="ejercicios-del-capítulo-4.html#cb162-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(x)</span>
-<span id="cb162-6"><a href="ejercicios-del-capítulo-4.html#cb162-6" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb162-7"><a href="ejercicios-del-capítulo-4.html#cb162-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb162-8"><a href="ejercicios-del-capítulo-4.html#cb162-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Usar la función</span></span>
-<span id="cb162-9"><a href="ejercicios-del-capítulo-4.html#cb162-9" aria-hidden="true" tabindex="-1"></a><span class="fu">cambiarNA2</span>(DF, <span class="dv">5555</span>)</span>
-<span id="cb162-10"><a href="ejercicios-del-capítulo-4.html#cb162-10" aria-hidden="true" tabindex="-1"></a><span class="co">#       Var1    Var2    Var3    Var4    Var5</span></span>
-<span id="cb162-11"><a href="ejercicios-del-capítulo-4.html#cb162-11" aria-hidden="true" tabindex="-1"></a><span class="co"># 1     2.14    3.79    7.08    7.90    6.26</span></span>
-<span id="cb162-12"><a href="ejercicios-del-capítulo-4.html#cb162-12" aria-hidden="true" tabindex="-1"></a><span class="co"># 2     2.14    2.14    2.14    5.43      NA</span></span>
-<span id="cb162-13"><a href="ejercicios-del-capítulo-4.html#cb162-13" aria-hidden="true" tabindex="-1"></a><span class="co"># 3     7.90 -999.00    2.97 -999.00    1.32</span></span>
-<span id="cb162-14"><a href="ejercicios-del-capítulo-4.html#cb162-14" aria-hidden="true" tabindex="-1"></a><span class="co"># 4     1.32    7.08    0.50      NA    0.50</span></span>
-<span id="cb162-15"><a href="ejercicios-del-capítulo-4.html#cb162-15" aria-hidden="true" tabindex="-1"></a><span class="co"># 5     4.61      NA -999.00    3.79    7.08</span></span>
-<span id="cb162-16"><a href="ejercicios-del-capítulo-4.html#cb162-16" aria-hidden="true" tabindex="-1"></a><span class="co"># 6  -999.00    7.08    5.43    5.43 -999.00</span></span>
-<span id="cb162-17"><a href="ejercicios-del-capítulo-4.html#cb162-17" aria-hidden="true" tabindex="-1"></a><span class="co"># 7     3.79    7.08    3.79    3.79    7.08</span></span>
-<span id="cb162-18"><a href="ejercicios-del-capítulo-4.html#cb162-18" aria-hidden="true" tabindex="-1"></a><span class="co"># 8     2.97    2.14      NA -999.00    4.61</span></span>
-<span id="cb162-19"><a href="ejercicios-del-capítulo-4.html#cb162-19" aria-hidden="true" tabindex="-1"></a><span class="co"># 9     4.61    6.26    7.90    4.61    3.79</span></span>
-<span id="cb162-20"><a href="ejercicios-del-capítulo-4.html#cb162-20" aria-hidden="true" tabindex="-1"></a><span class="co"># 10    7.08    7.90    5.43    7.08    7.08</span></span>
-<span id="cb162-21"><a href="ejercicios-del-capítulo-4.html#cb162-21" aria-hidden="true" tabindex="-1"></a><span class="co"># 11    7.90    5.43    7.08    1.32    7.90</span></span>
-<span id="cb162-22"><a href="ejercicios-del-capítulo-4.html#cb162-22" aria-hidden="true" tabindex="-1"></a><span class="co"># 12 -999.00    7.90    7.08    3.79      NA</span></span></code></pre></div>
+<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb161-1"><a href="ejercicios-del-capítulo-4.html#cb161-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear la función con un argumento extra que te </span></span>
+<span id="cb161-2"><a href="ejercicios-del-capítulo-4.html#cb161-2" aria-hidden="true" tabindex="-1"></a><span class="co"># permita modificar el número a reemplazar por NA </span></span>
+<span id="cb161-3"><a href="ejercicios-del-capítulo-4.html#cb161-3" aria-hidden="true" tabindex="-1"></a>cambiarNA2 <span class="ot">&lt;-</span> <span class="cf">function</span>(x, valor) {</span>
+<span id="cb161-4"><a href="ejercicios-del-capítulo-4.html#cb161-4" aria-hidden="true" tabindex="-1"></a>  x[x <span class="sc">==</span> valor] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb161-5"><a href="ejercicios-del-capítulo-4.html#cb161-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(x)</span>
+<span id="cb161-6"><a href="ejercicios-del-capítulo-4.html#cb161-6" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb161-7"><a href="ejercicios-del-capítulo-4.html#cb161-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb161-8"><a href="ejercicios-del-capítulo-4.html#cb161-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Usar la función</span></span>
+<span id="cb161-9"><a href="ejercicios-del-capítulo-4.html#cb161-9" aria-hidden="true" tabindex="-1"></a><span class="fu">cambiarNA2</span>(DF, <span class="dv">5555</span>)</span>
+<span id="cb161-10"><a href="ejercicios-del-capítulo-4.html#cb161-10" aria-hidden="true" tabindex="-1"></a><span class="co">#       Var1    Var2    Var3    Var4    Var5</span></span>
+<span id="cb161-11"><a href="ejercicios-del-capítulo-4.html#cb161-11" aria-hidden="true" tabindex="-1"></a><span class="co"># 1     2.14    3.79    7.08    7.90    6.26</span></span>
+<span id="cb161-12"><a href="ejercicios-del-capítulo-4.html#cb161-12" aria-hidden="true" tabindex="-1"></a><span class="co"># 2     2.14    2.14    2.14    5.43      NA</span></span>
+<span id="cb161-13"><a href="ejercicios-del-capítulo-4.html#cb161-13" aria-hidden="true" tabindex="-1"></a><span class="co"># 3     7.90 -999.00    2.97 -999.00    1.32</span></span>
+<span id="cb161-14"><a href="ejercicios-del-capítulo-4.html#cb161-14" aria-hidden="true" tabindex="-1"></a><span class="co"># 4     1.32    7.08    0.50      NA    0.50</span></span>
+<span id="cb161-15"><a href="ejercicios-del-capítulo-4.html#cb161-15" aria-hidden="true" tabindex="-1"></a><span class="co"># 5     4.61      NA -999.00    3.79    7.08</span></span>
+<span id="cb161-16"><a href="ejercicios-del-capítulo-4.html#cb161-16" aria-hidden="true" tabindex="-1"></a><span class="co"># 6  -999.00    7.08    5.43    5.43 -999.00</span></span>
+<span id="cb161-17"><a href="ejercicios-del-capítulo-4.html#cb161-17" aria-hidden="true" tabindex="-1"></a><span class="co"># 7     3.79    7.08    3.79    3.79    7.08</span></span>
+<span id="cb161-18"><a href="ejercicios-del-capítulo-4.html#cb161-18" aria-hidden="true" tabindex="-1"></a><span class="co"># 8     2.97    2.14      NA -999.00    4.61</span></span>
+<span id="cb161-19"><a href="ejercicios-del-capítulo-4.html#cb161-19" aria-hidden="true" tabindex="-1"></a><span class="co"># 9     4.61    6.26    7.90    4.61    3.79</span></span>
+<span id="cb161-20"><a href="ejercicios-del-capítulo-4.html#cb161-20" aria-hidden="true" tabindex="-1"></a><span class="co"># 10    7.08    7.90    5.43    7.08    7.08</span></span>
+<span id="cb161-21"><a href="ejercicios-del-capítulo-4.html#cb161-21" aria-hidden="true" tabindex="-1"></a><span class="co"># 11    7.90    5.43    7.08    1.32    7.90</span></span>
+<span id="cb161-22"><a href="ejercicios-del-capítulo-4.html#cb161-22" aria-hidden="true" tabindex="-1"></a><span class="co"># 12 -999.00    7.90    7.08    3.79      NA</span></span></code></pre></div>
 <ol style="list-style-type: decimal">
 <li>Utilizando la base de datos DF creada inicialmente en el ejercicio 2, modifica la función <code>cambiarNA2()</code> de tal manera que te permita definir más de un valor (un vector numérico) como elementos a ser reemplazados por <code>NA</code>. Llama a esta función <code>cambiarNA3()</code>. Cambia por <code>NA</code> los valores <code>-999</code> y <code>5555</code>. Pista: Esta función deberá contener un loop para aplicarle la función de cambio por NA a un elemento del vector a la vez en cada iteración.</li>
 </ol>
 <p>Solución:</p>
-<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="ejercicios-del-capítulo-4.html#cb163-1" aria-hidden="true" tabindex="-1"></a><span class="do">### Crear la función con un argumento que admita </span></span>
-<span id="cb163-2"><a href="ejercicios-del-capítulo-4.html#cb163-2" aria-hidden="true" tabindex="-1"></a><span class="do">### un vector de varios elementos a cambiar por NA</span></span>
-<span id="cb163-3"><a href="ejercicios-del-capítulo-4.html#cb163-3" aria-hidden="true" tabindex="-1"></a>cambiarNA3 <span class="ot">&lt;-</span> <span class="cf">function</span>(x, vector) {</span>
-<span id="cb163-4"><a href="ejercicios-del-capítulo-4.html#cb163-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_along</span>(vector)) {</span>
-<span id="cb163-5"><a href="ejercicios-del-capítulo-4.html#cb163-5" aria-hidden="true" tabindex="-1"></a>    x[x <span class="sc">==</span> vector[i]] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
-<span id="cb163-6"><a href="ejercicios-del-capítulo-4.html#cb163-6" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb163-7"><a href="ejercicios-del-capítulo-4.html#cb163-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(x)</span>
-<span id="cb163-8"><a href="ejercicios-del-capítulo-4.html#cb163-8" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb163-9"><a href="ejercicios-del-capítulo-4.html#cb163-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb163-10"><a href="ejercicios-del-capítulo-4.html#cb163-10" aria-hidden="true" tabindex="-1"></a><span class="do">### Usar la función</span></span>
-<span id="cb163-11"><a href="ejercicios-del-capítulo-4.html#cb163-11" aria-hidden="true" tabindex="-1"></a><span class="fu">cambiarNA3</span>(DF, <span class="fu">c</span>(<span class="dv">5555</span>, <span class="sc">-</span><span class="dv">999</span>))</span>
-<span id="cb163-12"><a href="ejercicios-del-capítulo-4.html#cb163-12" aria-hidden="true" tabindex="-1"></a><span class="co">#    Var1 Var2 Var3 Var4 Var5</span></span>
-<span id="cb163-13"><a href="ejercicios-del-capítulo-4.html#cb163-13" aria-hidden="true" tabindex="-1"></a><span class="co"># 1  2.14 3.79 7.08 7.90 6.26</span></span>
-<span id="cb163-14"><a href="ejercicios-del-capítulo-4.html#cb163-14" aria-hidden="true" tabindex="-1"></a><span class="co"># 2  2.14 2.14 2.14 5.43   NA</span></span>
-<span id="cb163-15"><a href="ejercicios-del-capítulo-4.html#cb163-15" aria-hidden="true" tabindex="-1"></a><span class="co"># 3  7.90   NA 2.97   NA 1.32</span></span>
-<span id="cb163-16"><a href="ejercicios-del-capítulo-4.html#cb163-16" aria-hidden="true" tabindex="-1"></a><span class="co"># 4  1.32 7.08 0.50   NA 0.50</span></span>
-<span id="cb163-17"><a href="ejercicios-del-capítulo-4.html#cb163-17" aria-hidden="true" tabindex="-1"></a><span class="co"># 5  4.61   NA   NA 3.79 7.08</span></span>
-<span id="cb163-18"><a href="ejercicios-del-capítulo-4.html#cb163-18" aria-hidden="true" tabindex="-1"></a><span class="co"># 6    NA 7.08 5.43 5.43   NA</span></span>
-<span id="cb163-19"><a href="ejercicios-del-capítulo-4.html#cb163-19" aria-hidden="true" tabindex="-1"></a><span class="co"># 7  3.79 7.08 3.79 3.79 7.08</span></span>
-<span id="cb163-20"><a href="ejercicios-del-capítulo-4.html#cb163-20" aria-hidden="true" tabindex="-1"></a><span class="co"># 8  2.97 2.14   NA   NA 4.61</span></span>
-<span id="cb163-21"><a href="ejercicios-del-capítulo-4.html#cb163-21" aria-hidden="true" tabindex="-1"></a><span class="co"># 9  4.61 6.26 7.90 4.61 3.79</span></span>
-<span id="cb163-22"><a href="ejercicios-del-capítulo-4.html#cb163-22" aria-hidden="true" tabindex="-1"></a><span class="co"># 10 7.08 7.90 5.43 7.08 7.08</span></span>
-<span id="cb163-23"><a href="ejercicios-del-capítulo-4.html#cb163-23" aria-hidden="true" tabindex="-1"></a><span class="co"># 11 7.90 5.43 7.08 1.32 7.90</span></span>
-<span id="cb163-24"><a href="ejercicios-del-capítulo-4.html#cb163-24" aria-hidden="true" tabindex="-1"></a><span class="co"># 12   NA 7.90 7.08 3.79   NA</span></span></code></pre></div>
+<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="ejercicios-del-capítulo-4.html#cb162-1" aria-hidden="true" tabindex="-1"></a><span class="do">### Crear la función con un argumento que admita </span></span>
+<span id="cb162-2"><a href="ejercicios-del-capítulo-4.html#cb162-2" aria-hidden="true" tabindex="-1"></a><span class="do">### un vector de varios elementos a cambiar por NA</span></span>
+<span id="cb162-3"><a href="ejercicios-del-capítulo-4.html#cb162-3" aria-hidden="true" tabindex="-1"></a>cambiarNA3 <span class="ot">&lt;-</span> <span class="cf">function</span>(x, vector) {</span>
+<span id="cb162-4"><a href="ejercicios-del-capítulo-4.html#cb162-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_along</span>(vector)) {</span>
+<span id="cb162-5"><a href="ejercicios-del-capítulo-4.html#cb162-5" aria-hidden="true" tabindex="-1"></a>    x[x <span class="sc">==</span> vector[i]] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb162-6"><a href="ejercicios-del-capítulo-4.html#cb162-6" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb162-7"><a href="ejercicios-del-capítulo-4.html#cb162-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(x)</span>
+<span id="cb162-8"><a href="ejercicios-del-capítulo-4.html#cb162-8" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb162-9"><a href="ejercicios-del-capítulo-4.html#cb162-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb162-10"><a href="ejercicios-del-capítulo-4.html#cb162-10" aria-hidden="true" tabindex="-1"></a><span class="do">### Usar la función</span></span>
+<span id="cb162-11"><a href="ejercicios-del-capítulo-4.html#cb162-11" aria-hidden="true" tabindex="-1"></a><span class="fu">cambiarNA3</span>(DF, <span class="fu">c</span>(<span class="dv">5555</span>, <span class="sc">-</span><span class="dv">999</span>))</span>
+<span id="cb162-12"><a href="ejercicios-del-capítulo-4.html#cb162-12" aria-hidden="true" tabindex="-1"></a><span class="co">#    Var1 Var2 Var3 Var4 Var5</span></span>
+<span id="cb162-13"><a href="ejercicios-del-capítulo-4.html#cb162-13" aria-hidden="true" tabindex="-1"></a><span class="co"># 1  2.14 3.79 7.08 7.90 6.26</span></span>
+<span id="cb162-14"><a href="ejercicios-del-capítulo-4.html#cb162-14" aria-hidden="true" tabindex="-1"></a><span class="co"># 2  2.14 2.14 2.14 5.43   NA</span></span>
+<span id="cb162-15"><a href="ejercicios-del-capítulo-4.html#cb162-15" aria-hidden="true" tabindex="-1"></a><span class="co"># 3  7.90   NA 2.97   NA 1.32</span></span>
+<span id="cb162-16"><a href="ejercicios-del-capítulo-4.html#cb162-16" aria-hidden="true" tabindex="-1"></a><span class="co"># 4  1.32 7.08 0.50   NA 0.50</span></span>
+<span id="cb162-17"><a href="ejercicios-del-capítulo-4.html#cb162-17" aria-hidden="true" tabindex="-1"></a><span class="co"># 5  4.61   NA   NA 3.79 7.08</span></span>
+<span id="cb162-18"><a href="ejercicios-del-capítulo-4.html#cb162-18" aria-hidden="true" tabindex="-1"></a><span class="co"># 6    NA 7.08 5.43 5.43   NA</span></span>
+<span id="cb162-19"><a href="ejercicios-del-capítulo-4.html#cb162-19" aria-hidden="true" tabindex="-1"></a><span class="co"># 7  3.79 7.08 3.79 3.79 7.08</span></span>
+<span id="cb162-20"><a href="ejercicios-del-capítulo-4.html#cb162-20" aria-hidden="true" tabindex="-1"></a><span class="co"># 8  2.97 2.14   NA   NA 4.61</span></span>
+<span id="cb162-21"><a href="ejercicios-del-capítulo-4.html#cb162-21" aria-hidden="true" tabindex="-1"></a><span class="co"># 9  4.61 6.26 7.90 4.61 3.79</span></span>
+<span id="cb162-22"><a href="ejercicios-del-capítulo-4.html#cb162-22" aria-hidden="true" tabindex="-1"></a><span class="co"># 10 7.08 7.90 5.43 7.08 7.08</span></span>
+<span id="cb162-23"><a href="ejercicios-del-capítulo-4.html#cb162-23" aria-hidden="true" tabindex="-1"></a><span class="co"># 11 7.90 5.43 7.08 1.32 7.90</span></span>
+<span id="cb162-24"><a href="ejercicios-del-capítulo-4.html#cb162-24" aria-hidden="true" tabindex="-1"></a><span class="co"># 12   NA 7.90 7.08 3.79   NA</span></span></code></pre></div>
 <ol style="list-style-type: decimal">
 <li>Crea un loop <code>for</code> que itere sobre los números del 1 al 50 y calcule el cubo de cada número, de manera que los resultados se vayan guardando en un vector llamado <code>preliminar</code>. Luego, crea un segundo loop que te permita identificar y almacenar solamente los números menores a la mediana <code>median()</code> del conjunto de datos <code>preliminar</code> en un nuevo vector llamado <code>final</code>.</li>
 </ol>
 <p>Solución:</p>
-<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="ejercicios-del-capítulo-4.html#cb164-1" aria-hidden="true" tabindex="-1"></a><span class="do">### Secuencia numérica</span></span>
-<span id="cb164-2"><a href="ejercicios-del-capítulo-4.html#cb164-2" aria-hidden="true" tabindex="-1"></a>secuencia <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">50</span></span>
-<span id="cb164-3"><a href="ejercicios-del-capítulo-4.html#cb164-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb164-4"><a href="ejercicios-del-capítulo-4.html#cb164-4" aria-hidden="true" tabindex="-1"></a><span class="do">### Primer loop con for</span></span>
-<span id="cb164-5"><a href="ejercicios-del-capítulo-4.html#cb164-5" aria-hidden="true" tabindex="-1"></a>preliminar <span class="ot">&lt;-</span> <span class="fu">c</span>()</span>
-<span id="cb164-6"><a href="ejercicios-del-capítulo-4.html#cb164-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="fu">seq_along</span>(secuencia)){</span>
-<span id="cb164-7"><a href="ejercicios-del-capítulo-4.html#cb164-7" aria-hidden="true" tabindex="-1"></a>  preliminar[i] <span class="ot">&lt;-</span> secuencia[i]<span class="sc">^</span><span class="dv">3</span></span>
-<span id="cb164-8"><a href="ejercicios-del-capítulo-4.html#cb164-8" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb164-9"><a href="ejercicios-del-capítulo-4.html#cb164-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb164-10"><a href="ejercicios-del-capítulo-4.html#cb164-10" aria-hidden="true" tabindex="-1"></a><span class="do">### Resultado preliminar</span></span>
-<span id="cb164-11"><a href="ejercicios-del-capítulo-4.html#cb164-11" aria-hidden="true" tabindex="-1"></a>preliminar</span>
-<span id="cb164-12"><a href="ejercicios-del-capítulo-4.html#cb164-12" aria-hidden="true" tabindex="-1"></a><span class="co">#  [1]      1      8     27     64    125    216    343    512    729   1000   1331</span></span>
-<span id="cb164-13"><a href="ejercicios-del-capítulo-4.html#cb164-13" aria-hidden="true" tabindex="-1"></a><span class="co"># [12]   1728   2197   2744   3375   4096   4913   5832   6859   8000   9261  10648</span></span>
-<span id="cb164-14"><a href="ejercicios-del-capítulo-4.html#cb164-14" aria-hidden="true" tabindex="-1"></a><span class="co"># [23]  12167  13824  15625  17576  19683  21952  24389  27000  29791  32768  35937</span></span>
-<span id="cb164-15"><a href="ejercicios-del-capítulo-4.html#cb164-15" aria-hidden="true" tabindex="-1"></a><span class="co"># [34]  39304  42875  46656  50653  54872  59319  64000  68921  74088  79507  85184</span></span>
-<span id="cb164-16"><a href="ejercicios-del-capítulo-4.html#cb164-16" aria-hidden="true" tabindex="-1"></a><span class="co"># [45]  91125  97336 103823 110592 117649 125000</span></span>
-<span id="cb164-17"><a href="ejercicios-del-capítulo-4.html#cb164-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb164-18"><a href="ejercicios-del-capítulo-4.html#cb164-18" aria-hidden="true" tabindex="-1"></a><span class="do">### Segundo loop con for</span></span>
-<span id="cb164-19"><a href="ejercicios-del-capítulo-4.html#cb164-19" aria-hidden="true" tabindex="-1"></a>final <span class="ot">&lt;-</span> <span class="fu">c</span>()</span>
-<span id="cb164-20"><a href="ejercicios-del-capítulo-4.html#cb164-20" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>( i <span class="cf">in</span> <span class="fu">seq_along</span>(preliminar)) {</span>
-<span id="cb164-21"><a href="ejercicios-del-capítulo-4.html#cb164-21" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(preliminar[i] <span class="sc">&lt;=</span> <span class="fu">median</span>(preliminar)){</span>
-<span id="cb164-22"><a href="ejercicios-del-capítulo-4.html#cb164-22" aria-hidden="true" tabindex="-1"></a>    final <span class="ot">&lt;-</span> <span class="fu">c</span>(final, preliminar[i])</span>
-<span id="cb164-23"><a href="ejercicios-del-capítulo-4.html#cb164-23" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb164-24"><a href="ejercicios-del-capítulo-4.html#cb164-24" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb164-25"><a href="ejercicios-del-capítulo-4.html#cb164-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb164-26"><a href="ejercicios-del-capítulo-4.html#cb164-26" aria-hidden="true" tabindex="-1"></a><span class="do">### Resultado final</span></span>
-<span id="cb164-27"><a href="ejercicios-del-capítulo-4.html#cb164-27" aria-hidden="true" tabindex="-1"></a>final</span>
-<span id="cb164-28"><a href="ejercicios-del-capítulo-4.html#cb164-28" aria-hidden="true" tabindex="-1"></a><span class="co">#  [1]     1     8    27    64   125   216   343   512   729  1000  1331  1728  2197</span></span>
-<span id="cb164-29"><a href="ejercicios-del-capítulo-4.html#cb164-29" aria-hidden="true" tabindex="-1"></a><span class="co"># [14]  2744  3375  4096  4913  5832  6859  8000  9261 10648 12167 13824 15625</span></span></code></pre></div>
+<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="ejercicios-del-capítulo-4.html#cb163-1" aria-hidden="true" tabindex="-1"></a><span class="do">### Secuencia numérica</span></span>
+<span id="cb163-2"><a href="ejercicios-del-capítulo-4.html#cb163-2" aria-hidden="true" tabindex="-1"></a>secuencia <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">50</span></span>
+<span id="cb163-3"><a href="ejercicios-del-capítulo-4.html#cb163-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb163-4"><a href="ejercicios-del-capítulo-4.html#cb163-4" aria-hidden="true" tabindex="-1"></a><span class="do">### Primer loop con for</span></span>
+<span id="cb163-5"><a href="ejercicios-del-capítulo-4.html#cb163-5" aria-hidden="true" tabindex="-1"></a>preliminar <span class="ot">&lt;-</span> <span class="fu">c</span>()</span>
+<span id="cb163-6"><a href="ejercicios-del-capítulo-4.html#cb163-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="fu">seq_along</span>(secuencia)){</span>
+<span id="cb163-7"><a href="ejercicios-del-capítulo-4.html#cb163-7" aria-hidden="true" tabindex="-1"></a>  preliminar[i] <span class="ot">&lt;-</span> secuencia[i]<span class="sc">^</span><span class="dv">3</span></span>
+<span id="cb163-8"><a href="ejercicios-del-capítulo-4.html#cb163-8" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb163-9"><a href="ejercicios-del-capítulo-4.html#cb163-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb163-10"><a href="ejercicios-del-capítulo-4.html#cb163-10" aria-hidden="true" tabindex="-1"></a><span class="do">### Resultado preliminar</span></span>
+<span id="cb163-11"><a href="ejercicios-del-capítulo-4.html#cb163-11" aria-hidden="true" tabindex="-1"></a>preliminar</span>
+<span id="cb163-12"><a href="ejercicios-del-capítulo-4.html#cb163-12" aria-hidden="true" tabindex="-1"></a><span class="co">#  [1]      1      8     27     64    125    216    343    512    729   1000   1331</span></span>
+<span id="cb163-13"><a href="ejercicios-del-capítulo-4.html#cb163-13" aria-hidden="true" tabindex="-1"></a><span class="co"># [12]   1728   2197   2744   3375   4096   4913   5832   6859   8000   9261  10648</span></span>
+<span id="cb163-14"><a href="ejercicios-del-capítulo-4.html#cb163-14" aria-hidden="true" tabindex="-1"></a><span class="co"># [23]  12167  13824  15625  17576  19683  21952  24389  27000  29791  32768  35937</span></span>
+<span id="cb163-15"><a href="ejercicios-del-capítulo-4.html#cb163-15" aria-hidden="true" tabindex="-1"></a><span class="co"># [34]  39304  42875  46656  50653  54872  59319  64000  68921  74088  79507  85184</span></span>
+<span id="cb163-16"><a href="ejercicios-del-capítulo-4.html#cb163-16" aria-hidden="true" tabindex="-1"></a><span class="co"># [45]  91125  97336 103823 110592 117649 125000</span></span>
+<span id="cb163-17"><a href="ejercicios-del-capítulo-4.html#cb163-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb163-18"><a href="ejercicios-del-capítulo-4.html#cb163-18" aria-hidden="true" tabindex="-1"></a><span class="do">### Segundo loop con for</span></span>
+<span id="cb163-19"><a href="ejercicios-del-capítulo-4.html#cb163-19" aria-hidden="true" tabindex="-1"></a>final <span class="ot">&lt;-</span> <span class="fu">c</span>()</span>
+<span id="cb163-20"><a href="ejercicios-del-capítulo-4.html#cb163-20" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>( i <span class="cf">in</span> <span class="fu">seq_along</span>(preliminar)) {</span>
+<span id="cb163-21"><a href="ejercicios-del-capítulo-4.html#cb163-21" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(preliminar[i] <span class="sc">&lt;=</span> <span class="fu">median</span>(preliminar)){</span>
+<span id="cb163-22"><a href="ejercicios-del-capítulo-4.html#cb163-22" aria-hidden="true" tabindex="-1"></a>    final <span class="ot">&lt;-</span> <span class="fu">c</span>(final, preliminar[i])</span>
+<span id="cb163-23"><a href="ejercicios-del-capítulo-4.html#cb163-23" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb163-24"><a href="ejercicios-del-capítulo-4.html#cb163-24" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb163-25"><a href="ejercicios-del-capítulo-4.html#cb163-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb163-26"><a href="ejercicios-del-capítulo-4.html#cb163-26" aria-hidden="true" tabindex="-1"></a><span class="do">### Resultado final</span></span>
+<span id="cb163-27"><a href="ejercicios-del-capítulo-4.html#cb163-27" aria-hidden="true" tabindex="-1"></a>final</span>
+<span id="cb163-28"><a href="ejercicios-del-capítulo-4.html#cb163-28" aria-hidden="true" tabindex="-1"></a><span class="co">#  [1]     1     8    27    64   125   216   343   512   729  1000  1331  1728  2197</span></span>
+<span id="cb163-29"><a href="ejercicios-del-capítulo-4.html#cb163-29" aria-hidden="true" tabindex="-1"></a><span class="co"># [14]  2744  3375  4096  4913  5832  6859  8000  9261 10648 12167 13824 15625</span></span></code></pre></div>
 <ol style="list-style-type: decimal">
-<li>En R ya existe una función para calcular la varianza y es <code>var()</code>. Pero este ejercicio se trata de poner en juego lo que aprendiste sobre programación en R. Teniendo en cuenta que la fórmula matemática de la varianza poblacional, con denominador <span class="math inline">\(n\)</span>:</li>
+<li>En R ya existe una función para calcular la varianza y es <code>var()</code>. Pero este ejercicio se trata de poner en juego lo que aprendiste sobre programación en R. La fórmula matemática de la varianza poblacional, con denominador <span class="math inline">\(n\)</span> (ver ecuación <a href="ejercicios-del-capítulo-4.html#eq:uno">(14.1)</a>). Pero la función <code>var()</code> de R contiene la fórmula matemática para calcular la varianza de muestras, no de poblaciones enteras. La fórmula matemática de la varianza muestral que usa R tiene como denominador <span class="math inline">\(n-1\)</span> (ver ecuación <a href="ejercicios-del-capítulo-4.html#eq:dos">(14.2)</a>). Crea una función llamada <code>var2()</code> que calcule la varianza del siguiente vector:</li>
 </ol>
-<p><span class="math display">\[ \sigma^2 = \frac{1}{n}*{\displaystyle\sum_{i=1}^{n}(x_i - \mu)^2}\]</span></p>
-<p>Pero la función <code>var()</code> está creada para calcular la varianza de muestras no de poblaciones enteras. La fórmula matemática de la varianza muestral que usa R tiene como denominador <span class="math inline">\(n-1\)</span>:</p>
-<pre><code>$$ \sigma^2 = \frac{1}{n-1}*{\displaystyle\sum_{i=1}^{n}(x_i - \mu)^2}$$</code></pre>
-<p>Crea una función llamada <code>var2()</code> que calcule la varianza del siguiente vector:</p>
-<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb166-1"><a href="ejercicios-del-capítulo-4.html#cb166-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
-<span id="cb166-2"><a href="ejercicios-del-capítulo-4.html#cb166-2" aria-hidden="true" tabindex="-1"></a>vector <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">50</span>, <span class="dv">21</span>, <span class="fl">1.6</span>)</span></code></pre></div>
+<p><span class="math display" id="eq:uno">\[\begin{align}
+  \sigma^2 = \frac{1}{n}*{\displaystyle\sum_{i=1}^{n}(x_i - \mu)^2} \tag{14.1}
+  \end{align}\]</span></p>
+<p><span class="math display" id="eq:dos">\[\begin{equation}
+  \sigma^2 = \frac{1}{n-1}*{\displaystyle\sum_{i=1}^{n}(x_i - \mu)^2} \tag{14.2}
+  \end{equation}\]</span></p>
+<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="ejercicios-del-capítulo-4.html#cb164-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb164-2"><a href="ejercicios-del-capítulo-4.html#cb164-2" aria-hidden="true" tabindex="-1"></a>vector <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">50</span>, <span class="dv">21</span>, <span class="fl">1.6</span>)</span></code></pre></div>
 <p>Finalmente, compara tus resultados con los obtenidos por <code>var()</code>.</p>
 <p>Solución:</p>
 <p>Dentro de la función necesitas:</p>
@@ -615,68 +617,68 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Sumar todos los cuadrados de la resta del elemento y el promedio.</li>
 <li>Identificar la longitud de <code>vector</code>(n). Y dividir la sumatoria entre <code>n</code>.</li>
 </ul>
-<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="ejercicios-del-capítulo-4.html#cb167-1" aria-hidden="true" tabindex="-1"></a><span class="do">### Crear la función</span></span>
-<span id="cb167-2"><a href="ejercicios-del-capítulo-4.html#cb167-2" aria-hidden="true" tabindex="-1"></a>var2 <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
-<span id="cb167-3"><a href="ejercicios-del-capítulo-4.html#cb167-3" aria-hidden="true" tabindex="-1"></a>  promedio <span class="ot">&lt;-</span> <span class="fu">mean</span>(x)</span>
-<span id="cb167-4"><a href="ejercicios-del-capítulo-4.html#cb167-4" aria-hidden="true" tabindex="-1"></a>  cuadrados <span class="ot">&lt;-</span> <span class="fu">c</span>()</span>
-<span id="cb167-5"><a href="ejercicios-del-capítulo-4.html#cb167-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span>(i <span class="cf">in</span> <span class="fu">seq_along</span>(x)) {</span>
-<span id="cb167-6"><a href="ejercicios-del-capítulo-4.html#cb167-6" aria-hidden="true" tabindex="-1"></a>    valor <span class="ot">&lt;-</span> (x[i] <span class="sc">-</span> promedio)<span class="sc">^</span><span class="dv">2</span></span>
-<span id="cb167-7"><a href="ejercicios-del-capítulo-4.html#cb167-7" aria-hidden="true" tabindex="-1"></a>    cuadrados <span class="ot">&lt;-</span> <span class="fu">c</span>(cuadrados, valor)</span>
-<span id="cb167-8"><a href="ejercicios-del-capítulo-4.html#cb167-8" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb167-9"><a href="ejercicios-del-capítulo-4.html#cb167-9" aria-hidden="true" tabindex="-1"></a>  n <span class="ot">&lt;-</span> <span class="fu">length</span>(x)</span>
-<span id="cb167-10"><a href="ejercicios-del-capítulo-4.html#cb167-10" aria-hidden="true" tabindex="-1"></a>  sumatoria <span class="ot">&lt;-</span> <span class="fu">sum</span>(cuadrados)</span>
-<span id="cb167-11"><a href="ejercicios-del-capítulo-4.html#cb167-11" aria-hidden="true" tabindex="-1"></a>  varianza <span class="ot">&lt;-</span> sumatoria <span class="sc">/</span> (n<span class="dv">-1</span>)</span>
-<span id="cb167-12"><a href="ejercicios-del-capítulo-4.html#cb167-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(varianza)</span>
-<span id="cb167-13"><a href="ejercicios-del-capítulo-4.html#cb167-13" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb167-14"><a href="ejercicios-del-capítulo-4.html#cb167-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb167-15"><a href="ejercicios-del-capítulo-4.html#cb167-15" aria-hidden="true" tabindex="-1"></a><span class="do">### Usar la función</span></span>
-<span id="cb167-16"><a href="ejercicios-del-capítulo-4.html#cb167-16" aria-hidden="true" tabindex="-1"></a><span class="fu">var2</span>(vector)</span>
-<span id="cb167-17"><a href="ejercicios-del-capítulo-4.html#cb167-17" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] 2.195</span></span>
-<span id="cb167-18"><a href="ejercicios-del-capítulo-4.html#cb167-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb167-19"><a href="ejercicios-del-capítulo-4.html#cb167-19" aria-hidden="true" tabindex="-1"></a><span class="do">### Comparar con la el resultado de var()</span></span>
-<span id="cb167-20"><a href="ejercicios-del-capítulo-4.html#cb167-20" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(vector)</span>
-<span id="cb167-21"><a href="ejercicios-del-capítulo-4.html#cb167-21" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] 2.195</span></span></code></pre></div>
+<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb165-1"><a href="ejercicios-del-capítulo-4.html#cb165-1" aria-hidden="true" tabindex="-1"></a><span class="do">### Crear la función</span></span>
+<span id="cb165-2"><a href="ejercicios-del-capítulo-4.html#cb165-2" aria-hidden="true" tabindex="-1"></a>var2 <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb165-3"><a href="ejercicios-del-capítulo-4.html#cb165-3" aria-hidden="true" tabindex="-1"></a>  promedio <span class="ot">&lt;-</span> <span class="fu">mean</span>(x)</span>
+<span id="cb165-4"><a href="ejercicios-del-capítulo-4.html#cb165-4" aria-hidden="true" tabindex="-1"></a>  cuadrados <span class="ot">&lt;-</span> <span class="fu">c</span>()</span>
+<span id="cb165-5"><a href="ejercicios-del-capítulo-4.html#cb165-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span>(i <span class="cf">in</span> <span class="fu">seq_along</span>(x)) {</span>
+<span id="cb165-6"><a href="ejercicios-del-capítulo-4.html#cb165-6" aria-hidden="true" tabindex="-1"></a>    valor <span class="ot">&lt;-</span> (x[i] <span class="sc">-</span> promedio)<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb165-7"><a href="ejercicios-del-capítulo-4.html#cb165-7" aria-hidden="true" tabindex="-1"></a>    cuadrados <span class="ot">&lt;-</span> <span class="fu">c</span>(cuadrados, valor)</span>
+<span id="cb165-8"><a href="ejercicios-del-capítulo-4.html#cb165-8" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb165-9"><a href="ejercicios-del-capítulo-4.html#cb165-9" aria-hidden="true" tabindex="-1"></a>  n <span class="ot">&lt;-</span> <span class="fu">length</span>(x)</span>
+<span id="cb165-10"><a href="ejercicios-del-capítulo-4.html#cb165-10" aria-hidden="true" tabindex="-1"></a>  sumatoria <span class="ot">&lt;-</span> <span class="fu">sum</span>(cuadrados)</span>
+<span id="cb165-11"><a href="ejercicios-del-capítulo-4.html#cb165-11" aria-hidden="true" tabindex="-1"></a>  varianza <span class="ot">&lt;-</span> sumatoria <span class="sc">/</span> (n<span class="dv">-1</span>)</span>
+<span id="cb165-12"><a href="ejercicios-del-capítulo-4.html#cb165-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(varianza)</span>
+<span id="cb165-13"><a href="ejercicios-del-capítulo-4.html#cb165-13" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb165-14"><a href="ejercicios-del-capítulo-4.html#cb165-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb165-15"><a href="ejercicios-del-capítulo-4.html#cb165-15" aria-hidden="true" tabindex="-1"></a><span class="do">### Usar la función</span></span>
+<span id="cb165-16"><a href="ejercicios-del-capítulo-4.html#cb165-16" aria-hidden="true" tabindex="-1"></a><span class="fu">var2</span>(vector)</span>
+<span id="cb165-17"><a href="ejercicios-del-capítulo-4.html#cb165-17" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] 2.195</span></span>
+<span id="cb165-18"><a href="ejercicios-del-capítulo-4.html#cb165-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb165-19"><a href="ejercicios-del-capítulo-4.html#cb165-19" aria-hidden="true" tabindex="-1"></a><span class="do">### Comparar con la el resultado de var()</span></span>
+<span id="cb165-20"><a href="ejercicios-del-capítulo-4.html#cb165-20" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(vector)</span>
+<span id="cb165-21"><a href="ejercicios-del-capítulo-4.html#cb165-21" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] 2.195</span></span></code></pre></div>
 <p>Si necesitas en algún momento, ya conoces cómo crear la fórmula de la varianza poblacional en R.</p>
 <ol style="list-style-type: decimal">
 <li>Carga la base de datos npk. Usando una función de la familia apply(), calcula la el promedio, mediana y desviación estándar de la columna <code>yield</code> para cada categoría (numérica) de la columna <code>block</code>. Con ello, se conocerá el promedio de producción que se obtuvo en cada bloque para un estudio de mejora fitogenética:</li>
 </ol>
-<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="ejercicios-del-capítulo-4.html#cb168-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;npk&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb166-1"><a href="ejercicios-del-capítulo-4.html#cb166-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;npk&quot;</span>)</span></code></pre></div>
 <p>Solución:</p>
-<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="ejercicios-del-capítulo-4.html#cb169-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tapply</span>(npk<span class="sc">$</span>yield, npk<span class="sc">$</span>block, <span class="at">FUN =</span> mean)</span>
-<span id="cb169-2"><a href="ejercicios-del-capítulo-4.html#cb169-2" aria-hidden="true" tabindex="-1"></a><span class="co">#     1     2     3     4     5     6 </span></span>
-<span id="cb169-3"><a href="ejercicios-del-capítulo-4.html#cb169-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 54.02 57.45 60.77 50.12 50.52 56.35</span></span>
-<span id="cb169-4"><a href="ejercicios-del-capítulo-4.html#cb169-4" aria-hidden="true" tabindex="-1"></a><span class="fu">tapply</span>(npk<span class="sc">$</span>yield, npk<span class="sc">$</span>block, <span class="at">FUN =</span> median)</span>
-<span id="cb169-5"><a href="ejercicios-del-capítulo-4.html#cb169-5" aria-hidden="true" tabindex="-1"></a><span class="co">#     1     2     3     4     5     6 </span></span>
-<span id="cb169-6"><a href="ejercicios-del-capítulo-4.html#cb169-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 53.25 57.25 59.30 47.15 50.65 56.60</span></span>
-<span id="cb169-7"><a href="ejercicios-del-capítulo-4.html#cb169-7" aria-hidden="true" tabindex="-1"></a><span class="fu">tapply</span>(npk<span class="sc">$</span>yield, npk<span class="sc">$</span>block, <span class="at">FUN =</span> sd)</span>
-<span id="cb169-8"><a href="ejercicios-del-capítulo-4.html#cb169-8" aria-hidden="true" tabindex="-1"></a><span class="co">#     1     2     3     4     5     6 </span></span>
-<span id="cb169-9"><a href="ejercicios-del-capítulo-4.html#cb169-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 7.269 2.044 6.790 8.150 1.486 2.435</span></span></code></pre></div>
+<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="ejercicios-del-capítulo-4.html#cb167-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tapply</span>(npk<span class="sc">$</span>yield, npk<span class="sc">$</span>block, <span class="at">FUN =</span> mean)</span>
+<span id="cb167-2"><a href="ejercicios-del-capítulo-4.html#cb167-2" aria-hidden="true" tabindex="-1"></a><span class="co">#     1     2     3     4     5     6 </span></span>
+<span id="cb167-3"><a href="ejercicios-del-capítulo-4.html#cb167-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 54.02 57.45 60.77 50.12 50.52 56.35</span></span>
+<span id="cb167-4"><a href="ejercicios-del-capítulo-4.html#cb167-4" aria-hidden="true" tabindex="-1"></a><span class="fu">tapply</span>(npk<span class="sc">$</span>yield, npk<span class="sc">$</span>block, <span class="at">FUN =</span> median)</span>
+<span id="cb167-5"><a href="ejercicios-del-capítulo-4.html#cb167-5" aria-hidden="true" tabindex="-1"></a><span class="co">#     1     2     3     4     5     6 </span></span>
+<span id="cb167-6"><a href="ejercicios-del-capítulo-4.html#cb167-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 53.25 57.25 59.30 47.15 50.65 56.60</span></span>
+<span id="cb167-7"><a href="ejercicios-del-capítulo-4.html#cb167-7" aria-hidden="true" tabindex="-1"></a><span class="fu">tapply</span>(npk<span class="sc">$</span>yield, npk<span class="sc">$</span>block, <span class="at">FUN =</span> sd)</span>
+<span id="cb167-8"><a href="ejercicios-del-capítulo-4.html#cb167-8" aria-hidden="true" tabindex="-1"></a><span class="co">#     1     2     3     4     5     6 </span></span>
+<span id="cb167-9"><a href="ejercicios-del-capítulo-4.html#cb167-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 7.269 2.044 6.790 8.150 1.486 2.435</span></span></code></pre></div>
 <ol style="list-style-type: decimal">
 <li>Ejecuta el siguiente código para crear una lista llamada <code>iris3Lista</code> a partir de la base de datos de ejemplo <code>iris3</code> (un array). Si revisas <code>iris3Lista</code>, notarás que continene 3 elementos, cada uno de ellos es una matriz de datos de cuatro columnas (<code>Sepal L.</code>, <code>Sepal W.</code>, <code>Petal L.</code>, y <code>Petal W.</code>).</li>
 </ol>
-<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="ejercicios-del-capítulo-4.html#cb170-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cargar iris3</span></span>
-<span id="cb170-2"><a href="ejercicios-del-capítulo-4.html#cb170-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;iris3&quot;</span>)</span>
-<span id="cb170-3"><a href="ejercicios-del-capítulo-4.html#cb170-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb170-4"><a href="ejercicios-del-capítulo-4.html#cb170-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Convertirla a lista</span></span>
-<span id="cb170-5"><a href="ejercicios-del-capítulo-4.html#cb170-5" aria-hidden="true" tabindex="-1"></a>iris3Lista <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">setosa =</span> iris3[,,<span class="dv">1</span>],</span>
-<span id="cb170-6"><a href="ejercicios-del-capítulo-4.html#cb170-6" aria-hidden="true" tabindex="-1"></a>                <span class="at">versicolor =</span> iris3[,,<span class="dv">2</span>],</span>
-<span id="cb170-7"><a href="ejercicios-del-capítulo-4.html#cb170-7" aria-hidden="true" tabindex="-1"></a>                <span class="at">virginica =</span> iris3[,,<span class="dv">3</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="ejercicios-del-capítulo-4.html#cb168-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cargar iris3</span></span>
+<span id="cb168-2"><a href="ejercicios-del-capítulo-4.html#cb168-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;iris3&quot;</span>)</span>
+<span id="cb168-3"><a href="ejercicios-del-capítulo-4.html#cb168-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb168-4"><a href="ejercicios-del-capítulo-4.html#cb168-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Convertirla a lista</span></span>
+<span id="cb168-5"><a href="ejercicios-del-capítulo-4.html#cb168-5" aria-hidden="true" tabindex="-1"></a>iris3Lista <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">setosa =</span> iris3[,,<span class="dv">1</span>],</span>
+<span id="cb168-6"><a href="ejercicios-del-capítulo-4.html#cb168-6" aria-hidden="true" tabindex="-1"></a>                <span class="at">versicolor =</span> iris3[,,<span class="dv">2</span>],</span>
+<span id="cb168-7"><a href="ejercicios-del-capítulo-4.html#cb168-7" aria-hidden="true" tabindex="-1"></a>                <span class="at">virginica =</span> iris3[,,<span class="dv">3</span>])</span></code></pre></div>
 <p>Utilizando dos funciones de la familia <code>apply()</code>, calcula el promedio de cada columna de cada elemento de la lista <code>iris3Lista</code>.</p>
 <p>Solución:</p>
-<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb171-1"><a href="ejercicios-del-capítulo-4.html#cb171-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lapply</span>(iris3Lista, <span class="at">FUN =</span> <span class="cf">function</span>(x) {</span>
-<span id="cb171-2"><a href="ejercicios-del-capítulo-4.html#cb171-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">apply</span>(x, <span class="dv">2</span>, mean)</span>
-<span id="cb171-3"><a href="ejercicios-del-capítulo-4.html#cb171-3" aria-hidden="true" tabindex="-1"></a>})</span>
-<span id="cb171-4"><a href="ejercicios-del-capítulo-4.html#cb171-4" aria-hidden="true" tabindex="-1"></a><span class="co"># $setosa</span></span>
-<span id="cb171-5"><a href="ejercicios-del-capítulo-4.html#cb171-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Sepal L. Sepal W. Petal L. Petal W. </span></span>
-<span id="cb171-6"><a href="ejercicios-del-capítulo-4.html#cb171-6" aria-hidden="true" tabindex="-1"></a><span class="co">#    5.006    3.428    1.462    0.246 </span></span>
-<span id="cb171-7"><a href="ejercicios-del-capítulo-4.html#cb171-7" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb171-8"><a href="ejercicios-del-capítulo-4.html#cb171-8" aria-hidden="true" tabindex="-1"></a><span class="co"># $versicolor</span></span>
-<span id="cb171-9"><a href="ejercicios-del-capítulo-4.html#cb171-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Sepal L. Sepal W. Petal L. Petal W. </span></span>
-<span id="cb171-10"><a href="ejercicios-del-capítulo-4.html#cb171-10" aria-hidden="true" tabindex="-1"></a><span class="co">#    5.936    2.770    4.260    1.326 </span></span>
-<span id="cb171-11"><a href="ejercicios-del-capítulo-4.html#cb171-11" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb171-12"><a href="ejercicios-del-capítulo-4.html#cb171-12" aria-hidden="true" tabindex="-1"></a><span class="co"># $virginica</span></span>
-<span id="cb171-13"><a href="ejercicios-del-capítulo-4.html#cb171-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Sepal L. Sepal W. Petal L. Petal W. </span></span>
-<span id="cb171-14"><a href="ejercicios-del-capítulo-4.html#cb171-14" aria-hidden="true" tabindex="-1"></a><span class="co">#    6.588    2.974    5.552    2.026</span></span></code></pre></div>
+<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="ejercicios-del-capítulo-4.html#cb169-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lapply</span>(iris3Lista, <span class="at">FUN =</span> <span class="cf">function</span>(x) {</span>
+<span id="cb169-2"><a href="ejercicios-del-capítulo-4.html#cb169-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">apply</span>(x, <span class="dv">2</span>, mean)</span>
+<span id="cb169-3"><a href="ejercicios-del-capítulo-4.html#cb169-3" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb169-4"><a href="ejercicios-del-capítulo-4.html#cb169-4" aria-hidden="true" tabindex="-1"></a><span class="co"># $setosa</span></span>
+<span id="cb169-5"><a href="ejercicios-del-capítulo-4.html#cb169-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Sepal L. Sepal W. Petal L. Petal W. </span></span>
+<span id="cb169-6"><a href="ejercicios-del-capítulo-4.html#cb169-6" aria-hidden="true" tabindex="-1"></a><span class="co">#    5.006    3.428    1.462    0.246 </span></span>
+<span id="cb169-7"><a href="ejercicios-del-capítulo-4.html#cb169-7" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb169-8"><a href="ejercicios-del-capítulo-4.html#cb169-8" aria-hidden="true" tabindex="-1"></a><span class="co"># $versicolor</span></span>
+<span id="cb169-9"><a href="ejercicios-del-capítulo-4.html#cb169-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Sepal L. Sepal W. Petal L. Petal W. </span></span>
+<span id="cb169-10"><a href="ejercicios-del-capítulo-4.html#cb169-10" aria-hidden="true" tabindex="-1"></a><span class="co">#    5.936    2.770    4.260    1.326 </span></span>
+<span id="cb169-11"><a href="ejercicios-del-capítulo-4.html#cb169-11" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb169-12"><a href="ejercicios-del-capítulo-4.html#cb169-12" aria-hidden="true" tabindex="-1"></a><span class="co"># $virginica</span></span>
+<span id="cb169-13"><a href="ejercicios-del-capítulo-4.html#cb169-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Sepal L. Sepal W. Petal L. Petal W. </span></span>
+<span id="cb169-14"><a href="ejercicios-del-capítulo-4.html#cb169-14" aria-hidden="true" tabindex="-1"></a><span class="co">#    6.588    2.974    5.552    2.026</span></span></code></pre></div>
 </div>
 
 </div>

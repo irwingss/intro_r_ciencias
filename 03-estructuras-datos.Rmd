@@ -2,6 +2,12 @@
 
 La sección básica de R, introdujo la terminología de variables y funciones en lo que respecta a la sintaxis del código en R. En este capítulo, revisaremos todo lo que se debe conocer para manejar estructuras de datos diversas. Estos son los insumos esenciales que ingresarán más adelante en las funciones para poder procesar datos, analizarlos o convertirlos en impresionantes gráficos estadísticos. La teoría sobre las variables es la base de todo lo que desarrollarás en R.
 
+(ref:estructuras2) Ejemplos de código para crear las diferentes estructuras de datos de amplio uso en R.
+
+```{r, echo=FALSE, fig.cap='(ref:estructuras2)', fig.align='center', out.width="100%"}
+knitr::include_graphics("figs/elaboradas/Estructuras 2.png")
+```
+
 ## Clasificación de variables
 
 Toda variable cuenta con dos atributos: clase y estructura. Para entender cómo se almacenan los datos en R, se necesita conocerlas a detalle.
@@ -405,7 +411,7 @@ index <- fctConjunto2 %in% c(1,2)
 fctConjunto2[index]
 ```
 
-Si se lidia con factores conteniendo NA (no su versión en texto "NA"), el indexar sin `which()` genera que se muestren los NA cuando no son requeridos. Utilicemos el objeto `fctConjunto1`: 
+Si se lidia con factores conteniendo NA (no su versión en texto `NA`), el indexar sin `which()` genera que se muestren los NA cuando no son requeridos. Utilicemos el objeto `fctConjunto1`: 
 
 ```{r}
 index <- fctConjunto1 == 3

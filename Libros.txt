@@ -52,3 +52,14 @@ https://bookdown.org/bgcasey/BioacousticsClass_GEE/
 ### Purrr
 https://towardsdatascience.com/cleaner-r-code-with-functional-programming-adc37931ef7a
 https://maraaverick.rbind.io/banners/purrr_apply_cheatsheet_rstudio.png
+
+### SCILIFELAB SWEDEN
+https://scilifelab.github.io/courses/r_programming/1703/schedule
+https://scilifelab.github.io/courses/
+
+### DATOS ESPACIALES Y DIAPOOS CON XARINGAN
+https://sporella.github.io/datos_espaciales_presentacion/#1
+
+
+#### STRINGR AND LUBRIDATE
+https://bobaekang.github.io/icjia-r-workshop/notes/module3_notes2.html#working_with_datetimes

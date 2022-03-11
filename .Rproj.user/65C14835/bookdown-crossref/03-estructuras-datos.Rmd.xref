@@ -1,4 +1,5 @@
 h1:estructurasdatos 
+(ref:estructuras2) Ejemplos de código para crear las diferentes estructuras de datos de amplio uso en R.
 h2:clasificación-de-variables Clasificación de variables
 (ref:gatocaja) Analogía del gato en la caja para entender a las variables. Aquí, el gato es el contenido; la caja, la estructura. Esta  podría ser considerada de la clase  y de estructura . De igual manera, en R reconoceremos variables contenedoras de números, de caracteres, de valores lógicos, mismos que podrán estar ordenados en estructuras de una, dos, tres o N dimensiones.
 h3:clases-atómicas Clases atómicas

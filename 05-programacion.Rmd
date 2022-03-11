@@ -814,7 +814,7 @@ for (i in 1:3) { # Número de iteraciones = 5
 lista1
 ```
 
-  1. Crea la base de datos DF numérica (código ya definido en el siguiente chunk), que tiene las dimensiones 12 (filas) x 5 (columnas):
+  1. Crea la base de datos DF numérica (código ya definido en el siguiente chunk), que tiene las dimensiones 12 (filas) x 5 (columnas). Esta base contiene valores no deseados: `-999`. Crea y utiliza una función llamada `cambiarNA()` que te permita cambiar estos valores por `NA`. 
 
 ```{r}
 # Base de datos DF
@@ -831,38 +831,34 @@ colnames(DF) <- paste0("Var", 1:5)
 DF 
 ```
 
-La base de datos DF contiene valores no deseados: `-999`. Crea y utiliza una función llamada `cambiarNA()` que te permita cambiar estos valores por `NA`. 
-
   1. Utilizando la base de datos DF creada inicialmente en el ejercicio 2, modifica la función `cambiarNA()` para que no solo cambie `-999` a `NA`, sino que cambie cualquier valor que tú le proporciones con un argumento. Llama a esta función `cambiarNA2()`. Utilízala para reemplazar los valores `5555` a `NA`.
  
   1. Utilizando la base de datos DF creada inicialmente en el ejercicio 2, modifica la función `cambiarNA2()` de tal manera que te permita definir más de un valor (un vector numérico) como elementos a ser reemplazados por `NA`. Llama a esta función `cambiarNA3()`. Cambia por `NA` los valores `-999` y `5555`. Pista: Esta función deberá contener un loop para aplicarle la función de cambio por NA a un elemento del vector a la vez en cada iteración.
 
   1. Crea un loop `for` que itere sobre los números del 1 al 50 y calcule el cubo de cada número, de manera que los resultados se vayan guardando en un vector llamado `preliminar`. Luego, crea un segundo loop que te permita identificar y almacenar solamente los números menores a la mediana `median()` del conjunto de datos `preliminar` en un nuevo vector llamado `final`.
 
-  1. En R ya existe una función para calcular la varianza y es `var()`. Pero este ejercicio se trata de poner en juego lo que aprendiste sobre programación en R. Teniendo en cuenta que la fórmula matemática de la varianza poblacional, con denominador $n$:
+  1. En R ya existe una función para calcular la varianza y es `var()`. Pero este ejercicio se trata de poner en juego lo que aprendiste sobre programación en R. La fórmula matemática de la varianza poblacional, con denominador $n$, Ecuación \@ref(eq:varianzapob). Pero la función `var()` de R contiene la fórmula matemática para calcular la varianza de muestras, no de poblaciones enteras. La fórmula matemática de la varianza muestral que usa R tiene como denominador $n-1$, Ecuación \@ref(eq:varianzamuestral). Crea una función llamada `var2()` que calcule la varianza del conjunto de datos llamado `vector`. Finalmente, compara tus resultados con los obtenidos por `var()`.
   
-  $$ \sigma^2 = \frac{1}{n}*{\displaystyle\sum_{i=1}^{n}(x_i - \mu)^2}$$
-  
- Pero la función `var()` está creada para calcular la varianza de muestras no de poblaciones enteras. La fórmula matemática de la varianza muestral que usa R tiene como denominador $n-1$:
-  
-    $$ \sigma^2 = \frac{1}{n-1}*{\displaystyle\sum_{i=1}^{n}(x_i - \mu)^2}$$
-  
-  Crea una función llamada `var2()` que calcule la varianza del siguiente vector: 
+  \begin{align}
+  \sigma^2 = \frac{1}{n}*{\displaystyle\sum_{i=1}^{n}(x_i - \mu)^2} (\#eq:varianzapob)
+  \end{align}
+
+  \begin{equation}
+  \sigma^2 = \frac{1}{n-1}*{\displaystyle\sum_{i=1}^{n}(x_i - \mu)^2} (\#eq:varianzamuestral)
+  \end{equation}
 
 ```{r}
 set.seed(123)
 vector <- rnorm(50, 21, 1.6)
 ```
   
-  Finalmente, compara tus resultados con los obtenidos por `var()`.
-
   1. Carga la base de datos npk. Usando una función de la familia apply(), calcula la el promedio, mediana y desviación estándar de la columna `yield` para cada categoría (numérica) de la columna `block`. Con ello, se conocerá el promedio de producción que se obtuvo en cada bloque para un estudio de mejora fitogenética:
 
 ```{r}
 data("npk")
 ```
 
-  1. Ejecuta el siguiente código para crear una lista llamada `iris3Lista` a partir de la base de datos de ejemplo `iris3` (un array). Si revisas `iris3Lista`, notarás que continene 3 elementos, cada uno de ellos es una matriz de datos de cuatro columnas (`Sepal L.`, `Sepal W.`, `Petal L.`, y `Petal W.`).
+  1. Ejecuta el siguiente código para crear una lista llamada `iris3Lista` a partir de la base de datos de ejemplo `iris3` (un array). Si revisas `iris3Lista`, notarás que continene 3 elementos, cada uno de ellos es una matriz de datos de cuatro columnas (`Sepal L.`, `Sepal W.`, `Petal L.`, y `Petal W.`). Utilizando dos funciones de la familia `apply()`, calcula el promedio de cada columna de cada elemento de la lista `iris3Lista`.
   
 ```{r}
 # Cargar iris3
@@ -873,8 +869,5 @@ iris3Lista <- list(setosa = iris3[,,1],
                 versicolor = iris3[,,2],
                 virginica = iris3[,,3])
 ```
-  
-  Utilizando dos funciones de la familia `apply()`, calcula el promedio de cada columna de cada elemento de la lista `iris3Lista`.
-
 </div>
 

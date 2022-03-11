@@ -11,6 +11,8 @@ Se recomienda no revisar este capítulo antes de realizar los ejercicios, princi
   1. Soluciona la ecuación $\sqrt({\frac{24+12}{(2 * 3)^3})}$.
 </div>
 
+**Solución:**
+
 ```{r}
 sqrt((24+12)/(2*3)^3)
 ```
@@ -19,6 +21,8 @@ sqrt((24+12)/(2*3)^3)
   1. Resuelve $\mathrm{log_{10}}(|\frac{\mathrm{exp(10)}^2}{-10*9^{6}}|)$. Las barras verticales implican aplicar valor absoluto antes de calcular el logaritmo en base 10.
 </div>
 
+**Solución:**
+
 ```{r}
 log10(abs((exp(10)**2)/(-10*(9^6))))
 ```
@@ -26,6 +30,8 @@ log10(abs((exp(10)**2)/(-10*(9^6))))
 <div class="question">
   1.La función sigmoidal $\sigma(\mathrm{z}) = \frac{1}{1+e^{-\mathrm{z}}}$ es muy importante en estadística. Permite convertir el resultado de una regresión logística (Odds ratios) en probabilidades, facilitando la interpretación. Utiliza la fórmula $z = -1.69 + 1*0.56$, emulando el resultado hipotético de una regresión logística, como insumo para calcular su probabilidad correspondiente utilizando la función sigmoidal. Como dato extra, el resultado de $\sigma(\mathrm{z})$ por 100 para convertirlo a probabilidad porcentual.
 </div>
+
+**Solución:**
 
 ```{r}
 ### Crear z
@@ -50,6 +56,8 @@ z <- -1.69 + 1*0.56
   Calcula la segunda derivada de:
   <br>$f(x)=x^2+3*x$
 </div>
+
+**Solución:**
 
 ```{r}
 ### Crear las expresiones matemáticas
@@ -100,6 +108,8 @@ Se recomienda la lectura del libro [R for Calculus](https://dtkaplan.github.io/R
   Asegúrate de ejecutar previamente la función `set.seed(123)` para que el ejercicio sea replicable.
 </div>
 
+**Solución:**
+
 ```{r}
 set.seed(123)
 num1 <- rnorm(1000, mean=19, sd=1.29)
@@ -113,6 +123,8 @@ head(num1, 20)
   1. Calcula el promedio y la desviación estándar del objeto `num1`. ¿Son exactamente iguales a los valores definidos con los que creaste el conjunto de datos usando `rnorm()`?.
 </div>
 
+**Solución:**
+
 ```{r}
 mean(num1)
 sd(num1)
@@ -123,6 +135,8 @@ Como habrás notado. Los valores obtenidos no son exactamente los valores de pro
 <div class="question">
   1. Calcula los cuartiles de dicho conjunto de datos. ¿Cuál es el valor del cuartil 50% (que es conocido como mediana) (revisa la [TABLA 2.4](#funciones-básica-útiles))?
 </div>
+
+**Solución:**
 
 ```{r}
 ### Para ver los cuartiles por defecto
@@ -136,6 +150,8 @@ quantile(num1, probs=0.5)
   1. Utilizando los operadores relacionales, convierte el vector numérico `num1` a vector lógico, aplicando la pregunta lógica "números mayores a 20.0". Guarda el resultado en el ambiente con el nombre `VL20` (revisa la [TABLA 2.3](#operadores-lógicos-y-relacionales)).
 </div>
 
+**Solución:**
+
 ```{r}
 VL20 <- num1 > 20.0
 
@@ -147,6 +163,8 @@ head(VL20, 35)
 <div class="question">
   1. Coloca el objeto `VL20` dentro de la función `mean()`. La función mean calcula normalmente el promedio de un conjunto de datos numéricos. No obstante, cuando se le ofrece un vector lógico, contabiliza la cantidad de elementos `TRUE` y ofrece la proporción de verdaderos respecto al total de elemento del conjunto. ¿Cuál es la proporción de elementos `FALSE` del vector `VL20`? (revisa la [TABLA 2.3](#operadores-lógicos-y-relacionales)).
 </div>
+
+**Solución:**
 
 ```{r}
 ### Proporción de TRUE en el conjunto
@@ -160,6 +178,8 @@ mean(VL20)
 <div class="question">
   1. Utilizando los operadores lógicos y relacionales, convierte el vector numérico `num1` a vector lógico, aplicando la pregunta lógica "números menor igual a 19.5 y números mayor a 15.7". (revisa la [TABLA 2.3](#operadores-lógicos-y-relacionales)). Si se sabe que son 1000 elementos los que contiene el vector, ¿Cuántos elementos del conjunto encajan dentro de la premisa lógica anterior?.
 </div>
+
+**Solución:**
 
 ```{r}
 ### Crear el vector lógico, dándole un nombre cualquiera
@@ -181,6 +201,8 @@ mean(num1LOGICO) * length(num1LOGICO)
   1. Crea una variable llamada `datosNumeros` que contenga 200 números (decimales) entre el 20 y 80.
 </div>
 
+**Solución:**
+
 ```{r}
 datosNumeros <- seq(20, 80, length=200)
 
@@ -193,6 +215,8 @@ head(datosNumeros, 20)
 antes del muestro para asegurar la replicabilidad del mismo.
 </div>
 
+**Solución:**
+
 ```{r}
 set.seed(123)
 muestr4 <- sample(datosNumeros, 10, replace = TRUE)
@@ -204,6 +228,8 @@ muestr4
 <div class="question">
   1. Redondea todos los elementos del vector `datosNumeros` a dos decimales, coerciona el objeto a texto, y guarda el resultado en el ambiente con el nombre `coer`.
 </div>
+
+**Solución:**
 
 ```{r}
 ### Redondear datosNumeros
@@ -222,6 +248,8 @@ Se puede coercer un número a texto, dado que solo se necesita colocar el númer
   1. Utiliza `coer` para coercer el objeto hacia número nuevamente.
 </div>
 
+**Solución:**
+
 ```{r}
 ### Redondear datosNumeros
 as.numeric(coer)
@@ -232,6 +260,8 @@ Como es notorio, se puede coercer un texto que contenga "números" hacia numeric
 <div class="question">
   1. Crea el vector `miPais` que contenga únicamente el nombre de tu país de residencia. Coerce `miPais`hacia vector numérico. ¿Notas la advertencia?
 </div>
+
+**Solución:**
 
 ```{r}
 ### Crear la variable
@@ -246,6 +276,8 @@ La advertencia *NAs introduced by coercion* implica que como al quitar las comil
 <div class="question">
   1. Crea una data frame llamada `DF10`, cuyo contenido sea: una columna numérica, otra de texto, y otra lógica, todas de 5 elementos. Coerce `DF10` hacia matriz. ¿Notas algo particular en los elementos de la matriz?
 </div>
+
+**Solución:**
 
 ```{r}
 ### Crear la variable
@@ -272,6 +304,8 @@ Todos los elementos de una matriz deben pertenecer a la misma clase. No puede ha
   <br>Realiza esto utilizando tanto una lista nombra (`list1`) como no nombrada (`list2`).
 </div>
 
+**Solución:**
+
 ```{r}
 ### Crear la lista nombrada
 list1 <- dplyr::lst(muestr4, datosNumeros, DF10)
@@ -292,8 +326,6 @@ list2[[1]][5]
 
 ## Cap. 5: Programación funcional
 
-## Ejercicios del capítulo
-
 <div class="question">
   1. Reproduce el resultado del siguiente loop `for`, utilizando la función replicate():
 
@@ -306,7 +338,7 @@ for (i in 1:3) { # Número de iteraciones = 5
 lista1
 ```
 
-Solución:
+**Solución:**
 
 ```{r}
 # Importante simplify = FALSE para obtener una lista 
@@ -321,7 +353,7 @@ lista1 <- replicate(3, {
 lista1
 ```
   
-  1. Crea la base de datos DF numérica (código ya definido en el siguiente chunk), que tiene las dimensiones 12 (filas) x 5 (columnas):
+  1. Crea la base de datos DF numérica (código ya definido en el siguiente chunk), que tiene las dimensiones 12 (filas) x 5 (columnas). Esta base contiene valores no deseados: `-999`. Crea y utiliza una función llamada `cambiarNA()` que te permita cambiar estos valores por `NA`. 
 
 ```{r}
 # Base de datos DF
@@ -338,9 +370,7 @@ colnames(DF) <- paste0("Var", 1:5)
 DF 
 ```
 
-La base de datos DF contiene valores no deseados: `-999`. Crea y utiliza una función llamada `cambiarNA()` que te permita cambiar estos valores por `NA`. 
-
-Solución:
+**Solución:**
 
 ```{r}
 ### Crear función
@@ -359,7 +389,7 @@ resultados
 
   1. Utilizando la base de datos DF creada inicialmente en el ejercicio 2, modifica la función `cambiarNA()` para que no solo cambie `-999` a `NA`, sino que cambie cualquier valor que tú le proporciones con un argumento. Llama a esta función `cambiarNA2()`. Utilízala para reemplazar los valores `5555` a `NA`.
 
-Solución:
+**Solución:**
 
 ```{r}
 # Crear la función con un argumento extra que te 
@@ -375,7 +405,7 @@ cambiarNA2(DF, 5555)
   
   1. Utilizando la base de datos DF creada inicialmente en el ejercicio 2, modifica la función `cambiarNA2()` de tal manera que te permita definir más de un valor (un vector numérico) como elementos a ser reemplazados por `NA`. Llama a esta función `cambiarNA3()`. Cambia por `NA` los valores `-999` y `5555`. Pista: Esta función deberá contener un loop para aplicarle la función de cambio por NA a un elemento del vector a la vez en cada iteración.
   
-  Solución:
+  **Solución:**
   
 ```{r}
 ### Crear la función con un argumento que admita 
@@ -394,7 +424,7 @@ cambiarNA3(DF, c(5555, -999))
 
   1. Crea un loop `for` que itere sobre los números del 1 al 50 y calcule el cubo de cada número, de manera que los resultados se vayan guardando en un vector llamado `preliminar`. Luego, crea un segundo loop que te permita identificar y almacenar solamente los números menores a la mediana `median()` del conjunto de datos `preliminar` en un nuevo vector llamado `final`.
  
- Solución:
+ **Solución:**
  
 ```{r}
 ### Secuencia numérica
@@ -422,31 +452,30 @@ final
 ```
   
 
-  1. En R ya existe una función para calcular la varianza y es `var()`. Pero este ejercicio se trata de poner en juego lo que aprendiste sobre programación en R. Teniendo en cuenta que la fórmula matemática de la varianza poblacional, con denominador $n$:
-  
-  $$ \sigma^2 = \frac{1}{n}*{\displaystyle\sum_{i=1}^{n}(x_i - \mu)^2}$$
-  
- Pero la función `var()` está creada para calcular la varianza de muestras no de poblaciones enteras. La fórmula matemática de la varianza muestral que usa R tiene como denominador $n-1$:
-  
-    $$ \sigma^2 = \frac{1}{n-1}*{\displaystyle\sum_{i=1}^{n}(x_i - \mu)^2}$$
-  
-  Crea una función llamada `var2()` que calcule la varianza del siguiente vector: 
+  1. En R ya existe una función para calcular la varianza y es `var()`. Pero este ejercicio se trata de poner en juego lo que aprendiste sobre programación en R. La fórmula matemática de la varianza poblacional, con denominador $n$, Ecuación \@ref(eq:varianzapob). Pero la función `var()` de R contiene la fórmula matemática para calcular la varianza de muestras, no de poblaciones enteras. La fórmula matemática de la varianza muestral que usa R tiene como denominador $n-1$, Ecuación \@ref(eq:varianzamuestral). Crea una función llamada `var2()` que calcule la varianza del conjunto de datos llamado `vector`. Finalmente, compara tus resultados con los obtenidos por `var()`.
 
+  
+  \begin{align}
+  \sigma^2 = \frac{1}{n}*{\displaystyle\sum_{i=1}^{n}(x_i - \mu)^2} (\#eq:varianzapob)
+  \end{align}
+
+  \begin{equation}
+  \sigma^2 = \frac{1}{n-1}*{\displaystyle\sum_{i=1}^{n}(x_i - \mu)^2} (\#eq:varianzamuestral)
+  \end{equation}
+  
 ```{r}
 set.seed(123)
 vector <- rnorm(50, 21, 1.6)
 ```
   
-  Finalmente, compara tus resultados con los obtenidos por `var()`.
-  
-  Solución:
+  **Solución:**
   
   Dentro de la función necesitas:
   
   - Un código que calcule el promedio de los valores de `vector`.
   - Una estructura que le reste el promedio a cada elemento de `vector` y eleve cada resta al cuadrado.
-  - Sumar todos los cuadrados de la resta del elemento y el promedio.
-  - Identificar la longitud de `vector`(n). Y dividir la sumatoria entre `n`.
+  - Sumar todos los cuadrados obtenidos.
+  - Identificar la longitud de `vector` (denotada por `n`), y dividir la sumatoria de cuadrados entre `n`.
   
 ```{r}
 ### Crear la función
@@ -478,7 +507,7 @@ var(vector)
 data("npk")
 ```
   
-  Solución:
+  **Solución:**
   
 ```{r}
 tapply(npk$yield, npk$block, FUN = mean)
@@ -486,7 +515,8 @@ tapply(npk$yield, npk$block, FUN = median)
 tapply(npk$yield, npk$block, FUN = sd)
 ```
   
-  1. Ejecuta el siguiente código para crear una lista llamada `iris3Lista` a partir de la base de datos de ejemplo `iris3` (un array). Si revisas `iris3Lista`, notarás que continene 3 elementos, cada uno de ellos es una matriz de datos de cuatro columnas (`Sepal L.`, `Sepal W.`, `Petal L.`, y `Petal W.`).
+  1. Ejecuta el siguiente código para crear una lista llamada `iris3Lista` a partir de la base de datos de ejemplo `iris3` (un array). Si revisas `iris3Lista`, notarás que continene 3 elementos, cada uno de ellos es una matriz de datos de cuatro columnas (`Sepal L.`, `Sepal W.`, `Petal L.`, y `Petal W.`). Utilizando dos funciones de la familia `apply()`, calcula el promedio de cada columna de cada elemento de la lista `iris3Lista`.
+  
   
 ```{r}
 # Cargar iris3
@@ -498,9 +528,7 @@ iris3Lista <- list(setosa = iris3[,,1],
                 virginica = iris3[,,3])
 ```
   
-  Utilizando dos funciones de la familia `apply()`, calcula el promedio de cada columna de cada elemento de la lista `iris3Lista`.
-  
-  Solución:
+  **Solución:**
   
 ```{r}
 lapply(iris3Lista, FUN = function(x) {

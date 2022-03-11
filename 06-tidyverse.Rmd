@@ -1,4 +1,12 @@
 # **Manejo de datos con** `tidyverse`
+
+(ref:tidyverse1) Librerías frecuentemente utilizadas en tidyverse.
+
+```{r, echo=FALSE, fig.cap='(ref:tidyverse1)', fig.align='center', out.width="100%"}
+knitr::include_graphics("figs/elaboradas/tidyverse universo.png")
+```
+<br>
+
 ## Datos ordenados (tidy)
 ## Pipelines con tidyverse
 ## Tablas anchas y largas con tidyr
