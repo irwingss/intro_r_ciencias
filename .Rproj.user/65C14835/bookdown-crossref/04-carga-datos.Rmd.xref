@@ -1,6 +1,8 @@
 h1:carga-y-exportación-de-datos 
 (ref:carga1) Extensiones de archivos frecuentemente usados en R y RStudio. Más allá de lo mencionado aquí, existe una vasta cantidad de extensiones posibles de gestionar con RStudio. Dependiendo del campo de aplicación específico en el que te desarrolles, continuarás encontrando nuevas extensiones.
+fig:figura46 (ref:carga1)
 (ref:emergente1) Vista previa de la venta emergente que se abre tras ejecutar el código mostrado anteriormente con . Si no se muestra automáticamente, algunas veces se abre minimizada. Se recomienda buscar en los programas abiertos de la barra de tareas del sistema operativo en cuestión.
+fig:figura47 (ref:emergente1)
 h2:lectura-de-bases-de-datos Lectura de bases de datos
 h3:archivos-delimitados Archivos delimitados
 h3:archivos-tabulados Archivos tabulados

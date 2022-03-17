@@ -6,7 +6,7 @@ Comenzar el aprendizaje de un lenguaje de programación puede resultar doblement
 
 (ref:esenciales1) Estructura temática del capítulo "Esenciales de R y RStudio".
 
-```{r, echo=FALSE, fig.cap='(ref:esenciales1)', fig.align='center', out.width="100%"}
+```{r figura1, echo=FALSE, fig.cap='(ref:esenciales1)', fig.align='center', out.width="100%"}
 knitr::include_graphics("figs/elaboradas/Esenciales de RStudio.png")
 ```
 
@@ -34,13 +34,13 @@ Para efectos de este libro, se deberá utilizar **las versiones listadas (o post
 
 #### Para Windows: {-}
 
-- R version 4.1.2 (2021-11-01) -- "Bird Hippie" [Descarga](https://cran.r-project.org/bin/windows/base/R-4.1.2-win.exe)
+- R version 4.1.3 (2022-03-10) -- "One Push-Up" [Descarga](https://cran.r-project.org/bin/windows/base/R-4.1.3-win.exe)
 - RStudio Desktop 2022.02.0+443 [Descarga](https://download1.rstudio.org/desktop/windows/RStudio-2022.02.0-443.exe)
 - Rtools4.0 [Descarga](https://cran.r-project.org/bin/windows/Rtools/rtools40v2-x86_64.exe)
 
 #### Para macOS: {-}
 
-- R version 4.1.2 (2021-11-01) -- "Bird Hippie" [Descarga](https://cran.r-project.org/bin/macosx/base/R-4.1.2.pkg)
+- R version 4.1.3 (2022-03-10) -- "One Push-Up" [Descarga](https://cran.r-project.org/bin/macosx/base/R-4.1.3.pkg)
 - RStudio Desktop 2021.09.1+372 [Descarga](https://download1.rstudio.org/desktop/macos/RStudio-2022.02.0-443.dmg)
 - XQuartz 2.8.1. [Descarga](https://github.com/XQuartz/XQuartz/releases/download/XQuartz-2.8.1/XQuartz-2.8.1.dmg)
 
@@ -89,63 +89,63 @@ La siguiente es una configuración sugerida para que RStudio sea visualizado de 
 
 (ref:config1) Para iniciar la configuración de RStudio, clic en `tools/ Global Options`.
 
-```{r, echo=FALSE, fig.cap='(ref:config1)', fig.align='center', out.width="100%"}
+```{r figura2, echo=FALSE, fig.cap='(ref:config1)', fig.align='center', out.width="100%"}
 knitr::include_graphics("figs/screenshots/configRStudio-1.jpg")
 ```
 <br>
 
 (ref:config2) Abrirá la ventana de configuraciones. En la pestaña General se verifica la versión de R que está ejecutando RStudio.
 
-```{r, echo=FALSE, fig.cap='(ref:config2)', fig.align='center', out.width="100%"}
+```{r figura3, echo=FALSE, fig.cap='(ref:config2)', fig.align='center', out.width="100%"}
 knitr::include_graphics("figs/screenshots/configRStudio-2.jpg")
 ```
 <br>
 
 (ref:config3) En la pestaña Code se configura la mayor cantidad de puntos necesarios para que el código sea legible. Aquí se muestra la configuración de las pestañas Editing y Display. Las dos opciones nuevas en la versión de RStudio 1.4+ son (con flechas rojas), son importantes en mejorar la lectura del código para principiantes: una permite identificar los pares de paréntesis con colores diferenciables (Rainbow parentheses en pestaña Display), y la otra es un primer intento de crear un operador pipe nativo para el código básico de R (Use native pipe operator, `|>`). Este último no lo habilitaremos para seguir usando el pipe de tidyverse `%>%`.
 
-```{r, echo=FALSE, fig.cap='(ref:config3)', fig.align='center', out.width="100%"}
+```{r figura4, echo=FALSE, fig.cap='(ref:config3)', fig.align='center', out.width="100%"}
 knitr::include_graphics("figs/screenshots/configRStudio-3.jpg")
 ```
 <br>
 
 (ref:config4) En la pestaña Saving es importante definir la codificación que usarán los archivos generados por RStudio. Se recomienda dar clic en `Change...` y luego seleccionar la codificación `UTF-8`.
 
-```{r, echo=FALSE, fig.cap='(ref:config4)', fig.align='center', out.width="100%"}
+```{r figura5, echo=FALSE, fig.cap='(ref:config4)', fig.align='center', out.width="100%"}
 knitr::include_graphics("figs/screenshots/configRStudio-4.jpg")
 ```
 <br>
 
 (ref:config6) Las pestañas Completion y Diagnóstico no se modifican mucho, pero sí es necesario mencionar que si notáse que el programa se ejecuta muy lento, se debe considerar desactivar las opciones de diagnóstico (marcadas en rojo).
 
-```{r, echo=FALSE, fig.cap='(ref:config6)', fig.align='center', out.width="100%"}
+```{r figura6, echo=FALSE, fig.cap='(ref:config6)', fig.align='center', out.width="100%"}
 knitr::include_graphics("figs/screenshots/configRStudio-6.jpg")
 ```
 <br>
 
 (ref:config7) La organización de los paneles descritos en la sección [1.4 Paneles de RStudio](#panelesRStudio) se configuran previamente en la pestaña Pane Layout. A la izquierda: la organización por defecto. A la derecha: se deberá seleccionar todas las pestañas (excepto VCS y Connections) con un check dentro del panel superior derecho. Eso hará que el panel inferior derecho cambie de nombre a "TabSet".
 
-```{r, echo=FALSE, fig.cap='(ref:config7)', fig.align='center', out.width="100%"}
+```{r figura7, echo=FALSE, fig.cap='(ref:config7)', fig.align='center', out.width="100%"}
 knitr::include_graphics("figs/screenshots/configRStudio-7.jpg")
 ```
 <br>
 
 (ref:config8) El siguiente paso es cambiar la ubicación de TabSet haciendo clic y cambiando el panel por Console. Clic en Aplicar para definir los cambios.
 
-```{r, echo=FALSE, fig.cap='(ref:config8)', fig.align='center', out.width="100%"}
+```{r figura8, echo=FALSE, fig.cap='(ref:config8)', fig.align='center', out.width="100%"}
 knitr::include_graphics("figs/screenshots/configRStudio-8.jpg")
 ```
 <br>
 
 (ref:config9) La configuración de R Markdown es solo para evitar que se cuelgue al usar los documentos. Definir todas las casillas y selectores como se muestra a continuación en las pestañas Basic y Advanced.
 
-```{r, echo=FALSE, fig.cap='(ref:config9)', fig.align='center', out.width="100%"}
+```{r figura9, echo=FALSE, fig.cap='(ref:config9)', fig.align='center', out.width="100%"}
 knitr::include_graphics("figs/screenshots/configRStudio-9.jpg")
 ```
 <br>
 
 (ref:config10) Para trabajar correctamente con los documentos R Markdown y evitar que se cuelguen, desmarcar la casilla con flecha roja. En la pestaña Spelling, se especifica el uso del lenguaje para el texto de los documentos. Selecciona de la lista "Spanish". Clic en Aplicar para definir los cambios.
 
-```{r, echo=FALSE, fig.cap='(ref:config10)', fig.align='center', out.width="100%"}
+```{r figura10, echo=FALSE, fig.cap='(ref:config10)', fig.align='center', out.width="100%"}
 knitr::include_graphics("figs/screenshots/configRStudio-10.jpg")
 ```
 <br>
@@ -156,7 +156,7 @@ Durante febrero de 2022 se actualizó RStudio a la primera versión del año: 20
 
 (ref:act2022) En la sección de R Markdown, pestaña Visual, apareció una nueva opción para numerar las líneas de código dentro de cada code chunk (flecha roja izquierda, cambio visualizado en la flecha roja derecha). Además, la forma de cambiar del modo editor visual (Visual) a editor de código (Source) está dispuesto de manera más elegante. Estos cambios, están acompañados en mejoras en la salida gráfica y corrección de algunos problemas menores de los R Markdown.
 
-```{r, echo=FALSE, fig.cap='(ref:act2022)', fig.align='center', out.width="100%"}
+```{r figura11, echo=FALSE, fig.cap='(ref:act2022)', fig.align='center', out.width="100%"}
 knitr::include_graphics("figs/screenshots/actualizacion RStudio 2022.jpg")
 ```
 
@@ -166,7 +166,7 @@ Este es un requerimiento especial para los estudiantes que usen este libro en la
 
 (ref:tema0) Vista previa del tema `BrackInstitute`.
 
-```{r, echo=FALSE, fig.cap='(ref:tema0)', fig.align='center', out.width="100%"}
+```{r figura12, echo=FALSE, fig.cap='(ref:tema0)', fig.align='center', out.width="100%"}
 knitr::include_graphics("figs/screenshots/tema BrackInstitute.png")
 ```
 <br>
@@ -184,7 +184,7 @@ Como se muestra a continuación:
 
 (ref:tema) Código de instalación del tema `BrackInstitute` en la consola, listo para ser ejecutado.
 
-```{r, echo=FALSE, fig.cap='(ref:tema)', fig.align='center', out.width="100%"}
+```{r figura13, echo=FALSE, fig.cap='(ref:tema)', fig.align='center', out.width="100%"}
 knitr::include_graphics("figs/screenshots/tema en consola.jpg")
 ```
 <br>
@@ -199,34 +199,34 @@ Existen diversos editores de código que permiten trabajar con R, pero ninguno c
 
 (ref:paneles1) Panel de Trabajo. Aquí aparecerán los archivos de trabajo de R, sean R script o R Markdown. Además, es donde aparecen las bases de datos cuando se pide visualizarlas en RStudio.
 
-```{r, echo=FALSE, fig.cap='(ref:paneles1)', fig.align='center', out.width="100%"}
+```{r figura14, echo=FALSE, fig.cap='(ref:paneles1)', fig.align='center', out.width="100%"}
 knitr::include_graphics("figs/screenshots/Slide1.PNG")
 ```
 <br>
 
 (ref:paneles2) Consola. Es el panel donde se imprimen los resultados textuales y numéricos junto con el código que los genera.
 
-```{r, echo=FALSE, fig.cap='(ref:paneles2)', fig.align='center', out.width="100%"}
+```{r figura15, echo=FALSE, fig.cap='(ref:paneles2)', fig.align='center', out.width="100%"}
 knitr::include_graphics("figs/screenshots/Slide2.PNG")
 ```
 <br>
 
 (ref:paneles3) Panel de pestañas: aquí encontrarás: el ambiente (Environment) donde se guardan los objetos creados o cargados en RStudio; la historia (History) de las ejecuciones realizadas durante la sesión de RStudio; archivos (Files) para visualizar los archivos de la carpeta de trabajo actual (definida como la carpeta "documentos" por defecto); la pestaña de visualización de gráficos estáticos (Plots); pestaña de  instalación y actualización de paquetes (Packages); la pestaña de ayuda (Help); y el visualizador (Viewer) de gráficos animados, gráficos 3D, objetos HTML. las conexiones (Connections) que se pueden realizar con bases de datos (Oracle, SQL, Salesforce, Spark, Hipe, entre otros); tutoriales (tutorial) precargados usando shiny para el uso básico de R y RStudio.
 
-```{r, echo=FALSE, fig.cap='(ref:paneles3)', fig.align='center', out.width="100%"}
+```{r figura16, echo=FALSE, fig.cap='(ref:paneles3)', fig.align='center', out.width="100%"}
 knitr::include_graphics("figs/screenshots/Slide3.PNG")
 ```
 <br>
 
 (ref:paneles6) Barra de opciones rápidas.
 
-```{r, echo=FALSE, fig.cap='(ref:paneles6)', fig.align='center', out.width="100%"}
+```{r figura17, echo=FALSE, fig.cap='(ref:paneles6)', fig.align='center', out.width="100%"}
 knitr::include_graphics("figs/screenshots/Slide6.PNG")
 ```
 
 (ref:paneles5) Barra de menús. De las pestañas más importantes: File nos permite crear o cargar archivos; Session, definir espacio de trabajo actual; y Tools, ingresar a las configuraciones de RStudio. Usos más avanzados, como la depuración de código o el uso de versiones de control (Git), también se manejan desde las opciones de esta barra. 
 
-```{r, echo=FALSE, fig.cap='(ref:paneles5)', fig.align='center', out.width="100%"}
+```{r figura18, echo=FALSE, fig.cap='(ref:paneles5)', fig.align='center', out.width="100%"}
 knitr::include_graphics("figs/screenshots/Slide5.PNG")
 ```
 <br>
@@ -243,7 +243,7 @@ Una de las mayores virtudes de R es la enorme comunidad de desarrollo que ha cre
 
 (ref:paquetes) Instalación manual de paquetes.
 
-```{r, echo=FALSE, fig.cap='(ref:paquetes)', fig.align='center', out.width="100%"}
+```{r figura19, echo=FALSE, fig.cap='(ref:paquetes)', fig.align='center', out.width="100%"}
 knitr::include_graphics("figs/screenshots/paquetes instalacion.jpg")
 ```
 
@@ -253,20 +253,13 @@ Si se requiere instalar paquetes de CRAN (e.g., **tidyverse**) con código, se u
 install.packages("tidyverse")
 ```
 
-Para paquetes desde GitHub (eg., **rbrack** del repositorio de la cuenta `irwingss`), se instalará previamente el paquete de CRAN **devtools**, para luego usar una función almacenada en él `install_github()`:
-
-```{r, eval=FALSE}
-install.packages("devtools")
-devtools::install_github("irwingss/rbrack")
-```
-
 ## Actualización de librerías
 
 Es importante mantener actualizada la paquetería. En los repositorios de cada paquete se suelen reportar fallos o inconsistencias que son resueltas y liberadas como una actualización. Se recomienda hacer esto al menos una vez por mes.
 
 (ref:paquetesActualizacion) Actualización manual de paquetes de CRAN.
 
-```{r, echo=FALSE, fig.cap='(ref:paquetesActualizacion)', fig.align='center', out.width="100%"}
+```{r figura20, echo=FALSE, fig.cap='(ref:paquetesActualizacion)', fig.align='center', out.width="100%"}
 knitr::include_graphics("figs/screenshots/paquetes actualizacion.jpg")
 ```
 
@@ -308,19 +301,19 @@ Luego de conocer los paneles de RStudio, es necesario crear los espacios donde s
 Es el documento más simple donde puedo escribir R. Es un editor de texto como el bloc de notas de cualquier sistema operativo. No obstante, este editor lee y colorea la sintaxis especial del código de R. Esto permite identificar cada parte del código según lo que sea: una variable, una función, un número, un texto, símbolos especiales, operadores, entre otros; simplificando enormemente la lectura del código y el aprendizaje de R.
 
 ```{block2, type='rmdnote'}
-Puedes crear un R script haciendo clics ([FIGURA 1.7](fig:abrirRscript)), o utilizando el atajo de teclado `Control + shift + N` o `Command + shift + N`. 
+Puedes crear un R script utilizando clics (ver Figura \@ref(fig:figura21)), o con atajo de teclado: `Control + shift + N` (Windows) o `Command + shift + N` (MacOS). 
 ```
 
 (ref:rscript1) Procedimiento para abrir un documento de RScript usando el menú `File/ New File/ R script`.
  
-```{r abrirRscript, echo=FALSE, fig.cap='(ref:rscript1)', fig.align='center', out.width="100%"}
+```{r figura21, echo=FALSE, fig.cap='(ref:rscript1)', fig.align='center', out.width="100%"}
 knitr::include_graphics("figs/screenshots/abrir un Rscript.jpg")
 ```
 
  
 (ref:rscript2) Apariencia de un R script con código. Notar los colores diferenciales para cada parte del código.
 
-```{r, echo=FALSE, fig.cap='(ref:rscript2)', fig.align='center', out.width="100%"}
+```{r figura22, echo=FALSE, fig.cap='(ref:rscript2)', fig.align='center', out.width="100%"}
 knitr::include_graphics("figs/screenshots/Rscript.jpg")
 ```
 
@@ -335,46 +328,46 @@ No se profundizará en el uso de R Markdown, dado que no es el objetivo del prog
 
 (ref:rmarkdown1) Procedimiento para abrir un documento de R Markdown usando el menú `File/ New File/ R Markdown...`.
  
-```{r, echo=FALSE, fig.cap='(ref:rmarkdown1)', fig.align='center', out.width="100%"}
+```{r figura23, echo=FALSE, fig.cap='(ref:rmarkdown1)', fig.align='center', out.width="100%"}
 knitr::include_graphics("figs/screenshots/abrir R Markdown 1.jpg")
 ```
 
  
 (ref:rmarkdown2) Ventana emergente para darle nombre al documento R Markdown.
 
-```{r, echo=FALSE, fig.cap='(ref:rmarkdown2)', fig.align='center', out.width="100%"}
+```{r figura24, echo=FALSE, fig.cap='(ref:rmarkdown2)', fig.align='center', out.width="100%"}
 knitr::include_graphics("figs/screenshots/abrir R Markdown 2.jpg")
 ```
 
 
 (ref:rmarkdown3) Aparecerá un archivo R Markdown con texto de ejemplo para que tengamos una idea de qué se puede hacer con él.
  
-```{r, echo=FALSE, fig.cap='(ref:rmarkdown3)', fig.align='center', out.width="100%"}
+```{r figura25, echo=FALSE, fig.cap='(ref:rmarkdown3)', fig.align='center', out.width="100%"}
 knitr::include_graphics("figs/screenshots/abrir R Markdown 3.jpg")
 ```
 
 (ref:rmarkdown4) `knit` es una función del paquete `knitr`, desarrollado por Yihui Xie y colaboradores, para la generación de reportes dinámicos con R Markdown. Haciendo clic en el botón se despliega la lista de posibles exportaciones del documento. La exportación `Knit to HTML` produce una página web de reporte.
 
-```{r, echo=FALSE, fig.cap='(ref:rmarkdown4)', fig.align='center', out.width="100%"}
+```{r figura26, echo=FALSE, fig.cap='(ref:rmarkdown4)', fig.align='center', out.width="100%"}
 knitr::include_graphics("figs/screenshots/abrir R Markdown 4.jpg")
 ```
 
 
 (ref:rmarkdown5) Tras hacer clic en `Knit to HTML`, será necesario guardar en el almacenamiento de la computadora el documento, cuya extensión es `.Rmd`.
 
-```{r, echo=FALSE, fig.cap='(ref:rmarkdown5)', fig.align='center', out.width="100%"}
+```{r figura27, echo=FALSE, fig.cap='(ref:rmarkdown5)', fig.align='center', out.width="100%"}
 knitr::include_graphics("figs/screenshots/abrir R Markdown 5.jpg")
 ```
 
 (ref:rmarkdown6) En la consola, o en una pestaña Render, comenzará a mostrarse la ejecución del código que `knit` desplegó para exportar el R Markdown a página web HTML.
 
-```{r, echo=FALSE, fig.cap='(ref:rmarkdown6)', fig.align='center', out.width="100%"}
+```{r figura28, echo=FALSE, fig.cap='(ref:rmarkdown6)', fig.align='center', out.width="100%"}
 knitr::include_graphics("figs/screenshots/abrir R Markdown 6.jpg")
 ```
 
 (ref:rmarkdown7) Vista del archivo HTML generado a partir del R Markdown de ejemplo.
 
-```{r, echo=FALSE, fig.cap='(ref:rmarkdown7)', fig.align='center', out.width="100%"}
+```{r figura29, echo=FALSE, fig.cap='(ref:rmarkdown7)', fig.align='center', out.width="100%"}
 knitr::include_graphics("figs/screenshots/abrir R Markdown 7.jpg")
 ```
 
@@ -388,43 +381,43 @@ Aquí se muestran los pasos para crear un proyecto local:
 
 (ref:proyecto1) Para crear un proyecto local, ir a menu `File/ New Project...`. 
 
-```{r, echo=FALSE, fig.cap='(ref:proyecto1)', fig.align='center', out.width="100%"}
+```{r figura30, echo=FALSE, fig.cap='(ref:proyecto1)', fig.align='center', out.width="100%"}
 knitr::include_graphics("figs/screenshots/proyectos1.jpg")
 ```
 
 (ref:proyecto2) Para efectos de este libro, selecciona la primera opción. Clic en `New Directory` para crear en el almacenamiento de tu computador una carpeta nueva donde se almacenará todo los respecto a este proyecto. `Existing Directory` solo se usará cuando ya se ha creado de antemano una carpeta donde se quiere almacenar el proyecto. Para versiones de control con Git y GitHub, el proceso se inicia con `Version Control`, para crear la carpeta de trabajo (tal como las anteriores opciones), pero el proyecto estará _casi_ listo para hacer _commit_ y publicar los cambios en GitHub. 
 
-```{r, echo=FALSE, fig.cap='(ref:proyecto2)', fig.align='center', out.width="100%"}
+```{r figura31, echo=FALSE, fig.cap='(ref:proyecto2)', fig.align='center', out.width="100%"}
 knitr::include_graphics("figs/screenshots/proyectos2.jpg")
 ```
 
 (ref:proyecto3) En `Directory name:` escribe el nombre del proyecto, mismo que también tendrá la nueva carpeta de trabajo que se creará en tu computador. En el botón `Browse...`, podrás ubicar una carpeta _madre_ donde irás creando proyectos para mantenerlos todos ordenados y accesibles. Puede ser una subcarpeta dentro de documentos, con algún nombre genérico como "proyectos", "proyectos de R", entre otros. Finalmente, clic en `Create Project`.
 
-```{r, echo=FALSE, fig.cap='(ref:proyecto3)', fig.align='center', out.width="100%"}
+```{r figura32, echo=FALSE, fig.cap='(ref:proyecto3)', fig.align='center', out.width="100%"}
 knitr::include_graphics("figs/screenshots/proyectos3.jpg")
 ```
 
 (ref:proyecto4) Se abrirá una nueva sesión con título idéntico a la carpeta de proyecto creada (aquí "Investigación A"). Nótese el ambiente (environment) en blanco. Todas las variables y funciones que se creen o carguen en el proyecto permanecerán en este ambiente específico del proyecto.  
 
-```{r, echo=FALSE, fig.cap='(ref:proyecto4)', fig.align='center', out.width="100%"}
+```{r figura33, echo=FALSE, fig.cap='(ref:proyecto4)', fig.align='center', out.width="100%"}
 knitr::include_graphics("figs/screenshots/proyectos4.jpg")
 ```
 
 (ref:proyecto5) En la pestaña de `Files` se verá el contenido de todo lo que copiemos dentro de la carpeta del proyecto. Puedes acceder a la carpeta de trabajo haciendo clic en `More/ Show Folder in New Windows`. Allí podrás pegar archivos o documentos que necesites cargar posteriormente en tu proyecto.
 
-```{r, echo=FALSE, fig.cap='(ref:proyecto5)', fig.align='center', out.width="100%"}
+```{r figura34, echo=FALSE, fig.cap='(ref:proyecto5)', fig.align='center', out.width="100%"}
 knitr::include_graphics("figs/screenshots/proyectos5.jpg")
 ```
 
 (ref:proyecto6) Para crear un nuevo proyecto, abrir uno existente  o cerrar el proyecto actual (flecha roja), existe el menú de acceso rápido que tiene el mismo nombre que tu proyecto actual. Para ver la dirección de la carpeta de trabajo en consola, ejecuta la función `getwd()`.
 
-```{r, echo=FALSE, fig.cap='(ref:proyecto6)', fig.align='center', out.width="100%"}
+```{r figura35, echo=FALSE, fig.cap='(ref:proyecto6)', fig.align='center', out.width="100%"}
 knitr::include_graphics("figs/screenshots/proyectos6.jpg")
 ```
 
 (ref:proyecto7) En tu computador, encontrarás creada la carpeta del proyecto, en la dirección que especificaste, donde podrás pegar los archivos que aparecerán en la pestaña de Files del Panel de Ambiente del proyecto.
 
-```{r, echo=FALSE, fig.cap='(ref:proyecto7)', fig.align='center', out.width="100%"}
+```{r figura36, echo=FALSE, fig.cap='(ref:proyecto7)', fig.align='center', out.width="100%"}
 knitr::include_graphics("figs/screenshots/proyectos7.jpg")
 ```
 
@@ -445,13 +438,13 @@ Para acceder a ella, se debe acceder a la pestaña Help.
 
 (ref:help1) Accediendo a la pestaña Help para buscar ayuda sobre la función `mean()`. Nótese que solo se busca el nombre de la función sin paréntesis. 
 
-```{r, echo=FALSE, fig.cap='(ref:help1)', fig.align='center', out.width="100%"}
+```{r figura37, echo=FALSE, fig.cap='(ref:help1)', fig.align='center', out.width="100%"}
 knitr::include_graphics("figs/screenshots/help1.jpg")
 ```
 
 (ref:help2) Detalle de la ayuda de la función `mean()`. Es muy útil revisar la sección Arguments donde se describen los argumentos, además los ejemplos de uso.
 
-```{r, echo=FALSE, fig.cap='(ref:help2)', fig.align='center', out.width="100%"}
+```{r figura38, echo=FALSE, fig.cap='(ref:help2)', fig.align='center', out.width="100%"}
 knitr::include_graphics("figs/screenshots/help2.jpg")
 ```
 
@@ -468,6 +461,6 @@ Para pedir ayuda en internet, se recomienda el uso del buscador exclusivo de tem
 
 (ref:help3) Búsqueda de ayuda para la función `mean()` en rseek. Puedes acceder directamente a la viñeta (PDF o web) del uso de la función (que es la misma información que en la búsqueda en RStudio), documentación, funciones asociadas, paquetes populares que usen mean, wikipedia, blogs como [R-Bloggers](https://www.r-bloggers.com/) donde expliquen su uso, _Issues_ que son problemas reportados para la función, o paquetes que contengan una función con el mismo nombre. 
 
-```{r, echo=FALSE, fig.cap='(ref:help3)', fig.align='center', out.width="100%"}
+```{r figura39, echo=FALSE, fig.cap='(ref:help3)', fig.align='center', out.width="100%"}
 knitr::include_graphics("figs/screenshots/rseek.jpg")
 ```

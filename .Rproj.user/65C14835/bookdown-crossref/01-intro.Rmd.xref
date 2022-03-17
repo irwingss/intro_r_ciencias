@@ -1,58 +1,96 @@
 h1:part-introducción-a-r-para-ciencias (PART*) INTRODUCCIÓN A R PARA CIENCIAS 
 h1:esencialesRRStudio 
 (ref:esenciales1) Estructura temática del capítulo .
+fig:figura1 (ref:esenciales1)
 h2:instalación-de-r-y-rstudio Instalación de R y RStudio
 h4:para-windows Para Windows:
 h4:para-macos Para macOS:
 h4:para-ubuntudebian Para Ubuntu/Debian:
 h2:configuración-de-rstudio Configuración de RStudio
 (ref:config1) Para iniciar la configuración de RStudio, clic en .
+fig:figura2 (ref:config1)
 (ref:config2) Abrirá la ventana de configuraciones. En la pestaña General se verifica la versión de R que está ejecutando RStudio.
+fig:figura3 (ref:config2)
 (ref:config3) En la pestaña Code se configura la mayor cantidad de puntos necesarios para que el código sea legible. Aquí se muestra la configuración de las pestañas Editing y Display. Las dos opciones nuevas en la versión de RStudio 1.4+ son (con flechas rojas), son importantes en mejorar la lectura del código para principiantes: una permite identificar los pares de paréntesis con colores diferenciables (Rainbow parentheses en pestaña Display), y la otra es un primer intento de crear un operador pipe nativo para el código básico de R (Use native pipe operator, ). Este último no lo habilitaremos para seguir usando el pipe de tidyverse .
+fig:figura4 (ref:config3)
 (ref:config4) En la pestaña Saving es importante definir la codificación que usarán los archivos generados por RStudio. Se recomienda dar clic en  y luego seleccionar la codificación .
+fig:figura5 (ref:config4)
 (ref:config6) Las pestañas Completion y Diagnóstico no se modifican mucho, pero sí es necesario mencionar que si notáse que el programa se ejecuta muy lento, se debe considerar desactivar las opciones de diagnóstico (marcadas en rojo).
+fig:figura6 (ref:config6)
 (ref:config7) La organización de los paneles descritos en la sección  se configuran previamente en la pestaña Pane Layout. A la izquierda: la organización por defecto. A la derecha: se deberá seleccionar todas las pestañas (excepto VCS y Connections) con un check dentro del panel superior derecho. Eso hará que el panel inferior derecho cambie de nombre a .
+fig:figura7 (ref:config7)
 (ref:config8) El siguiente paso es cambiar la ubicación de TabSet haciendo clic y cambiando el panel por Console. Clic en Aplicar para definir los cambios.
+fig:figura8 (ref:config8)
 (ref:config9) La configuración de R Markdown es solo para evitar que se cuelgue al usar los documentos. Definir todas las casillas y selectores como se muestra a continuación en las pestañas Basic y Advanced.
+fig:figura9 (ref:config9)
 (ref:config10) Para trabajar correctamente con los documentos R Markdown y evitar que se cuelguen, desmarcar la casilla con flecha roja. En la pestaña Spelling, se especifica el uso del lenguaje para el texto de los documentos. Selecciona de la lista . Clic en Aplicar para definir los cambios.
+fig:figura10 (ref:config10)
 h2:nuevas-características-de-rstudio-versión-2022-actualizado-23-02-22 Nuevas características de RStudio versión 2022 (Actualizado: 23-02-22)
 (ref:act2022) En la sección de R Markdown, pestaña Visual, apareció una nueva opción para numerar las líneas de código dentro de cada code chunk (flecha roja izquierda, cambio visualizado en la flecha roja derecha). Además, la forma de cambiar del modo editor visual (Visual) a editor de código (Source) está dispuesto de manera más elegante. Estos cambios, están acompañados en mejoras en la salida gráfica y corrección de algunos problemas menores de los R Markdown.
+fig:figura11 (ref:act2022)
 h2:tema-brackinstitute-2022 Tema BrackInstitute (2022)
 (ref:tema0) Vista previa del tema .
+fig:figura12 (ref:tema0)
 (ref:tema) Código de instalación del tema  en la consola, listo para ser ejecutado.
+fig:figura13 (ref:tema)
 h2:panelesRStudio Paneles de RStudio
 (ref:paneles1) Panel de Trabajo. Aquí aparecerán los archivos de trabajo de R, sean R script o R Markdown. Además, es donde aparecen las bases de datos cuando se pide visualizarlas en RStudio.
+fig:figura14 (ref:paneles1)
 (ref:paneles2) Consola. Es el panel donde se imprimen los resultados textuales y numéricos junto con el código que los genera.
+fig:figura15 (ref:paneles2)
 (ref:paneles3) Panel de pestañas: aquí encontrarás: el ambiente (Environment) donde se guardan los objetos creados o cargados en RStudio; la historia (History) de las ejecuciones realizadas durante la sesión de RStudio; archivos (Files) para visualizar los archivos de la carpeta de trabajo actual (definida como la carpeta  por defecto); la pestaña de visualización de gráficos estáticos (Plots); pestaña de instalación y actualización de paquetes (Packages); la pestaña de ayuda (Help); y el visualizador (Viewer) de gráficos animados, gráficos 3D, objetos HTML. las conexiones (Connections) que se pueden realizar con bases de datos (Oracle, SQL, Salesforce, Spark, Hipe, entre otros); tutoriales (tutorial) precargados usando shiny para el uso básico de R y RStudio.
+fig:figura16 (ref:paneles3)
 (ref:paneles6) Barra de opciones rápidas.
+fig:figura17 (ref:paneles6)
 (ref:paneles5) Barra de menús. De las pestañas más importantes: File nos permite crear o cargar archivos; Session, definir espacio de trabajo actual; y Tools, ingresar a las configuraciones de RStudio. Usos más avanzados, como la depuración de código o el uso de versiones de control (Git), también se manejan desde las opciones de esta barra.
+fig:figura18 (ref:paneles5)
 h2:librerías-y-repositorios Librerías y Repositorios
 (ref:paquetes) Instalación manual de paquetes.
+fig:figura19 (ref:paquetes)
 h2:actualización-de-librerías Actualización de librerías
 (ref:paquetesActualizacion) Actualización manual de paquetes de CRAN.
+fig:figura20 (ref:paquetesActualizacion)
 h2:tipos-de-documentos-en-rstudio Tipos de documentos en RStudio
 h3:r-script-.r R Script (.R)
 (ref:rscript1) Procedimiento para abrir un documento de RScript usando el menú .
-fig:abrirRscript (ref:rscript1)
+fig:figura21 (ref:rscript1)
 (ref:rscript2) Apariencia de un R script con código. Notar los colores diferenciales para cada parte del código.
+fig:figura22 (ref:rscript2)
 h3:r-markdown-.rmd R Markdown (.Rmd)
 (ref:rmarkdown1) Procedimiento para abrir un documento de R Markdown usando el menú .
+fig:figura23 (ref:rmarkdown1)
 (ref:rmarkdown2) Ventana emergente para darle nombre al documento R Markdown.
+fig:figura24 (ref:rmarkdown2)
 (ref:rmarkdown3) Aparecerá un archivo R Markdown con texto de ejemplo para que tengamos una idea de qué se puede hacer con él.
+fig:figura25 (ref:rmarkdown3)
 (ref:rmarkdown4)  es una función del paquete , desarrollado por Yihui Xie y colaboradores, para la generación de reportes dinámicos con R Markdown. Haciendo clic en el botón se despliega la lista de posibles exportaciones del documento. La exportación  produce una página web de reporte.
+fig:figura26 (ref:rmarkdown4)
 (ref:rmarkdown5) Tras hacer clic en , será necesario guardar en el almacenamiento de la computadora el documento, cuya extensión es .
+fig:figura27 (ref:rmarkdown5)
 (ref:rmarkdown6) En la consola, o en una pestaña Render, comenzará a mostrarse la ejecución del código que  desplegó para exportar el R Markdown a página web HTML.
+fig:figura28 (ref:rmarkdown6)
 (ref:rmarkdown7) Vista del archivo HTML generado a partir del R Markdown de ejemplo.
+fig:figura29 (ref:rmarkdown7)
 h2:proyectos-de-rstudio Proyectos de RStudio
 (ref:proyecto1) Para crear un proyecto local, ir a menu .
+fig:figura30 (ref:proyecto1)
 (ref:proyecto2) Para efectos de este libro, selecciona la primera opción. Clic en  para crear en el almacenamiento de tu computador una carpeta nueva donde se almacenará todo los respecto a este proyecto.  solo se usará cuando ya se ha creado de antemano una carpeta donde se quiere almacenar el proyecto. Para versiones de control con Git y GitHub, el proceso se inicia con , para crear la carpeta de trabajo (tal como las anteriores opciones), pero el proyecto estará  listo para hacer  y publicar los cambios en GitHub.
+fig:figura31 (ref:proyecto2)
 (ref:proyecto3) En  escribe el nombre del proyecto, mismo que también tendrá la nueva carpeta de trabajo que se creará en tu computador. En el botón , podrás ubicar una carpeta  donde irás creando proyectos para mantenerlos todos ordenados y accesibles. Puede ser una subcarpeta dentro de documentos, con algún nombre genérico como , , entre otros. Finalmente, clic en .
+fig:figura32 (ref:proyecto3)
 (ref:proyecto4) Se abrirá una nueva sesión con título idéntico a la carpeta de proyecto creada (aquí ). Nótese el ambiente (environment) en blanco. Todas las variables y funciones que se creen o carguen en el proyecto permanecerán en este ambiente específico del proyecto.
+fig:figura33 (ref:proyecto4)
 (ref:proyecto5) En la pestaña de  se verá el contenido de todo lo que copiemos dentro de la carpeta del proyecto. Puedes acceder a la carpeta de trabajo haciendo clic en . Allí podrás pegar archivos o documentos que necesites cargar posteriormente en tu proyecto.
+fig:figura34 (ref:proyecto5)
 (ref:proyecto6) Para crear un nuevo proyecto, abrir uno existente o cerrar el proyecto actual (flecha roja), existe el menú de acceso rápido que tiene el mismo nombre que tu proyecto actual. Para ver la dirección de la carpeta de trabajo en consola, ejecuta la función .
+fig:figura35 (ref:proyecto6)
 (ref:proyecto7) En tu computador, encontrarás creada la carpeta del proyecto, en la dirección que especificaste, donde podrás pegar los archivos que aparecerán en la pestaña de Files del Panel de Ambiente del proyecto.
+fig:figura36 (ref:proyecto7)
 h2:pedir-ayuda Pedir ayuda
 (ref:help1) Accediendo a la pestaña Help para buscar ayuda sobre la función . Nótese que solo se busca el nombre de la función sin paréntesis.
+fig:figura37 (ref:help1)
 (ref:help2) Detalle de la ayuda de la función . Es muy útil revisar la sección Arguments donde se describen los argumentos, además los ejemplos de uso.
+fig:figura38 (ref:help2)
 (ref:help3) Búsqueda de ayuda para la función  en rseek. Puedes acceder directamente a la viñeta (PDF o web) del uso de la función (que es la misma información que en la búsqueda en RStudio), documentación, funciones asociadas, paquetes populares que usen mean, wikipedia, blogs como  donde expliquen su uso,  que son problemas reportados para la función, o paquetes que contengan una función con el mismo nombre.
+fig:figura39 (ref:help3)
 

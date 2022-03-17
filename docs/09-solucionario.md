@@ -1,6 +1,6 @@
-# (PART\*) SOLUCIONARIO {.unnumbered}
+# (APPENDIX) APÉNDICES {.unnumbered}
 
-# **Solucionario de los ejercicios del libro**
+# **Solucionario de ejercicios**
 
 Este capítulo extra del libro permitirá al lector revisar si las soluciones realizadas a los ejercicios de cada capítulo son correctos. Recuerda que no existe una única solución a un problema en R. Uno es libre de *programar las soluciones* según su propio pensamiento creativo, nivel de conocimiento del código y practicidad. 
 
@@ -404,7 +404,7 @@ list2[[1]][5]
 ## Cap. 5: Programación funcional
 
 <div class="question">
-  1. Reproduce el resultado del siguiente loop `for`, utilizando la función replicate():
+  1. Reproduce el resultado del siguiente loop `for`, utilizando la función `replicate()`:
 
 
 ```r

@@ -4,7 +4,7 @@ La sección básica de R, introdujo la terminología de variables y funciones en
 
 (ref:estructuras2) Ejemplos de código para crear las diferentes estructuras de datos de amplio uso en R.
 
-```{r, echo=FALSE, fig.cap='(ref:estructuras2)', fig.align='center', out.width="100%"}
+```{r figura42, echo=FALSE, fig.cap='(ref:estructuras2)', fig.align='center', out.width="100%"}
 knitr::include_graphics("figs/elaboradas/Estructuras 2.png")
 ```
 
@@ -14,7 +14,7 @@ Toda variable cuenta con dos atributos: clase y estructura. Para entender cómo 
 
 (ref:gatocaja) Analogía del gato en la caja para entender a las variables. Aquí, el gato es el contenido; la caja, la estructura. Esta "variable" podría ser considerada de la clase "contenedora de gatos" y de estructura "cúbica". De igual manera, en R reconoceremos variables contenedoras de números, de caracteres, de valores lógicos, mismos que podrán estar ordenados en estructuras de una, dos, tres o N dimensiones.  
 
-```{r, echo=FALSE, fig.cap='(ref:gatocaja)', fig.align='center', out.width="100%"}
+```{r figura43, echo=FALSE, fig.cap='(ref:gatocaja)', fig.align='center', out.width="100%"}
 knitr::include_graphics("figs/fotografias/gatobox.jpg")
 ```
 <br>
@@ -46,7 +46,7 @@ matrices, data frames o tibbles.
 
 (ref:strdatos1) Estructuras informáticas para almacenar de datos en el lenguaje R.
 
-```{r, echo=FALSE, fig.cap='(ref:strdatos1)', fig.align='center', out.width="100%"}
+```{r figura44, echo=FALSE, fig.cap='(ref:strdatos1)', fig.align='center', out.width="100%"}
 knitr::include_graphics("figs/elaboradas/Estructuras de datos en R.png")
 ```
 
@@ -268,20 +268,20 @@ sample(conjuntoInicial2, 25, replace = FALSE)
 
 Los factores son tipos especiales de vectores, donde R evalúa los valores únicos de la secuencia y los define como categorías. Son muy útiles en programación dado que permiten graficar, por ejemplo, con un color diferenciado cada nivel de una variable categorica. Imagina que se requiere hacer un gráfico de dispersión de puntos para ver la relación entre dos variables, pero permitiendo que el color de los puntos refleje el grupo al que pertenece cada observación:
 
-(ref:factoresEjemplo) Ejemplo de uso del conjunto de datos _Grupos_ (que es un Factor) empleada para colorear los puntos del gráfico de enfrentamiento de las variables _Pétalo_ y _Sépalo_.
+(ref:factoresEjemplo) Ejemplo de uso de la variable _Grupos_ (factor) empleada para colorear los puntos del gráfico de enfrentamiento de _Pétalo_ y _Sépalo_.
 
-```{r, echo=FALSE, fig.cap='(ref:factoresEjemplo)', fig.align='center', out.width="100%"}
+```{r figura45, echo=FALSE, fig.cap='(ref:factoresEjemplo)', fig.align='center', out.width="100%"}
 data("iris")
 
-colorPal <- c("#b41214","#007588","#ffc000")
+colorPal <- c("#8BC73D","#077173","#5CCAE2","#F2CD00","#CD001A","#5E36CC")
 
 iris$Species <- factor(iris$Species, labels=c("setosa"="I. setosa",
                                               "versicolor"="I. versicolor",
                                               "virginica"="I. virginica"))
 ggplot(data=iris, 
        aes(x=Petal.Length, y=Sepal.Length, color=Species))+
-  geom_point(size=3, alpha=0.5)+
-  scale_color_manual(values=colorPal)+
+  geom_point(size=3, alpha=0.8)+
+  scale_color_manual(values = colorPal)+
   labs(x="Pétalo", y="Sépalo", color="Grupos")+
   theme_minimal()+
   theme(legend.text=element_text(face=3),

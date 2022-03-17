@@ -8,7 +8,7 @@ Estos tópicos son considerados por muchos autores como el una introducción a R
 
 <div class="figure" style="text-align: center">
 <img src="figs/screenshots/programming.png" alt="(ref:programming1)" width="100%" />
-<p class="caption">(\#fig:unnamed-chunk-1)(ref:programming1)</p>
+<p class="caption">(\#fig:figura48)(ref:programming1)</p>
 </div>
 
 ## Creación de funciones {#creacion-fun}
@@ -23,6 +23,7 @@ La gran comunidad de desarrollo detrás de R ha creado una infinidad de funcione
 
 ### Ejemplo simple
 
+::: {.example}
 Comenzando con ejemplo muy simple, se creará una función que le sume 100 a un número dado:
 
 
@@ -44,8 +45,11 @@ mi.fun1(156)
 mi.fun2(156)
 # [1] 256
 ```
+::: 
 
 ### Función de Gauss
+
+::: {.example}
 
 Recrear la famosa función de [Carl Friedrich Gauss](https://es.wikipedia.org/wiki/Carl_Friedrich_Gauss) para calcular la suma de todos los números dentro de un rango numérico, implicar tomar su fórmula matemática:
 
@@ -64,10 +68,14 @@ k.Gauss <- function(n) {
 k.Gauss(100)
 # [1] 5050
 ```
+:::
 
 ### Variables y valores por defecto
 
-Esa letra o palabra que se ha colocado dentro de la función `function()` recibe el nombre de variable de la función. Hasta aquí se definió una única variable dentro de cada función: `x` para `mi.fun1()` y `mi.fun2()`, o `n` para `k.Gaus()`. Pero se puede colocar más de una, e incluso definir valores por defecto en `function()`, mismos que se podrán modificar al usar la función ya creada. La siguiente función permitirá hallar el logaritmo en base 2 (definido por defecto) de la función matemática de Gauss, pero podrás modificar el valor cuando quieras posteriormente:
+Esa letra o palabra que se ha colocado dentro de la función `function()` recibe el nombre de variable de la función. Hasta aquí se definió una única variable dentro de cada función: `x` para `mi.fun1()` y `mi.fun2()`, o `n` para `k.Gaus()`. Pero se puede colocar más de una, e incluso definir valores por defecto en `function()`, mismos que se podrán modificar al usar la función ya creada. 
+
+::: {.example}
+La siguiente función permitirá hallar el logaritmo en base 2 (definido por defecto) de la función matemática de Gauss, pero podrás modificar el valor cuando quieras posteriormente:
 
 
 ```r
@@ -92,10 +100,14 @@ log.Gauss(100, base = 10)
 log.Gauss(100, 10)
 # [1] 3.703
 ```
+:::
 
 ### Almacenar variables directamente en el ambiente
 
-Como es evidente en el ejemplo anterior, se pueden crear variables dentro de una función utilizando el operador `<-`, pero estas son de carácter temporal. Una vez se imprime el resultado en consola, la variable temporal desaparece. Para que algún paso realizado dentro de una función se guarde como un objeto permanentemente en el ambiente, usa el símbolo especial `<<-`. En el siguiente ejemplo permitiremos que un paso de la función `log.Gauss()` se guarde en el ambiente:
+Como es evidente en el ejemplo anterior, se pueden crear variables dentro de una función utilizando el operador `<-`, pero estas son de carácter temporal. Una vez se imprime el resultado en consola, la variable temporal desaparece. Para que algún paso realizado dentro de una función se guarde como un objeto permanentemente en el ambiente, usa el símbolo especial `<<-`. 
+
+::: {.example}
+En el siguiente ejemplo permitiremos que un paso de la función `log.Gauss()` se guarde en el ambiente:
 
 
 ```r
@@ -115,6 +127,7 @@ log.Gauss(100, base = 5)
 print(resultado.Gauss)
 # [1] 5050
 ```
+:::
 
 ## Control de flujo
 
@@ -129,6 +142,7 @@ El primer operador de control de flujo a destacar es el condicional `if`. Este s
 if (condición) acción_si_la_condición_es_verdadera
 ```
 
+::: {.example}
 Para poner en contexto lo anterior:
 
 
@@ -149,7 +163,9 @@ condicion <- FALSE
 
 if (condicion) 1
 ```
+:::
 
+::: {.example}
 En la siguiente expresión, reemplazaremos la condición `TRUE` por una condición real con un vector llamado `num`. Se hará la pregunta lógica ¿es el objeto `num` *numeric*?. El resultado será un texto indicando que `num` *es un número* siempre que la condición sea verdadera.
 
 
@@ -165,6 +181,7 @@ num <- "Andes Tropicales"
 
 if (is.numeric(num)) paste(num, "es un número")
 ```
+:::
 
 En el ejemplo con `"Andes Tropicales"`, la condición no fue verdadera, `if` no mostró resultado alguno en consola. 
 
@@ -177,6 +194,7 @@ El segundo operador de control que uno debe conocer es `else`. Este significa `e
 if (condición) acción_si_la_condición_es_verdadera else acción_si_la_condición_es_falsa
 ```
 
+::: {.example} 
 Poniendo en contexto lo mencionado:
 
 
@@ -224,7 +242,9 @@ if (condicion) {
     0}
 # [1] 0
 ```
+:::
 
+::: {.example}
 Veamos una aplicación más completa de todo lo discutido hasta el momento:
 
 
@@ -249,7 +269,9 @@ if (is.numeric(num)) {
     }
 # [1] "Andes Tropicales no es un número"
 ```
+::: 
 
+::: {.example}
 A continuación varias aplicaciones para identificar si un valor numérico es par o impar, para identificar si un valor es NA, y para identificar si un valor es del tipo carácter o texto:
 
 
@@ -284,7 +306,9 @@ if (is.na(valor)) {
     }
 # [1] "América no es un valor perdido, debe ser un texto"
 ```
+:::
 
+::: {.example}
 Crear un proceso complejo que involucre una respuesta para cualquiera de los tipos de elementos ofrecidos en el ejemplo anterior (valor numérico, NA y textual) puede ser un dolor de cabeza. Si se concatenan las condiciones con `else` e `if` de manera errada, generará un error:
 
 
@@ -336,6 +360,7 @@ if (is.numeric(valor) == TRUE) {
     }
 # [1] "Mil quinientos veinte no es un valor perdido, debe ser un texto"
 ```
+:::
 
 \BeginKnitrBlock{rmdnote}<div class="rmdnote">Tanto `if` como `else` permiten evaluar elementos dentro de una función y pueden funcionar como **interruptores** que de decanten en la elección de una ruta de análisis en relación a una condición relacionada con el elemento u objeto de entrada.</div>\EndKnitrBlock{rmdnote}
 
@@ -367,7 +392,7 @@ dist
 #         class = "dist")
 #     .Call(C_Cdist, x, method, attrs, p)
 # }
-# <bytecode: 0x0000000025d52ad8>
+# <bytecode: 0x000000002458b7e8>
 # <environment: namespace:stats>
 ```
 
@@ -380,6 +405,7 @@ De manera similar al uso de `if` y `else`, es posible operar de manera vectorial
 ifelse(condicion, "acción_si_la_condición_es_verdadera", "acción_si_la_condición_es_falsa")
 ```
 
+::: {.example}
 Usando `ifelse()` para identificar los valores pares e impares de un vector numérico:
 
 
@@ -395,6 +421,7 @@ ifelse((vector %% 2) == 0, "Par", "Impar")
 # [31] "Impar" "Par"   "Impar" "Par"   "Impar" "Par"   "Impar" "Par"   "Impar" "Par"  
 # [41] "Impar" "Par"   "Impar" "Par"   "Impar" "Par"   "Impar" "Par"   "Impar" "Par"
 ```
+:::
 
 Es posible incluir una función `ifelse*()` dentro de otra en la posición de resultado `FALSE` para **concatenar varias condiciones aplicadas al mismo vector**:
 
@@ -429,6 +456,7 @@ case_when(
 )
 ```
 
+::: {.example}
 Resolviendo el último ejemplo de la sección anterior con `case_when()`:
 
 
@@ -476,6 +504,7 @@ case_when(
 # [41] NA        "Par >10" NA        "Par >10" NA        "Par >10" NA        "Par >10"
 # [49] NA        "Par >10"
 ```
+:::
 
 ### Ciclos o Loops con `for`
 
@@ -512,6 +541,7 @@ for (i in seq_along(vector))
 
 #### Uso de `for`
 
+::: {.example} 
 Utilizando un loop para obtener solo los valores mayores igual al promedio de un conjunto de datos:
 
 
@@ -575,9 +605,10 @@ res
 # [79] 21.67 23.56 22.89 22.07 20.37 31.92 20.21 21.74 22.44 27.07 26.22 20.47 24.22
 # [92] 21.20 20.53 31.18 23.36
 ```
+::: 
 
-
-Otra manera es utilizando el operador condicional `next`, que "salta" un ciclo cuando se cumple la condición del `if` previo. Nota como la condición en `if` pide lo contrario a lo que se necesita, para que cuando se cumpla se active `next` y cuando no se cumpla se guarda el valor concatenado en res.
+::: {.example}
+Otra manera de conseguir el efecto visto en el ejemplo anterio es utilizando el operador condicional `next`. Este "salta" un ciclo cuando se cumple la condición del `if` previo. Nota como la condición en `if` pide lo contrario a lo que se necesita, para que cuando se cumpla se active `next` y cuando no se cumpla se guarda el valor concatenado en res.
 
 
 ```r
@@ -602,7 +633,9 @@ res
 # [79] 21.67 23.56 22.89 22.07 20.37 31.92 20.21 21.74 22.44 27.07 26.22 20.47 24.22
 # [92] 21.20 20.53 31.18 23.36
 ```
+:::
 
+::: {.example}
 Si es requerido frenar el loop antes de que culmine, en base a una nueva condición definida, se debe utilizar `break`. En nuestro ejemplo, para frenar el loop cuando aparezca el primer valor mayor a 30.5, es necesario ir evaluando en cada iteración del loop si existe al menos un valor `> 30.5` en el objeto `res`. Esto se obtiene con `any(res > 30.5)`. En el momento que se cumpla, `break` frena el loop.
 
 
@@ -625,11 +658,13 @@ res
 #  [1] 28.73 20.39 20.72 29.60 22.58 26.85 22.01 22.24 20.62 30.01 22.79 23.93 24.69
 # [14] 20.86 27.02 22.39 25.01 24.92 24.60 23.86 23.10 32.15
 ```
+:::
 
 ### Ciclos o loops con `replicate()`
 
 La función `replicate()` facilita mucho procesos iterativos para simulación. Permite replicar una o varias líneas de código las veces que sean definidas, para almacenarlas como una lista de vectores (con el argumento `simplify = FALSE`), o como un vector único (con el argumento `simplify = TRUE`, como está por defecto). Ejemplificaremos su uso con un **caso de estudio**: 
 
+::: {.example}
 Se ha evaluado una población, de la cual se obtuvo como muestra 100 medidas de una longitud. Al obtener el valor más grande de dicha muestra se obtiene:
 
 
@@ -713,6 +748,7 @@ mean(resultados)
 max(muestra)
 # [1] 179.5
 ```
+:::
 
 Con ello nos hemos dado cuenta que, asumiendo que la variable tiene distribución de probabilidades normal, el valor máximo de la muestra original (179.53), es menor al promedio poblacional simulado con diez mil réplicas (199.809). Por el contrario, está más cerca del valor máximo más pequeño dentro de los diez mil datos (171.7636).
 
@@ -732,7 +768,10 @@ while (condicion_respecto_a_index) {
   }
 ```
 
-Es la segunda línea de la condición a realizar dentro del loop while lo que le da la continuidad. En alguna iteración, el ir "sumando" valores al index hará que se cumpla la condición, por ejemplo:
+Es la segunda línea de la condición a realizar dentro del loop `while` lo que le da la continuidad. En alguna iteración, el ir "sumando" valores al index hará que se cumpla la condición definida.
+
+::: {.example}
+Veamos su aplicación:
 
 
 ```r
@@ -752,8 +791,12 @@ while (index <= 5) {
 # [1] "El número es 4"
 # [1] "El número es 5"
 ```
+:::
 
-Una segunda manera de operar es indicar que se frene el loop hasta que una condición lógica cambie de estado (`FALSE` a `TRUE`, o viceversa). En el siguiente ejemplo se aplicará el imprimir la secuencia de bases nitrogenadas (letras `A`, `C`, `G`, `T`) hasta que se ubique la primera base G. Trata de interpretar cada paso dentro de una iteración del loop `while`:
+Una segunda manera de operar es indicar que se frene el loop hasta que una condición lógica cambie de estado (`FALSE` a `TRUE`, o viceversa). 
+
+::: {.example}
+Se aplicará el imprimir la secuencia de bases nitrogenadas (letras `A`, `C`, `G`, `T`) hasta que se ubique la primera base G. Trata de interpretar cada paso dentro de una iteración del loop `while`:
 
 
 ```r
@@ -780,8 +823,9 @@ while ( !condicion ) {
 # [1] "A"
 # [1] "T"
 ```
+:::
 
-Intentar esto con `for` llevaría al **resultado erróneo** de imprimir todo menos los elementos que se soliciten, como "G":
+Intentar con `for` lo explicado en el ejemplo anterior llevaría al **resultado erróneo** de imprimir todo menos los elementos que se soliciten, como "G":
 
 
 ```r
@@ -807,7 +851,10 @@ for(i in seq_along(vector)){
 # [1] "C"
 ```
 
-Algo más interesante para el loop `while` podría ser frenar la impresión de elementos cuando se identifique que a partir de la siguiente iteración aparecerá una secuencia definida. Imagina que necesitas frenar la impresión hasta que aparezca la primera secuencia `TGC`, en ese orden:
+Algo más interesante para el loop `while` podría ser frenar la impresión de elementos cuando se identifique que a partir de la siguiente iteración aparecerá una secuencia definida. 
+
+::: {.example}
+Imagina que necesitas frenar la impresión hasta que aparezca la primera secuencia `TGC`, en ese orden:
 
 
 ```r
@@ -833,11 +880,13 @@ while ( !condicion ) {
 # [1] "C"
 # [1] "A"
 ```
+:::
 
 ## Operadores de función {#operadoresfuncion}
 
 Los **operadores de función** son funciones que toman como entrada una función y devuelven como resultado otra función generada como una modificación de la inicial. Esto es diferente de lo mostrado hasta el momento, donde una función usualmente genera un objeto como resultado. 
 
+::: {.example}
 Veamos un ejemplo sobre la identificación de números primos. La forma más sencilla de hacer es creando una función que identifique si un número dado es primo o no. El proceso de idear esta función comienza con crear una función que identifique si un número es primo o no. Esta función inicial debe ser pensada como una función que se le puede aplicar a un solo elemento, no a un conjunto de datos.
 
 
@@ -894,6 +943,7 @@ primoV(sec)
 sec[primoV(sec)]
 #  [1]  2  3  5  7 11 13 17 19 23 29 31 37 41 43 47 53 59 61 67 71 73 79 83 89 97
 ```
+:::
 
 De manera similar a lo mostrado con `Vectorize()`, existen otros enfoques en R que utilizan funciones de la familia `apply()`. Este tema es abordado en la siguiente sección.
 
@@ -901,7 +951,10 @@ De manera similar a lo mostrado con `Vectorize()`, existen otros enfoques en R q
 
 ### Función `apply()`
 
-La familia de funciones `apply()` reúne a varias funciones que permiten, como se implica de su nombre, aplicar algo a un objeto. Ese algo es una función. Para explorar los beneficios de este grupo de funciones, comencemos con un problema básico: calcular el promedio de varias columnas numéricas de una data frame.
+La familia de funciones `apply()` reúne a varias funciones que permiten, como se implica de su nombre, aplicar algo a un objeto. Ese algo es una función. 
+
+::: {.example}
+Para explorar los beneficios de este grupo de funciones, comencemos con un problema básico: calcular el promedio de varias columnas numéricas de una data frame.
 
 
 ```r
@@ -957,11 +1010,12 @@ apply(iris[,1:4], 2, FUN = mean)
 # Sepal.Length  Sepal.Width Petal.Length  Petal.Width 
 #        5.843        3.057        3.758        1.199
 ```
+:::
 
 Dentro de la familia `apply()` podrás encontrar:
 
 
-Table: (\#tab:unnamed-chunk-50)Funciones de la familia apply() que se pueden utilizar en R para automatizar la aplicación de funciones sobre diferentes estructuras de datos.
+Table: (\#tab:unnamed-chunk-49)Funciones de la familia apply() que se pueden utilizar en R para automatizar la aplicación de funciones sobre diferentes estructuras de datos.
 
 Función      Descripción                                                                                                                                                                                                                                                                                  
 -----------  ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -981,7 +1035,8 @@ La función `lapply()` se aplica tanto a una base de datos tabular o sobre una l
 lapply(DF,  FUN = FUNCIÓN)
 ```
 
-Aplicado al ejemplo propuesto, se tiene:
+::: {.example}
+Aplicando `lapply()` al ejemplo propuesto anteriormente, se tiene:
 
 
 ```r
@@ -1008,9 +1063,9 @@ unlist(lista)
 # Sepal.Length  Sepal.Width Petal.Length  Petal.Width 
 #        5.843        3.057        3.758        1.199
 ```
+:::
 
 En este último ejemplo, vemos como el resultado converge con el de `apply()`.
-
 
 ### Función `tapply()`
 
@@ -1021,6 +1076,7 @@ Esta función es excepcional. Permite calcular el resultado de una función apli
 tapply(VECTOR_NUMÉRICO, VECTOR_DE_AGRUPAMIENTO, FUN = FUNCIÓN)
 ```
 
+::: {.example}
 El siguiente código sirve para calcular el promedio por especie (grupo especificado en la columna `Species`), de la variable en la columna 1 de la base de datos iris:
 
 
@@ -1029,6 +1085,7 @@ tapply(iris[,1], iris$Species, FUN = mean)
 #     setosa versicolor  virginica 
 #      5.006      5.936      6.588
 ```
+:::
 
 Recuerda que siempre que necesites puedes crear una función. Si unificamos el uso de `lapply()` para aplicar `tapply()` a cada elemento de columna de `iris[,1:4]`, es necesario crear una función con `tapply()` dentro del cual se especifique el uso de la función `mean()`:
 
@@ -1061,6 +1118,7 @@ Una forma de usar funciones elemento a elemento (*element-wise*) en un vector si
 sapply(VECTOR, FUN = FUNCIÓN)
 ```
 
+::: {.example}
 Aplicado al caso de la [Sección 5.3 Operadores de Función](#operadoresfuncion) en el que se requería aplicar `primo.logic()` sobre un vector numérico llamado `sec` para la búsqueda de números primos, se tiene:
 
 
@@ -1079,11 +1137,12 @@ sapply(sec, FUN = primo.logic)
 #  [79]  TRUE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE
 #  [92] FALSE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE
 ```
+:::
 
 ## Ejercicios del capítulo
 
 <div class="question">
-  1. Reproduce el resultado del siguiente loop `for`, utilizando la función replicate():
+  1. Reproduce el resultado del siguiente loop `for`, utilizando la función `replicate()`:
 
 
 ```r
@@ -1176,4 +1235,3 @@ iris3Lista <- list(setosa = iris3[,,1],
                 virginica = iris3[,,3])
 ```
 </div>
-

@@ -1,6 +1,7 @@
 bookdown::render_book("index.Rmd", "bookdown::bs4_book")
 bookdown::render_book("index.Rmd", "bookdown::gitbook")
 
+colorPal <- c("#8BC73D","#077173","#5CCAE2","#F2CD00","#CD001A","#5E36CC")
 colorPal <- c("#b41214","#007588","#ffc000")
 fillPal <- c("#ffdede","#d9faff","#fff6de")
 colorPal <- c("#03071e","#dc2f02","#ffba08")
@@ -44,3 +45,52 @@ sd(BOD$demand)
 # Con dplyr
 ```
 
+
+::: {.theorem #pyth name="Pythagorean theorem"}
+  For a right triangle, if $c$ denotes the length of the hypotenuse
+  and $a$ and $b$ denote the lengths of the other two sides, we have
+
+  $$a^2 + b^2 = c^2$$
+    :::
+
+
+::: {.lemma}
+This is a `theorem` environment that can contain **any**
+  _Markdown_ syntax.
+:::
+
+  ::: {.corollary}
+This is a `theorem` environment that can contain **any**
+  _Markdown_ syntax.
+:::
+
+  ::: {.conjecture}
+This is a `theorem` environment that can contain **any**
+  _Markdown_ syntax.
+:::
+
+  ::: {.definition}
+This is a `theorem` environment that can contain **any**
+  _Markdown_ syntax.
+:::
+
+  ::: {.example}
+This is a `theorem` environment that can contain **any**
+  _Markdown_ syntax.
+:::
+
+  ::: {.exercise}
+This is a `theorem` environment that can contain **any**
+  _Markdown_ syntax.
+:::
+
+  ::: {.hypothesis}
+This is a `theorem` environment that can contain **any**
+  _Markdown_ syntax.
+:::
+
+
+  ::: {.hypothesis}
+This is a `theorem` environment that can contain **any**
+  _Markdown_ syntax.
+:::

@@ -6,7 +6,7 @@ En este capítulo corto, se abordarán los tópicos de carga y exportación de b
 
 <div class="figure" style="text-align: center">
 <img src="figs/elaboradas/Extensiones.png" alt="(ref:carga1)" width="100%" />
-<p class="caption">(\#fig:unnamed-chunk-1)(ref:carga1)</p>
+<p class="caption">(\#fig:figura46)(ref:carga1)</p>
 </div>
 
 En adelante se espera que los archivos a cargar estén colocados dentro de la carpete de proyecto activa. De no ser el caso, se pueden buscar manualmente los archivos con una ventana emergente de búsqueda activada por la función `file.choose()`.
@@ -29,7 +29,7 @@ misDatos <- read.csv(file.choose())
 
 <div class="figure" style="text-align: center">
 <img src="figs/screenshots/ventana emergente file choose.jpg" alt="(ref:emergente1)" width="100%" />
-<p class="caption">(\#fig:unnamed-chunk-4)(ref:emergente1)</p>
+<p class="caption">(\#fig:figura47)(ref:emergente1)</p>
 </div>
 
 \BeginKnitrBlock{rmdwarning}<div class="rmdwarning">Nunca olvidar la extensión respectiva dentro de las comillas y al final del nombre del archivo (como en el ejemplo "archivo.csv" mostrado aneriormente). Si se coloca la extensión correcta, el archivo exportado será ilegible.</div>\EndKnitrBlock{rmdwarning}

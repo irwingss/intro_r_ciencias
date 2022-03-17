@@ -1,18 +1,18 @@
 ---
 site: bookdown::bookdown_site
 output:
-  bookdown::gitbook
+  bookdown::gitbook:
+    fig_caption: true
+    number_sections: true
+    global_numbering: false
 title: "Introducción a R para Ciencias"
 subtitle: "Una gentil introducción al mundo de la programación para investigadores"
 author: "Irwing S. Saldaña"
 description: "Libro introductorio al uso del lenguaje de programación R, con ejemplos orientados a ciencias"
-date: "2022-03-10"
+date: "2022-03-16"
 bibliography: [book.bib, packages.bib]
 biblio-style: apalike
 colorlinks: yes
-graphics: yes
-lot: yes
-lof: yes
 link-citations: yes
 cover-image: 'Cover/cover R.png'
 favicon: 'figs/favicon.ico'
@@ -62,7 +62,7 @@ Sin importar tu carrera de origen, es más que seguro nunca pensaste que algún 
 
 <div class="figure" style="text-align: center">
 <img src="figs/elaboradas/Por que R.png" alt="(ref:porquer1)" width="100%" />
-<p class="caption">(\#fig:unnamed-chunk-4)(ref:porquer1)</p>
+<p class="caption">(\#fig:figura01)(ref:porquer1)</p>
 </div>
 
 R es uno de los lenguajes más populares para ciencia de datos e investigación científica. Es considerado uno de los lenguajes de programación más sencillos de aprender. Tres razones técnicas por las cuales aprender R por sobre otros lenguajes implican:

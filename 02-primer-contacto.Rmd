@@ -12,7 +12,7 @@ No obstante, R es considerada una de los mejores lenguajes informáticos si nues
 
 (ref:vistprevRStudio) Ejemplo de uso de RStudio en el análisis estadístico.
 
-```{r, echo=FALSE, fig.cap='(ref:vistprevRStudio)', fig.align='center', out.width="100%"}
+```{r figura40, echo=FALSE, fig.cap='(ref:vistprevRStudio)', fig.align='center', out.width="100%"}
 knitr::include_graphics("figs/screenshots/tema BrackInstitute.png")
 ```
 <br>
@@ -30,7 +30,7 @@ A diferencia de los lenguajes humanos (idiomas), un lenguaje de programación de
 
 Por ahora no se ahondará en el detalle de qué cosa es `rnorm()` o `hist()`.
 
-```{r, out.width="100%"}
+```{r figura41, out.width="100%"}
 hist(rnorm(10000))
 ```
 

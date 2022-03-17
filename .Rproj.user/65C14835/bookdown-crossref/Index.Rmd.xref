@@ -3,6 +3,7 @@ h2:cómo-usar-el-libro ¿Cómo usar el libro?
 h1:prefacio 
 h2:por-qué-aprender-r ¿Por qué aprender R?
 (ref:porquer1) Fortalezas que presenta el lenguaje de programación R y lo destacan por sobre otros lenguajes como Python o Julia.
+fig:figura01 (ref:porquer1)
 h2:a-quién-está-dirigido-este-libro ¿A quién está dirigido este libro?
 h2:agradecimientos Agradecimientos
 

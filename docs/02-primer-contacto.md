@@ -14,7 +14,7 @@ No obstante, R es considerada una de los mejores lenguajes informáticos si nues
 
 <div class="figure" style="text-align: center">
 <img src="figs/screenshots/tema BrackInstitute.png" alt="(ref:vistprevRStudio)" width="100%" />
-<p class="caption">(\#fig:unnamed-chunk-1)(ref:vistprevRStudio)</p>
+<p class="caption">(\#fig:figura40)(ref:vistprevRStudio)</p>
 </div>
 <br>
 
@@ -36,7 +36,7 @@ Por ahora no se ahondará en el detalle de qué cosa es `rnorm()` o `hist()`.
 hist(rnorm(10000))
 ```
 
-<img src="02-primer-contacto_files/figure-html/unnamed-chunk-2-1.svg" width="100%" style="display: block; margin: auto;" />
+<img src="02-primer-contacto_files/figure-html/figura41-1.svg" width="100%" style="display: block; margin: auto;" />
 
 Para replicarlo, es necesario escribir el código exacto, para luego dar la orden, es decir, ejecutar el código. La ejecución se hace presionando en el teclado de tu computador `control + enter` o `command + enter` (usuarios macOS).
 
@@ -81,7 +81,7 @@ Como ya se había mencionado antes, R nos permite operar con código. La cosa m�
 <br>
 
 
-Table: (\#tab:unnamed-chunk-7)Operaciones (símbolos) aritméticas en R
+Table: (\#tab:unnamed-chunk-5)Operaciones (símbolos) aritméticas en R
 
 Operador   Operación                                 Ejemplo        Resultado
 ---------  ----------------------------------------  ------------  ----------
@@ -98,7 +98,7 @@ Operador   Operación                                 Ejemplo        Resultado
 Operaciones más complejas necesitan el uso de funciones. Estas son "secuencias de ordenes empaquetadas con un nombre pequeño y recordable" — la información sobre las funciones será desarrollada más adelante ([2.6 Funciones](#funciones) y [6.2 Creación de Funciones](#creacion-fun)). En la siguiente tabla se presentan las funciones matemáticas más comunes en R: 
 
 
-Table: (\#tab:unnamed-chunk-8)Operaciones matemáticas en R. Estos procedimientos matemáticos vienen predefinidos como ordenes denominadas "Funciones".
+Table: (\#tab:unnamed-chunk-6)Operaciones matemáticas en R. Estos procedimientos matemáticos vienen predefinidos como ordenes denominadas "Funciones".
 
 Operador      Operación                   Ejemplo         Resultado
 ------------  --------------------------  -------------  ----------
@@ -123,7 +123,7 @@ Los operadores lógicos permiten definir una condición lógica en base a los re
 En la siguiente tabla se muestran los operadores lógicos (últimos dos) y relacionales.
 
 
-Table: (\#tab:unnamed-chunk-9)Operadores relacionales y lógicos en R, modos de uso y resultado lógico esperado (Verdadero o Falso).
+Table: (\#tab:unnamed-chunk-7)Operadores relacionales y lógicos en R, modos de uso y resultado lógico esperado (Verdadero o Falso).
 
 Operador     Operación                                                                                                                                  Ejemplo               Resultado 
 -----------  -----------------------------------------------------------------------------------------------------------------------------------------  --------------------  ----------
@@ -242,7 +242,7 @@ sd
 # function (x, na.rm = FALSE) 
 # sqrt(var(if (is.vector(x) || is.factor(x)) x else as.double(x), 
 #     na.rm = na.rm))
-# <bytecode: 0x0000000025ba8cd0>
+# <bytecode: 0x0000000015ccf280>
 # <environment: namespace:stats>
 ```
 
@@ -266,7 +266,7 @@ letras <- c("A", "B", "A", "A")
 ```
 
 
-Table: (\#tab:unnamed-chunk-21)Cincuenta funciones básicas útiles en R.
+Table: (\#tab:unnamed-chunk-19)Cincuenta funciones básicas útiles en R.
 
 Función                Descripción                                                                                                                                                                                Ejmplo.de.uso                                
 ---------------------  -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------  ---------------------------------------------

@@ -602,7 +602,7 @@ div.rmdnote, div.rmdtip, div.rmdwarning {
   border-width: 10px 0px 0px 0px;
 }
 
-div.rmdnote {
+/*div.rmdnote {
   background-image: url("../figs/iconos/r.png");
   background-color: #d9faff;
   border-color: #007588;
@@ -610,13 +610,33 @@ div.rmdnote {
 
 div.rmdtip {
   background-image: url("../figs/iconos/comentario.png");
-  background-color: #ffdede;
-  border-color: #b41214;
+  background-color: #dcf5df;
+  border-color: #00884d;
 }
 
 div.rmdwarning {
   background-image: url("../figs/iconos/advertencia.png");
   background-color: #fff6de;
   border-color: #ffc000;
+}
+
+*/
+
+div.rmdnote {
+  background-image: url("../figs/iconos/r.png");
+  background-color: #CBEFF6;
+  border-color: #5CCAE2;
+}
+
+div.rmdtip {
+  background-image: url("../figs/iconos/comentario.png");
+  background-color: #DAECC0;
+  border-color: #8BC73D;
+}
+
+div.rmdwarning {
+  background-image: url("../figs/iconos/advertencia.png");
+  background-color: #FFF6C2;
+  border-color: #F2CD00;
 }
 

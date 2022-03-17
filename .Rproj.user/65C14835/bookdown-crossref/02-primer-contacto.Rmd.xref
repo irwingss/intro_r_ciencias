@@ -1,5 +1,6 @@
 h1:rbasico 
 (ref:vistprevRStudio) Ejemplo de uso de RStudio en el análisis estadístico.
+fig:figura40 (ref:vistprevRStudio)
 h2:ejecutar-código Ejecutar código
 h2:r-como-calculadora R como calculadora
 tab:echo Operaciones (símbolos) aritméticas en R

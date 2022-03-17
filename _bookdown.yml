@@ -1,10 +1,25 @@
 book_filename: "Introducción a R para Ciencias"
 language:
   label:
-    fig: "FIGURA "
-    tab: "TABLA "
+    fig: "Figura "
+    tab: "Tabla "
+    eq: "Ecuación"
+    thm: "Teorema "
+    lem: 'Lema '
+    cor: 'Corolario '
+    prp: 'Preposición '
+    cnj: 'Conjetura '
+    def: 'Definición '
+    exm: 'Ejemplo '
+    exr: 'Ejercicio '
+    hyp: 'Hipótesis '
+    proof: 'Prueba '
+    remark: 'Observación '
+    solution: 'Solución '
   ui:
+    edit: Editar
     chapter_name: "Capítulo "
+    appendix_name: 'Apéndice '
 delete_merged_file: true
 output_dir: "docs"
 rmd_files: [
@@ -15,7 +30,6 @@ rmd_files: [
   "04-carga-datos.Rmd",
   "05-programacion.Rmd",
   "06-tidyverse.Rmd",
-  "08-ggplot2.Rmd",
   "09-solucionario.Rmd"
   ]
 clean: [packages.bib, bookdown.bbl]

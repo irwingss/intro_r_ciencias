@@ -1,7 +1,10 @@
 ---
 site: bookdown::bookdown_site
 output:
-  bookdown::gitbook
+  bookdown::gitbook:
+    fig_caption: true
+    number_sections: true
+    global_numbering: false
 title: "Introducción a R para Ciencias"
 subtitle: "Una gentil introducción al mundo de la programación para investigadores"
 author: "Irwing S. Saldaña"
@@ -10,9 +13,6 @@ date: "`r Sys.Date()`"
 bibliography: [book.bib, packages.bib]
 biblio-style: apalike
 colorlinks: yes
-graphics: yes
-lot: yes
-lof: yes
 link-citations: yes
 cover-image: 'Cover/cover R.png'
 favicon: 'figs/favicon.ico'
@@ -72,7 +72,7 @@ Sin importar tu carrera de origen, es más que seguro nunca pensaste que algún 
 
 (ref:porquer1) Fortalezas que presenta el lenguaje de programación R y lo destacan por sobre otros lenguajes como Python o Julia.
 
-```{r, echo=FALSE, fig.cap='(ref:porquer1)', fig.align='center', out.width="100%"}
+```{r figura01, echo=FALSE, fig.cap='(ref:porquer1)', fig.align='center', out.width="100%"}
 knitr::include_graphics("figs/elaboradas/Por que R.png")
 ```
 

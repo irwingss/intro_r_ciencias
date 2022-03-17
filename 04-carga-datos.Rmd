@@ -4,7 +4,7 @@ En este capítulo corto, se abordarán los tópicos de carga y exportación de b
 
 (ref:carga1) Extensiones de archivos frecuentemente usados en R y RStudio. Más allá de lo mencionado aquí, existe una vasta cantidad de extensiones posibles de gestionar con RStudio. Dependiendo del campo de aplicación específico en el que te desarrolles, continuarás encontrando nuevas extensiones.
 
-```{r, echo=FALSE, fig.cap='(ref:carga1)', fig.align='center', out.width="100%"}
+```{r figura46, echo=FALSE, fig.cap='(ref:carga1)', fig.align='center', out.width="100%"}
 knitr::include_graphics("figs/elaboradas/Extensiones.png")
 ```
 
@@ -24,7 +24,7 @@ misDatos <- read.csv(file.choose())
 
 (ref:emergente1) Vista previa de la venta emergente que se abre tras ejecutar el código mostrado anteriormente con `file.choose()`. Si no se muestra automáticamente, algunas veces se abre minimizada. Se recomienda buscar en los programas abiertos de la barra de tareas del sistema operativo en cuestión.
 
-```{r, echo=FALSE, fig.cap='(ref:emergente1)', fig.align='center', out.width="100%"}
+```{r figura47, echo=FALSE, fig.cap='(ref:emergente1)', fig.align='center', out.width="100%"}
 knitr::include_graphics("figs/screenshots/ventana emergente file choose.jpg")
 ```
 

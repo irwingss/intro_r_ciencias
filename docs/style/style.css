@@ -22,8 +22,8 @@ div.rmdnote {
 
 div.rmdtip {
   background-image: url("../figs/iconos/comentario.png");
-  background-color: #ffdede;
-  border-color: #b41214;
+  background-color: #dcf5df;
+  border-color: #00884d;
 }
 
 div.rmdwarning {
@@ -141,3 +141,4 @@ caption {
   background-color: #006cff;
   text-decoration: none;
 }
+

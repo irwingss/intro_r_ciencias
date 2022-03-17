@@ -6,7 +6,7 @@ La sección básica de R, introdujo la terminología de variables y funciones en
 
 <div class="figure" style="text-align: center">
 <img src="figs/elaboradas/Estructuras 2.png" alt="(ref:estructuras2)" width="100%" />
-<p class="caption">(\#fig:unnamed-chunk-1)(ref:estructuras2)</p>
+<p class="caption">(\#fig:figura42)(ref:estructuras2)</p>
 </div>
 
 ## Clasificación de variables
@@ -17,7 +17,7 @@ Toda variable cuenta con dos atributos: clase y estructura. Para entender cómo 
 
 <div class="figure" style="text-align: center">
 <img src="figs/fotografias/gatobox.jpg" alt="(ref:gatocaja)" width="100%" />
-<p class="caption">(\#fig:unnamed-chunk-2)(ref:gatocaja)</p>
+<p class="caption">(\#fig:figura43)(ref:gatocaja)</p>
 </div>
 <br>
 
@@ -50,7 +50,7 @@ matrices, data frames o tibbles.
 
 <div class="figure" style="text-align: center">
 <img src="figs/elaboradas/Estructuras de datos en R.png" alt="(ref:strdatos1)" width="100%" />
-<p class="caption">(\#fig:unnamed-chunk-3)(ref:strdatos1)</p>
+<p class="caption">(\#fig:figura44)(ref:strdatos1)</p>
 </div>
 
 ## Vectores
@@ -153,7 +153,7 @@ rep("América", 10)
 Resulta útil conocer algunas de las funciones básicas en R para trabajar con vector.
 
 
-Table: (\#tab:unnamed-chunk-11)Operaciones (símbolos) aritméticas en R
+Table: (\#tab:unnamed-chunk-8)Operaciones (símbolos) aritméticas en R
 
 Función      Descripción                                                                                    Ejmplo.de.uso                
 -----------  ---------------------------------------------------------------------------------------------  -----------------------------
@@ -339,11 +339,11 @@ sample(conjuntoInicial2, 25, replace = FALSE)
 
 Los factores son tipos especiales de vectores, donde R evalúa los valores únicos de la secuencia y los define como categorías. Son muy útiles en programación dado que permiten graficar, por ejemplo, con un color diferenciado cada nivel de una variable categorica. Imagina que se requiere hacer un gráfico de dispersión de puntos para ver la relación entre dos variables, pero permitiendo que el color de los puntos refleje el grupo al que pertenece cada observación:
 
-(ref:factoresEjemplo) Ejemplo de uso del conjunto de datos _Grupos_ (que es un Factor) empleada para colorear los puntos del gráfico de enfrentamiento de las variables _Pétalo_ y _Sépalo_.
+(ref:factoresEjemplo) Ejemplo de uso de la variable _Grupos_ (factor) empleada para colorear los puntos del gráfico de enfrentamiento de _Pétalo_ y _Sépalo_.
 
 <div class="figure" style="text-align: center">
-<img src="03-estructuras-datos_files/figure-html/unnamed-chunk-25-1.svg" alt="(ref:factoresEjemplo)" width="100%" />
-<p class="caption">(\#fig:unnamed-chunk-25)(ref:factoresEjemplo)</p>
+<img src="03-estructuras-datos_files/figure-html/figura45-1.svg" alt="(ref:factoresEjemplo)" width="100%" />
+<p class="caption">(\#fig:figura45)(ref:factoresEjemplo)</p>
 </div>
 
 ### Crear un factor
@@ -751,7 +751,7 @@ Existe la posibilidad de cambiar la naturaleza digital, es decir, la clase y/o e
 Para coercer basta con usar las variables del grupo `as.---()`. Los tres guiones equivalen a un texto variable que le da la característica a cada función de dicho grupo. A continuación se muestran algunas de las funciones de coerción más importantes:
 
 
-Table: (\#tab:unnamed-chunk-47)Principales funciones de coerción de clase de variable.
+Table: (\#tab:unnamed-chunk-43)Principales funciones de coerción de clase de variable.
 
 Función            Descripción                                                          
 -----------------  ---------------------------------------------------------------------
@@ -762,7 +762,7 @@ Función            Descripción
 
 
 
-Table: (\#tab:unnamed-chunk-48)Principales funciones de coerción de estructura de variable.
+Table: (\#tab:unnamed-chunk-44)Principales funciones de coerción de estructura de variable.
 
 Función                Descripción                                                              
 ---------------------  -------------------------------------------------------------------------
@@ -776,7 +776,7 @@ Función                Descripción
 Más allá de las funciones convencionales, existen muchas más funciones de coerción que modificas conjuntos de datos particulares. Por ejemplo, para trabajar con fechas, objetos especiales de R como dendrogramas, fórmulas, entre otros.
 
 
-Table: (\#tab:unnamed-chunk-49)Algunas funciones de coerción especiales.
+Table: (\#tab:unnamed-chunk-45)Algunas funciones de coerción especiales.
 
 Función             Descripción                                                                  
 ------------------  -----------------------------------------------------------------------------

@@ -1,10 +1,13 @@
 h1:estructurasdatos 
 (ref:estructuras2) Ejemplos de código para crear las diferentes estructuras de datos de amplio uso en R.
+fig:figura42 (ref:estructuras2)
 h2:clasificación-de-variables Clasificación de variables
 (ref:gatocaja) Analogía del gato en la caja para entender a las variables. Aquí, el gato es el contenido; la caja, la estructura. Esta  podría ser considerada de la clase  y de estructura . De igual manera, en R reconoceremos variables contenedoras de números, de caracteres, de valores lógicos, mismos que podrán estar ordenados en estructuras de una, dos, tres o N dimensiones.
+fig:figura43 (ref:gatocaja)
 h3:clases-atómicas Clases atómicas
 h3:estructuras-de-datos Estructuras de datos
 (ref:strdatos1) Estructuras informáticas para almacenar de datos en el lenguaje R.
+fig:figura44 (ref:strdatos1)
 h2:vectores Vectores
 h3:crear-un-vector Crear un vector
 h3:vectores-de-secuencias-y-repeticiones Vectores de secuencias y repeticiones
@@ -15,7 +18,8 @@ h3:valores-perdidos-en-vectores Valores perdidos en vectores
 h3:indexación-de-vectores Indexación de vectores
 h3:muestreo-de-vectores Muestreo de vectores
 h2:factores Factores
-(ref:factoresEjemplo) Ejemplo de uso del conjunto de datos  (que es un Factor) empleada para colorear los puntos del gráfico de enfrentamiento de las variables  y .
+(ref:factoresEjemplo) Ejemplo de uso de la variable  (factor) empleada para colorear los puntos del gráfico de enfrentamiento de  y .
+fig:figura45 (ref:factoresEjemplo)
 h3:crear-un-factor Crear un factor
 h3:niveles-de-un-factor Niveles de un factor
 h3:reordenar-los-niveles Reordenar los niveles

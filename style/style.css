@@ -1,4 +1,4 @@
-div.rmdnote, div.rmdtip, div.rmdwarning {
+/*div.rmdnote, div.rmdtip, div.rmdwarning {
   padding: 1em 1em 1em 4em;
   padding-left: 100px;
   margin: 1em 0;
@@ -13,24 +13,7 @@ div.rmdnote, div.rmdtip, div.rmdwarning {
   max-width: 100%;
   border-width: 10px 0px 0px 0px;
 }
-
-div.rmdnote {
-  background-image: url("../figs/iconos/r.png");
-  background-color: #d9faff;
-  border-color: #007588;
-}
-
-div.rmdtip {
-  background-image: url("../figs/iconos/comentario.png");
-  background-color: #ffdede;
-  border-color: #b41214;
-}
-
-div.rmdwarning {
-  background-image: url("../figs/iconos/advertencia.png");
-  background-color: #fff6de;
-  border-color: #ffc000;
-}
+*/
 
 p.caption {
   color: #777;
