@@ -31,7 +31,7 @@
   
   <link rel="shortcut icon" href="figs/favicon.ico" type="image/x-icon" />
 <link rel="prev" href="creación-y-transformación-de-columnas.html"/>
-<link rel="next" href="valores-perdidos.html"/>
+<link rel="next" href="limpieza-de-datos.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -285,9 +285,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="6.10" data-path="reordenamiento.html"><a href="reordenamiento.html"><i class="fa fa-check"></i><b>6.10</b> Reordenamiento<span></span></a></li>
 <li class="chapter" data-level="6.11" data-path="creación-y-transformación-de-columnas.html"><a href="creación-y-transformación-de-columnas.html"><i class="fa fa-check"></i><b>6.11</b> Creación y transformación de columnas<span></span></a></li>
-<li class="chapter" data-level="6.12" data-path="combinar-bases-de-datos.html"><a href="combinar-bases-de-datos.html"><i class="fa fa-check"></i><b>6.12</b> Combinar bases de datos<span></span></a></li>
-<li class="chapter" data-level="6.13" data-path="valores-perdidos.html"><a href="valores-perdidos.html"><i class="fa fa-check"></i><b>6.13</b> Valores perdidos<span></span></a></li>
-<li class="chapter" data-level="6.14" data-path="ejercicios-del-capítulo-3.html"><a href="ejercicios-del-capítulo-3.html"><i class="fa fa-check"></i><b>6.14</b> Ejercicios del capítulo<span></span></a></li>
+<li class="chapter" data-level="6.12" data-path="combinar-bases-de-datos.html"><a href="combinar-bases-de-datos.html"><i class="fa fa-check"></i><b>6.12</b> Combinar bases de datos<span></span></a>
+<ul>
+<li class="chapter" data-level="6.12.1" data-path="combinar-bases-de-datos.html"><a href="combinar-bases-de-datos.html#full_join"><i class="fa fa-check"></i><b>6.12.1</b> <code>full_join()</code><span></span></a></li>
+<li class="chapter" data-level="6.12.2" data-path="combinar-bases-de-datos.html"><a href="combinar-bases-de-datos.html#left_join"><i class="fa fa-check"></i><b>6.12.2</b> <code>left_join()</code><span></span></a></li>
+<li class="chapter" data-level="6.12.3" data-path="combinar-bases-de-datos.html"><a href="combinar-bases-de-datos.html#right_join"><i class="fa fa-check"></i><b>6.12.3</b> <code>right_join()</code><span></span></a></li>
+<li class="chapter" data-level="6.12.4" data-path="combinar-bases-de-datos.html"><a href="combinar-bases-de-datos.html#inner_join"><i class="fa fa-check"></i><b>6.12.4</b> <code>inner_join()</code><span></span></a></li>
+<li class="chapter" data-level="6.12.5" data-path="combinar-bases-de-datos.html"><a href="combinar-bases-de-datos.html#semi_join"><i class="fa fa-check"></i><b>6.12.5</b> <code>semi_join()</code><span></span></a></li>
+<li class="chapter" data-level="6.12.6" data-path="combinar-bases-de-datos.html"><a href="combinar-bases-de-datos.html#anti_join"><i class="fa fa-check"></i><b>6.12.6</b> <code>anti_join()</code><span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="6.13" data-path="limpieza-de-datos.html"><a href="limpieza-de-datos.html"><i class="fa fa-check"></i><b>6.13</b> Limpieza de datos<span></span></a>
+<ul>
+<li class="chapter" data-level="6.13.1" data-path="limpieza-de-datos.html"><a href="limpieza-de-datos.html#cuántos-na-existen-en-la-base-de-datos"><i class="fa fa-check"></i><b>6.13.1</b> ¿Cuántos NA existen en la base de datos?<span></span></a></li>
+<li class="chapter" data-level="6.13.2" data-path="limpieza-de-datos.html"><a href="limpieza-de-datos.html#cuántos-na-existen-en-cada-columna"><i class="fa fa-check"></i><b>6.13.2</b> ¿Cuántos NA existen en cada columna?<span></span></a></li>
+<li class="chapter" data-level="6.13.3" data-path="limpieza-de-datos.html"><a href="limpieza-de-datos.html#en-qué-fila-o-columna-están-los-na"><i class="fa fa-check"></i><b>6.13.3</b> ¿En qué fila o columna están los NA?<span></span></a></li>
+<li class="chapter" data-level="6.13.4" data-path="limpieza-de-datos.html"><a href="limpieza-de-datos.html#cómo-reemplazar-los-na-por-otro-valor"><i class="fa fa-check"></i><b>6.13.4</b> ¿Cómo reemplazar los NA por otro valor?<span></span></a></li>
+</ul></li>
 </ul></li>
 <li class="appendix"><span><b>APÉNDICES<span></span></b></span></li>
 <li class="chapter" data-level="A" data-path="solucionario-de-ejercicios.html"><a href="solucionario-de-ejercicios.html"><i class="fa fa-check"></i><b>A</b> <strong>Solucionario de ejercicios</strong><span></span></a>
@@ -333,6 +346,94 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="combinar-bases-de-datos" class="section level2 hasAnchor" number="6.12">
 <h2><span class="header-section-number">6.12</span> Combinar bases de datos<a href="combinar-bases-de-datos.html#combinar-bases-de-datos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Combinar bases de datos es una tarea recurrente en ciencia de datos. Las funciones de combinación de <strong>dplyr</strong> utilizan como materia prima data frames o tibbles. La mejor manera de explicar el uso de estas intrincadas funciones es a través de un gráfico. La Figura <a href="combinar-bases-de-datos.html#fig:figura60">6.13</a> muestra el detalle de las filas esperadas como resultado del uso de las funciones de combinación:</p>
+
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:figura60"></span>
+<img src="figs/elaboradas/Combinar%20datasets.png" alt="Funciones de combinación de dplyr y resultado esperado. El color indica la base de datos de origen de las filas que aparecerán en la tabla de resultados." width="100%" />
+<p class="caption">
+Figura 6.13: Funciones de combinación de <strong>dplyr</strong> y resultado esperado. El color indica la base de datos de origen de las filas que aparecerán en la tabla de resultados.
+</p>
+</div>
+<p>Veamos la aplicación de estas funciones con un ejemplo muy simple.</p>
+<div class="example">
+<p><span id="exm:unlabeled-div-45" class="example"><strong>Ejemplo 6.23  </strong></span>Considera las data frame <code>Base_A</code> y <code>Base_B</code>:</p>
+<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb185-1"><a href="combinar-bases-de-datos.html#cb185-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear las bases de datos</span></span>
+<span id="cb185-2"><a href="combinar-bases-de-datos.html#cb185-2" aria-hidden="true" tabindex="-1"></a>Base_A <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">ID =</span> LETTERS[<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>],</span>
+<span id="cb185-3"><a href="combinar-bases-de-datos.html#cb185-3" aria-hidden="true" tabindex="-1"></a>                     <span class="at">COL1 =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>)</span>
+<span id="cb185-4"><a href="combinar-bases-de-datos.html#cb185-4" aria-hidden="true" tabindex="-1"></a>Base_B <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">ID =</span> LETTERS[<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>)],</span>
+<span id="cb185-5"><a href="combinar-bases-de-datos.html#cb185-5" aria-hidden="true" tabindex="-1"></a>                     <span class="at">COL2 =</span> <span class="fu">c</span>(T,T,F,F))</span>
+<span id="cb185-6"><a href="combinar-bases-de-datos.html#cb185-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb185-7"><a href="combinar-bases-de-datos.html#cb185-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Revisar las bases de datos</span></span>
+<span id="cb185-8"><a href="combinar-bases-de-datos.html#cb185-8" aria-hidden="true" tabindex="-1"></a>Base_A</span>
+<span id="cb185-9"><a href="combinar-bases-de-datos.html#cb185-9" aria-hidden="true" tabindex="-1"></a><span class="co">#   ID COL1</span></span>
+<span id="cb185-10"><a href="combinar-bases-de-datos.html#cb185-10" aria-hidden="true" tabindex="-1"></a><span class="co"># 1  A    1</span></span>
+<span id="cb185-11"><a href="combinar-bases-de-datos.html#cb185-11" aria-hidden="true" tabindex="-1"></a><span class="co"># 2  B    2</span></span>
+<span id="cb185-12"><a href="combinar-bases-de-datos.html#cb185-12" aria-hidden="true" tabindex="-1"></a><span class="co"># 3  C    3</span></span>
+<span id="cb185-13"><a href="combinar-bases-de-datos.html#cb185-13" aria-hidden="true" tabindex="-1"></a><span class="co"># 4  D    4</span></span>
+<span id="cb185-14"><a href="combinar-bases-de-datos.html#cb185-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb185-15"><a href="combinar-bases-de-datos.html#cb185-15" aria-hidden="true" tabindex="-1"></a>Base_B</span>
+<span id="cb185-16"><a href="combinar-bases-de-datos.html#cb185-16" aria-hidden="true" tabindex="-1"></a><span class="co">#   ID  COL2</span></span>
+<span id="cb185-17"><a href="combinar-bases-de-datos.html#cb185-17" aria-hidden="true" tabindex="-1"></a><span class="co"># 1  A  TRUE</span></span>
+<span id="cb185-18"><a href="combinar-bases-de-datos.html#cb185-18" aria-hidden="true" tabindex="-1"></a><span class="co"># 2  C  TRUE</span></span>
+<span id="cb185-19"><a href="combinar-bases-de-datos.html#cb185-19" aria-hidden="true" tabindex="-1"></a><span class="co"># 3  D FALSE</span></span>
+<span id="cb185-20"><a href="combinar-bases-de-datos.html#cb185-20" aria-hidden="true" tabindex="-1"></a><span class="co"># 4  E FALSE</span></span></code></pre></div>
+</div>
+<div id="full_join" class="section level3 hasAnchor" number="6.12.1">
+<h3><span class="header-section-number">6.12.1</span> <code>full_join()</code><a href="combinar-bases-de-datos.html#full_join" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Une las dos bases de datos por completo. Las celdas en blanco que puedan aparecer se rellenan con <code>NA</code>.</p>
+<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb186-1"><a href="combinar-bases-de-datos.html#cb186-1" aria-hidden="true" tabindex="-1"></a><span class="fu">full_join</span>(Base_A, Base_B, <span class="at">by=</span><span class="st">&quot;ID&quot;</span>)</span>
+<span id="cb186-2"><a href="combinar-bases-de-datos.html#cb186-2" aria-hidden="true" tabindex="-1"></a><span class="co">#   ID COL1  COL2</span></span>
+<span id="cb186-3"><a href="combinar-bases-de-datos.html#cb186-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 1  A    1  TRUE</span></span>
+<span id="cb186-4"><a href="combinar-bases-de-datos.html#cb186-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 2  B    2    NA</span></span>
+<span id="cb186-5"><a href="combinar-bases-de-datos.html#cb186-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 3  C    3  TRUE</span></span>
+<span id="cb186-6"><a href="combinar-bases-de-datos.html#cb186-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 4  D    4 FALSE</span></span>
+<span id="cb186-7"><a href="combinar-bases-de-datos.html#cb186-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 5  E   NA FALSE</span></span></code></pre></div>
+</div>
+<div id="left_join" class="section level3 hasAnchor" number="6.12.2">
+<h3><span class="header-section-number">6.12.2</span> <code>left_join()</code><a href="combinar-bases-de-datos.html#left_join" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Devuelve todas las filas de <code>Base_A</code> y cualquier fila coincidente de <code>Base_B</code>. Las filas exclusivas de <code>Base_B</code> no aparecen. Las celdas en blanco que puedan aparecer se rellenan con <code>NA</code>.</p>
+<div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb187-1"><a href="combinar-bases-de-datos.html#cb187-1" aria-hidden="true" tabindex="-1"></a><span class="fu">left_join</span>(Base_A, Base_B, <span class="at">by=</span><span class="st">&quot;ID&quot;</span>)</span>
+<span id="cb187-2"><a href="combinar-bases-de-datos.html#cb187-2" aria-hidden="true" tabindex="-1"></a><span class="co">#   ID COL1  COL2</span></span>
+<span id="cb187-3"><a href="combinar-bases-de-datos.html#cb187-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 1  A    1  TRUE</span></span>
+<span id="cb187-4"><a href="combinar-bases-de-datos.html#cb187-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 2  B    2    NA</span></span>
+<span id="cb187-5"><a href="combinar-bases-de-datos.html#cb187-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 3  C    3  TRUE</span></span>
+<span id="cb187-6"><a href="combinar-bases-de-datos.html#cb187-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 4  D    4 FALSE</span></span></code></pre></div>
+</div>
+<div id="right_join" class="section level3 hasAnchor" number="6.12.3">
+<h3><span class="header-section-number">6.12.3</span> <code>right_join()</code><a href="combinar-bases-de-datos.html#right_join" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Devuelve todas las filas de <code>Base_B</code> y cualquier fila coincidente de <code>Base_A</code>. Las filas exclusivas de <code>Base_A</code> no aparecen. Las celdas en blanco que puedan aparecer se rellenan con <code>NA</code>.</p>
+<div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb188-1"><a href="combinar-bases-de-datos.html#cb188-1" aria-hidden="true" tabindex="-1"></a><span class="fu">right_join</span>(Base_A, Base_B, <span class="at">by=</span><span class="st">&quot;ID&quot;</span>)</span>
+<span id="cb188-2"><a href="combinar-bases-de-datos.html#cb188-2" aria-hidden="true" tabindex="-1"></a><span class="co">#   ID COL1  COL2</span></span>
+<span id="cb188-3"><a href="combinar-bases-de-datos.html#cb188-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 1  A    1  TRUE</span></span>
+<span id="cb188-4"><a href="combinar-bases-de-datos.html#cb188-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 2  C    3  TRUE</span></span>
+<span id="cb188-5"><a href="combinar-bases-de-datos.html#cb188-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 3  D    4 FALSE</span></span>
+<span id="cb188-6"><a href="combinar-bases-de-datos.html#cb188-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 4  E   NA FALSE</span></span></code></pre></div>
+</div>
+<div id="inner_join" class="section level3 hasAnchor" number="6.12.4">
+<h3><span class="header-section-number">6.12.4</span> <code>inner_join()</code><a href="combinar-bases-de-datos.html#inner_join" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Devuelve todas las filas coincidentes de <code>Base_A</code> y <code>Base_B</code>, y muestra las columnas de ambas bases de datos.</p>
+<div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb189-1"><a href="combinar-bases-de-datos.html#cb189-1" aria-hidden="true" tabindex="-1"></a><span class="fu">inner_join</span>(Base_A, Base_B, <span class="at">by=</span><span class="st">&quot;ID&quot;</span>)</span>
+<span id="cb189-2"><a href="combinar-bases-de-datos.html#cb189-2" aria-hidden="true" tabindex="-1"></a><span class="co">#   ID COL1  COL2</span></span>
+<span id="cb189-3"><a href="combinar-bases-de-datos.html#cb189-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 1  A    1  TRUE</span></span>
+<span id="cb189-4"><a href="combinar-bases-de-datos.html#cb189-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 2  C    3  TRUE</span></span>
+<span id="cb189-5"><a href="combinar-bases-de-datos.html#cb189-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 3  D    4 FALSE</span></span></code></pre></div>
+</div>
+<div id="semi_join" class="section level3 hasAnchor" number="6.12.5">
+<h3><span class="header-section-number">6.12.5</span> <code>semi_join()</code><a href="combinar-bases-de-datos.html#semi_join" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Devuelve todas las filas coincidentes de <code>Base_A</code> y <code>Base_B</code>, y muestra únicamente las columnas de la <code>Base_A</code>.</p>
+<div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb190-1"><a href="combinar-bases-de-datos.html#cb190-1" aria-hidden="true" tabindex="-1"></a><span class="fu">semi_join</span>(Base_A, Base_B, <span class="at">by=</span><span class="st">&quot;ID&quot;</span>)</span>
+<span id="cb190-2"><a href="combinar-bases-de-datos.html#cb190-2" aria-hidden="true" tabindex="-1"></a><span class="co">#   ID COL1</span></span>
+<span id="cb190-3"><a href="combinar-bases-de-datos.html#cb190-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 1  A    1</span></span>
+<span id="cb190-4"><a href="combinar-bases-de-datos.html#cb190-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 2  C    3</span></span>
+<span id="cb190-5"><a href="combinar-bases-de-datos.html#cb190-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 3  D    4</span></span></code></pre></div>
+</div>
+<div id="anti_join" class="section level3 hasAnchor" number="6.12.6">
+<h3><span class="header-section-number">6.12.6</span> <code>anti_join()</code><a href="combinar-bases-de-datos.html#anti_join" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Devuelve solo las filas que son exclusivas de <code>Base_A</code>.</p>
+<div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb191-1"><a href="combinar-bases-de-datos.html#cb191-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anti_join</span>(Base_A, Base_B, <span class="at">by=</span><span class="st">&quot;ID&quot;</span>)</span>
+<span id="cb191-2"><a href="combinar-bases-de-datos.html#cb191-2" aria-hidden="true" tabindex="-1"></a><span class="co">#   ID COL1</span></span>
+<span id="cb191-3"><a href="combinar-bases-de-datos.html#cb191-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 1  B    2</span></span></code></pre></div>
+</div>
 </div>
             </section>
 
@@ -340,7 +441,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         </div>
       </div>
 <a href="creación-y-transformación-de-columnas.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="valores-perdidos.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="limpieza-de-datos.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

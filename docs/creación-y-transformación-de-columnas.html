@@ -285,9 +285,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="6.10" data-path="reordenamiento.html"><a href="reordenamiento.html"><i class="fa fa-check"></i><b>6.10</b> Reordenamiento<span></span></a></li>
 <li class="chapter" data-level="6.11" data-path="creación-y-transformación-de-columnas.html"><a href="creación-y-transformación-de-columnas.html"><i class="fa fa-check"></i><b>6.11</b> Creación y transformación de columnas<span></span></a></li>
-<li class="chapter" data-level="6.12" data-path="combinar-bases-de-datos.html"><a href="combinar-bases-de-datos.html"><i class="fa fa-check"></i><b>6.12</b> Combinar bases de datos<span></span></a></li>
-<li class="chapter" data-level="6.13" data-path="valores-perdidos.html"><a href="valores-perdidos.html"><i class="fa fa-check"></i><b>6.13</b> Valores perdidos<span></span></a></li>
-<li class="chapter" data-level="6.14" data-path="ejercicios-del-capítulo-3.html"><a href="ejercicios-del-capítulo-3.html"><i class="fa fa-check"></i><b>6.14</b> Ejercicios del capítulo<span></span></a></li>
+<li class="chapter" data-level="6.12" data-path="combinar-bases-de-datos.html"><a href="combinar-bases-de-datos.html"><i class="fa fa-check"></i><b>6.12</b> Combinar bases de datos<span></span></a>
+<ul>
+<li class="chapter" data-level="6.12.1" data-path="combinar-bases-de-datos.html"><a href="combinar-bases-de-datos.html#full_join"><i class="fa fa-check"></i><b>6.12.1</b> <code>full_join()</code><span></span></a></li>
+<li class="chapter" data-level="6.12.2" data-path="combinar-bases-de-datos.html"><a href="combinar-bases-de-datos.html#left_join"><i class="fa fa-check"></i><b>6.12.2</b> <code>left_join()</code><span></span></a></li>
+<li class="chapter" data-level="6.12.3" data-path="combinar-bases-de-datos.html"><a href="combinar-bases-de-datos.html#right_join"><i class="fa fa-check"></i><b>6.12.3</b> <code>right_join()</code><span></span></a></li>
+<li class="chapter" data-level="6.12.4" data-path="combinar-bases-de-datos.html"><a href="combinar-bases-de-datos.html#inner_join"><i class="fa fa-check"></i><b>6.12.4</b> <code>inner_join()</code><span></span></a></li>
+<li class="chapter" data-level="6.12.5" data-path="combinar-bases-de-datos.html"><a href="combinar-bases-de-datos.html#semi_join"><i class="fa fa-check"></i><b>6.12.5</b> <code>semi_join()</code><span></span></a></li>
+<li class="chapter" data-level="6.12.6" data-path="combinar-bases-de-datos.html"><a href="combinar-bases-de-datos.html#anti_join"><i class="fa fa-check"></i><b>6.12.6</b> <code>anti_join()</code><span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="6.13" data-path="limpieza-de-datos.html"><a href="limpieza-de-datos.html"><i class="fa fa-check"></i><b>6.13</b> Limpieza de datos<span></span></a>
+<ul>
+<li class="chapter" data-level="6.13.1" data-path="limpieza-de-datos.html"><a href="limpieza-de-datos.html#cuántos-na-existen-en-la-base-de-datos"><i class="fa fa-check"></i><b>6.13.1</b> ¿Cuántos NA existen en la base de datos?<span></span></a></li>
+<li class="chapter" data-level="6.13.2" data-path="limpieza-de-datos.html"><a href="limpieza-de-datos.html#cuántos-na-existen-en-cada-columna"><i class="fa fa-check"></i><b>6.13.2</b> ¿Cuántos NA existen en cada columna?<span></span></a></li>
+<li class="chapter" data-level="6.13.3" data-path="limpieza-de-datos.html"><a href="limpieza-de-datos.html#en-qué-fila-o-columna-están-los-na"><i class="fa fa-check"></i><b>6.13.3</b> ¿En qué fila o columna están los NA?<span></span></a></li>
+<li class="chapter" data-level="6.13.4" data-path="limpieza-de-datos.html"><a href="limpieza-de-datos.html#cómo-reemplazar-los-na-por-otro-valor"><i class="fa fa-check"></i><b>6.13.4</b> ¿Cómo reemplazar los NA por otro valor?<span></span></a></li>
+</ul></li>
 </ul></li>
 <li class="appendix"><span><b>APÉNDICES<span></span></b></span></li>
 <li class="chapter" data-level="A" data-path="solucionario-de-ejercicios.html"><a href="solucionario-de-ejercicios.html"><i class="fa fa-check"></i><b>A</b> <strong>Solucionario de ejercicios</strong><span></span></a>
@@ -333,6 +346,206 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="creación-y-transformación-de-columnas" class="section level2 hasAnchor" number="6.11">
 <h2><span class="header-section-number">6.11</span> Creación y transformación de columnas<a href="creación-y-transformación-de-columnas.html#creación-y-transformación-de-columnas" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Las funciones de la familia <code>mutate()</code> simplifican enormemente el proceso de crear columnas en la base de datos. Algo muy interesante es que es posible aplicar una transformación a una columna que se está creando o modificando dentro de la misma función de <code>mutate()</code> y <code>transmute()</code> (revisa la <code>COL_NUEVA4</code> en el siguiente código). La estructura base es:</p>
+<div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb177-1"><a href="creación-y-transformación-de-columnas.html#cb177-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Usando mutate()</span></span>
+<span id="cb177-2"><a href="creación-y-transformación-de-columnas.html#cb177-2" aria-hidden="true" tabindex="-1"></a>BASE_DE_DATOS <span class="sc">%&gt;%</span> ... <span class="sc">%&gt;%</span> </span>
+<span id="cb177-3"><a href="creación-y-transformación-de-columnas.html#cb177-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">COL_NUEVA1 =</span> <span class="fu">FUNCION_DE_TRANSFORMACION</span>(COL_ANTIGUA1),</span>
+<span id="cb177-4"><a href="creación-y-transformación-de-columnas.html#cb177-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">COL_NUEVA2 =</span> <span class="fu">FUNCION_DE_TRANSFORMACION</span>(COL_ANTIGUA2),</span>
+<span id="cb177-5"><a href="creación-y-transformación-de-columnas.html#cb177-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">COL_NUEVA3 =</span> <span class="fu">FUNCION_DE_TRANSFORMACION</span>(COL_ANTIGUA3),</span>
+<span id="cb177-6"><a href="creación-y-transformación-de-columnas.html#cb177-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">COL_NUEVA4 =</span> <span class="fu">FUNCION_DE_TRANSFORMACION</span>(COL_NUEVA1))</span>
+<span id="cb177-7"><a href="creación-y-transformación-de-columnas.html#cb177-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb177-8"><a href="creación-y-transformación-de-columnas.html#cb177-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Usando transmute()</span></span>
+<span id="cb177-9"><a href="creación-y-transformación-de-columnas.html#cb177-9" aria-hidden="true" tabindex="-1"></a>BASE_DE_DATOS <span class="sc">%&gt;%</span> ... <span class="sc">%&gt;%</span> </span>
+<span id="cb177-10"><a href="creación-y-transformación-de-columnas.html#cb177-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">transmute</span>(<span class="at">COL_NUEVA1 =</span> <span class="fu">FUNCION_DE_TRANSFORMACION</span>(COL_ANTIGUA1),</span>
+<span id="cb177-11"><a href="creación-y-transformación-de-columnas.html#cb177-11" aria-hidden="true" tabindex="-1"></a>         <span class="at">COL_NUEVA2 =</span> <span class="fu">FUNCION_DE_TRANSFORMACION</span>(COL_ANTIGUA2),</span>
+<span id="cb177-12"><a href="creación-y-transformación-de-columnas.html#cb177-12" aria-hidden="true" tabindex="-1"></a>         <span class="at">COL_NUEVA3 =</span> <span class="fu">FUNCION_DE_TRANSFORMACION</span>(COL_ANTIGUA3),</span>
+<span id="cb177-13"><a href="creación-y-transformación-de-columnas.html#cb177-13" aria-hidden="true" tabindex="-1"></a>         <span class="at">COL_NUEVA4 =</span> <span class="fu">FUNCION_DE_TRANSFORMACION</span>(COL_NUEVA1))</span></code></pre></div>
+
+<div class="rmdtip">
+El resultado de transformación con <code>transmute()</code> es el mismo, excepto que las nuevas columnas aparecerán solitarias en su propia tabla, separadas de la original. Con <code>mutate()</code>, las nuevas columnas aparecen adjuntas a la derecha de la última columna dentro de la tabla original.
+</div>
+<div class="example">
+<p><span id="exm:summariseall" class="example"><strong>Ejemplo 6.16  </strong></span>Se pretende ejemplificar un nuevo índice de la relación Poliomielitis - Sarampión utilizando la fórmula:</p>
+<p><span class="math display">\[MP = 0.00001*\frac{\sqrt{\text{#Casos de Sarampión}}}{0.39*\text{#Casos de Polio}^2} \]</span></p>
+<p>Crear la nueva columna MP operando las columnas <code>Measles</code> para Sarampión y <code>Polio</code> para Poliomielitis. Por motivos del ejemplo, seleccionar previamente únicamente las columnas de trabajo, junto con <code>Country</code> y <code>Year</code> para identificar en qué países y qué años se tuvo un mayor valor del índice. Reordenar la columna <code>MP</code> de modo descendente y mostrar las primeras 10 filas.</p>
+<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="creación-y-transformación-de-columnas.html#cb178-1" aria-hidden="true" tabindex="-1"></a><span class="co"># con mutate()</span></span>
+<span id="cb178-2"><a href="creación-y-transformación-de-columnas.html#cb178-2" aria-hidden="true" tabindex="-1"></a>WHO <span class="sc">%&gt;%</span> </span>
+<span id="cb178-3"><a href="creación-y-transformación-de-columnas.html#cb178-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(Measles, Polio, Country, Year) <span class="sc">%&gt;%</span> </span>
+<span id="cb178-4"><a href="creación-y-transformación-de-columnas.html#cb178-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">MP =</span> (<span class="fl">0.00001</span><span class="sc">*</span>(<span class="fu">sqrt</span>(Measles) <span class="sc">/</span> <span class="fl">0.39</span> <span class="sc">*</span> Polio<span class="sc">^</span><span class="dv">2</span>))) <span class="sc">%&gt;%</span> </span>
+<span id="cb178-5"><a href="creación-y-transformación-de-columnas.html#cb178-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(MP)) <span class="sc">%&gt;%</span> </span>
+<span id="cb178-6"><a href="creación-y-transformación-de-columnas.html#cb178-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">10</span>)</span>
+<span id="cb178-7"><a href="creación-y-transformación-de-columnas.html#cb178-7" aria-hidden="true" tabindex="-1"></a><span class="co">#    Measles Polio                          Country Year    MP</span></span>
+<span id="cb178-8"><a href="creación-y-transformación-de-columnas.html#cb178-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 1   131441    99                            China 2008 91.11</span></span>
+<span id="cb178-9"><a href="creación-y-transformación-de-columnas.html#cb178-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 2   109023    94                            China 2007 74.81</span></span>
+<span id="cb178-10"><a href="creación-y-transformación-de-columnas.html#cb178-10" aria-hidden="true" tabindex="-1"></a><span class="co"># 3    99602    94                            China 2006 71.50</span></span>
+<span id="cb178-11"><a href="creación-y-transformación-de-columnas.html#cb178-11" aria-hidden="true" tabindex="-1"></a><span class="co"># 4   124219    87                            China 2005 68.40</span></span>
+<span id="cb178-12"><a href="creación-y-transformación-de-columnas.html#cb178-12" aria-hidden="true" tabindex="-1"></a><span class="co"># 5   118712    86                           Malawi 2010 65.34</span></span>
+<span id="cb178-13"><a href="creación-y-transformación-de-columnas.html#cb178-13" aria-hidden="true" tabindex="-1"></a><span class="co"># 6    52628    99                            China 2014 57.65</span></span>
+<span id="cb178-14"><a href="creación-y-transformación-de-columnas.html#cb178-14" aria-hidden="true" tabindex="-1"></a><span class="co"># 7    52461    99                            China 2009 57.56</span></span>
+<span id="cb178-15"><a href="creación-y-transformación-de-columnas.html#cb178-15" aria-hidden="true" tabindex="-1"></a><span class="co"># 8    90387    86                            India 2015 57.01</span></span>
+<span id="cb178-16"><a href="creación-y-transformación-de-columnas.html#cb178-16" aria-hidden="true" tabindex="-1"></a><span class="co"># 9    88962    86                            China 2001 56.56</span></span>
+<span id="cb178-17"><a href="creación-y-transformación-de-columnas.html#cb178-17" aria-hidden="true" tabindex="-1"></a><span class="co"># 10  133802    77 Democratic Republic of the Congo 2011 55.61</span></span>
+<span id="cb178-18"><a href="creación-y-transformación-de-columnas.html#cb178-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb178-19"><a href="creación-y-transformación-de-columnas.html#cb178-19" aria-hidden="true" tabindex="-1"></a><span class="co"># con transmute(), no es necesario seleccionar </span></span>
+<span id="cb178-20"><a href="creación-y-transformación-de-columnas.html#cb178-20" aria-hidden="true" tabindex="-1"></a><span class="co"># debido a que solo se mostrará la columna creada</span></span>
+<span id="cb178-21"><a href="creación-y-transformación-de-columnas.html#cb178-21" aria-hidden="true" tabindex="-1"></a>WHO <span class="sc">%&gt;%</span> </span>
+<span id="cb178-22"><a href="creación-y-transformación-de-columnas.html#cb178-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">transmute</span>(<span class="at">MP =</span> (<span class="fl">0.00001</span><span class="sc">*</span>(<span class="fu">sqrt</span>(Measles) <span class="sc">/</span> <span class="fl">0.39</span> <span class="sc">*</span> Polio<span class="sc">^</span><span class="dv">2</span>))) <span class="sc">%&gt;%</span> </span>
+<span id="cb178-23"><a href="creación-y-transformación-de-columnas.html#cb178-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(MP)) <span class="sc">%&gt;%</span> </span>
+<span id="cb178-24"><a href="creación-y-transformación-de-columnas.html#cb178-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">10</span>)</span>
+<span id="cb178-25"><a href="creación-y-transformación-de-columnas.html#cb178-25" aria-hidden="true" tabindex="-1"></a><span class="co">#       MP</span></span>
+<span id="cb178-26"><a href="creación-y-transformación-de-columnas.html#cb178-26" aria-hidden="true" tabindex="-1"></a><span class="co"># 1  91.11</span></span>
+<span id="cb178-27"><a href="creación-y-transformación-de-columnas.html#cb178-27" aria-hidden="true" tabindex="-1"></a><span class="co"># 2  74.81</span></span>
+<span id="cb178-28"><a href="creación-y-transformación-de-columnas.html#cb178-28" aria-hidden="true" tabindex="-1"></a><span class="co"># 3  71.50</span></span>
+<span id="cb178-29"><a href="creación-y-transformación-de-columnas.html#cb178-29" aria-hidden="true" tabindex="-1"></a><span class="co"># 4  68.40</span></span>
+<span id="cb178-30"><a href="creación-y-transformación-de-columnas.html#cb178-30" aria-hidden="true" tabindex="-1"></a><span class="co"># 5  65.34</span></span>
+<span id="cb178-31"><a href="creación-y-transformación-de-columnas.html#cb178-31" aria-hidden="true" tabindex="-1"></a><span class="co"># 6  57.65</span></span>
+<span id="cb178-32"><a href="creación-y-transformación-de-columnas.html#cb178-32" aria-hidden="true" tabindex="-1"></a><span class="co"># 7  57.56</span></span>
+<span id="cb178-33"><a href="creación-y-transformación-de-columnas.html#cb178-33" aria-hidden="true" tabindex="-1"></a><span class="co"># 8  57.01</span></span>
+<span id="cb178-34"><a href="creación-y-transformación-de-columnas.html#cb178-34" aria-hidden="true" tabindex="-1"></a><span class="co"># 9  56.56</span></span>
+<span id="cb178-35"><a href="creación-y-transformación-de-columnas.html#cb178-35" aria-hidden="true" tabindex="-1"></a><span class="co"># 10 55.61</span></span></code></pre></div>
+</div>
+<table>
+<caption><span id="tab:unnamed-chunk-55">Tabla 6.2: </span>Funciones de la familia <code>mutate()</code> y <code>transmute()</code></caption>
+<thead>
+<tr class="header">
+<th align="left">Función</th>
+<th align="left">Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>mutate()</code></td>
+<td align="left">Crea o modifica columnas especificadas una por una. El resultado muestra todas las columnas de la tabla original.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>transmute()</code></td>
+<td align="left">Crea o modifica columnas especificadas una por una. El resultado solo muestra las columnas creadas o modificadas.</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>mutate_all()</code></td>
+<td align="left">Aplica una modificación a todas las columnas de una tabla.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>mutate_at()</code></td>
+<td align="left">Aplica la(s) modificación(es) solo a la(s) columna(s) especificada(s) en la tabla.</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>mutate_if()</code></td>
+<td align="left">Aplica una modificación a todas las columnas que cumplan con una condición lógica.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>mutate_each()</code></td>
+<td align="left">Idéntica a <code>mutate_all()</code> es considerada obsoleta (deprecated). <code>mutate_each_()</code> también es obsoleta.</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>transmute_all()</code></td>
+<td align="left">Aplica una modificación a todas las columnas de una tabla. Las exporta en una nueva tabla, no dentro de la original.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>transmute_at()</code></td>
+<td align="left">Aplica la(s) modificación(es) solo a la(s) columna(s) especificada(s) en la tabla. Las exporta en una nueva tabla, no dentro de la original.</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>transmute_if()</code></td>
+<td align="left">Aplica una modificación a todas las columnas que cumplan con una condición lógica. Las exporta en una nueva tabla, no dentro de la original.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>transmute_each()</code></td>
+<td align="left">Idéntica a <code>transmute_all()</code> es considerada obsoleta (deprecated). <code>transmute_each_()</code> también es obsoleta.</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<div id="mutate_all-y-transmute_all" class="section level4 hasAnchor" number="6.11.0.1">
+<h4><span class="header-section-number">6.11.0.1</span> <code>mutate_all()</code> y <code>transmute_all()</code><a href="creación-y-transformación-de-columnas.html#mutate_all-y-transmute_all" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Estas funciones aplicarán las funciones especificadas a todas las columnas de la tabla. Si alguna columna no cumple con lo necesario para se analizada, se genera error. Asegúrate de que la tabla por completo sea modificable con las funciones de transformación definidas. Como alternativa, se utiliza la función de <strong>dplyr</strong> <code>select()</code> para seleccionar las columnas de trabajo antes de aplicar <code>mutate_all()</code> o <code>transmute_all()</code>. La estructura básica es:</p>
+<div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb179-1"><a href="creación-y-transformación-de-columnas.html#cb179-1" aria-hidden="true" tabindex="-1"></a>BASE_DE_DATOS <span class="sc">%&gt;%</span> </span>
+<span id="cb179-2"><a href="creación-y-transformación-de-columnas.html#cb179-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate_all</span>(<span class="at">.funs =</span> <span class="fu">lst</span>(LISTA_DE_FUNCIONES))</span></code></pre></div>
+
+<div class="rmdnote">
+Si la función a usar en el argumento <code>.funs =</code> require más de un argumento para funcionar, es mejor crear una función con todas los argumentos definidos tal y como se necesitan. Luego usa la función nueva dentro de alguna función de la familia <code>mutate()</code>.
+</div>
+<div class="example">
+<p><span id="exm:mutateall" class="example"><strong>Ejemplo 6.20  </strong></span>Seleccionando las columnas <code>Income</code>, <code>GDP</code> y <code>Life_exp</code>, aplicar la función <code>round()</code> para redondear a un dígito los decimales de estas columnas. Crea previamente la función <code>rr()</code> para redondear a dos decimales un valor dado.</p>
+<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb180-1"><a href="creación-y-transformación-de-columnas.html#cb180-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear una función de rendondeo a dos decimales</span></span>
+<span id="cb180-2"><a href="creación-y-transformación-de-columnas.html#cb180-2" aria-hidden="true" tabindex="-1"></a>rr <span class="ot">&lt;-</span> <span class="cf">function</span>(x)<span class="fu">round</span>(x,<span class="dv">2</span>)</span>
+<span id="cb180-3"><a href="creación-y-transformación-de-columnas.html#cb180-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb180-4"><a href="creación-y-transformación-de-columnas.html#cb180-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Aplicar dentro de mutate_all</span></span>
+<span id="cb180-5"><a href="creación-y-transformación-de-columnas.html#cb180-5" aria-hidden="true" tabindex="-1"></a>WHO <span class="sc">%&gt;%</span> </span>
+<span id="cb180-6"><a href="creación-y-transformación-de-columnas.html#cb180-6" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(Income, GDP, Life_exp) <span class="sc">%&gt;%</span> </span>
+<span id="cb180-7"><a href="creación-y-transformación-de-columnas.html#cb180-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate_all</span>(<span class="at">.funs =</span> <span class="fu">lst</span>(rr)) <span class="sc">%&gt;%</span> </span>
+<span id="cb180-8"><a href="creación-y-transformación-de-columnas.html#cb180-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">10</span>)</span>
+<span id="cb180-9"><a href="creación-y-transformación-de-columnas.html#cb180-9" aria-hidden="true" tabindex="-1"></a><span class="co">#    Income    GDP Life_exp Income_rr GDP_rr Life_exp_rr</span></span>
+<span id="cb180-10"><a href="creación-y-transformación-de-columnas.html#cb180-10" aria-hidden="true" tabindex="-1"></a><span class="co"># 1   0.479 584.26     65.0      0.48 584.26        65.0</span></span>
+<span id="cb180-11"><a href="creación-y-transformación-de-columnas.html#cb180-11" aria-hidden="true" tabindex="-1"></a><span class="co"># 2   0.476 612.70     59.9      0.48 612.70        59.9</span></span>
+<span id="cb180-12"><a href="creación-y-transformación-de-columnas.html#cb180-12" aria-hidden="true" tabindex="-1"></a><span class="co"># 3   0.470 631.74     59.9      0.47 631.74        59.9</span></span>
+<span id="cb180-13"><a href="creación-y-transformación-de-columnas.html#cb180-13" aria-hidden="true" tabindex="-1"></a><span class="co"># 4   0.463 669.96     59.5      0.46 669.96        59.5</span></span>
+<span id="cb180-14"><a href="creación-y-transformación-de-columnas.html#cb180-14" aria-hidden="true" tabindex="-1"></a><span class="co"># 5   0.454  63.54     59.2      0.45  63.54        59.2</span></span>
+<span id="cb180-15"><a href="creación-y-transformación-de-columnas.html#cb180-15" aria-hidden="true" tabindex="-1"></a><span class="co"># 6   0.448 553.33     58.8      0.45 553.33        58.8</span></span>
+<span id="cb180-16"><a href="creación-y-transformación-de-columnas.html#cb180-16" aria-hidden="true" tabindex="-1"></a><span class="co"># 7   0.434 445.89     58.6      0.43 445.89        58.6</span></span>
+<span id="cb180-17"><a href="creación-y-transformación-de-columnas.html#cb180-17" aria-hidden="true" tabindex="-1"></a><span class="co"># 8   0.433 373.36     58.1      0.43 373.36        58.1</span></span>
+<span id="cb180-18"><a href="creación-y-transformación-de-columnas.html#cb180-18" aria-hidden="true" tabindex="-1"></a><span class="co"># 9   0.415 369.84     57.5      0.42 369.84        57.5</span></span>
+<span id="cb180-19"><a href="creación-y-transformación-de-columnas.html#cb180-19" aria-hidden="true" tabindex="-1"></a><span class="co"># 10  0.405 272.56     57.3      0.41 272.56        57.3</span></span></code></pre></div>
+</div>
+</div>
+<div id="mutate_at-y-transmute_at" class="section level4 hasAnchor" number="6.11.0.2">
+<h4><span class="header-section-number">6.11.0.2</span> <code>mutate_at()</code> y <code>transmute_at()</code><a href="creación-y-transformación-de-columnas.html#mutate_at-y-transmute_at" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Estas funciones permite seleccionar las columnas de trabajo a las cuales se les aplicará algo. La estructura básica es:</p>
+<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb181-1"><a href="creación-y-transformación-de-columnas.html#cb181-1" aria-hidden="true" tabindex="-1"></a>BASE_DE_DATOS <span class="sc">%&gt;%</span> </span>
+<span id="cb181-2"><a href="creación-y-transformación-de-columnas.html#cb181-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate_at</span>(<span class="at">.vars =</span> <span class="fu">vars</span>(COLUMNAS_DE_TRABAJO),</span>
+<span id="cb181-3"><a href="creación-y-transformación-de-columnas.html#cb181-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">.funs =</span> <span class="fu">lst</span>(LISTA_DE_FUNCIONES))</span>
+<span id="cb181-4"><a href="creación-y-transformación-de-columnas.html#cb181-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb181-5"><a href="creación-y-transformación-de-columnas.html#cb181-5" aria-hidden="true" tabindex="-1"></a>BASE_DE_DATOS <span class="sc">%&gt;%</span> </span>
+<span id="cb181-6"><a href="creación-y-transformación-de-columnas.html#cb181-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">transmute_at</span>(<span class="at">.vars =</span> <span class="fu">vars</span>(COLUMNAS_DE_TRABAJO),</span>
+<span id="cb181-7"><a href="creación-y-transformación-de-columnas.html#cb181-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">.funs =</span> <span class="fu">lst</span>(LISTA_DE_FUNCIONES))</span></code></pre></div>
+<div class="example">
+<p><span id="exm:unlabeled-div-43" class="example"><strong>Ejemplo 6.21  </strong></span>Siguiendo el ejemplo @ref:(exm:mutateall), recrear el resultado utilizando <code>mutate_at()</code>. Si se utiliza <code>mutate_at()</code> con toda la tabla, el resultado será la misma base de datos más las nuevas columnas transformadas. Para no imprimir tanta información, utiliza <code>transmute_at()</code></p>
+<div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb182-1"><a href="creación-y-transformación-de-columnas.html#cb182-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear una función de rendondeo a dos decimales</span></span>
+<span id="cb182-2"><a href="creación-y-transformación-de-columnas.html#cb182-2" aria-hidden="true" tabindex="-1"></a>rr <span class="ot">&lt;-</span> <span class="cf">function</span>(x)<span class="fu">round</span>(x,<span class="dv">2</span>)</span>
+<span id="cb182-3"><a href="creación-y-transformación-de-columnas.html#cb182-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb182-4"><a href="creación-y-transformación-de-columnas.html#cb182-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Aplicar dentro de mutate_all</span></span>
+<span id="cb182-5"><a href="creación-y-transformación-de-columnas.html#cb182-5" aria-hidden="true" tabindex="-1"></a>WHO <span class="sc">%&gt;%</span> </span>
+<span id="cb182-6"><a href="creación-y-transformación-de-columnas.html#cb182-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">transmute_at</span>(<span class="at">.vars =</span> <span class="fu">vars</span>(Income, GDP, Life_exp),</span>
+<span id="cb182-7"><a href="creación-y-transformación-de-columnas.html#cb182-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">.funs =</span> <span class="fu">lst</span>(rr)) <span class="sc">%&gt;%</span> </span>
+<span id="cb182-8"><a href="creación-y-transformación-de-columnas.html#cb182-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">10</span>)</span>
+<span id="cb182-9"><a href="creación-y-transformación-de-columnas.html#cb182-9" aria-hidden="true" tabindex="-1"></a><span class="co">#    Income_rr GDP_rr Life_exp_rr</span></span>
+<span id="cb182-10"><a href="creación-y-transformación-de-columnas.html#cb182-10" aria-hidden="true" tabindex="-1"></a><span class="co"># 1       0.48 584.26        65.0</span></span>
+<span id="cb182-11"><a href="creación-y-transformación-de-columnas.html#cb182-11" aria-hidden="true" tabindex="-1"></a><span class="co"># 2       0.48 612.70        59.9</span></span>
+<span id="cb182-12"><a href="creación-y-transformación-de-columnas.html#cb182-12" aria-hidden="true" tabindex="-1"></a><span class="co"># 3       0.47 631.74        59.9</span></span>
+<span id="cb182-13"><a href="creación-y-transformación-de-columnas.html#cb182-13" aria-hidden="true" tabindex="-1"></a><span class="co"># 4       0.46 669.96        59.5</span></span>
+<span id="cb182-14"><a href="creación-y-transformación-de-columnas.html#cb182-14" aria-hidden="true" tabindex="-1"></a><span class="co"># 5       0.45  63.54        59.2</span></span>
+<span id="cb182-15"><a href="creación-y-transformación-de-columnas.html#cb182-15" aria-hidden="true" tabindex="-1"></a><span class="co"># 6       0.45 553.33        58.8</span></span>
+<span id="cb182-16"><a href="creación-y-transformación-de-columnas.html#cb182-16" aria-hidden="true" tabindex="-1"></a><span class="co"># 7       0.43 445.89        58.6</span></span>
+<span id="cb182-17"><a href="creación-y-transformación-de-columnas.html#cb182-17" aria-hidden="true" tabindex="-1"></a><span class="co"># 8       0.43 373.36        58.1</span></span>
+<span id="cb182-18"><a href="creación-y-transformación-de-columnas.html#cb182-18" aria-hidden="true" tabindex="-1"></a><span class="co"># 9       0.42 369.84        57.5</span></span>
+<span id="cb182-19"><a href="creación-y-transformación-de-columnas.html#cb182-19" aria-hidden="true" tabindex="-1"></a><span class="co"># 10      0.41 272.56        57.3</span></span></code></pre></div>
+</div>
+</div>
+<div id="mutate_if-y-transmute_if" class="section level4 hasAnchor" number="6.11.0.3">
+<h4><span class="header-section-number">6.11.0.3</span> <code>mutate_if()</code> y <code>transmute_if()</code><a href="creación-y-transformación-de-columnas.html#mutate_if-y-transmute_if" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Como otras funciones nombradas como <code>_if</code>, estas permiten indicar una condición lógica para seleccionar solo las columnas que cumplan con dicha condición. Para establecer la condición se utiliza funciones de la familia <code>is()</code>, como <code>is.numeric()</code>. La estructura básica es:</p>
+<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb183-1"><a href="creación-y-transformación-de-columnas.html#cb183-1" aria-hidden="true" tabindex="-1"></a>BASE_DE_DATOS <span class="sc">%&gt;%</span> </span>
+<span id="cb183-2"><a href="creación-y-transformación-de-columnas.html#cb183-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate_if</span>(<span class="at">.predicate =</span> FUNCIÓN_IS_SIN_PARÉNTESIS,</span>
+<span id="cb183-3"><a href="creación-y-transformación-de-columnas.html#cb183-3" aria-hidden="true" tabindex="-1"></a>               <span class="at">.funs =</span> <span class="fu">lst</span>(LISTA_DE_FUNCIONES))</span>
+<span id="cb183-4"><a href="creación-y-transformación-de-columnas.html#cb183-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb183-5"><a href="creación-y-transformación-de-columnas.html#cb183-5" aria-hidden="true" tabindex="-1"></a>BASE_DE_DATOS <span class="sc">%&gt;%</span> </span>
+<span id="cb183-6"><a href="creación-y-transformación-de-columnas.html#cb183-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">transmute_if</span>(<span class="at">.predicate =</span> FUNCIÓN_IS_SIN_PARÉNTESIS,</span>
+<span id="cb183-7"><a href="creación-y-transformación-de-columnas.html#cb183-7" aria-hidden="true" tabindex="-1"></a>               <span class="at">.funs =</span> <span class="fu">lst</span>(LISTA_DE_FUNCIONES))</span></code></pre></div>
+<div class="example">
+<p><span id="exm:unlabeled-div-44" class="example"><strong>Ejemplo 6.22  </strong></span>Aplicar la transformación a factor de las columnas del tipo carácter:</p>
+<div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb184-1"><a href="creación-y-transformación-de-columnas.html#cb184-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Revisar la estructura de WHO</span></span>
+<span id="cb184-2"><a href="creación-y-transformación-de-columnas.html#cb184-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Notar las columnas chr</span></span>
+<span id="cb184-3"><a href="creación-y-transformación-de-columnas.html#cb184-3" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(WHO)</span>
+<span id="cb184-4"><a href="creación-y-transformación-de-columnas.html#cb184-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb184-5"><a href="creación-y-transformación-de-columnas.html#cb184-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Utilizar mutate_if()</span></span>
+<span id="cb184-6"><a href="creación-y-transformación-de-columnas.html#cb184-6" aria-hidden="true" tabindex="-1"></a>WHO2 <span class="ot">&lt;-</span> WHO <span class="sc">%&gt;%</span> </span>
+<span id="cb184-7"><a href="creación-y-transformación-de-columnas.html#cb184-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate_if</span>(is.character, as.factor)</span>
+<span id="cb184-8"><a href="creación-y-transformación-de-columnas.html#cb184-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb184-9"><a href="creación-y-transformación-de-columnas.html#cb184-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Revisar la estructura de WHO2</span></span>
+<span id="cb184-10"><a href="creación-y-transformación-de-columnas.html#cb184-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Notar que las columnas chr cambiaron a Factor </span></span>
+<span id="cb184-11"><a href="creación-y-transformación-de-columnas.html#cb184-11" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(WHO2)</span></code></pre></div>
+</div>
+</div>
 </div>
             </section>
 

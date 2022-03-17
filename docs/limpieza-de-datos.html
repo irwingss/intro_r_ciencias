@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Capítulo 1 Esenciales de R y RStudio | Introducción a R para Ciencias</title>
+  <title>6.13 Limpieza de datos | Introducción a R para Ciencias</title>
   <meta name="description" content="Libro introductorio al uso del lenguaje de programación R, con ejemplos orientados a ciencias" />
   <meta name="generator" content="bookdown 0.25 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Capítulo 1 Esenciales de R y RStudio | Introducción a R para Ciencias" />
+  <meta property="og:title" content="6.13 Limpieza de datos | Introducción a R para Ciencias" />
   <meta property="og:type" content="book" />
   <meta property="og:image" content="https://github.com/irwingss/intro_r_ciencias//Cover/cover R.png" />
   <meta property="og:description" content="Libro introductorio al uso del lenguaje de programación R, con ejemplos orientados a ciencias" />
   <meta name="github-repo" content="irwingss/intro_r_ciencias/" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Capítulo 1 Esenciales de R y RStudio | Introducción a R para Ciencias" />
+  <meta name="twitter:title" content="6.13 Limpieza de datos | Introducción a R para Ciencias" />
   
   <meta name="twitter:description" content="Libro introductorio al uso del lenguaje de programación R, con ejemplos orientados a ciencias" />
   <meta name="twitter:image" content="https://github.com/irwingss/intro_r_ciencias//Cover/cover R.png" />
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="figs/favicon.ico" type="image/x-icon" />
-<link rel="prev" href="agradecimientos.html"/>
-<link rel="next" href="instalación-de-r-y-rstudio.html"/>
+<link rel="prev" href="combinar-bases-de-datos.html"/>
+<link rel="next" href="solucionario-de-ejercicios.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -344,24 +344,126 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="esencialesRRStudio" class="section level1 hasAnchor" number="1">
-<h1><span class="header-section-number">Capítulo 1</span> <strong>Esenciales de R y RStudio</strong><a href="esencialesRRStudio.html#esencialesRRStudio" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Comenzar el aprendizaje de un lenguaje de programación puede resultar doblemente engorroso si nunca se estuvo en contacto con un editor de texto, o un interprete de lenguaje de programación. Este primer capítulo está enteramente dedicado a brindarle al lector los puntos esenciales para entender el uso de RStudio, el principal editor de texto especializado para el lenguaje R. Se recomienda realizar los pasos de instalación y configuración, además de una revisión concienzuda de los tópicos aquí presentados, antes de pasar a tener el primer contacto con la sintaxis del código de R (sección <a href="rbasico.html#rbasico">2. Primer contacto con R</a>).</p>
+<div id="limpieza-de-datos" class="section level2 hasAnchor" number="6.13">
+<h2><span class="header-section-number">6.13</span> Limpieza de datos<a href="limpieza-de-datos.html#limpieza-de-datos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Esta sección abordará algunos tópicos de limpieza de datos o <em>Data cleaning</em>. Como ya se ha revisado, los valores perdidos o <code>NA</code> causan problemas en el cálculo de parámetros estadísticos de las bases de datos. Más aún, cuando se pretende modelar la relación de una variable Y con los valores de una variable X, es imposible hacer regresión alguna con valores perdidos. Para estos casos, limpiar la base de datos será crucial.</p>
 
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:figura1"></span>
-<img src="figs/elaboradas/Esenciales%20de%20RStudio.png" alt="Estructura temática del capítulo “Esenciales de R y RStudio”." width="100%" />
-<p class="caption">
-Figura 1.1: Estructura temática del capítulo “Esenciales de R y RStudio”.
-</p>
+<div class="rmdnote">
+Siempre que necesites identificar si un elemento dentro de un objeto es <code>NA</code> o no, podrás utilizar la función <code>is.na()</code>. Esta devolverá un objeto lógico con la misma extensión que el objeto original. En aquellas posiciones donde exista un <code>NA</code> en la base de datos original, <code>is.na()</code> mostrará <code>TRUE</code>.
+</div>
+<div id="cuántos-na-existen-en-la-base-de-datos" class="section level3 hasAnchor" number="6.13.1">
+<h3><span class="header-section-number">6.13.1</span> ¿Cuántos NA existen en la base de datos?<a href="limpieza-de-datos.html#cuántos-na-existen-en-la-base-de-datos" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="example">
+<p><span id="exm:unlabeled-div-46" class="example"><strong>Ejemplo 6.24  </strong></span>Considerando la base de datos <code>WHO</code>, calcular la cantidad de NA de la base.</p>
+<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb192-1"><a href="limpieza-de-datos.html#cb192-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Convertir WHO a tabla lógica </span></span>
+<span id="cb192-2"><a href="limpieza-de-datos.html#cb192-2" aria-hidden="true" tabindex="-1"></a><span class="co"># para ubicar con TRUE a los NA</span></span>
+<span id="cb192-3"><a href="limpieza-de-datos.html#cb192-3" aria-hidden="true" tabindex="-1"></a>WHO_logical <span class="ot">&lt;-</span> <span class="fu">is.na</span>(WHO)</span></code></pre></div>
+<p>Recuerda que para las funciones estadísticas y matemáticas, como <code>mean()</code> o <code>sum()</code>, <code>TRUE</code> equivale a 1 y <code>FALSE</code> a 0. Se puede obtener la proporción de <code>TRUE</code> de un vector con <code>mean()</code>, o la suma de <code>TRUE</code> en el vector con <code>sum()</code>.</p>
+<div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb193-1"><a href="limpieza-de-datos.html#cb193-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Sumando todos los TRUE (equivalentes a 1)</span></span>
+<span id="cb193-2"><a href="limpieza-de-datos.html#cb193-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(WHO_logical)</span>
+<span id="cb193-3"><a href="limpieza-de-datos.html#cb193-3" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] 2563</span></span></code></pre></div>
 </div>
 </div>
+<div id="cuántos-na-existen-en-cada-columna" class="section level3 hasAnchor" number="6.13.2">
+<h3><span class="header-section-number">6.13.2</span> ¿Cuántos NA existen en cada columna?<a href="limpieza-de-datos.html#cuántos-na-existen-en-cada-columna" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Hay muchas maneras de llegar a este resultado. Pero el procedimiento es similar en concepto al anterior. Se deben sumar los <code>TRUE</code> (celdas con <code>NA</code>) pero esta vez columna a columna. Como dato adicional, este objetivo también puede conseguir utilizando la función <code>apply()</code> (<a href="familia-apply.html#familia-apply">Sección 5.4 Familia apply()</a>).</p>
+<div class="example">
+<p><span id="exm:unlabeled-div-47" class="example"><strong>Ejemplo 6.25  </strong></span>Crear una función que sume los NA de un vector:</p>
+<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb194-1"><a href="limpieza-de-datos.html#cb194-1" aria-hidden="true" tabindex="-1"></a>fun_na <span class="ot">&lt;-</span> <span class="cf">function</span>(x) <span class="fu">sum</span>(<span class="fu">is.na</span>(x))</span></code></pre></div>
+<p>Ahora, utilizar la función aplicada a todas las columnas de la base de datos <code>WHO</code>:</p>
+<div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb195-1"><a href="limpieza-de-datos.html#cb195-1" aria-hidden="true" tabindex="-1"></a>WHO <span class="sc">%&gt;%</span> </span>
+<span id="cb195-2"><a href="limpieza-de-datos.html#cb195-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise_all</span>(<span class="at">.funs =</span> fun_na)</span>
+<span id="cb195-3"><a href="limpieza-de-datos.html#cb195-3" aria-hidden="true" tabindex="-1"></a><span class="co">#   Country Year Status1 Category Level Status2 St2_categ Life_exp Ad_mort Inf_deaths</span></span>
+<span id="cb195-4"><a href="limpieza-de-datos.html#cb195-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 1       0    0       0        0     0       0         0       10      10          0</span></span>
+<span id="cb195-5"><a href="limpieza-de-datos.html#cb195-5" aria-hidden="true" tabindex="-1"></a><span class="co">#   Alcohol Per_exp Hep_B Measles BMI U5Y Polio Tot_exp Diph AIDS GDP Pop Thin1_19</span></span>
+<span id="cb195-6"><a href="limpieza-de-datos.html#cb195-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 1     194       0   553       0  34   0    19     226   19    0 448 652       34</span></span>
+<span id="cb195-7"><a href="limpieza-de-datos.html#cb195-7" aria-hidden="true" tabindex="-1"></a><span class="co">#   Thin5_9 Income Schooling</span></span>
+<span id="cb195-8"><a href="limpieza-de-datos.html#cb195-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 1      34    167       163</span></span></code></pre></div>
+<p>Si son demasiadas columnas para visualizar, considera seleccionar las columnas cuyos valores sean mayores de 0. Crea una función que evalúe un valor y otorgue <code>TRUE</code> si este es mayor que 0.</p>
+<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb196-1"><a href="limpieza-de-datos.html#cb196-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear la función </span></span>
+<span id="cb196-2"><a href="limpieza-de-datos.html#cb196-2" aria-hidden="true" tabindex="-1"></a>fun0 <span class="ot">&lt;-</span> <span class="cf">function</span>(x) x <span class="sc">&gt;</span> <span class="dv">0</span></span></code></pre></div>
+<p>La selección ahora utiliza una función que no se utilizó antes: <code>select_if()</code>. Como todas las funciones <code>_if</code> de <strong>dplyr</strong>, esta necesita condicionales para función. Allí entra en juego la función antes creada:</p>
+<div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb197-1"><a href="limpieza-de-datos.html#cb197-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Aplicarla en select_if()</span></span>
+<span id="cb197-2"><a href="limpieza-de-datos.html#cb197-2" aria-hidden="true" tabindex="-1"></a>WHO <span class="sc">%&gt;%</span> </span>
+<span id="cb197-3"><a href="limpieza-de-datos.html#cb197-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise_all</span>(<span class="at">.funs =</span> fun_na) <span class="sc">%&gt;%</span> </span>
+<span id="cb197-4"><a href="limpieza-de-datos.html#cb197-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select_if</span>(fun0)</span>
+<span id="cb197-5"><a href="limpieza-de-datos.html#cb197-5" aria-hidden="true" tabindex="-1"></a><span class="co">#   Life_exp Ad_mort Alcohol Hep_B BMI Polio Tot_exp Diph GDP Pop Thin1_19 Thin5_9</span></span>
+<span id="cb197-6"><a href="limpieza-de-datos.html#cb197-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 1       10      10     194   553  34    19     226   19 448 652       34      34</span></span>
+<span id="cb197-7"><a href="limpieza-de-datos.html#cb197-7" aria-hidden="true" tabindex="-1"></a><span class="co">#   Income Schooling</span></span>
+<span id="cb197-8"><a href="limpieza-de-datos.html#cb197-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 1    167       163</span></span></code></pre></div>
+</div>
+</div>
+<div id="en-qué-fila-o-columna-están-los-na" class="section level3 hasAnchor" number="6.13.3">
+<h3><span class="header-section-number">6.13.3</span> ¿En qué fila o columna están los NA?<a href="limpieza-de-datos.html#en-qué-fila-o-columna-están-los-na" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Ubicar la posición de fila y columna de los valores <code>NA</code> (celdas en blanco) se utiliza cuando se conoce que no deberían haber celdas vacías pero las hay. Encontrarlas permite rellenar dicho valor por el correspondiente que fue omitido en el proceso de rellenado de la base de datos.</p>
+<div class="example">
+<p><span id="exm:unlabeled-div-48" class="example"><strong>Ejemplo 6.26  </strong></span>Ubicar los valores NA de la base de datos WHO. Mostrar únicamente las 10 primeras del resultado:</p>
+<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb198-1"><a href="limpieza-de-datos.html#cb198-1" aria-hidden="true" tabindex="-1"></a><span class="fu">which</span>(WHO_logical, <span class="at">arr.ind=</span><span class="cn">TRUE</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb198-2"><a href="limpieza-de-datos.html#cb198-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">10</span>)</span>
+<span id="cb198-3"><a href="limpieza-de-datos.html#cb198-3" aria-hidden="true" tabindex="-1"></a><span class="co">#       row col</span></span>
+<span id="cb198-4"><a href="limpieza-de-datos.html#cb198-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 625   625   8</span></span>
+<span id="cb198-5"><a href="limpieza-de-datos.html#cb198-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 770   770   8</span></span>
+<span id="cb198-6"><a href="limpieza-de-datos.html#cb198-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 1651 1651   8</span></span>
+<span id="cb198-7"><a href="limpieza-de-datos.html#cb198-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 1716 1716   8</span></span>
+<span id="cb198-8"><a href="limpieza-de-datos.html#cb198-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 1813 1813   8</span></span>
+<span id="cb198-9"><a href="limpieza-de-datos.html#cb198-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 1910 1910   8</span></span>
+<span id="cb198-10"><a href="limpieza-de-datos.html#cb198-10" aria-hidden="true" tabindex="-1"></a><span class="co"># 1959 1959   8</span></span>
+<span id="cb198-11"><a href="limpieza-de-datos.html#cb198-11" aria-hidden="true" tabindex="-1"></a><span class="co"># 2168 2168   8</span></span>
+<span id="cb198-12"><a href="limpieza-de-datos.html#cb198-12" aria-hidden="true" tabindex="-1"></a><span class="co"># 2217 2217   8</span></span>
+<span id="cb198-13"><a href="limpieza-de-datos.html#cb198-13" aria-hidden="true" tabindex="-1"></a><span class="co"># 2714 2714   8</span></span></code></pre></div>
+</div>
+
+<div class="rmdtip">
+En inglés, <em>row</em> significa fila y <em>col</em> columna.
+</div>
+</div>
+<div id="cómo-reemplazar-los-na-por-otro-valor" class="section level3 hasAnchor" number="6.13.4">
+<h3><span class="header-section-number">6.13.4</span> ¿Cómo reemplazar los NA por otro valor?<a href="limpieza-de-datos.html#cómo-reemplazar-los-na-por-otro-valor" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>En ocasiones se necesita reemplazar los NA por algún valor por defecto que en el análisis sea útil. Por ejemplo, en bases que representan datos SIG (Sistemas de Información Geográficas), algunas celdas necesitan ser 9999, o -256, o algún otro valor, para que el análisis los considere bajo la categoría “no hay dato”. Otros estudios, por su parte, utilizan el rellenar los datos con el promedio o la mediana de la columna. En los siguientes ejemplos veremos su aplicación:</p>
+<div class="example">
+<p><span id="exm:na11" class="example"><strong>Ejemplo 6.27  </strong></span>Rellenar los valores <code>NA</code> de la base de datos <code>WHO</code> con el valor 9999999. Es excesivamente largo solo con la finalidad de hacerlo notorio, no por otra razón. Selecciona previamente las columnas <code>Alcohol</code>, <code>Hep_B</code>, <code>Measles</code>, <code>Polio</code>, <code>Diph</code> para que el resultado no sea amplio en la consola. Reordenar el resultado por la columna Alcohol y mostrar las últimas 6 filas de la tabla.</p>
+<p>Aquí el truco está en una forma especial de <code>mutate_all()</code> para transformar todas las columnas pero utilizando <code>~ifelse()</code> para reemplazar todas la <code>NA</code> (<code>is.na(.x)</code>) por 9999999, y las no <code>NA</code> con el mismo valor original (<code>.x</code>):</p>
+<div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb199-1"><a href="limpieza-de-datos.html#cb199-1" aria-hidden="true" tabindex="-1"></a>WHO <span class="sc">%&gt;%</span> </span>
+<span id="cb199-2"><a href="limpieza-de-datos.html#cb199-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(Alcohol, Hep_B, Measles, Polio, Diph) <span class="sc">%&gt;%</span> </span>
+<span id="cb199-3"><a href="limpieza-de-datos.html#cb199-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(Alcohol) <span class="sc">%&gt;%</span> </span>
+<span id="cb199-4"><a href="limpieza-de-datos.html#cb199-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate_all</span>(<span class="sc">~</span><span class="fu">ifelse</span>(<span class="fu">is.na</span>(.x), <span class="dv">9999999</span>, .x)) <span class="sc">%&gt;%</span> </span>
+<span id="cb199-5"><a href="limpieza-de-datos.html#cb199-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tail</span>() </span>
+<span id="cb199-6"><a href="limpieza-de-datos.html#cb199-6" aria-hidden="true" tabindex="-1"></a><span class="co">#      Alcohol Hep_B Measles Polio Diph</span></span>
+<span id="cb199-7"><a href="limpieza-de-datos.html#cb199-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 2933   1e+07    64      39    65   64</span></span>
+<span id="cb199-8"><a href="limpieza-de-datos.html#cb199-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 2934   1e+07    87       0    87   87</span></span>
+<span id="cb199-9"><a href="limpieza-de-datos.html#cb199-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 2935   1e+07    97     256    97   97</span></span>
+<span id="cb199-10"><a href="limpieza-de-datos.html#cb199-10" aria-hidden="true" tabindex="-1"></a><span class="co"># 2936   1e+07    69     468    63   69</span></span>
+<span id="cb199-11"><a href="limpieza-de-datos.html#cb199-11" aria-hidden="true" tabindex="-1"></a><span class="co"># 2937   1e+07     9       9     9    9</span></span>
+<span id="cb199-12"><a href="limpieza-de-datos.html#cb199-12" aria-hidden="true" tabindex="-1"></a><span class="co"># 2938   1e+07    87       0    88   87</span></span></code></pre></div>
+</div>
+<p>::: {.example}
+Considera el mismo ejemplo anterior <a href="limpieza-de-datos.html#exm:na11">6.27</a>. No obstante, en lugar de reemplazar <code>NA</code> por 9999999, utiliza la función con <code>mean(.x, na.rm = TRUE)</code> para que los NA se reemplacen por el promedio de la columna.</p>
+<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb200-1"><a href="limpieza-de-datos.html#cb200-1" aria-hidden="true" tabindex="-1"></a>WHO <span class="sc">%&gt;%</span> </span>
+<span id="cb200-2"><a href="limpieza-de-datos.html#cb200-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(Alcohol, Hep_B, Measles, Polio, Diph) <span class="sc">%&gt;%</span> </span>
+<span id="cb200-3"><a href="limpieza-de-datos.html#cb200-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(Alcohol) <span class="sc">%&gt;%</span> </span>
+<span id="cb200-4"><a href="limpieza-de-datos.html#cb200-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate_all</span>(<span class="sc">~</span><span class="fu">ifelse</span>(<span class="fu">is.na</span>(.x), <span class="fu">mean</span>(.x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), .x))<span class="sc">%&gt;%</span> </span>
+<span id="cb200-5"><a href="limpieza-de-datos.html#cb200-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tail</span>() </span>
+<span id="cb200-6"><a href="limpieza-de-datos.html#cb200-6" aria-hidden="true" tabindex="-1"></a><span class="co">#      Alcohol Hep_B Measles Polio Diph</span></span>
+<span id="cb200-7"><a href="limpieza-de-datos.html#cb200-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 2933   4.603    64      39    65   64</span></span>
+<span id="cb200-8"><a href="limpieza-de-datos.html#cb200-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 2934   4.603    87       0    87   87</span></span>
+<span id="cb200-9"><a href="limpieza-de-datos.html#cb200-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 2935   4.603    97     256    97   97</span></span>
+<span id="cb200-10"><a href="limpieza-de-datos.html#cb200-10" aria-hidden="true" tabindex="-1"></a><span class="co"># 2936   4.603    69     468    63   69</span></span>
+<span id="cb200-11"><a href="limpieza-de-datos.html#cb200-11" aria-hidden="true" tabindex="-1"></a><span class="co"># 2937   4.603     9       9     9    9</span></span>
+<span id="cb200-12"><a href="limpieza-de-datos.html#cb200-12" aria-hidden="true" tabindex="-1"></a><span class="co"># 2938   4.603    87       0    88   87</span></span></code></pre></div>
+
+</div>
+</div>
+<!-- </div> -->
+
+
+
             </section>
 
           </div>
         </div>
       </div>
-<a href="agradecimientos.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="instalación-de-r-y-rstudio.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="combinar-bases-de-datos.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="solucionario-de-ejercicios.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -392,7 +494,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/irwingss/intro_r_ciencias/blob/master/01-intro.Rmd",
+"link": "https://github.com/irwingss/intro_r_ciencias/blob/master/06-tidyverse.Rmd",
 "text": "Editar"
 },
 "history": {

@@ -781,7 +781,6 @@ WHO %>%
 En dplyr existen algunas funciones que tienen versiones similares a ellas. Consideremos esta agrupaciones como familias de funciones. En estas familias, como la de `summarise()`, encontrarás funciones de aplicación específica:
 
 
-
 Table: (\#tab:unnamed-chunk-44)Funciones de la familia `summarise()`
 
 Función              Descripción                                                                                                                                                           
@@ -791,13 +790,13 @@ Función              Descripción
 `summarise_at()`     Permite realizar resúmenes estadísticos aplicando una o más funciones a un grupo de columnas de la tabla.                                                             
 `summarise_if()`     Permite realizar resúmenes estadísticos aplicando una o más funciones si se cumple una condición lógica definida.                                                     
 `summarise_each()`   Idéntica a `summarise_all()` es considerada obsoleta (deprecated).                                                                                                    
-Variantes            Algunas funciones tienes variantes escritas con "\_" al final o con la palabra summarize (con z). hacen lo mismo que las originales sin "\_" o con summarise (con s). 
+Variantes            Algunas funciones tienes variantes escritas con "\_" al final o con la palabra summarize (con z), hacen lo mismo que las originales sin "\_" o con summarise (con s). 
 
 <br>
 
 #### `summarise_all()`
 
-Aplicará la o las funciones especificadas a todas las columnas. Si alguna columna no cumple con lo necesario para se analizada (por ejemplo: intentar obtener el promedio de una columna categórica), se genera error. Asegúrate de que la tabla por completo es analizable, o utiliza la función de **dplyr** `select()` para seleccionar las columnas de trabajo. La estructúra básica es:
+Aplicará la o las funciones especificadas a todas las columnas. Si alguna columna no cumple con lo necesario para se analizada (por ejemplo: intentar obtener el promedio de una columna categórica), se genera error. Asegúrate de que la tabla por completo es analizable, o utiliza la función de **dplyr** `select()` para seleccionar las columnas de trabajo antes de aplicar `summarise_all()`. La estructura básica es:
 
 
 ```r
@@ -862,7 +861,7 @@ WHO %>%
 
 #### `summarise_if()`
 
-Aplicar condicionales para seleccionar columnas es muy útil. Esta función permite indicar una condición lógica con funciones de la familia `is()`, como `is.numeric()` que haría la petición de seleccionar solo las funciones numéricas y sobre todas ellas aplicar alguna funcióne estadística. La estructura básica es:
+Aplicar condicionales para seleccionar columnas es muy útil. Esta función permite indicar una condición lógica con funciones de la familia `is()`, como `is.numeric()` que haría la petición de seleccionar solo las funciones numéricas y sobre todas ellas aplicar alguna función estadística. La estructura básica es:
 
 
 ```r
@@ -913,12 +912,474 @@ WHO %>%
 
 ## Creación y transformación de columnas
 
+Las funciones de la familia `mutate()` simplifican enormemente el proceso de crear columnas en la base de datos. Algo muy interesante es que es posible aplicar una transformación a una columna que se está creando o modificando dentro de la misma función de `mutate()` y `transmute()` (revisa la `COL_NUEVA4` en el siguiente código). La estructura base es:
 
+
+```r
+# Usando mutate()
+BASE_DE_DATOS %>% ... %>% 
+  mutate(COL_NUEVA1 = FUNCION_DE_TRANSFORMACION(COL_ANTIGUA1),
+         COL_NUEVA2 = FUNCION_DE_TRANSFORMACION(COL_ANTIGUA2),
+         COL_NUEVA3 = FUNCION_DE_TRANSFORMACION(COL_ANTIGUA3),
+         COL_NUEVA4 = FUNCION_DE_TRANSFORMACION(COL_NUEVA1))
+
+# Usando transmute()
+BASE_DE_DATOS %>% ... %>% 
+  transmute(COL_NUEVA1 = FUNCION_DE_TRANSFORMACION(COL_ANTIGUA1),
+         COL_NUEVA2 = FUNCION_DE_TRANSFORMACION(COL_ANTIGUA2),
+         COL_NUEVA3 = FUNCION_DE_TRANSFORMACION(COL_ANTIGUA3),
+         COL_NUEVA4 = FUNCION_DE_TRANSFORMACION(COL_NUEVA1))
+```
+
+\BeginKnitrBlock{rmdtip}<div class="rmdtip">El resultado de transformación con `transmute()` es el mismo, excepto que las nuevas columnas aparecerán solitarias en su propia tabla, separadas de la original. Con `mutate()`, las nuevas columnas aparecen adjuntas a la derecha de la última columna dentro de la tabla original.</div>\EndKnitrBlock{rmdtip}
+
+::: {.example #summariseall}
+Se pretende ejemplificar un nuevo índice de la relación Poliomielitis - Sarampión utilizando la fórmula:
+
+$$MP = 0.00001*\frac{\sqrt{\text{#Casos de Sarampión}}}{0.39*\text{#Casos de Polio}^2} $$
+
+Crear la nueva columna MP operando las columnas `Measles` para Sarampión y `Polio` para Poliomielitis. Por motivos del ejemplo, seleccionar previamente únicamente las columnas de trabajo, junto con `Country` y `Year` para identificar en qué países y qué años se tuvo un mayor valor del índice. Reordenar la columna `MP` de modo descendente y mostrar las primeras 10 filas.
+
+
+```r
+# con mutate()
+WHO %>% 
+  dplyr::select(Measles, Polio, Country, Year) %>% 
+  mutate(MP = (0.00001*(sqrt(Measles) / 0.39 * Polio^2))) %>% 
+  arrange(desc(MP)) %>% 
+  head(10)
+#    Measles Polio                          Country Year    MP
+# 1   131441    99                            China 2008 91.11
+# 2   109023    94                            China 2007 74.81
+# 3    99602    94                            China 2006 71.50
+# 4   124219    87                            China 2005 68.40
+# 5   118712    86                           Malawi 2010 65.34
+# 6    52628    99                            China 2014 57.65
+# 7    52461    99                            China 2009 57.56
+# 8    90387    86                            India 2015 57.01
+# 9    88962    86                            China 2001 56.56
+# 10  133802    77 Democratic Republic of the Congo 2011 55.61
+
+# con transmute(), no es necesario seleccionar 
+# debido a que solo se mostrará la columna creada
+WHO %>% 
+  transmute(MP = (0.00001*(sqrt(Measles) / 0.39 * Polio^2))) %>% 
+  arrange(desc(MP)) %>% 
+  head(10)
+#       MP
+# 1  91.11
+# 2  74.81
+# 3  71.50
+# 4  68.40
+# 5  65.34
+# 6  57.65
+# 7  57.56
+# 8  57.01
+# 9  56.56
+# 10 55.61
+```
+
+:::
+
+
+Table: (\#tab:unnamed-chunk-55)Funciones de la familia `mutate()` y `transmute()`
+
+Función              Descripción                                                                                                                                  
+-------------------  ---------------------------------------------------------------------------------------------------------------------------------------------
+`mutate()`           Crea o modifica columnas especificadas una por una. El resultado muestra todas las columnas de la tabla original.                            
+`transmute()`        Crea o modifica columnas especificadas una por una. El resultado solo muestra las columnas creadas o modificadas.                            
+`mutate_all()`       Aplica una modificación a todas  las columnas de una tabla.                                                                                  
+`mutate_at()`        Aplica la(s) modificación(es) solo a la(s) columna(s) especificada(s) en la tabla.                                                           
+`mutate_if()`        Aplica una modificación a todas las columnas que cumplan con una condición lógica.                                                           
+`mutate_each()`      Idéntica a `mutate_all()` es considerada obsoleta (deprecated). `mutate_each_()` también es obsoleta.                                        
+`transmute_all()`    Aplica una modificación a todas  las columnas de una tabla. Las exporta en una nueva tabla, no dentro de la original.                        
+`transmute_at()`     Aplica la(s) modificación(es) solo a la(s) columna(s) especificada(s) en la tabla. Las exporta en una nueva tabla, no dentro de la original. 
+`transmute_if()`     Aplica una modificación a todas las columnas que cumplan con una condición lógica. Las exporta en una nueva tabla, no dentro de la original. 
+`transmute_each()`   Idéntica a `transmute_all()` es considerada obsoleta (deprecated). `transmute_each_()` también es obsoleta.                                  
+
+<br>
+
+#### `mutate_all()` y `transmute_all()`
+
+Estas funciones aplicarán las funciones especificadas a todas las columnas de la tabla. Si alguna columna no cumple con lo necesario para se analizada, se genera error. Asegúrate de que la tabla por completo sea modificable con las funciones de transformación definidas. Como alternativa, se utiliza la función de **dplyr** `select()` para seleccionar las columnas de trabajo antes de aplicar `mutate_all()` o `transmute_all()`. La estructura básica es:
+
+
+```r
+BASE_DE_DATOS %>% 
+  mutate_all(.funs = lst(LISTA_DE_FUNCIONES))
+```
+
+\BeginKnitrBlock{rmdnote}<div class="rmdnote">Si la función a usar en el argumento `.funs =` require más de un argumento para funcionar, es mejor crear una función con todas los argumentos definidos tal y como se necesitan. Luego usa la función nueva dentro de alguna función de la familia `mutate()`.  </div>\EndKnitrBlock{rmdnote}
+
+::: {.example #mutateall}
+Seleccionando las columnas `Income`, `GDP` y `Life_exp`, aplicar la función `round()` para redondear a un dígito los decimales de estas columnas. Crea previamente la función `rr()` para redondear a dos decimales un valor dado.
+
+
+```r
+# Crear una función de rendondeo a dos decimales
+rr <- function(x)round(x,2)
+
+# Aplicar dentro de mutate_all
+WHO %>% 
+  dplyr::select(Income, GDP, Life_exp) %>% 
+  mutate_all(.funs = lst(rr)) %>% 
+  head(10)
+#    Income    GDP Life_exp Income_rr GDP_rr Life_exp_rr
+# 1   0.479 584.26     65.0      0.48 584.26        65.0
+# 2   0.476 612.70     59.9      0.48 612.70        59.9
+# 3   0.470 631.74     59.9      0.47 631.74        59.9
+# 4   0.463 669.96     59.5      0.46 669.96        59.5
+# 5   0.454  63.54     59.2      0.45  63.54        59.2
+# 6   0.448 553.33     58.8      0.45 553.33        58.8
+# 7   0.434 445.89     58.6      0.43 445.89        58.6
+# 8   0.433 373.36     58.1      0.43 373.36        58.1
+# 9   0.415 369.84     57.5      0.42 369.84        57.5
+# 10  0.405 272.56     57.3      0.41 272.56        57.3
+```
+:::
+
+#### `mutate_at()` y `transmute_at()`
+
+Estas funciones permite seleccionar las columnas de trabajo a las cuales se les aplicará algo. La estructura básica es:
+
+
+```r
+BASE_DE_DATOS %>% 
+  mutate_at(.vars = vars(COLUMNAS_DE_TRABAJO),
+            .funs = lst(LISTA_DE_FUNCIONES))
+
+BASE_DE_DATOS %>% 
+  transmute_at(.vars = vars(COLUMNAS_DE_TRABAJO),
+            .funs = lst(LISTA_DE_FUNCIONES))
+```
+
+::: {.example}
+Siguiendo el ejemplo \@ref:(exm:mutateall), recrear el resultado utilizando `mutate_at()`. Si se utiliza `mutate_at()` con toda la tabla, el resultado será la misma base de datos más las nuevas columnas transformadas. Para no imprimir tanta información, utiliza `transmute_at()`
+
+
+```r
+# Crear una función de rendondeo a dos decimales
+rr <- function(x)round(x,2)
+
+# Aplicar dentro de mutate_all
+WHO %>% 
+  transmute_at(.vars = vars(Income, GDP, Life_exp),
+            .funs = lst(rr)) %>% 
+  head(10)
+#    Income_rr GDP_rr Life_exp_rr
+# 1       0.48 584.26        65.0
+# 2       0.48 612.70        59.9
+# 3       0.47 631.74        59.9
+# 4       0.46 669.96        59.5
+# 5       0.45  63.54        59.2
+# 6       0.45 553.33        58.8
+# 7       0.43 445.89        58.6
+# 8       0.43 373.36        58.1
+# 9       0.42 369.84        57.5
+# 10      0.41 272.56        57.3
+```
+:::
+
+#### `mutate_if()` y `transmute_if()`
+
+Como otras funciones nombradas como `_if`, estas permiten indicar una condición lógica para seleccionar solo las columnas que cumplan con dicha condición. Para establecer la condición se utiliza funciones de la familia `is()`, como `is.numeric()`. La estructura básica es:
+
+
+```r
+BASE_DE_DATOS %>% 
+  mutate_if(.predicate = FUNCIÓN_IS_SIN_PARÉNTESIS,
+               .funs = lst(LISTA_DE_FUNCIONES))
+
+BASE_DE_DATOS %>% 
+  transmute_if(.predicate = FUNCIÓN_IS_SIN_PARÉNTESIS,
+               .funs = lst(LISTA_DE_FUNCIONES))
+```
+
+::: {.example}
+Aplicar la transformación a factor de las columnas del tipo carácter:
+
+
+```r
+# Revisar la estructura de WHO
+# Notar las columnas chr
+str(WHO)
+
+# Utilizar mutate_if()
+WHO2 <- WHO %>% 
+  mutate_if(is.character, as.factor)
+
+# Revisar la estructura de WHO2
+# Notar que las columnas chr cambiaron a Factor 
+str(WHO2)
+```
+:::
 
 ## Combinar bases de datos
 
-## Valores perdidos
+Combinar bases de datos es una tarea recurrente en ciencia de datos. Las funciones de combinación de **dplyr** utilizan como materia prima data frames o tibbles. La mejor manera de explicar el uso de estas intrincadas funciones es a través de un gráfico. La Figura \@ref(fig:figura60) muestra el detalle de las filas esperadas como resultado del uso de las funciones de combinación:
 
-## Ejercicios del capítulo
+(ref:combina1) Funciones de combinación de **dplyr** y resultado esperado. El color indica la base de datos de origen de las filas que aparecerán en la tabla de resultados. 
 
+<div class="figure" style="text-align: center">
+<img src="figs/elaboradas/Combinar datasets.png" alt="(ref:combina1)" width="100%" />
+<p class="caption">(\#fig:figura60)(ref:combina1)</p>
+</div>
+
+Veamos la aplicación de estas funciones con un ejemplo muy simple.
+
+::: {.example}
+Considera las data frame `Base_A` y `Base_B`:
+
+
+```r
+# Crear las bases de datos
+Base_A <- data.frame(ID = LETTERS[1:4],
+                     COL1 = 1:4)
+Base_B <- data.frame(ID = LETTERS[c(1,3,4,5)],
+                     COL2 = c(T,T,F,F))
+
+# Revisar las bases de datos
+Base_A
+#   ID COL1
+# 1  A    1
+# 2  B    2
+# 3  C    3
+# 4  D    4
+
+Base_B
+#   ID  COL2
+# 1  A  TRUE
+# 2  C  TRUE
+# 3  D FALSE
+# 4  E FALSE
+```
+:::
+
+### `full_join()`
+
+Une las dos bases de datos por completo. Las celdas en blanco que puedan aparecer se rellenan con `NA`.
+
+
+```r
+full_join(Base_A, Base_B, by="ID")
+#   ID COL1  COL2
+# 1  A    1  TRUE
+# 2  B    2    NA
+# 3  C    3  TRUE
+# 4  D    4 FALSE
+# 5  E   NA FALSE
+```
+
+### `left_join()`
+
+Devuelve todas las filas de `Base_A` y cualquier fila coincidente de  `Base_B`. Las filas exclusivas de `Base_B` no aparecen. Las celdas en blanco que puedan aparecer se rellenan con `NA`.
+
+
+```r
+left_join(Base_A, Base_B, by="ID")
+#   ID COL1  COL2
+# 1  A    1  TRUE
+# 2  B    2    NA
+# 3  C    3  TRUE
+# 4  D    4 FALSE
+```
+
+### `right_join()`
+
+Devuelve todas las filas de `Base_B` y cualquier fila coincidente de  `Base_A`. Las filas exclusivas de `Base_A` no aparecen. Las celdas en blanco que puedan aparecer se rellenan con `NA`.
+
+
+```r
+right_join(Base_A, Base_B, by="ID")
+#   ID COL1  COL2
+# 1  A    1  TRUE
+# 2  C    3  TRUE
+# 3  D    4 FALSE
+# 4  E   NA FALSE
+```
+
+### `inner_join()`
+
+Devuelve todas las filas coincidentes de `Base_A` y `Base_B`, y muestra las columnas de ambas bases de datos.
+
+
+```r
+inner_join(Base_A, Base_B, by="ID")
+#   ID COL1  COL2
+# 1  A    1  TRUE
+# 2  C    3  TRUE
+# 3  D    4 FALSE
+```
+
+### `semi_join()`
+
+Devuelve todas las filas coincidentes de `Base_A` y `Base_B`, y muestra únicamente las columnas de la `Base_A`.
+
+
+```r
+semi_join(Base_A, Base_B, by="ID")
+#   ID COL1
+# 1  A    1
+# 2  C    3
+# 3  D    4
+```
+
+### `anti_join()`
+
+Devuelve solo las filas que son exclusivas de `Base_A`.
+
+
+```r
+anti_join(Base_A, Base_B, by="ID")
+#   ID COL1
+# 1  B    2
+```
+
+## Limpieza de datos
+
+Esta sección abordará algunos tópicos de limpieza de datos o *Data cleaning*. Como ya se ha revisado, los valores perdidos o `NA` causan problemas en el cálculo de parámetros estadísticos de las bases de datos. Más aún, cuando se pretende modelar la relación de una variable Y con los valores de una variable X, es imposible hacer regresión alguna con valores perdidos. Para estos casos, limpiar la base de datos será crucial. 
+
+\BeginKnitrBlock{rmdnote}<div class="rmdnote">Siempre que necesites identificar si un elemento dentro de un objeto es `NA` o no, podrás utilizar la función `is.na()`. Esta devolverá un objeto lógico con la misma extensión que el objeto original. En aquellas posiciones donde exista un `NA` en la base de datos original, `is.na()` mostrará `TRUE`.</div>\EndKnitrBlock{rmdnote}
+
+### ¿Cuántos NA existen en la base de datos?
+
+::: {.example}
+Considerando la base de datos `WHO`, calcular la cantidad de NA de la base.
+
+
+```r
+# Convertir WHO a tabla lógica 
+# para ubicar con TRUE a los NA
+WHO_logical <- is.na(WHO)
+```
+
+Recuerda que para las funciones estadísticas y matemáticas, como `mean()` o `sum()`, `TRUE` equivale a 1 y  `FALSE` a 0. Se puede obtener la proporción de `TRUE` de un vector con `mean()`, o la suma de `TRUE` en el vector con `sum()`. 
+
+
+```r
+# Sumando todos los TRUE (equivalentes a 1)
+sum(WHO_logical)
+# [1] 2563
+```
+:::
+
+### ¿Cuántos NA existen en cada columna?
+
+Hay muchas maneras de llegar a este resultado. Pero el procedimiento es similar en concepto al anterior. Se deben sumar los `TRUE` (celdas con `NA`) pero esta vez columna a columna. Como dato adicional, este objetivo también puede conseguir utilizando la función `apply()` ([Sección 5.4 Familia apply()](#familia-apply)).
+
+::: {.example}
+Crear una función que sume los NA de un vector:
+
+```r
+fun_na <- function(x) sum(is.na(x))
+```
+
+Ahora, utilizar la función aplicada a todas las columnas de la base de datos `WHO`:
+
+
+```r
+WHO %>% 
+  summarise_all(.funs = fun_na)
+#   Country Year Status1 Category Level Status2 St2_categ Life_exp Ad_mort Inf_deaths
+# 1       0    0       0        0     0       0         0       10      10          0
+#   Alcohol Per_exp Hep_B Measles BMI U5Y Polio Tot_exp Diph AIDS GDP Pop Thin1_19
+# 1     194       0   553       0  34   0    19     226   19    0 448 652       34
+#   Thin5_9 Income Schooling
+# 1      34    167       163
+```
+
+Si son demasiadas columnas para visualizar, considera seleccionar las columnas cuyos valores sean mayores de 0. Crea una función que evalúe un valor y otorgue `TRUE` si este es mayor que 0.
+
+
+```r
+# Crear la función 
+fun0 <- function(x) x > 0
+```
+
+La selección ahora utiliza una función que no se utilizó antes: `select_if()`. Como todas las funciones `_if` de **dplyr**, esta necesita condicionales para función. Allí entra en juego la función antes creada:
+
+
+```r
+# Aplicarla en select_if()
+WHO %>% 
+  summarise_all(.funs = fun_na) %>% 
+  select_if(fun0)
+#   Life_exp Ad_mort Alcohol Hep_B BMI Polio Tot_exp Diph GDP Pop Thin1_19 Thin5_9
+# 1       10      10     194   553  34    19     226   19 448 652       34      34
+#   Income Schooling
+# 1    167       163
+```
+:::
+
+### ¿En qué fila o columna están los NA?
+
+Ubicar la posición de fila y columna de los valores `NA` (celdas en blanco) se utiliza cuando se conoce que no deberían haber celdas vacías pero las hay. Encontrarlas permite rellenar dicho valor por el correspondiente que fue omitido en el proceso de rellenado de la base de datos.
+
+::: {.example}
+Ubicar los valores NA de la base de datos WHO. Mostrar únicamente las 10 primeras del resultado:
+
+
+```r
+which(WHO_logical, arr.ind=TRUE) %>% 
+  head(10)
+#       row col
+# 625   625   8
+# 770   770   8
+# 1651 1651   8
+# 1716 1716   8
+# 1813 1813   8
+# 1910 1910   8
+# 1959 1959   8
+# 2168 2168   8
+# 2217 2217   8
+# 2714 2714   8
+```
+:::
+
+\BeginKnitrBlock{rmdtip}<div class="rmdtip">En inglés, *row* significa fila y *col* columna.</div>\EndKnitrBlock{rmdtip}
+
+### ¿Cómo reemplazar los NA por otro valor?
+
+En ocasiones se necesita reemplazar los NA por algún valor por defecto que en el análisis sea útil. Por ejemplo, en bases que representan datos SIG (Sistemas de Información Geográficas), algunas celdas necesitan ser 9999, o -256, o algún otro valor, para que el análisis los considere bajo la categoría "no hay dato". Otros estudios, por su parte, utilizan el rellenar los datos con el promedio o la mediana de la columna. En los siguientes ejemplos veremos su aplicación:
+
+::: {.example #na11}
+Rellenar los valores `NA` de la base de datos `WHO` con el valor 9999999. Es excesivamente largo solo con la finalidad de hacerlo notorio, no por otra razón. Selecciona previamente las columnas `Alcohol`, `Hep_B`, `Measles`, `Polio`, `Diph` para que el resultado no sea amplio en la consola. Reordenar el resultado por la columna Alcohol y mostrar las últimas 6 filas de la tabla.
+
+Aquí el truco está en una forma especial de `mutate_all()` para transformar todas las columnas pero utilizando `~ifelse()` para reemplazar todas la `NA` (`is.na(.x)`) por 9999999, y las no `NA` con el mismo valor original (`.x`):
+
+
+```r
+WHO %>% 
+  dplyr::select(Alcohol, Hep_B, Measles, Polio, Diph) %>% 
+  arrange(Alcohol) %>% 
+  mutate_all(~ifelse(is.na(.x), 9999999, .x)) %>% 
+  tail() 
+#      Alcohol Hep_B Measles Polio Diph
+# 2933   1e+07    64      39    65   64
+# 2934   1e+07    87       0    87   87
+# 2935   1e+07    97     256    97   97
+# 2936   1e+07    69     468    63   69
+# 2937   1e+07     9       9     9    9
+# 2938   1e+07    87       0    88   87
+```
+:::
+
+::: {.example}
+Considera el mismo ejemplo anterior \@ref(exm:na11). No obstante, en lugar de reemplazar `NA` por 9999999, utiliza la función con `mean(.x, na.rm = TRUE)` para que los NA se reemplacen por el promedio de la columna.
+
+
+```r
+WHO %>% 
+  dplyr::select(Alcohol, Hep_B, Measles, Polio, Diph) %>% 
+  arrange(Alcohol) %>% 
+  mutate_all(~ifelse(is.na(.x), mean(.x, na.rm = TRUE), .x))%>% 
+  tail() 
+#      Alcohol Hep_B Measles Polio Diph
+# 2933   4.603    64      39    65   64
+# 2934   4.603    87       0    87   87
+# 2935   4.603    97     256    97   97
+# 2936   4.603    69     468    63   69
+# 2937   4.603     9       9     9    9
+# 2938   4.603    87       0    88   87
+```
 
