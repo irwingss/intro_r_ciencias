@@ -436,8 +436,8 @@ En inglés, <em>row</em> significa fila y <em>col</em> columna.
 <span id="cb199-11"><a href="limpieza-de-datos.html#cb199-11" aria-hidden="true" tabindex="-1"></a><span class="co"># 2937   1e+07     9       9     9    9</span></span>
 <span id="cb199-12"><a href="limpieza-de-datos.html#cb199-12" aria-hidden="true" tabindex="-1"></a><span class="co"># 2938   1e+07    87       0    88   87</span></span></code></pre></div>
 </div>
-<p>::: {.example}
-Considera el mismo ejemplo anterior <a href="limpieza-de-datos.html#exm:na11">6.27</a>. No obstante, en lugar de reemplazar <code>NA</code> por 9999999, utiliza la función con <code>mean(.x, na.rm = TRUE)</code> para que los NA se reemplacen por el promedio de la columna.</p>
+<div class="example">
+<p><span id="exm:unlabeled-div-49" class="example"><strong>Ejemplo 6.28  </strong></span>Considera el mismo ejemplo anterior <a href="limpieza-de-datos.html#exm:na11">6.27</a>. No obstante, en lugar de reemplazar <code>NA</code> por 9999999, utiliza la función con <code>mean(.x, na.rm = TRUE)</code> para que los NA se reemplacen por el promedio de la columna.</p>
 <div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb200-1"><a href="limpieza-de-datos.html#cb200-1" aria-hidden="true" tabindex="-1"></a>WHO <span class="sc">%&gt;%</span> </span>
 <span id="cb200-2"><a href="limpieza-de-datos.html#cb200-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(Alcohol, Hep_B, Measles, Polio, Diph) <span class="sc">%&gt;%</span> </span>
 <span id="cb200-3"><a href="limpieza-de-datos.html#cb200-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(Alcohol) <span class="sc">%&gt;%</span> </span>
@@ -450,6 +450,7 @@ Considera el mismo ejemplo anterior <a href="limpieza-de-datos.html#exm:na11">6.
 <span id="cb200-10"><a href="limpieza-de-datos.html#cb200-10" aria-hidden="true" tabindex="-1"></a><span class="co"># 2936   4.603    69     468    63   69</span></span>
 <span id="cb200-11"><a href="limpieza-de-datos.html#cb200-11" aria-hidden="true" tabindex="-1"></a><span class="co"># 2937   4.603     9       9     9    9</span></span>
 <span id="cb200-12"><a href="limpieza-de-datos.html#cb200-12" aria-hidden="true" tabindex="-1"></a><span class="co"># 2938   4.603    87       0    88   87</span></span></code></pre></div>
+</div>
 
 </div>
 </div>

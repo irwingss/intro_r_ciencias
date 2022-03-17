@@ -392,7 +392,7 @@ dist
 #         class = "dist")
 #     .Call(C_Cdist, x, method, attrs, p)
 # }
-# <bytecode: 0x0000000024577dd0>
+# <bytecode: 0x000000002456ce20>
 # <environment: namespace:stats>
 ```
 

@@ -995,6 +995,7 @@ WHO %>%
   mutate_all(~ifelse(is.na(.x), mean(.x, na.rm = TRUE), .x))%>% 
   tail() 
 ```
+:::
 
 
 ## Ejercicios del capítulo
