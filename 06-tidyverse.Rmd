@@ -493,11 +493,14 @@ Es **importante desagrupar** una vez que se acabaron los cálculos hechos con la
 Seleccionar las columnas `Country`, `Year`, `Polio`, `Diph`, y agrupar la base de datos `WHO` por año (columna `Year`). Mostrar las primeras 6 filas.
 
 ```{r}
+# Para este ejemplo no usaremos ungroup()
+# con la finalidad de mostrar el resultado
+# textual que aparece sobre una tabla agrupada
+# indicando los grupos >> Groups:   Year [6]
 WHO %>% 
   dplyr::select(Country, Year, Polio, Diph) %>%
   group_by(Year) %>% 
-  head() %>% 
-  ungroup()
+  head()
 ```
 :::
 
@@ -536,6 +539,8 @@ BASE_DE_DATOS %>% ... %>%
 Las funciones estadísticas como `mean()`, `median()` y las demás mencionadas arriba, tienen problemas lidiando con valores `NA`. Si se calcula el promedio de una columna que se conoce contiene `NA`, se debe colocar el argumento `na.rm = TRUE` dentro de cada función para hacer esta obvie los `NA` y calcule el estimados estadístico deseado. Por ejemplo `mean(vector, na.rm = TRUE)`.
 ```
 
+<br>
+
 ::: {.example} 
 Considerando la base de datos `WHO`, calcular el promedio de la columna `Life_exp`, la mediana de la columna `Polio`, y el promedio y desviación estándar de `GDP`. Agrupa previamente por año (columna `Year`). 
 
@@ -546,7 +551,8 @@ WHO %>%
   summarise(Promed = mean(Life_exp),
             Pol = median(Polio),
             GDP_prom = mean(GDP),
-            GDP_sd = sd(GDP))
+            GDP_sd = sd(GDP)) %>% 
+  ungroup()
 ```
 
 ```{r}
@@ -562,32 +568,109 @@ WHO %>%
 ```
 :::
 
-### Resumen estadísticos a varias columnas
+### Otras funciones de la familia `summarise()`
+
+En dplyr existen algunas funciones que tienen versiones similares a ellas. Consideremos esta agrupaciones como familias de funciones. En estas familias, como la de `summarise()`, encontrarás funciones de aplicación específica:
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+openxlsx::read.xlsx("bases/tabla11.xlsx")%>% 
+   kable(format = "pandoc", caption = 'Funciones de la familia `summarise()`')
+```
+
+<br>
+
+#### `summarise_all()`
+
+Aplicará la o las funciones especificadas a todas las columnas. Si alguna columna no cumple con lo necesario para se analizada (por ejemplo: intentar obtener el promedio de una columna categórica), se genera error. Asegúrate de que la tabla por completo es analizable, o utiliza la función de **dplyr** `select()` para seleccionar las columnas de trabajo. La estructúra básica es:
+
+```{r, eval=FALSE}
+BASE_DE_DATOS %>% 
+  summarise_all(.funs = lst(LISTA_DE_FUNCIONES))
+```
+
+::: {.example #summariseall}
+Obtener el promedio, y varianza de las columnas `GDP`, `Life_exp` y `Pop` por país de Colombia, México y Perú (recuerda que la base tiene estos nombres en inglés).
 
 ```{r}
 WHO %>% 
-  group_by(Year) %>% 
-  summarise_at(.vars = vars(Life_exp, Polio, GDP), 
-               .funs = lst(mean, median, sd),  
-               na.rm=TRUE)
+  filter(Country %in% c("Colombia","Mexico","Peru")) %>% 
+  group_by(Country) %>% 
+  dplyr::select(GDP, Life_exp, Pop) %>% 
+  summarise_all(.funs = lst(mean, var), 
+                na.rm=TRUE)%>% 
+  ungroup()
+```
+:::
+
+#### `summarise_at()`
+
+Otra función muy útil al momento de aplicar diferentes funciones estadísticas a varias columnas es `summarise_at()`. Esta función permite seleccionar las columnas de trabajo, como si incorporara su propia función `select()`. La estructura básica es:
+
+```{r, eval=FALSE}
+BASE_DE_DATOS %>% 
+  summarise_at(.vars = vars(COLUMNAS_DE_TRABAJO),
+               .funs = lst(LISTA_DE_FUNCIONES))
 ```
 
+::: {.example}
+Siguiendo el ejemplo \@ref:(exm:summariseall), recrear el resultado utilizando `summarise_at()`:
 
 ```{r}
 WHO %>% 
-  group_by(Year) %>% 
-  across(everything(), .funs = lst(mean, median, sd))
-  summarise_at(.vars = vars(Life_exp, Polio, GDP), 
+  filter(Country %in% c("Colombia","Mexico","Peru")) %>% 
+  group_by(Country) %>% 
+  summarise_at(.vars = vars(GDP, Life_exp, Pop), 
                .funs = lst(mean, median, sd),  
-               na.rm=TRUE)
+               na.rm=TRUE)%>% 
+  ungroup()
+```
+:::
+
+#### `summarise_if()`
+
+Aplicar condicionales para seleccionar columnas es muy útil. Esta función permite indicar una condición lógica con funciones de la familia `is()`, como `is.numeric()` que haría la petición de seleccionar solo las funciones numéricas y sobre todas ellas aplicar alguna funcióne estadística. La estructura básica es:
+
+```{r, eval=FALSE}
+BASE_DE_DATOS %>% 
+  summarise_if(.predicate = FUNCIÓN_IS_SIN_PARÉNTESIS,
+               .funs = lst(LISTA_DE_FUNCIONES))
 ```
 
+::: {.example}
+Realizar el promedio y desviación estándar de las columnas numéricas que existan entre las siguientes: `GDP`, `Life_exp`, `Pop`, `Status1`, `Status2`; agrupando por país para Colombia, México y Perú (recuerda que la base tiene estos nombres en inglés):
 
+```{r,eval=FALSE}
+WHO %>% 
+  filter(Country %in% c("Colombia","Mexico","Peru")) %>% 
+  group_by(Country) %>% 
+  dplyr::select(GDP, Life_exp, Pop, Status1, Status2) %>% 
+  summarise_if(is.numeric, 
+               .funs = lst(mean, sd),  
+               na.rm=TRUE)%>% 
+  ungroup()
+```
+:::
 
 ## Reordenamiento
 
+El concepto detrás de la función `arrange()` es el de brindarle un orden numérico (menor a mayor) o alfabético (A a la Z) a una columna. Si se desea el orden inverso, sea numérico o alfabético, utiliza `arrange(desc())`.
+
+::: {.example}
+Filtrar las filas con `GDP` mayor a 70000 y menores de 100000, agrupar por país (columna `Country`) y obtener el promedio y desviación estándar de `GDP`. Reordenar de mayor a menor en base al promedio.
+
+```{r}
+WHO %>% 
+  filter(GDP >= 70000 & GDP <= 100000) %>% 
+  group_by(Country) %>% 
+  summarise_at(.vars = vars(GDP), .funs = lst(mean, sd), na.rm = TRUE) %>% 
+  arrange(desc(mean))
+```
+:::
+
 ## Creación y transformación de columnas
 
+La familia de funciones de `mutate()` sirven para crear columnas en la base de datos.
 
 ## Combinar bases de datos
 

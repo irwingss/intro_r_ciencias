@@ -647,11 +647,17 @@ Esto es muy útil cuando se debe generar resúmenes estadísticos, por ejemplo p
 
 En el siguiente ejemplo solo veremos la agrupación, visible como un dato extra mostrado en consola impreso encima la tabla. Más adelante se usará agrupamiento dentro de una *pipeline* más realista.
 
+\BeginKnitrBlock{rmdwarning}<div class="rmdwarning">Es **importante desagrupar** una vez que se acabaron los cálculos hechos con la pipeline. El no colocar `ungroup()` al final producirá errores cuando más adelante se usa la base de datos resultante en otras *pipelines*. Nunca dejes un `group_by()` sin desagrupar al final.</div>\EndKnitrBlock{rmdwarning}
+
 ::: {.example}
 Seleccionar las columnas `Country`, `Year`, `Polio`, `Diph`, y agrupar la base de datos `WHO` por año (columna `Year`). Mostrar las primeras 6 filas.
 
 
 ```r
+# Para este ejemplo no usaremos ungroup()
+# con la finalidad de mostrar el resultado
+# textual que aparece sobre una tabla agrupada
+# indicando los grupos >> Groups:   Year [6]
 WHO %>% 
   dplyr::select(Country, Year, Polio, Diph) %>%
   group_by(Year) %>% 
@@ -673,11 +679,240 @@ WHO %>%
 
 ## Conteo
 
+La función de conteo es muy sencilla. Utilizar `count()` brinda el número de veces que cada nivel de una columna del tipo factor aparece en la misma.
+
+::: {.example}
+Considerando la base de datos `WHO`, filtrar la base para que aparezcan solo las filas que tengan valores mayor igual a 80 de expectativa de vida (columna `Life_exp`). Realizar un conteo de la veces que cada año (columna `Year`) aparece en la base de datos. Año es una variable numérica de valores enteros, y puede ser tratada como factor.
+
+
+```r
+WHO %>% 
+  filter(Life_exp >= 80) %>% 
+  count(Year)
+#    Year  n
+# 1  2000  1
+# 2  2001  3
+# 3  2002  4
+# 4  2003  5
+# 5  2004 10
+# 6  2005 12
+# 7  2006 12
+# 8  2007 15
+# 9  2008 18
+# 10 2009 21
+# 11 2010 23
+# 12 2011 25
+# 13 2012 28
+# 14 2013 29
+# 15 2014 29
+# 16 2015 29
+```
+:::
+
+Es notable, ahora, que con el pasar de los años la cantidad de filas con expectativa mayor igual a 80 años ha ido incrementando. Es una respuesta a que la calidad de vida ha mejorado en el mundo.
+
 ## Resúmenes estadísticos
+
+Realizar resúmenes estadísticos es uno de los grandes motivos de aprender a trabajar con *pipelines*. Puede aplicarse promedio `mean()`, mediana `median()`, desviación estándar `sd()`, varianza `var()`, suma `sum()`, mínimo `min()`, máximo `max()`, además de cualquier función existente o creada siempre y cuando el resultado de dichas funciones sea un único valor (es decir, un vector de un elemento). 
+
+El resultado final de cualquier función de la familia de `summarise()` es una tabla conteniendo las columnas que se solicitaron como resumen estadístico. La estructura base es:
+
+
+```r
+BASE_DE_DATOS %>% ... %>% 
+  summarise(COLUMNA_NUEVA = FUNCION_ESTADÍSTICA(COLUMNA_ANTIGUA))
+```
+
+\BeginKnitrBlock{rmdtip}<div class="rmdtip">Las funciones estadísticas como `mean()`, `median()` y las demás mencionadas arriba, tienen problemas lidiando con valores `NA`. Si se calcula el promedio de una columna que se conoce contiene `NA`, se debe colocar el argumento `na.rm = TRUE` dentro de cada función para hacer esta obvie los `NA` y calcule el estimados estadístico deseado. Por ejemplo `mean(vector, na.rm = TRUE)`.</div>\EndKnitrBlock{rmdtip}
+
+<br>
+
+::: {.example} 
+Considerando la base de datos `WHO`, calcular el promedio de la columna `Life_exp`, la mediana de la columna `Polio`, y el promedio y desviación estándar de `GDP`. Agrupa previamente por año (columna `Year`). 
+
+
+```r
+# Sin consideraro los NA
+WHO %>% 
+  group_by(Year) %>% 
+  summarise(Promed = mean(Life_exp),
+            Pol = median(Polio),
+            GDP_prom = mean(GDP),
+            GDP_sd = sd(GDP)) %>% 
+  ungroup()
+# # A tibble: 16 x 5
+#    Year Promed   Pol GDP_prom GDP_sd
+#   <dbl>  <dbl> <dbl>    <dbl>  <dbl>
+# 1  2000   66.8    NA       NA     NA
+# 2  2001   67.1    NA       NA     NA
+# 3  2002   67.4    NA       NA     NA
+# 4  2003   67.4    NA       NA     NA
+# 5  2004   67.6    NA       NA     NA
+# 6  2005   68.2    NA       NA     NA
+# # ... with 10 more rows
+```
+
+
+```r
+# Especificando el argumento na.rm = TRUE 
+# para obviar los NA de cada columna
+WHO %>% 
+  group_by(Year) %>% 
+  summarise(Promed = mean(Life_exp, na.rm = TRUE),
+            Pol = median(Polio, na.rm = TRUE),
+            GDP_prom = mean(GDP, na.rm = TRUE),
+            GDP_sd = sd(GDP, na.rm = TRUE)) %>% 
+  ungroup()
+# # A tibble: 16 x 5
+#    Year Promed   Pol GDP_prom GDP_sd
+#   <dbl>  <dbl> <dbl>    <dbl>  <dbl>
+# 1  2000   66.8    88    4709.  9182.
+# 2  2001   67.1    89    4855.  8892.
+# 3  2002   67.4    91    4599.  8541.
+# 4  2003   67.4    91    4775.  9144.
+# 5  2004   67.6    91    7056. 13504.
+# 6  2005   68.2    93    7250. 13107.
+# # ... with 10 more rows
+```
+:::
+
+### Otras funciones de la familia `summarise()`
+
+En dplyr existen algunas funciones que tienen versiones similares a ellas. Consideremos esta agrupaciones como familias de funciones. En estas familias, como la de `summarise()`, encontrarás funciones de aplicación específica:
+
+
+
+Table: (\#tab:unnamed-chunk-44)Funciones de la familia `summarise()`
+
+Función              Descripción                                                                                                                                                           
+-------------------  ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+`summarise()`        Permite realizar resúmenes estadísticos especificados columna a columna.                                                                                              
+`summarise_all()`    Permite realizar resúmenes estadísticos aplicando una o más funciones a todas las columnas de la tabla.                                                               
+`summarise_at()`     Permite realizar resúmenes estadísticos aplicando una o más funciones a un grupo de columnas de la tabla.                                                             
+`summarise_if()`     Permite realizar resúmenes estadísticos aplicando una o más funciones si se cumple una condición lógica definida.                                                     
+`summarise_each()`   Idéntica a `summarise_all()` es considerada obsoleta (deprecated).                                                                                                    
+Variantes            Algunas funciones tienes variantes escritas con "\_" al final o con la palabra summarize (con z). hacen lo mismo que las originales sin "\_" o con summarise (con s). 
+
+<br>
+
+#### `summarise_all()`
+
+Aplicará la o las funciones especificadas a todas las columnas. Si alguna columna no cumple con lo necesario para se analizada (por ejemplo: intentar obtener el promedio de una columna categórica), se genera error. Asegúrate de que la tabla por completo es analizable, o utiliza la función de **dplyr** `select()` para seleccionar las columnas de trabajo. La estructúra básica es:
+
+
+```r
+BASE_DE_DATOS %>% 
+  summarise_all(.funs = lst(LISTA_DE_FUNCIONES))
+```
+
+::: {.example #summariseall}
+Obtener el promedio, y varianza de las columnas `GDP`, `Life_exp` y `Pop` por país de Colombia, México y Perú (recuerda que la base tiene estos nombres en inglés).
+
+
+```r
+WHO %>% 
+  filter(Country %in% c("Colombia","Mexico","Peru")) %>% 
+  group_by(Country) %>% 
+  dplyr::select(GDP, Life_exp, Pop) %>% 
+  summarise_all(.funs = lst(mean, var), 
+                na.rm=TRUE)%>% 
+  ungroup()
+# Adding missing grouping variables: `Country`
+# # A tibble: 3 x 7
+#   Country  GDP_mean Life_exp_mean  Pop_mean   GDP_var Life_exp_var Pop_var
+#   <chr>       <dbl>         <dbl>     <dbl>     <dbl>        <dbl>   <dbl>
+# 1 Colombia    3322.          73.3 31767433.  7555129.        1.16  4.08e14
+# 2 Mexico      5179.          75.7 27585265. 15368266.        0.386 2.02e15
+# 3 Peru        2929.          73.7 16854322.  5660203.        1.64  1.77e14
+```
+:::
+
+#### `summarise_at()`
+
+Otra función muy útil al momento de aplicar diferentes funciones estadísticas a varias columnas es `summarise_at()`. Esta función permite seleccionar las columnas de trabajo, como si incorporara su propia función `select()`. La estructura básica es:
+
+
+```r
+BASE_DE_DATOS %>% 
+  summarise_at(.vars = vars(COLUMNAS_DE_TRABAJO),
+               .funs = lst(LISTA_DE_FUNCIONES))
+```
+
+::: {.example}
+Siguiendo el ejemplo \@ref:(exm:summariseall), recrear el resultado utilizando `summarise_at()`:
+
+
+```r
+WHO %>% 
+  filter(Country %in% c("Colombia","Mexico","Peru")) %>% 
+  group_by(Country) %>% 
+  summarise_at(.vars = vars(GDP, Life_exp, Pop), 
+               .funs = lst(mean, median, sd),  
+               na.rm=TRUE)%>% 
+  ungroup()
+# # A tibble: 3 x 10
+#   Country  GDP_mean Life_exp_mean  Pop_mean GDP_median Life_exp_median Pop_median
+#   <chr>       <dbl>         <dbl>     <dbl>      <dbl>           <dbl>      <dbl>
+# 1 Colombia    3322.          73.3 31767433.      2434.            73.5  43004898.
+# 2 Mexico      5179.          75.7 27585265.      6976.            75.6  11460708.
+# 3 Peru        2929.          73.7 16854322.      2601.            73.8  26088121 
+# # ... with 3 more variables: GDP_sd <dbl>, Life_exp_sd <dbl>, Pop_sd <dbl>
+```
+:::
+
+#### `summarise_if()`
+
+Aplicar condicionales para seleccionar columnas es muy útil. Esta función permite indicar una condición lógica con funciones de la familia `is()`, como `is.numeric()` que haría la petición de seleccionar solo las funciones numéricas y sobre todas ellas aplicar alguna funcióne estadística. La estructura básica es:
+
+
+```r
+BASE_DE_DATOS %>% 
+  summarise_if(.predicate = FUNCIÓN_IS_SIN_PARÉNTESIS,
+               .funs = lst(LISTA_DE_FUNCIONES))
+```
+
+::: {.example}
+Realizar el promedio y desviación estándar de las columnas numéricas que existan entre las siguientes: `GDP`, `Life_exp`, `Pop`, `Status1`, `Status2`; agrupando por país para Colombia, México y Perú (recuerda que la base tiene estos nombres en inglés):
+
+
+```r
+WHO %>% 
+  filter(Country %in% c("Colombia","Mexico","Peru")) %>% 
+  group_by(Country) %>% 
+  dplyr::select(GDP, Life_exp, Pop, Status1, Status2) %>% 
+  summarise_if(is.numeric, 
+               .funs = lst(mean, sd),  
+               na.rm=TRUE)%>% 
+  ungroup()
+```
+:::
 
 ## Reordenamiento
 
+El concepto detrás de la función `arrange()` es el de brindarle un orden numérico (menor a mayor) o alfabético (A a la Z) a una columna. Si se desea el orden inverso, sea numérico o alfabético, utiliza `arrange(desc())`.
+
+::: {.example}
+Filtrar las filas con `GDP` mayor a 70000 y menores de 100000, agrupar por país (columna `Country`) y obtener el promedio y desviación estándar de `GDP`. Reordenar de mayor a menor en base al promedio.
+
+
+```r
+WHO %>% 
+  filter(GDP >= 70000 & GDP <= 100000) %>% 
+  group_by(Country) %>% 
+  summarise_at(.vars = vars(GDP), .funs = lst(mean, sd), na.rm = TRUE) %>% 
+  arrange(desc(mean))
+# # A tibble: 4 x 3
+#   Country       mean    sd
+#   <chr>        <dbl> <dbl>
+# 1 Qatar       86083. 2344.
+# 2 Luxembourg  82728. 9916.
+# 3 Norway      82297. 7197.
+# 4 Switzerland 81339. 6536.
+```
+:::
+
 ## Creación y transformación de columnas
+
 
 
 ## Combinar bases de datos

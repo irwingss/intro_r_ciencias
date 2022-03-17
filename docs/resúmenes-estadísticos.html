@@ -23,7 +23,7 @@
 <meta name="author" content="Irwing S. Saldaña" />
 
 
-<meta name="date" content="2022-03-16" />
+<meta name="date" content="2022-03-17" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -279,7 +279,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="6.7" data-path="agrupamiento.html"><a href="agrupamiento.html"><i class="fa fa-check"></i><b>6.7</b> Agrupamiento<span></span></a></li>
 <li class="chapter" data-level="6.8" data-path="conteo.html"><a href="conteo.html"><i class="fa fa-check"></i><b>6.8</b> Conteo<span></span></a></li>
-<li class="chapter" data-level="6.9" data-path="resúmenes-estadísticos.html"><a href="resúmenes-estadísticos.html"><i class="fa fa-check"></i><b>6.9</b> Resúmenes estadísticos<span></span></a></li>
+<li class="chapter" data-level="6.9" data-path="resúmenes-estadísticos.html"><a href="resúmenes-estadísticos.html"><i class="fa fa-check"></i><b>6.9</b> Resúmenes estadísticos<span></span></a>
+<ul>
+<li class="chapter" data-level="6.9.1" data-path="resúmenes-estadísticos.html"><a href="resúmenes-estadísticos.html#otras-funciones-de-la-familia-summarise"><i class="fa fa-check"></i><b>6.9.1</b> Otras funciones de la familia <code>summarise()</code><span></span></a></li>
+</ul></li>
 <li class="chapter" data-level="6.10" data-path="reordenamiento.html"><a href="reordenamiento.html"><i class="fa fa-check"></i><b>6.10</b> Reordenamiento<span></span></a></li>
 <li class="chapter" data-level="6.11" data-path="creación-y-transformación-de-columnas.html"><a href="creación-y-transformación-de-columnas.html"><i class="fa fa-check"></i><b>6.11</b> Creación y transformación de columnas<span></span></a></li>
 <li class="chapter" data-level="6.12" data-path="combinar-bases-de-datos.html"><a href="combinar-bases-de-datos.html"><i class="fa fa-check"></i><b>6.12</b> Combinar bases de datos<span></span></a></li>
@@ -330,6 +333,160 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="resúmenes-estadísticos" class="section level2 hasAnchor" number="6.9">
 <h2><span class="header-section-number">6.9</span> Resúmenes estadísticos<a href="resúmenes-estadísticos.html#resúmenes-estadísticos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Realizar resúmenes estadísticos es uno de los grandes motivos de aprender a trabajar con <em>pipelines</em>. Puede aplicarse promedio <code>mean()</code>, mediana <code>median()</code>, desviación estándar <code>sd()</code>, varianza <code>var()</code>, suma <code>sum()</code>, mínimo <code>min()</code>, máximo <code>max()</code>, además de cualquier función existente o creada siempre y cuando el resultado de dichas funciones sea un único valor (es decir, un vector de un elemento).</p>
+<p>El resultado final de cualquier función de la familia de <code>summarise()</code> es una tabla conteniendo las columnas que se solicitaron como resumen estadístico. La estructura base es:</p>
+<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="resúmenes-estadísticos.html#cb167-1" aria-hidden="true" tabindex="-1"></a>BASE_DE_DATOS <span class="sc">%&gt;%</span> ... <span class="sc">%&gt;%</span> </span>
+<span id="cb167-2"><a href="resúmenes-estadísticos.html#cb167-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">COLUMNA_NUEVA =</span> FUNCION_ESTADÍSTICA(COLUMNA_ANTIGUA))</span></code></pre></div>
+
+<div class="rmdtip">
+Las funciones estadísticas como <code>mean()</code>, <code>median()</code> y las demás mencionadas arriba, tienen problemas lidiando con valores <code>NA</code>. Si se calcula el promedio de una columna que se conoce contiene <code>NA</code>, se debe colocar el argumento <code>na.rm = TRUE</code> dentro de cada función para hacer esta obvie los <code>NA</code> y calcule el estimados estadístico deseado. Por ejemplo <code>mean(vector, na.rm = TRUE)</code>.
+</div>
+<p><br></p>
+<div class="example">
+<p><span id="exm:unlabeled-div-39" class="example"><strong>Ejemplo 6.15  </strong></span>Considerando la base de datos <code>WHO</code>, calcular el promedio de la columna <code>Life_exp</code>, la mediana de la columna <code>Polio</code>, y el promedio y desviación estándar de <code>GDP</code>. Agrupa previamente por año (columna <code>Year</code>).</p>
+<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="resúmenes-estadísticos.html#cb168-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Sin consideraro los NA</span></span>
+<span id="cb168-2"><a href="resúmenes-estadísticos.html#cb168-2" aria-hidden="true" tabindex="-1"></a>WHO <span class="sc">%&gt;%</span> </span>
+<span id="cb168-3"><a href="resúmenes-estadísticos.html#cb168-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Year) <span class="sc">%&gt;%</span> </span>
+<span id="cb168-4"><a href="resúmenes-estadísticos.html#cb168-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Promed =</span> <span class="fu">mean</span>(Life_exp),</span>
+<span id="cb168-5"><a href="resúmenes-estadísticos.html#cb168-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">Pol =</span> <span class="fu">median</span>(Polio),</span>
+<span id="cb168-6"><a href="resúmenes-estadísticos.html#cb168-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">GDP_prom =</span> <span class="fu">mean</span>(GDP),</span>
+<span id="cb168-7"><a href="resúmenes-estadísticos.html#cb168-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">GDP_sd =</span> <span class="fu">sd</span>(GDP)) <span class="sc">%&gt;%</span> </span>
+<span id="cb168-8"><a href="resúmenes-estadísticos.html#cb168-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span>
+<span id="cb168-9"><a href="resúmenes-estadísticos.html#cb168-9" aria-hidden="true" tabindex="-1"></a><span class="co"># # A tibble: 16 x 5</span></span>
+<span id="cb168-10"><a href="resúmenes-estadísticos.html#cb168-10" aria-hidden="true" tabindex="-1"></a><span class="co">#    Year Promed   Pol GDP_prom GDP_sd</span></span>
+<span id="cb168-11"><a href="resúmenes-estadísticos.html#cb168-11" aria-hidden="true" tabindex="-1"></a><span class="co">#   &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;  &lt;dbl&gt;</span></span>
+<span id="cb168-12"><a href="resúmenes-estadísticos.html#cb168-12" aria-hidden="true" tabindex="-1"></a><span class="co"># 1  2000   66.8    NA       NA     NA</span></span>
+<span id="cb168-13"><a href="resúmenes-estadísticos.html#cb168-13" aria-hidden="true" tabindex="-1"></a><span class="co"># 2  2001   67.1    NA       NA     NA</span></span>
+<span id="cb168-14"><a href="resúmenes-estadísticos.html#cb168-14" aria-hidden="true" tabindex="-1"></a><span class="co"># 3  2002   67.4    NA       NA     NA</span></span>
+<span id="cb168-15"><a href="resúmenes-estadísticos.html#cb168-15" aria-hidden="true" tabindex="-1"></a><span class="co"># 4  2003   67.4    NA       NA     NA</span></span>
+<span id="cb168-16"><a href="resúmenes-estadísticos.html#cb168-16" aria-hidden="true" tabindex="-1"></a><span class="co"># 5  2004   67.6    NA       NA     NA</span></span>
+<span id="cb168-17"><a href="resúmenes-estadísticos.html#cb168-17" aria-hidden="true" tabindex="-1"></a><span class="co"># 6  2005   68.2    NA       NA     NA</span></span>
+<span id="cb168-18"><a href="resúmenes-estadísticos.html#cb168-18" aria-hidden="true" tabindex="-1"></a><span class="co"># # ... with 10 more rows</span></span></code></pre></div>
+<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="resúmenes-estadísticos.html#cb169-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Especificando el argumento na.rm = TRUE </span></span>
+<span id="cb169-2"><a href="resúmenes-estadísticos.html#cb169-2" aria-hidden="true" tabindex="-1"></a><span class="co"># para obviar los NA de cada columna</span></span>
+<span id="cb169-3"><a href="resúmenes-estadísticos.html#cb169-3" aria-hidden="true" tabindex="-1"></a>WHO <span class="sc">%&gt;%</span> </span>
+<span id="cb169-4"><a href="resúmenes-estadísticos.html#cb169-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Year) <span class="sc">%&gt;%</span> </span>
+<span id="cb169-5"><a href="resúmenes-estadísticos.html#cb169-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Promed =</span> <span class="fu">mean</span>(Life_exp, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb169-6"><a href="resúmenes-estadísticos.html#cb169-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">Pol =</span> <span class="fu">median</span>(Polio, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb169-7"><a href="resúmenes-estadísticos.html#cb169-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">GDP_prom =</span> <span class="fu">mean</span>(GDP, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb169-8"><a href="resúmenes-estadísticos.html#cb169-8" aria-hidden="true" tabindex="-1"></a>            <span class="at">GDP_sd =</span> <span class="fu">sd</span>(GDP, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb169-9"><a href="resúmenes-estadísticos.html#cb169-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span>
+<span id="cb169-10"><a href="resúmenes-estadísticos.html#cb169-10" aria-hidden="true" tabindex="-1"></a><span class="co"># # A tibble: 16 x 5</span></span>
+<span id="cb169-11"><a href="resúmenes-estadísticos.html#cb169-11" aria-hidden="true" tabindex="-1"></a><span class="co">#    Year Promed   Pol GDP_prom GDP_sd</span></span>
+<span id="cb169-12"><a href="resúmenes-estadísticos.html#cb169-12" aria-hidden="true" tabindex="-1"></a><span class="co">#   &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;  &lt;dbl&gt;</span></span>
+<span id="cb169-13"><a href="resúmenes-estadísticos.html#cb169-13" aria-hidden="true" tabindex="-1"></a><span class="co"># 1  2000   66.8    88    4709.  9182.</span></span>
+<span id="cb169-14"><a href="resúmenes-estadísticos.html#cb169-14" aria-hidden="true" tabindex="-1"></a><span class="co"># 2  2001   67.1    89    4855.  8892.</span></span>
+<span id="cb169-15"><a href="resúmenes-estadísticos.html#cb169-15" aria-hidden="true" tabindex="-1"></a><span class="co"># 3  2002   67.4    91    4599.  8541.</span></span>
+<span id="cb169-16"><a href="resúmenes-estadísticos.html#cb169-16" aria-hidden="true" tabindex="-1"></a><span class="co"># 4  2003   67.4    91    4775.  9144.</span></span>
+<span id="cb169-17"><a href="resúmenes-estadísticos.html#cb169-17" aria-hidden="true" tabindex="-1"></a><span class="co"># 5  2004   67.6    91    7056. 13504.</span></span>
+<span id="cb169-18"><a href="resúmenes-estadísticos.html#cb169-18" aria-hidden="true" tabindex="-1"></a><span class="co"># 6  2005   68.2    93    7250. 13107.</span></span>
+<span id="cb169-19"><a href="resúmenes-estadísticos.html#cb169-19" aria-hidden="true" tabindex="-1"></a><span class="co"># # ... with 10 more rows</span></span></code></pre></div>
+</div>
+<div id="otras-funciones-de-la-familia-summarise" class="section level3 hasAnchor" number="6.9.1">
+<h3><span class="header-section-number">6.9.1</span> Otras funciones de la familia <code>summarise()</code><a href="resúmenes-estadísticos.html#otras-funciones-de-la-familia-summarise" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>En dplyr existen algunas funciones que tienen versiones similares a ellas. Consideremos esta agrupaciones como familias de funciones. En estas familias, como la de <code>summarise()</code>, encontrarás funciones de aplicación específica:</p>
+<table>
+<caption><span id="tab:unnamed-chunk-44">Tabla 3.3: </span>Funciones de la familia <code>summarise()</code></caption>
+<thead>
+<tr class="header">
+<th align="left">Función</th>
+<th align="left">Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>summarise()</code></td>
+<td align="left">Permite realizar resúmenes estadísticos especificados columna a columna.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>summarise_all()</code></td>
+<td align="left">Permite realizar resúmenes estadísticos aplicando una o más funciones a todas las columnas de la tabla.</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>summarise_at()</code></td>
+<td align="left">Permite realizar resúmenes estadísticos aplicando una o más funciones a un grupo de columnas de la tabla.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>summarise_if()</code></td>
+<td align="left">Permite realizar resúmenes estadísticos aplicando una o más funciones si se cumple una condición lógica definida.</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>summarise_each()</code></td>
+<td align="left">Idéntica a <code>summarise_all()</code> es considerada obsoleta (deprecated).</td>
+</tr>
+<tr class="even">
+<td align="left">Variantes</td>
+<td align="left">Algunas funciones tienes variantes escritas con “_” al final o con la palabra summarize (con z). hacen lo mismo que las originales sin “_” o con summarise (con s).</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<div id="summarise_all" class="section level4 hasAnchor" number="6.9.1.1">
+<h4><span class="header-section-number">6.9.1.1</span> <code>summarise_all()</code><a href="resúmenes-estadísticos.html#summarise_all" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Aplicará la o las funciones especificadas a todas las columnas. Si alguna columna no cumple con lo necesario para se analizada (por ejemplo: intentar obtener el promedio de una columna categórica), se genera error. Asegúrate de que la tabla por completo es analizable, o utiliza la función de <strong>dplyr</strong> <code>select()</code> para seleccionar las columnas de trabajo. La estructúra básica es:</p>
+<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="resúmenes-estadísticos.html#cb170-1" aria-hidden="true" tabindex="-1"></a>BASE_DE_DATOS <span class="sc">%&gt;%</span> </span>
+<span id="cb170-2"><a href="resúmenes-estadísticos.html#cb170-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise_all</span>(<span class="at">.funs =</span> <span class="fu">lst</span>(LISTA_DE_FUNCIONES))</span></code></pre></div>
+<div class="example">
+<p><span id="exm:summariseall" class="example"><strong>Ejemplo 6.16  </strong></span>Obtener el promedio, y varianza de las columnas <code>GDP</code>, <code>Life_exp</code> y <code>Pop</code> por país de Colombia, México y Perú (recuerda que la base tiene estos nombres en inglés).</p>
+<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb171-1"><a href="resúmenes-estadísticos.html#cb171-1" aria-hidden="true" tabindex="-1"></a>WHO <span class="sc">%&gt;%</span> </span>
+<span id="cb171-2"><a href="resúmenes-estadísticos.html#cb171-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Country <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;Colombia&quot;</span>,<span class="st">&quot;Mexico&quot;</span>,<span class="st">&quot;Peru&quot;</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb171-3"><a href="resúmenes-estadísticos.html#cb171-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Country) <span class="sc">%&gt;%</span> </span>
+<span id="cb171-4"><a href="resúmenes-estadísticos.html#cb171-4" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(GDP, Life_exp, Pop) <span class="sc">%&gt;%</span> </span>
+<span id="cb171-5"><a href="resúmenes-estadísticos.html#cb171-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise_all</span>(<span class="at">.funs =</span> <span class="fu">lst</span>(mean, var), </span>
+<span id="cb171-6"><a href="resúmenes-estadísticos.html#cb171-6" aria-hidden="true" tabindex="-1"></a>                <span class="at">na.rm=</span><span class="cn">TRUE</span>)<span class="sc">%&gt;%</span> </span>
+<span id="cb171-7"><a href="resúmenes-estadísticos.html#cb171-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span>
+<span id="cb171-8"><a href="resúmenes-estadísticos.html#cb171-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Adding missing grouping variables: `Country`</span></span>
+<span id="cb171-9"><a href="resúmenes-estadísticos.html#cb171-9" aria-hidden="true" tabindex="-1"></a><span class="co"># # A tibble: 3 x 7</span></span>
+<span id="cb171-10"><a href="resúmenes-estadísticos.html#cb171-10" aria-hidden="true" tabindex="-1"></a><span class="co">#   Country  GDP_mean Life_exp_mean  Pop_mean   GDP_var Life_exp_var Pop_var</span></span>
+<span id="cb171-11"><a href="resúmenes-estadísticos.html#cb171-11" aria-hidden="true" tabindex="-1"></a><span class="co">#   &lt;chr&gt;       &lt;dbl&gt;         &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;        &lt;dbl&gt;   &lt;dbl&gt;</span></span>
+<span id="cb171-12"><a href="resúmenes-estadísticos.html#cb171-12" aria-hidden="true" tabindex="-1"></a><span class="co"># 1 Colombia    3322.          73.3 31767433.  7555129.        1.16  4.08e14</span></span>
+<span id="cb171-13"><a href="resúmenes-estadísticos.html#cb171-13" aria-hidden="true" tabindex="-1"></a><span class="co"># 2 Mexico      5179.          75.7 27585265. 15368266.        0.386 2.02e15</span></span>
+<span id="cb171-14"><a href="resúmenes-estadísticos.html#cb171-14" aria-hidden="true" tabindex="-1"></a><span class="co"># 3 Peru        2929.          73.7 16854322.  5660203.        1.64  1.77e14</span></span></code></pre></div>
+</div>
+</div>
+<div id="summarise_at" class="section level4 hasAnchor" number="6.9.1.2">
+<h4><span class="header-section-number">6.9.1.2</span> <code>summarise_at()</code><a href="resúmenes-estadísticos.html#summarise_at" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Otra función muy útil al momento de aplicar diferentes funciones estadísticas a varias columnas es <code>summarise_at()</code>. Esta función permite seleccionar las columnas de trabajo, como si incorporara su propia función <code>select()</code>. La estructura básica es:</p>
+<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb172-1"><a href="resúmenes-estadísticos.html#cb172-1" aria-hidden="true" tabindex="-1"></a>BASE_DE_DATOS <span class="sc">%&gt;%</span> </span>
+<span id="cb172-2"><a href="resúmenes-estadísticos.html#cb172-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise_at</span>(<span class="at">.vars =</span> <span class="fu">vars</span>(COLUMNAS_DE_TRABAJO),</span>
+<span id="cb172-3"><a href="resúmenes-estadísticos.html#cb172-3" aria-hidden="true" tabindex="-1"></a>               <span class="at">.funs =</span> <span class="fu">lst</span>(LISTA_DE_FUNCIONES))</span></code></pre></div>
+<div class="example">
+<p><span id="exm:unlabeled-div-40" class="example"><strong>Ejemplo 6.17  </strong></span>Siguiendo el ejemplo @ref:(exm:summariseall), recrear el resultado utilizando <code>summarise_at()</code>:</p>
+<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb173-1"><a href="resúmenes-estadísticos.html#cb173-1" aria-hidden="true" tabindex="-1"></a>WHO <span class="sc">%&gt;%</span> </span>
+<span id="cb173-2"><a href="resúmenes-estadísticos.html#cb173-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Country <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;Colombia&quot;</span>,<span class="st">&quot;Mexico&quot;</span>,<span class="st">&quot;Peru&quot;</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb173-3"><a href="resúmenes-estadísticos.html#cb173-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Country) <span class="sc">%&gt;%</span> </span>
+<span id="cb173-4"><a href="resúmenes-estadísticos.html#cb173-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise_at</span>(<span class="at">.vars =</span> <span class="fu">vars</span>(GDP, Life_exp, Pop), </span>
+<span id="cb173-5"><a href="resúmenes-estadísticos.html#cb173-5" aria-hidden="true" tabindex="-1"></a>               <span class="at">.funs =</span> <span class="fu">lst</span>(mean, median, sd),  </span>
+<span id="cb173-6"><a href="resúmenes-estadísticos.html#cb173-6" aria-hidden="true" tabindex="-1"></a>               <span class="at">na.rm=</span><span class="cn">TRUE</span>)<span class="sc">%&gt;%</span> </span>
+<span id="cb173-7"><a href="resúmenes-estadísticos.html#cb173-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span>
+<span id="cb173-8"><a href="resúmenes-estadísticos.html#cb173-8" aria-hidden="true" tabindex="-1"></a><span class="co"># # A tibble: 3 x 10</span></span>
+<span id="cb173-9"><a href="resúmenes-estadísticos.html#cb173-9" aria-hidden="true" tabindex="-1"></a><span class="co">#   Country  GDP_mean Life_exp_mean  Pop_mean GDP_median Life_exp_median Pop_median</span></span>
+<span id="cb173-10"><a href="resúmenes-estadísticos.html#cb173-10" aria-hidden="true" tabindex="-1"></a><span class="co">#   &lt;chr&gt;       &lt;dbl&gt;         &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;           &lt;dbl&gt;      &lt;dbl&gt;</span></span>
+<span id="cb173-11"><a href="resúmenes-estadísticos.html#cb173-11" aria-hidden="true" tabindex="-1"></a><span class="co"># 1 Colombia    3322.          73.3 31767433.      2434.            73.5  43004898.</span></span>
+<span id="cb173-12"><a href="resúmenes-estadísticos.html#cb173-12" aria-hidden="true" tabindex="-1"></a><span class="co"># 2 Mexico      5179.          75.7 27585265.      6976.            75.6  11460708.</span></span>
+<span id="cb173-13"><a href="resúmenes-estadísticos.html#cb173-13" aria-hidden="true" tabindex="-1"></a><span class="co"># 3 Peru        2929.          73.7 16854322.      2601.            73.8  26088121 </span></span>
+<span id="cb173-14"><a href="resúmenes-estadísticos.html#cb173-14" aria-hidden="true" tabindex="-1"></a><span class="co"># # ... with 3 more variables: GDP_sd &lt;dbl&gt;, Life_exp_sd &lt;dbl&gt;, Pop_sd &lt;dbl&gt;</span></span></code></pre></div>
+</div>
+</div>
+<div id="summarise_if" class="section level4 hasAnchor" number="6.9.1.3">
+<h4><span class="header-section-number">6.9.1.3</span> <code>summarise_if()</code><a href="resúmenes-estadísticos.html#summarise_if" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Aplicar condicionales para seleccionar columnas es muy útil. Esta función permite indicar una condición lógica con funciones de la familia <code>is()</code>, como <code>is.numeric()</code> que haría la petición de seleccionar solo las funciones numéricas y sobre todas ellas aplicar alguna funcióne estadística. La estructura básica es:</p>
+<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="resúmenes-estadísticos.html#cb174-1" aria-hidden="true" tabindex="-1"></a>BASE_DE_DATOS <span class="sc">%&gt;%</span> </span>
+<span id="cb174-2"><a href="resúmenes-estadísticos.html#cb174-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise_if</span>(<span class="at">.predicate =</span> FUNCIÓN_IS_SIN_PARÉNTESIS,</span>
+<span id="cb174-3"><a href="resúmenes-estadísticos.html#cb174-3" aria-hidden="true" tabindex="-1"></a>               <span class="at">.funs =</span> <span class="fu">lst</span>(LISTA_DE_FUNCIONES))</span></code></pre></div>
+<div class="example">
+<p><span id="exm:unlabeled-div-41" class="example"><strong>Ejemplo 6.18  </strong></span>Realizar el promedio y desviación estándar de las columnas numéricas que existan entre las siguientes: <code>GDP</code>, <code>Life_exp</code>, <code>Pop</code>, <code>Status1</code>, <code>Status2</code>; agrupando por país para Colombia, México y Perú (recuerda que la base tiene estos nombres en inglés):</p>
+<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb175-1"><a href="resúmenes-estadísticos.html#cb175-1" aria-hidden="true" tabindex="-1"></a>WHO <span class="sc">%&gt;%</span> </span>
+<span id="cb175-2"><a href="resúmenes-estadísticos.html#cb175-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Country <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;Colombia&quot;</span>,<span class="st">&quot;Mexico&quot;</span>,<span class="st">&quot;Peru&quot;</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb175-3"><a href="resúmenes-estadísticos.html#cb175-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Country) <span class="sc">%&gt;%</span> </span>
+<span id="cb175-4"><a href="resúmenes-estadísticos.html#cb175-4" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(GDP, Life_exp, Pop, Status1, Status2) <span class="sc">%&gt;%</span> </span>
+<span id="cb175-5"><a href="resúmenes-estadísticos.html#cb175-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise_if</span>(is.numeric, </span>
+<span id="cb175-6"><a href="resúmenes-estadísticos.html#cb175-6" aria-hidden="true" tabindex="-1"></a>               <span class="at">.funs =</span> <span class="fu">lst</span>(mean, sd),  </span>
+<span id="cb175-7"><a href="resúmenes-estadísticos.html#cb175-7" aria-hidden="true" tabindex="-1"></a>               <span class="at">na.rm=</span><span class="cn">TRUE</span>)<span class="sc">%&gt;%</span> </span>
+<span id="cb175-8"><a href="resúmenes-estadísticos.html#cb175-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span></code></pre></div>
+</div>
+</div>
+</div>
 </div>
             </section>
 

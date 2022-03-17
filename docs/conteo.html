@@ -23,7 +23,7 @@
 <meta name="author" content="Irwing S. Saldaña" />
 
 
-<meta name="date" content="2022-03-16" />
+<meta name="date" content="2022-03-17" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -279,7 +279,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="6.7" data-path="agrupamiento.html"><a href="agrupamiento.html"><i class="fa fa-check"></i><b>6.7</b> Agrupamiento<span></span></a></li>
 <li class="chapter" data-level="6.8" data-path="conteo.html"><a href="conteo.html"><i class="fa fa-check"></i><b>6.8</b> Conteo<span></span></a></li>
-<li class="chapter" data-level="6.9" data-path="resúmenes-estadísticos.html"><a href="resúmenes-estadísticos.html"><i class="fa fa-check"></i><b>6.9</b> Resúmenes estadísticos<span></span></a></li>
+<li class="chapter" data-level="6.9" data-path="resúmenes-estadísticos.html"><a href="resúmenes-estadísticos.html"><i class="fa fa-check"></i><b>6.9</b> Resúmenes estadísticos<span></span></a>
+<ul>
+<li class="chapter" data-level="6.9.1" data-path="resúmenes-estadísticos.html"><a href="resúmenes-estadísticos.html#otras-funciones-de-la-familia-summarise"><i class="fa fa-check"></i><b>6.9.1</b> Otras funciones de la familia <code>summarise()</code><span></span></a></li>
+</ul></li>
 <li class="chapter" data-level="6.10" data-path="reordenamiento.html"><a href="reordenamiento.html"><i class="fa fa-check"></i><b>6.10</b> Reordenamiento<span></span></a></li>
 <li class="chapter" data-level="6.11" data-path="creación-y-transformación-de-columnas.html"><a href="creación-y-transformación-de-columnas.html"><i class="fa fa-check"></i><b>6.11</b> Creación y transformación de columnas<span></span></a></li>
 <li class="chapter" data-level="6.12" data-path="combinar-bases-de-datos.html"><a href="combinar-bases-de-datos.html"><i class="fa fa-check"></i><b>6.12</b> Combinar bases de datos<span></span></a></li>
@@ -330,6 +333,31 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="conteo" class="section level2 hasAnchor" number="6.8">
 <h2><span class="header-section-number">6.8</span> Conteo<a href="conteo.html#conteo" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>La función de conteo es muy sencilla. Utilizar <code>count()</code> brinda el número de veces que cada nivel de una columna del tipo factor aparece en la misma.</p>
+<div class="example">
+<p><span id="exm:unlabeled-div-38" class="example"><strong>Ejemplo 6.14  </strong></span>Considerando la base de datos <code>WHO</code>, filtrar la base para que aparezcan solo las filas que tengan valores mayor igual a 80 de expectativa de vida (columna <code>Life_exp</code>). Realizar un conteo de la veces que cada año (columna <code>Year</code>) aparece en la base de datos. Año es una variable numérica de valores enteros, y puede ser tratada como factor.</p>
+<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb166-1"><a href="conteo.html#cb166-1" aria-hidden="true" tabindex="-1"></a>WHO <span class="sc">%&gt;%</span> </span>
+<span id="cb166-2"><a href="conteo.html#cb166-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Life_exp <span class="sc">&gt;=</span> <span class="dv">80</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb166-3"><a href="conteo.html#cb166-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(Year)</span>
+<span id="cb166-4"><a href="conteo.html#cb166-4" aria-hidden="true" tabindex="-1"></a><span class="co">#    Year  n</span></span>
+<span id="cb166-5"><a href="conteo.html#cb166-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 1  2000  1</span></span>
+<span id="cb166-6"><a href="conteo.html#cb166-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 2  2001  3</span></span>
+<span id="cb166-7"><a href="conteo.html#cb166-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 3  2002  4</span></span>
+<span id="cb166-8"><a href="conteo.html#cb166-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 4  2003  5</span></span>
+<span id="cb166-9"><a href="conteo.html#cb166-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 5  2004 10</span></span>
+<span id="cb166-10"><a href="conteo.html#cb166-10" aria-hidden="true" tabindex="-1"></a><span class="co"># 6  2005 12</span></span>
+<span id="cb166-11"><a href="conteo.html#cb166-11" aria-hidden="true" tabindex="-1"></a><span class="co"># 7  2006 12</span></span>
+<span id="cb166-12"><a href="conteo.html#cb166-12" aria-hidden="true" tabindex="-1"></a><span class="co"># 8  2007 15</span></span>
+<span id="cb166-13"><a href="conteo.html#cb166-13" aria-hidden="true" tabindex="-1"></a><span class="co"># 9  2008 18</span></span>
+<span id="cb166-14"><a href="conteo.html#cb166-14" aria-hidden="true" tabindex="-1"></a><span class="co"># 10 2009 21</span></span>
+<span id="cb166-15"><a href="conteo.html#cb166-15" aria-hidden="true" tabindex="-1"></a><span class="co"># 11 2010 23</span></span>
+<span id="cb166-16"><a href="conteo.html#cb166-16" aria-hidden="true" tabindex="-1"></a><span class="co"># 12 2011 25</span></span>
+<span id="cb166-17"><a href="conteo.html#cb166-17" aria-hidden="true" tabindex="-1"></a><span class="co"># 13 2012 28</span></span>
+<span id="cb166-18"><a href="conteo.html#cb166-18" aria-hidden="true" tabindex="-1"></a><span class="co"># 14 2013 29</span></span>
+<span id="cb166-19"><a href="conteo.html#cb166-19" aria-hidden="true" tabindex="-1"></a><span class="co"># 15 2014 29</span></span>
+<span id="cb166-20"><a href="conteo.html#cb166-20" aria-hidden="true" tabindex="-1"></a><span class="co"># 16 2015 29</span></span></code></pre></div>
+</div>
+<p>Es notable, ahora, que con el pasar de los años la cantidad de filas con expectativa mayor igual a 80 años ha ido incrementando. Es una respuesta a que la calidad de vida ha mejorado en el mundo.</p>
 </div>
             </section>
 

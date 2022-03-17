@@ -107,6 +107,12 @@ exm:unlabeled-div-34
 exm:unlabeled-div-35
 exm:unlabeled-div-36
 exm:unlabeled-div-37
+exm:unlabeled-div-38
+exm:unlabeled-div-39
+exm:summariseall
+exm:unlabeled-div-40
+exm:unlabeled-div-41
+exm:unlabeled-div-42
 esencialesRRStudio
 instalación-de-r-y-rstudio
 configuración-de-rstudio
@@ -204,6 +210,10 @@ seleccionar-con-funciones-especiales
 agrupamiento
 conteo
 resúmenes-estadísticos
+otras-funciones-de-la-familia-summarise
+summarise_all
+summarise_at
+summarise_if
 reordenamiento
 creación-y-transformación-de-columnas
 combinar-bases-de-datos
