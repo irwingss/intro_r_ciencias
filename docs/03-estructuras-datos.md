@@ -27,7 +27,7 @@ Toda variable cuenta con dos atributos: clase y estructura. Para entender cómo 
 Según su contenido, en R existen seis clases básicas (o atómicas) de variables:
 
 - Clase lógica: identificado con el nombre `logical`
-- Clase caracter o texto: identificado con el nombre `character`
+- Clase carácter o texto: identificado con el nombre `character`
 - Clase número con decimales: conocidos como *doubles*, identificado con el nombre `numeric`
 - Clase número entero: identificado con el nombre `integer`
 - Clase número complejo: identificado con el nombre `complex`
@@ -43,7 +43,7 @@ Según su estructura, las variables pueden tener una forma de almacenamiento con
 - El vector se convierte en un factor si es que contiene información categorizada, y sigue teniendo una dimensión. 
 - Si vectores se colocan verticalmente, y se apilan lado a lado, se convierten en una estructura de dos dimensiones. Dependiendo de sus características estas pueden ser: 
 matrices, data frames o tibbles.
-- Se puede considerar a los arrays como arreglos multidimensionales de vectores.
+- Se puede considerar a los arrays como arreglos multidimensionales de matrices
 - Finalmente, las _listas_ son estructuras de datos básicas. No se consideran dimensionales dado que almacena a otras estructuras de datos secuencialmente. Una lista puede albergar vectores, factores, matrices, data frames, tibbles, arrays, incluso otras listas.
 
 (ref:strdatos1) Estructuras informáticas para almacenar de datos en el lenguaje R.
