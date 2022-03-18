@@ -23,7 +23,7 @@
 <meta name="author" content="Irwing S. Saldaña" />
 
 
-<meta name="date" content="2022-03-17" />
+<meta name="date" content="2022-03-18" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -355,7 +355,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb24-4"><a href="funciones-básica-útiles.html#cb24-4" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">30</span>,<span class="dv">5</span>,<span class="dv">3</span>)<span class="sc">*</span>x<span class="sc">/</span><span class="dv">2</span></span>
 <span id="cb24-5"><a href="funciones-básica-útiles.html#cb24-5" aria-hidden="true" tabindex="-1"></a>letras <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;A&quot;</span>, <span class="st">&quot;A&quot;</span>)</span></code></pre></div>
 <table>
-<caption><span id="tab:unnamed-chunk-19">Tabla 2.4: </span>Cincuenta funciones básicas útiles en R.</caption>
+<caption><span id="tab:unnamed-chunk-19">Tabla 2.4: </span>Funciones básicas útiles en R.</caption>
 <thead>
 <tr class="header">
 <th align="left">Función</th>
@@ -364,6 +364,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tr>
 </thead>
 <tbody>
+<tr class="odd">
+<td align="left"><code>|&gt;</code></td>
+<td align="left">Operador pipe nativo.</td>
+<td align="left"><code>x |&gt; round(2)</code></td>
+</tr>
+<tr class="even">
+<td align="left"><code>%&gt;%</code></td>
+<td align="left">Operador pipe de tidyverse.</td>
+<td align="left"><code>x %&gt;% round(2)</code></td>
+</tr>
 <tr class="odd">
 <td align="left"><code>mean()</code></td>
 <td align="left">Promedio de un conjunto de datos <code>x</code>.</td>
@@ -395,69 +405,79 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <td align="left"><code>range(x)</code></td>
 </tr>
 <tr class="odd">
+<td align="left"><code>seq_along()</code></td>
+<td align="left">Crea una secuencia de números enteros desde 1 hasta el valor de la longitud de elementos del vector.</td>
+<td align="left"><code>seq_along(x)</code></td>
+</tr>
+<tr class="even">
 <td align="left"><code>sum()</code></td>
 <td align="left">Suma de todos los elementos numéricos de un conjunto de datos <code>x</code>.</td>
 <td align="left"><code>sum(x)</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left"><code>max()</code></td>
 <td align="left">Valor máximo de un conjunto de datos <code>x</code>.</td>
 <td align="left"><code>max(x)</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left"><code>min()</code></td>
 <td align="left">Valor mínimo de un conjunto de datos <code>x</code>.</td>
 <td align="left"><code>min(x)</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left"><code>seq()</code></td>
 <td align="left">Calcula una secuencia de números al ofrecerle un inicio, un final y cada cuántos valores.</td>
 <td align="left"><code>seq(0, 10, 2)</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left"><code>seq()</code></td>
 <td align="left">Calcula una secuencia de números al ofrecerle un inicio, un final y cada la cantidad de valores que necesito de dicho rango.</td>
 <td align="left"><code>seq(0, 10, length=25)</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left"><code>rep()</code></td>
 <td align="left">Repite un vector una cantidad de veces definida.</td>
 <td align="left"><code>rep("Perú", 15)</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left"><code>paste0()</code></td>
 <td align="left">Concatena dos elementos de texto sin espacio entre ellos</td>
 <td align="left"><code>paste0("Séptima","Maravilla")</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left"><code>paste()</code></td>
 <td align="left">Concatena dos elementos de texto con espacio entre ellos</td>
 <td align="left"><code>paste("Séptima","Maravilla")</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left"><code>sort()</code></td>
 <td align="left">Reordena un vector de mayor a menor, o alfabéticamente.</td>
 <td align="left"><code>sort(c("C","Z","A"))</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left"><code>rev()</code></td>
 <td align="left">Muestra un vector en orden reverso.</td>
 <td align="left"><code>rev(c("C","Z","A"))</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left"><code>unique()</code></td>
 <td align="left">Muestra los valores únicos de un vector <code>x</code>.</td>
 <td align="left"><code>unique(letras)</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left"><code>scale()</code></td>
 <td align="left">Estandariza (centrado y escalado) un conjunto de datos x.</td>
 <td align="left"><code>scale(x)</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left"><code>lm()</code></td>
 <td align="left">Calcula un modelo lineal, siguiendo una fórmula predefinida.</td>
 <td align="left"><code>lm(Petal.Length ~ Sepal.Length, data=iris)</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>glm()</code></td>
+<td align="left">Calcula un modelo generalizado lineal, siguiendo una fórmula predefinida.</td>
+<td align="left"><code>glm(Petal.Length ~ Sepal.Length, data=iris)</code></td>
 </tr>
 <tr class="even">
 <td align="left"><code>aov()</code></td>
@@ -570,49 +590,104 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <td align="left"><code>ncol(iris)</code></td>
 </tr>
 <tr class="even">
+<td align="left"><code>head()</code></td>
+<td align="left">Muestra las primeras 6 filas de una data frame (DF) o tibble.</td>
+<td align="left"><code>head(DF)</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>tail()</code></td>
+<td align="left">Muestra las últimas 6 filas de una data frame (DF) o tibble.</td>
+<td align="left"><code>tail(DF)</code></td>
+</tr>
+<tr class="even">
+<td align="left"><code>ls()</code></td>
+<td align="left">Lista el nombre de todos los objetos en el ambiente.</td>
+<td align="left"><code>ls()</code></td>
+</tr>
+<tr class="odd">
 <td align="left"><code>rm()</code></td>
 <td align="left">Elimina una variable del ambiente de RStudio.</td>
 <td align="left"><code>rm(iris)</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left"><code>rm(ls())</code></td>
 <td align="left">Elimina todas las variables del ambiente de RStudio.</td>
 <td align="left"><code>rm(ls())</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left"><code>dev.off()</code></td>
 <td align="left">Cierra forzadamente la salida gráfica de RStudio. Ejecutar para cuando existe algún error en la generación de un gráfico. Además, permite terminar la exportación de un archivo gráfico.</td>
 <td align="left"><code>dev.off()</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left"><code>install.packages()</code></td>
 <td align="left">Permite instalar una librería en RStudio.</td>
 <td align="left"><code>install.packages("tidyverse")</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left"><code>library()</code></td>
 <td align="left">Permite activar durante la sesión actual una librería previamente instalada.</td>
 <td align="left"><code>library(tidyverse)</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left"><code>table()</code></td>
 <td align="left">Muestra la frecuencia de los elementos únicos de un vector.</td>
 <td align="left"><code>table(letras)</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left"><code>subset()</code></td>
 <td align="left">Devuelve un subgrupo de filas en una base de datos, filtradas si cumplen con una condición lógica.</td>
 <td align="left"><code>subset(iris, Petal.Length &gt; 6.5)</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left"><code>sample()</code></td>
 <td align="left">Devuelve un muestreo aleatorio de tamaño definido de un conjunto de datos x.</td>
 <td align="left"><code>sample(x, 3)</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left"><code>data()</code></td>
 <td align="left">Permite cargar una base de datos de ejemplo preinstalada en RStudio dentro de algún paquete activo.</td>
 <td align="left"><code>data("iris")</code></td>
+</tr>
+<tr class="even">
+<td align="left"><code>round()</code></td>
+<td align="left">Redondea un número a la cantidad de decimales establecida.</td>
+<td align="left"><code>round(0.00887, 2)</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>signif()</code></td>
+<td align="left">Redondea un número a la cantidad de números significativos establecida.</td>
+<td align="left"><code>signif(0.00887, 2)</code></td>
+</tr>
+<tr class="even">
+<td align="left"><code>print()</code></td>
+<td align="left">Imprime un objeto en la consola. Retorna el valor original..</td>
+<td align="left"><code>print(x)</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>return()</code></td>
+<td align="left">Imprime un objeto en la consola. Retorna el valor original..</td>
+<td align="left"><code>return(x)</code></td>
+</tr>
+<tr class="even">
+<td align="left"><code>cut()</code></td>
+<td align="left">Convierte a factor un vector, dividiéndolo (cortándolo) en la cantidad de grupos definidos. Clásica función para convertir un vector numérico de edades en rangos etarios.</td>
+<td align="left"><code>cut(1:20, breaks = 3)</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>cut()</code></td>
+<td align="left">Los mismo que cut() pero dándole un nombre nuevo a cada nivel del factor.</td>
+<td align="left"><code>cut(1:20, breaks = 3) |&gt; factor(labels = c("A","B","C"))</code></td>
+</tr>
+<tr class="even">
+<td align="left"><code>print()</code></td>
+<td align="left">Imprime un objeto en la consola. Retorna el valor original..</td>
+<td align="left"><code>print(x)</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>return()</code></td>
+<td align="left">Imprime un objeto en la consola. Retorna el valor original..</td>
+<td align="left"><code>return(x)</code></td>
 </tr>
 </tbody>
 </table>

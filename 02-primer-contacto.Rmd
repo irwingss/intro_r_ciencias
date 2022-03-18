@@ -209,7 +209,7 @@ letras <- c("A", "B", "A", "A")
 
 ```{r, echo=FALSE}
 openxlsx::read.xlsx("bases/tabla4.xlsx")%>% 
-  kable(format = "pandoc", position = "h!", caption = 'Cincuenta funciones básicas útiles en R.')
+  kable(format = "pandoc", position = "h!", caption = 'Funciones básicas útiles en R.')
 ```
 
 ## Ejercicios del capítulo

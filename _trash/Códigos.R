@@ -94,3 +94,8 @@ This is a `theorem` environment that can contain **any**
 This is a `theorem` environment that can contain **any**
   _Markdown_ syntax.
 :::
+
+
+install.packages("packagefinder")
+library(packagefinder)
+findPackage("transcriptomics", display="browser")
