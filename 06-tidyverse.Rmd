@@ -997,14 +997,3 @@ WHO %>%
 ```
 :::
 
-
-
-## Ejercicios del capítulo
-
-```{r}
-borrarCol <- function(x) x <- NULL
-WHO %>% 
-  mutate_if(is.numeric,borrarCol)
-```
-
-:::

@@ -764,29 +764,29 @@ Función            Descripción
 
 Table: (\#tab:unnamed-chunk-44)Principales funciones de coerción de estructura de variable.
 
-Función                Descripción                                                              
----------------------  -------------------------------------------------------------------------
-`as.vector()`          Coerciona un factor a vector.                                            
-`as.factor()`          Coerciona un vector a factor.                                            
-`as.matrix()`          Coerciona una estructura 2D cualquiera hacia matriz.                     
-`as.data.frame()`      Coerciona una estructura 2D cualquiera hacia data frame.                 
-`as.list()`            Coerciona una estructura N dimensional hacia una lista.                  
-`dplyr::as_tibble()`   Coerciona una estructura 2D hacia Tibble (del entorno de **tidyverse**). 
+Función                Descripción                                                           
+---------------------  ----------------------------------------------------------------------
+`as.vector()`          Coerce un factor a vector.                                            
+`as.factor()`          Coerce un vector a factor.                                            
+`as.matrix()`          Coerce una estructura 2D cualquiera hacia matriz.                     
+`as.data.frame()`      Coerce una estructura 2D cualquiera hacia data frame.                 
+`as.list()`            Coerce una estructura N dimensional hacia una lista.                  
+`dplyr::as_tibble()`   Coerce una estructura 2D hacia Tibble (del entorno de **tidyverse**). 
 
 Más allá de las funciones convencionales, existen muchas más funciones de coerción que modificas conjuntos de datos particulares. Por ejemplo, para trabajar con fechas, objetos especiales de R como dendrogramas, fórmulas, entre otros.
 
 
 Table: (\#tab:unnamed-chunk-45)Algunas funciones de coerción especiales.
 
-Función             Descripción                                                                  
-------------------  -----------------------------------------------------------------------------
-`as.Date()`         Coerciona un texto o elemento numérico hacia fecha (formato calendario).     
-`as.POSIXct()`      Coerciona un texto o elemento numérico hacia fecha UTC (formato calendario). 
-`as.dengrogram()`   Coerciona un objeto de ordenamiento hcluster hacia dendrogram.               
-`as.hclust()`       Coerciona un objeto de ordenamiento dendrogram hacia hcluster.               
-`as.formula()`      Coerciona un texto hacia una fórmula estadística. Identico a `formula()`.    
-`as.roman()`        Coerciona números enteros hacia números romanos.                             
-`image()`           Coerciona una matriz numérica hacia una imagen raster.                       
+Función             Descripción                                                               
+------------------  --------------------------------------------------------------------------
+`as.Date()`         Coerce un texto o elemento numérico hacia fecha (formato calendario).     
+`as.POSIXct()`      Coerce un texto o elemento numérico hacia fecha UTC (formato calendario). 
+`as.dengrogram()`   Coerce un objeto de ordenamiento hcluster hacia dendrogram.               
+`as.hclust()`       Coerce un objeto de ordenamiento dendrogram hacia hcluster.               
+`as.formula()`      Coerce un texto hacia una fórmula estadística. Identico a `formula()`.    
+`as.roman()`        Coerce números enteros hacia números romanos.                             
+`image()`           Coerce una matriz numérica hacia una imagen raster.                       
 
 
 \BeginKnitrBlock{rmdtip}<div class="rmdtip">Para casos incluso más especiales, como tópicos relacionados a sistemas de información geográfica, bioinformática, entre otros, encontrarás las funciones de coerción respectivas dentro de cada paquetes específico que utilices.</div>\EndKnitrBlock{rmdtip}

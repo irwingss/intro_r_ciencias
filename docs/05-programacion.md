@@ -392,7 +392,7 @@ dist
 #         class = "dist")
 #     .Call(C_Cdist, x, method, attrs, p)
 # }
-# <bytecode: 0x0000000025d92b38>
+# <bytecode: 0x000000002459d390>
 # <environment: namespace:stats>
 ```
 
@@ -423,7 +423,7 @@ ifelse((vector %% 2) == 0, "Par", "Impar")
 ```
 :::
 
-Es posible incluir una función `ifelse*()` dentro de otra en la posición de resultado `FALSE` para **concatenar varias condiciones aplicadas al mismo vector**:
+Es posible incluir una función `ifelse()` dentro de otra en la posición de resultado `FALSE` para **concatenar varias condiciones aplicadas al mismo vector**:
 
 
 ```r

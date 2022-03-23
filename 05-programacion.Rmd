@@ -355,7 +355,7 @@ ifelse((vector %% 2) == 0, "Par", "Impar")
 ```
 :::
 
-Es posible incluir una función `ifelse*()` dentro de otra en la posición de resultado `FALSE` para **concatenar varias condiciones aplicadas al mismo vector**:
+Es posible incluir una función `ifelse()` dentro de otra en la posición de resultado `FALSE` para **concatenar varias condiciones aplicadas al mismo vector**:
 
 ```{r}
 ### Usar ifelse()

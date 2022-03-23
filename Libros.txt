@@ -63,3 +63,6 @@ https://sporella.github.io/datos_espaciales_presentacion/#1
 
 #### STRINGR AND LUBRIDATE
 https://bobaekang.github.io/icjia-r-workshop/notes/module3_notes2.html#working_with_datetimes
+
+### APP para DIAGRAMAS DE FLUJO
+https://lucid.app/lucidchart/a6f9fae7-d80f-4013-9b56-68fb4ffb442a/edit?beaconFlowId=7415C0083E5F55B6&invitationId=inv_1cdc9a0a-c62a-470a-a5f7-50078086bd68&page=0_0#

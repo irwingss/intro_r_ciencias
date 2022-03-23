@@ -189,7 +189,7 @@ write.xlsx(objeto,              # Objeto del ambiente a exportar
 
 ### Exportar a .rda
 save(objeto,              # Objeto del ambiente a exportar
-     "nombre nuevo.rda")  # Nombre del archivo a generar)
+     file = "nombre nuevo.rda")  # Nombre del archivo a generar)
 
 # Exportar a .SAV
 library(haven)
