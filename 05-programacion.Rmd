@@ -122,6 +122,13 @@ print(resultado.Gauss)
 
 En R existen algunos operadores para controlar el flujo de las acciones a tomar en la ejecución. Esto sucede solamente cuando se cumple una condición dada. Recordemos que las condiciones lógicas se resuelven como verdadera `TRUE` o falsa `FALSE`. Existen operadores de elección (`if`, `else`) y de iteración o *loop* (`for`,  `while`). Se revisará a detalle sus usos en las siguientes secciones.
 
+(ref:control1) Diagramas de flujo para comprender cómo funcionan las principales estructuras de control de flujo en  programación con R.
+
+```{r figura65, echo=FALSE, fig.cap='(ref:control1)', fig.align='center', out.width="100%"}
+knitr::include_graphics("figs/elaboradas/Contro de Flujo en R.png")
+```
+
+
 ### Control con `if`
 
 El primer operador de control de flujo a destacar es el condicional `if`. Este significa `si`, y ejecuta la expresión: *si A se cumple (es decir, si A es `TRUE`), muestro un resultado*. Este tienen la estructura básica:

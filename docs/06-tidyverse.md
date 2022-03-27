@@ -146,15 +146,13 @@ En el universo de **tidyverse** existen dos asombrosa librerías para realizar l
 
 Table: (\#tab:unnamed-chunk-6)Funciones útiles para la limpieza y manejo de datos con **tidyr**.
 
-Función            Descripción                                                             
------------------  ------------------------------------------------------------------------
-`pivot_longer()`   Pivotar una tabla de columnas a filas (hacia tabla larga)               
-`pivot_wider()`    Pivotar una tabla de filas de columnas (hacia tabla ancha)              
-`gather()`         Permite convertir una tabla ancha a una tabla larga                     
-`spread()`         Permite convertir una tabla larga a una tabla ancha                     
-`unite()`          Permite unir el contenido textual varias columnas en una sola.          
-`separate()`       Permite separar el contenido textual de una columna en varias columnas. 
-`drop_na()`        Elimina las filas que contengan NA en una tabla.                        
+Función        Descripción                                                             
+-------------  ------------------------------------------------------------------------
+`gather()`     Permite convertir una tabla ancha a una tabla larga                     
+`spread()`     Permite convertir una tabla larga a una tabla ancha                     
+`unite()`      Permite unir el contenido textual varias columnas en una sola.          
+`separate()`   Permite separar el contenido textual de una columna en varias columnas. 
+`drop_na()`    Elimina las filas que contengan NA en una tabla.                        
 
 
 Table: (\#tab:unnamed-chunk-7)Funciones útiles para la limpieza y manejo de datos con **dplyr**.
@@ -1383,3 +1381,4 @@ WHO %>%
 # 2938   4.603    87       0    88   87
 ```
 :::
+
