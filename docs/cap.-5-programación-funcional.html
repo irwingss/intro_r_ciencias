@@ -23,7 +23,7 @@
 <meta name="author" content="Irwing S. Saldaña" />
 
 
-<meta name="date" content="2022-03-27" />
+<meta name="date" content="2022-03-30" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -31,7 +31,7 @@
   
   <link rel="shortcut icon" href="figs/favicon.ico" type="image/x-icon" />
 <link rel="prev" href="preg-estructurasdatos.html"/>
-
+<link rel="next" href="cap.-6-manejo-de-datos-con-tidyverse.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -301,6 +301,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.13.3" data-path="limpieza-de-datos.html"><a href="limpieza-de-datos.html#en-qué-fila-o-columna-están-los-na"><i class="fa fa-check"></i><b>6.13.3</b> ¿En qué fila o columna están los NA?<span></span></a></li>
 <li class="chapter" data-level="6.13.4" data-path="limpieza-de-datos.html"><a href="limpieza-de-datos.html#cómo-reemplazar-los-na-por-otro-valor"><i class="fa fa-check"></i><b>6.13.4</b> ¿Cómo reemplazar los NA por otro valor?<span></span></a></li>
 </ul></li>
+<li class="chapter" data-level="6.14" data-path="ejercicios-del-capítulo-3.html"><a href="ejercicios-del-capítulo-3.html"><i class="fa fa-check"></i><b>6.14</b> Ejercicios del capítulo<span></span></a></li>
 </ul></li>
 <li class="appendix"><span><b>APÉNDICES<span></span></b></span></li>
 <li class="chapter" data-level="A" data-path="solucionario-de-ejercicios.html"><a href="solucionario-de-ejercicios.html"><i class="fa fa-check"></i><b>A</b> <strong>Solucionario de ejercicios</strong><span></span></a>
@@ -308,6 +309,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="A.1" data-path="cap.-2-primer-contacto-con-r.html"><a href="cap.-2-primer-contacto-con-r.html"><i class="fa fa-check"></i><b>A.1</b> Cap. 2: Primer contacto con R<span></span></a></li>
 <li class="chapter" data-level="A.2" data-path="preg-estructurasdatos.html"><a href="preg-estructurasdatos.html"><i class="fa fa-check"></i><b>A.2</b> Cap. 3: Estructuras de datos<span></span></a></li>
 <li class="chapter" data-level="A.3" data-path="cap.-5-programación-funcional.html"><a href="cap.-5-programación-funcional.html"><i class="fa fa-check"></i><b>A.3</b> Cap. 5: Programación funcional<span></span></a></li>
+<li class="chapter" data-level="A.4" data-path="cap.-6-manejo-de-datos-con-tidyverse.html"><a href="cap.-6-manejo-de-datos-con-tidyverse.html"><i class="fa fa-check"></i><b>A.4</b> Cap. 6: Manejo de datos con tidyverse<span></span></a></li>
 </ul></li>
 <li class="divider"></li>
 <li class='after'">
@@ -350,206 +352,206 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol style="list-style-type: decimal">
 <li>Reproduce el resultado del siguiente loop <code>for</code>, utilizando la función <code>replicate()</code>:</li>
 </ol>
-<div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb219-1"><a href="cap.-5-programación-funcional.html#cb219-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
-<span id="cb219-2"><a href="cap.-5-programación-funcional.html#cb219-2" aria-hidden="true" tabindex="-1"></a>lista1 <span class="ot">&lt;-</span> <span class="fu">list</span>() <span class="co"># Lista vacía</span></span>
-<span id="cb219-3"><a href="cap.-5-programación-funcional.html#cb219-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>) { <span class="co"># Número de iteraciones = 5</span></span>
-<span id="cb219-4"><a href="cap.-5-programación-funcional.html#cb219-4" aria-hidden="true" tabindex="-1"></a>  lista1[[i]] <span class="ot">=</span> <span class="fu">rnorm</span>(<span class="dv">6</span>, <span class="dv">0</span>, <span class="dv">1</span>) <span class="co"># Conjunto aleatorio normal para cada iteración</span></span>
-<span id="cb219-5"><a href="cap.-5-programación-funcional.html#cb219-5" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb219-6"><a href="cap.-5-programación-funcional.html#cb219-6" aria-hidden="true" tabindex="-1"></a>lista1</span>
-<span id="cb219-7"><a href="cap.-5-programación-funcional.html#cb219-7" aria-hidden="true" tabindex="-1"></a><span class="co"># [[1]]</span></span>
-<span id="cb219-8"><a href="cap.-5-programación-funcional.html#cb219-8" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] -0.56048 -0.23018  1.55871  0.07051  0.12929  1.71506</span></span>
-<span id="cb219-9"><a href="cap.-5-programación-funcional.html#cb219-9" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb219-10"><a href="cap.-5-programación-funcional.html#cb219-10" aria-hidden="true" tabindex="-1"></a><span class="co"># [[2]]</span></span>
-<span id="cb219-11"><a href="cap.-5-programación-funcional.html#cb219-11" aria-hidden="true" tabindex="-1"></a><span class="co"># [1]  0.4609 -1.2651 -0.6869 -0.4457  1.2241  0.3598</span></span>
-<span id="cb219-12"><a href="cap.-5-programación-funcional.html#cb219-12" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb219-13"><a href="cap.-5-programación-funcional.html#cb219-13" aria-hidden="true" tabindex="-1"></a><span class="co"># [[3]]</span></span>
-<span id="cb219-14"><a href="cap.-5-programación-funcional.html#cb219-14" aria-hidden="true" tabindex="-1"></a><span class="co"># [1]  0.4008  0.1107 -0.5558  1.7869  0.4979 -1.9666</span></span></code></pre></div>
+<div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb221-1"><a href="cap.-5-programación-funcional.html#cb221-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb221-2"><a href="cap.-5-programación-funcional.html#cb221-2" aria-hidden="true" tabindex="-1"></a>lista1 <span class="ot">&lt;-</span> <span class="fu">list</span>() <span class="co"># Lista vacía</span></span>
+<span id="cb221-3"><a href="cap.-5-programación-funcional.html#cb221-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>) { <span class="co"># Número de iteraciones = 5</span></span>
+<span id="cb221-4"><a href="cap.-5-programación-funcional.html#cb221-4" aria-hidden="true" tabindex="-1"></a>  lista1[[i]] <span class="ot">=</span> <span class="fu">rnorm</span>(<span class="dv">6</span>, <span class="dv">0</span>, <span class="dv">1</span>) <span class="co"># Conjunto aleatorio normal para cada iteración</span></span>
+<span id="cb221-5"><a href="cap.-5-programación-funcional.html#cb221-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb221-6"><a href="cap.-5-programación-funcional.html#cb221-6" aria-hidden="true" tabindex="-1"></a>lista1</span>
+<span id="cb221-7"><a href="cap.-5-programación-funcional.html#cb221-7" aria-hidden="true" tabindex="-1"></a><span class="co"># [[1]]</span></span>
+<span id="cb221-8"><a href="cap.-5-programación-funcional.html#cb221-8" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] -0.56048 -0.23018  1.55871  0.07051  0.12929  1.71506</span></span>
+<span id="cb221-9"><a href="cap.-5-programación-funcional.html#cb221-9" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb221-10"><a href="cap.-5-programación-funcional.html#cb221-10" aria-hidden="true" tabindex="-1"></a><span class="co"># [[2]]</span></span>
+<span id="cb221-11"><a href="cap.-5-programación-funcional.html#cb221-11" aria-hidden="true" tabindex="-1"></a><span class="co"># [1]  0.4609 -1.2651 -0.6869 -0.4457  1.2241  0.3598</span></span>
+<span id="cb221-12"><a href="cap.-5-programación-funcional.html#cb221-12" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb221-13"><a href="cap.-5-programación-funcional.html#cb221-13" aria-hidden="true" tabindex="-1"></a><span class="co"># [[3]]</span></span>
+<span id="cb221-14"><a href="cap.-5-programación-funcional.html#cb221-14" aria-hidden="true" tabindex="-1"></a><span class="co"># [1]  0.4008  0.1107 -0.5558  1.7869  0.4979 -1.9666</span></span></code></pre></div>
 <p><strong>Solución:</strong></p>
-<div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb220-1"><a href="cap.-5-programación-funcional.html#cb220-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Importante simplify = FALSE para obtener una lista </span></span>
-<span id="cb220-2"><a href="cap.-5-programación-funcional.html#cb220-2" aria-hidden="true" tabindex="-1"></a><span class="co"># de vectores y no un solo vector con todos los resultados</span></span>
-<span id="cb220-3"><a href="cap.-5-programación-funcional.html#cb220-3" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
-<span id="cb220-4"><a href="cap.-5-programación-funcional.html#cb220-4" aria-hidden="true" tabindex="-1"></a>lista1 <span class="ot">&lt;-</span> <span class="fu">replicate</span>(<span class="dv">3</span>, {</span>
-<span id="cb220-5"><a href="cap.-5-programación-funcional.html#cb220-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rnorm</span>(<span class="dv">6</span>, <span class="dv">0</span>, <span class="dv">1</span>)</span>
-<span id="cb220-6"><a href="cap.-5-programación-funcional.html#cb220-6" aria-hidden="true" tabindex="-1"></a>  }, </span>
-<span id="cb220-7"><a href="cap.-5-programación-funcional.html#cb220-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">simplify =</span> <span class="cn">FALSE</span>) </span>
-<span id="cb220-8"><a href="cap.-5-programación-funcional.html#cb220-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb220-9"><a href="cap.-5-programación-funcional.html#cb220-9" aria-hidden="true" tabindex="-1"></a><span class="do">### Resultado</span></span>
-<span id="cb220-10"><a href="cap.-5-programación-funcional.html#cb220-10" aria-hidden="true" tabindex="-1"></a>lista1</span>
-<span id="cb220-11"><a href="cap.-5-programación-funcional.html#cb220-11" aria-hidden="true" tabindex="-1"></a><span class="co"># [[1]]</span></span>
-<span id="cb220-12"><a href="cap.-5-programación-funcional.html#cb220-12" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] -0.56048 -0.23018  1.55871  0.07051  0.12929  1.71506</span></span>
-<span id="cb220-13"><a href="cap.-5-programación-funcional.html#cb220-13" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb220-14"><a href="cap.-5-programación-funcional.html#cb220-14" aria-hidden="true" tabindex="-1"></a><span class="co"># [[2]]</span></span>
-<span id="cb220-15"><a href="cap.-5-programación-funcional.html#cb220-15" aria-hidden="true" tabindex="-1"></a><span class="co"># [1]  0.4609 -1.2651 -0.6869 -0.4457  1.2241  0.3598</span></span>
-<span id="cb220-16"><a href="cap.-5-programación-funcional.html#cb220-16" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb220-17"><a href="cap.-5-programación-funcional.html#cb220-17" aria-hidden="true" tabindex="-1"></a><span class="co"># [[3]]</span></span>
-<span id="cb220-18"><a href="cap.-5-programación-funcional.html#cb220-18" aria-hidden="true" tabindex="-1"></a><span class="co"># [1]  0.4008  0.1107 -0.5558  1.7869  0.4979 -1.9666</span></span></code></pre></div>
+<div class="sourceCode" id="cb222"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb222-1"><a href="cap.-5-programación-funcional.html#cb222-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Importante simplify = FALSE para obtener una lista </span></span>
+<span id="cb222-2"><a href="cap.-5-programación-funcional.html#cb222-2" aria-hidden="true" tabindex="-1"></a><span class="co"># de vectores y no un solo vector con todos los resultados</span></span>
+<span id="cb222-3"><a href="cap.-5-programación-funcional.html#cb222-3" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb222-4"><a href="cap.-5-programación-funcional.html#cb222-4" aria-hidden="true" tabindex="-1"></a>lista1 <span class="ot">&lt;-</span> <span class="fu">replicate</span>(<span class="dv">3</span>, {</span>
+<span id="cb222-5"><a href="cap.-5-programación-funcional.html#cb222-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rnorm</span>(<span class="dv">6</span>, <span class="dv">0</span>, <span class="dv">1</span>)</span>
+<span id="cb222-6"><a href="cap.-5-programación-funcional.html#cb222-6" aria-hidden="true" tabindex="-1"></a>  }, </span>
+<span id="cb222-7"><a href="cap.-5-programación-funcional.html#cb222-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">simplify =</span> <span class="cn">FALSE</span>) </span>
+<span id="cb222-8"><a href="cap.-5-programación-funcional.html#cb222-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb222-9"><a href="cap.-5-programación-funcional.html#cb222-9" aria-hidden="true" tabindex="-1"></a><span class="do">### Resultado</span></span>
+<span id="cb222-10"><a href="cap.-5-programación-funcional.html#cb222-10" aria-hidden="true" tabindex="-1"></a>lista1</span>
+<span id="cb222-11"><a href="cap.-5-programación-funcional.html#cb222-11" aria-hidden="true" tabindex="-1"></a><span class="co"># [[1]]</span></span>
+<span id="cb222-12"><a href="cap.-5-programación-funcional.html#cb222-12" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] -0.56048 -0.23018  1.55871  0.07051  0.12929  1.71506</span></span>
+<span id="cb222-13"><a href="cap.-5-programación-funcional.html#cb222-13" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb222-14"><a href="cap.-5-programación-funcional.html#cb222-14" aria-hidden="true" tabindex="-1"></a><span class="co"># [[2]]</span></span>
+<span id="cb222-15"><a href="cap.-5-programación-funcional.html#cb222-15" aria-hidden="true" tabindex="-1"></a><span class="co"># [1]  0.4609 -1.2651 -0.6869 -0.4457  1.2241  0.3598</span></span>
+<span id="cb222-16"><a href="cap.-5-programación-funcional.html#cb222-16" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb222-17"><a href="cap.-5-programación-funcional.html#cb222-17" aria-hidden="true" tabindex="-1"></a><span class="co"># [[3]]</span></span>
+<span id="cb222-18"><a href="cap.-5-programación-funcional.html#cb222-18" aria-hidden="true" tabindex="-1"></a><span class="co"># [1]  0.4008  0.1107 -0.5558  1.7869  0.4979 -1.9666</span></span></code></pre></div>
 <ol style="list-style-type: decimal">
 <li>Crea la base de datos DF numérica (código ya definido en el siguiente chunk), que tiene las dimensiones 12 (filas) x 5 (columnas). Esta base contiene valores no deseados: <code>-999</code>. Crea y utiliza una función llamada <code>cambiarNA()</code> que te permita cambiar estos valores por <code>NA</code>.</li>
 </ol>
-<div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb221-1"><a href="cap.-5-programación-funcional.html#cb221-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Base de datos DF</span></span>
-<span id="cb221-2"><a href="cap.-5-programación-funcional.html#cb221-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
-<span id="cb221-3"><a href="cap.-5-programación-funcional.html#cb221-3" aria-hidden="true" tabindex="-1"></a>secuencia <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">seq</span>(<span class="fl">0.5</span>, <span class="fl">7.9</span>, <span class="at">length =</span> <span class="dv">10</span>), <span class="sc">-</span><span class="dv">999</span>, <span class="dv">5555</span>)</span>
-<span id="cb221-4"><a href="cap.-5-programación-funcional.html#cb221-4" aria-hidden="true" tabindex="-1"></a>DF <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="fu">replicate</span>(<span class="dv">5</span>, </span>
-<span id="cb221-5"><a href="cap.-5-programación-funcional.html#cb221-5" aria-hidden="true" tabindex="-1"></a>                           <span class="fu">sample</span>(secuencia, <span class="dv">12</span>, <span class="at">rep =</span> <span class="cn">TRUE</span>)))</span>
-<span id="cb221-6"><a href="cap.-5-programación-funcional.html#cb221-6" aria-hidden="true" tabindex="-1"></a>DF <span class="ot">&lt;-</span> <span class="fu">round</span>(DF,<span class="dv">2</span>)</span>
-<span id="cb221-7"><a href="cap.-5-programación-funcional.html#cb221-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb221-8"><a href="cap.-5-programación-funcional.html#cb221-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Darle nombre a sus columnas</span></span>
-<span id="cb221-9"><a href="cap.-5-programación-funcional.html#cb221-9" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(DF) <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&quot;Var&quot;</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>)</span>
-<span id="cb221-10"><a href="cap.-5-programación-funcional.html#cb221-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb221-11"><a href="cap.-5-programación-funcional.html#cb221-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Revisar el contenido de DF</span></span>
-<span id="cb221-12"><a href="cap.-5-programación-funcional.html#cb221-12" aria-hidden="true" tabindex="-1"></a>DF </span>
-<span id="cb221-13"><a href="cap.-5-programación-funcional.html#cb221-13" aria-hidden="true" tabindex="-1"></a><span class="co">#       Var1    Var2    Var3    Var4    Var5</span></span>
-<span id="cb221-14"><a href="cap.-5-programación-funcional.html#cb221-14" aria-hidden="true" tabindex="-1"></a><span class="co"># 1     2.14    3.79    7.08    7.90    6.26</span></span>
-<span id="cb221-15"><a href="cap.-5-programación-funcional.html#cb221-15" aria-hidden="true" tabindex="-1"></a><span class="co"># 2     2.14    2.14    2.14    5.43 5555.00</span></span>
-<span id="cb221-16"><a href="cap.-5-programación-funcional.html#cb221-16" aria-hidden="true" tabindex="-1"></a><span class="co"># 3     7.90 -999.00    2.97 -999.00    1.32</span></span>
-<span id="cb221-17"><a href="cap.-5-programación-funcional.html#cb221-17" aria-hidden="true" tabindex="-1"></a><span class="co"># 4     1.32    7.08    0.50 5555.00    0.50</span></span>
-<span id="cb221-18"><a href="cap.-5-programación-funcional.html#cb221-18" aria-hidden="true" tabindex="-1"></a><span class="co"># 5     4.61 5555.00 -999.00    3.79    7.08</span></span>
-<span id="cb221-19"><a href="cap.-5-programación-funcional.html#cb221-19" aria-hidden="true" tabindex="-1"></a><span class="co"># 6  -999.00    7.08    5.43    5.43 -999.00</span></span>
-<span id="cb221-20"><a href="cap.-5-programación-funcional.html#cb221-20" aria-hidden="true" tabindex="-1"></a><span class="co"># 7     3.79    7.08    3.79    3.79    7.08</span></span>
-<span id="cb221-21"><a href="cap.-5-programación-funcional.html#cb221-21" aria-hidden="true" tabindex="-1"></a><span class="co"># 8     2.97    2.14 5555.00 -999.00    4.61</span></span>
-<span id="cb221-22"><a href="cap.-5-programación-funcional.html#cb221-22" aria-hidden="true" tabindex="-1"></a><span class="co"># 9     4.61    6.26    7.90    4.61    3.79</span></span>
-<span id="cb221-23"><a href="cap.-5-programación-funcional.html#cb221-23" aria-hidden="true" tabindex="-1"></a><span class="co"># 10    7.08    7.90    5.43    7.08    7.08</span></span>
-<span id="cb221-24"><a href="cap.-5-programación-funcional.html#cb221-24" aria-hidden="true" tabindex="-1"></a><span class="co"># 11    7.90    5.43    7.08    1.32    7.90</span></span>
-<span id="cb221-25"><a href="cap.-5-programación-funcional.html#cb221-25" aria-hidden="true" tabindex="-1"></a><span class="co"># 12 -999.00    7.90    7.08    3.79 5555.00</span></span></code></pre></div>
+<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb223-1"><a href="cap.-5-programación-funcional.html#cb223-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Base de datos DF</span></span>
+<span id="cb223-2"><a href="cap.-5-programación-funcional.html#cb223-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb223-3"><a href="cap.-5-programación-funcional.html#cb223-3" aria-hidden="true" tabindex="-1"></a>secuencia <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">seq</span>(<span class="fl">0.5</span>, <span class="fl">7.9</span>, <span class="at">length =</span> <span class="dv">10</span>), <span class="sc">-</span><span class="dv">999</span>, <span class="dv">5555</span>)</span>
+<span id="cb223-4"><a href="cap.-5-programación-funcional.html#cb223-4" aria-hidden="true" tabindex="-1"></a>DF <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="fu">replicate</span>(<span class="dv">5</span>, </span>
+<span id="cb223-5"><a href="cap.-5-programación-funcional.html#cb223-5" aria-hidden="true" tabindex="-1"></a>                           <span class="fu">sample</span>(secuencia, <span class="dv">12</span>, <span class="at">rep =</span> <span class="cn">TRUE</span>)))</span>
+<span id="cb223-6"><a href="cap.-5-programación-funcional.html#cb223-6" aria-hidden="true" tabindex="-1"></a>DF <span class="ot">&lt;-</span> <span class="fu">round</span>(DF,<span class="dv">2</span>)</span>
+<span id="cb223-7"><a href="cap.-5-programación-funcional.html#cb223-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb223-8"><a href="cap.-5-programación-funcional.html#cb223-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Darle nombre a sus columnas</span></span>
+<span id="cb223-9"><a href="cap.-5-programación-funcional.html#cb223-9" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(DF) <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&quot;Var&quot;</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>)</span>
+<span id="cb223-10"><a href="cap.-5-programación-funcional.html#cb223-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb223-11"><a href="cap.-5-programación-funcional.html#cb223-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Revisar el contenido de DF</span></span>
+<span id="cb223-12"><a href="cap.-5-programación-funcional.html#cb223-12" aria-hidden="true" tabindex="-1"></a>DF </span>
+<span id="cb223-13"><a href="cap.-5-programación-funcional.html#cb223-13" aria-hidden="true" tabindex="-1"></a><span class="co">#       Var1    Var2    Var3    Var4    Var5</span></span>
+<span id="cb223-14"><a href="cap.-5-programación-funcional.html#cb223-14" aria-hidden="true" tabindex="-1"></a><span class="co"># 1     2.14    3.79    7.08    7.90    6.26</span></span>
+<span id="cb223-15"><a href="cap.-5-programación-funcional.html#cb223-15" aria-hidden="true" tabindex="-1"></a><span class="co"># 2     2.14    2.14    2.14    5.43 5555.00</span></span>
+<span id="cb223-16"><a href="cap.-5-programación-funcional.html#cb223-16" aria-hidden="true" tabindex="-1"></a><span class="co"># 3     7.90 -999.00    2.97 -999.00    1.32</span></span>
+<span id="cb223-17"><a href="cap.-5-programación-funcional.html#cb223-17" aria-hidden="true" tabindex="-1"></a><span class="co"># 4     1.32    7.08    0.50 5555.00    0.50</span></span>
+<span id="cb223-18"><a href="cap.-5-programación-funcional.html#cb223-18" aria-hidden="true" tabindex="-1"></a><span class="co"># 5     4.61 5555.00 -999.00    3.79    7.08</span></span>
+<span id="cb223-19"><a href="cap.-5-programación-funcional.html#cb223-19" aria-hidden="true" tabindex="-1"></a><span class="co"># 6  -999.00    7.08    5.43    5.43 -999.00</span></span>
+<span id="cb223-20"><a href="cap.-5-programación-funcional.html#cb223-20" aria-hidden="true" tabindex="-1"></a><span class="co"># 7     3.79    7.08    3.79    3.79    7.08</span></span>
+<span id="cb223-21"><a href="cap.-5-programación-funcional.html#cb223-21" aria-hidden="true" tabindex="-1"></a><span class="co"># 8     2.97    2.14 5555.00 -999.00    4.61</span></span>
+<span id="cb223-22"><a href="cap.-5-programación-funcional.html#cb223-22" aria-hidden="true" tabindex="-1"></a><span class="co"># 9     4.61    6.26    7.90    4.61    3.79</span></span>
+<span id="cb223-23"><a href="cap.-5-programación-funcional.html#cb223-23" aria-hidden="true" tabindex="-1"></a><span class="co"># 10    7.08    7.90    5.43    7.08    7.08</span></span>
+<span id="cb223-24"><a href="cap.-5-programación-funcional.html#cb223-24" aria-hidden="true" tabindex="-1"></a><span class="co"># 11    7.90    5.43    7.08    1.32    7.90</span></span>
+<span id="cb223-25"><a href="cap.-5-programación-funcional.html#cb223-25" aria-hidden="true" tabindex="-1"></a><span class="co"># 12 -999.00    7.90    7.08    3.79 5555.00</span></span></code></pre></div>
 <p><strong>Solución:</strong></p>
-<div class="sourceCode" id="cb222"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb222-1"><a href="cap.-5-programación-funcional.html#cb222-1" aria-hidden="true" tabindex="-1"></a><span class="do">### Crear función</span></span>
-<span id="cb222-2"><a href="cap.-5-programación-funcional.html#cb222-2" aria-hidden="true" tabindex="-1"></a>cambiarNA <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
-<span id="cb222-3"><a href="cap.-5-programación-funcional.html#cb222-3" aria-hidden="true" tabindex="-1"></a>  x[x <span class="sc">==</span> <span class="sc">-</span><span class="dv">999</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
-<span id="cb222-4"><a href="cap.-5-programación-funcional.html#cb222-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(x)</span>
-<span id="cb222-5"><a href="cap.-5-programación-funcional.html#cb222-5" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb222-6"><a href="cap.-5-programación-funcional.html#cb222-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb222-7"><a href="cap.-5-programación-funcional.html#cb222-7" aria-hidden="true" tabindex="-1"></a><span class="do">### Usar la función</span></span>
-<span id="cb222-8"><a href="cap.-5-programación-funcional.html#cb222-8" aria-hidden="true" tabindex="-1"></a><span class="fu">cambiarNA</span>(DF)</span>
-<span id="cb222-9"><a href="cap.-5-programación-funcional.html#cb222-9" aria-hidden="true" tabindex="-1"></a><span class="co">#    Var1    Var2    Var3    Var4    Var5</span></span>
-<span id="cb222-10"><a href="cap.-5-programación-funcional.html#cb222-10" aria-hidden="true" tabindex="-1"></a><span class="co"># 1  2.14    3.79    7.08    7.90    6.26</span></span>
-<span id="cb222-11"><a href="cap.-5-programación-funcional.html#cb222-11" aria-hidden="true" tabindex="-1"></a><span class="co"># 2  2.14    2.14    2.14    5.43 5555.00</span></span>
-<span id="cb222-12"><a href="cap.-5-programación-funcional.html#cb222-12" aria-hidden="true" tabindex="-1"></a><span class="co"># 3  7.90      NA    2.97      NA    1.32</span></span>
-<span id="cb222-13"><a href="cap.-5-programación-funcional.html#cb222-13" aria-hidden="true" tabindex="-1"></a><span class="co"># 4  1.32    7.08    0.50 5555.00    0.50</span></span>
-<span id="cb222-14"><a href="cap.-5-programación-funcional.html#cb222-14" aria-hidden="true" tabindex="-1"></a><span class="co"># 5  4.61 5555.00      NA    3.79    7.08</span></span>
-<span id="cb222-15"><a href="cap.-5-programación-funcional.html#cb222-15" aria-hidden="true" tabindex="-1"></a><span class="co"># 6    NA    7.08    5.43    5.43      NA</span></span>
-<span id="cb222-16"><a href="cap.-5-programación-funcional.html#cb222-16" aria-hidden="true" tabindex="-1"></a><span class="co"># 7  3.79    7.08    3.79    3.79    7.08</span></span>
-<span id="cb222-17"><a href="cap.-5-programación-funcional.html#cb222-17" aria-hidden="true" tabindex="-1"></a><span class="co"># 8  2.97    2.14 5555.00      NA    4.61</span></span>
-<span id="cb222-18"><a href="cap.-5-programación-funcional.html#cb222-18" aria-hidden="true" tabindex="-1"></a><span class="co"># 9  4.61    6.26    7.90    4.61    3.79</span></span>
-<span id="cb222-19"><a href="cap.-5-programación-funcional.html#cb222-19" aria-hidden="true" tabindex="-1"></a><span class="co"># 10 7.08    7.90    5.43    7.08    7.08</span></span>
-<span id="cb222-20"><a href="cap.-5-programación-funcional.html#cb222-20" aria-hidden="true" tabindex="-1"></a><span class="co"># 11 7.90    5.43    7.08    1.32    7.90</span></span>
-<span id="cb222-21"><a href="cap.-5-programación-funcional.html#cb222-21" aria-hidden="true" tabindex="-1"></a><span class="co"># 12   NA    7.90    7.08    3.79 5555.00</span></span>
-<span id="cb222-22"><a href="cap.-5-programación-funcional.html#cb222-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb222-23"><a href="cap.-5-programación-funcional.html#cb222-23" aria-hidden="true" tabindex="-1"></a><span class="do">### Para guardar sus resultados permanentemente</span></span>
-<span id="cb222-24"><a href="cap.-5-programación-funcional.html#cb222-24" aria-hidden="true" tabindex="-1"></a>resultados <span class="ot">&lt;-</span> <span class="fu">cambiarNA</span>(DF)</span>
-<span id="cb222-25"><a href="cap.-5-programación-funcional.html#cb222-25" aria-hidden="true" tabindex="-1"></a><span class="co">#    Var1    Var2    Var3    Var4    Var5</span></span>
-<span id="cb222-26"><a href="cap.-5-programación-funcional.html#cb222-26" aria-hidden="true" tabindex="-1"></a><span class="co"># 1  2.14    3.79    7.08    7.90    6.26</span></span>
-<span id="cb222-27"><a href="cap.-5-programación-funcional.html#cb222-27" aria-hidden="true" tabindex="-1"></a><span class="co"># 2  2.14    2.14    2.14    5.43 5555.00</span></span>
-<span id="cb222-28"><a href="cap.-5-programación-funcional.html#cb222-28" aria-hidden="true" tabindex="-1"></a><span class="co"># 3  7.90      NA    2.97      NA    1.32</span></span>
-<span id="cb222-29"><a href="cap.-5-programación-funcional.html#cb222-29" aria-hidden="true" tabindex="-1"></a><span class="co"># 4  1.32    7.08    0.50 5555.00    0.50</span></span>
-<span id="cb222-30"><a href="cap.-5-programación-funcional.html#cb222-30" aria-hidden="true" tabindex="-1"></a><span class="co"># 5  4.61 5555.00      NA    3.79    7.08</span></span>
-<span id="cb222-31"><a href="cap.-5-programación-funcional.html#cb222-31" aria-hidden="true" tabindex="-1"></a><span class="co"># 6    NA    7.08    5.43    5.43      NA</span></span>
-<span id="cb222-32"><a href="cap.-5-programación-funcional.html#cb222-32" aria-hidden="true" tabindex="-1"></a><span class="co"># 7  3.79    7.08    3.79    3.79    7.08</span></span>
-<span id="cb222-33"><a href="cap.-5-programación-funcional.html#cb222-33" aria-hidden="true" tabindex="-1"></a><span class="co"># 8  2.97    2.14 5555.00      NA    4.61</span></span>
-<span id="cb222-34"><a href="cap.-5-programación-funcional.html#cb222-34" aria-hidden="true" tabindex="-1"></a><span class="co"># 9  4.61    6.26    7.90    4.61    3.79</span></span>
-<span id="cb222-35"><a href="cap.-5-programación-funcional.html#cb222-35" aria-hidden="true" tabindex="-1"></a><span class="co"># 10 7.08    7.90    5.43    7.08    7.08</span></span>
-<span id="cb222-36"><a href="cap.-5-programación-funcional.html#cb222-36" aria-hidden="true" tabindex="-1"></a><span class="co"># 11 7.90    5.43    7.08    1.32    7.90</span></span>
-<span id="cb222-37"><a href="cap.-5-programación-funcional.html#cb222-37" aria-hidden="true" tabindex="-1"></a><span class="co"># 12   NA    7.90    7.08    3.79 5555.00</span></span>
-<span id="cb222-38"><a href="cap.-5-programación-funcional.html#cb222-38" aria-hidden="true" tabindex="-1"></a>resultados</span>
-<span id="cb222-39"><a href="cap.-5-programación-funcional.html#cb222-39" aria-hidden="true" tabindex="-1"></a><span class="co">#    Var1    Var2    Var3    Var4    Var5</span></span>
-<span id="cb222-40"><a href="cap.-5-programación-funcional.html#cb222-40" aria-hidden="true" tabindex="-1"></a><span class="co"># 1  2.14    3.79    7.08    7.90    6.26</span></span>
-<span id="cb222-41"><a href="cap.-5-programación-funcional.html#cb222-41" aria-hidden="true" tabindex="-1"></a><span class="co"># 2  2.14    2.14    2.14    5.43 5555.00</span></span>
-<span id="cb222-42"><a href="cap.-5-programación-funcional.html#cb222-42" aria-hidden="true" tabindex="-1"></a><span class="co"># 3  7.90      NA    2.97      NA    1.32</span></span>
-<span id="cb222-43"><a href="cap.-5-programación-funcional.html#cb222-43" aria-hidden="true" tabindex="-1"></a><span class="co"># 4  1.32    7.08    0.50 5555.00    0.50</span></span>
-<span id="cb222-44"><a href="cap.-5-programación-funcional.html#cb222-44" aria-hidden="true" tabindex="-1"></a><span class="co"># 5  4.61 5555.00      NA    3.79    7.08</span></span>
-<span id="cb222-45"><a href="cap.-5-programación-funcional.html#cb222-45" aria-hidden="true" tabindex="-1"></a><span class="co"># 6    NA    7.08    5.43    5.43      NA</span></span>
-<span id="cb222-46"><a href="cap.-5-programación-funcional.html#cb222-46" aria-hidden="true" tabindex="-1"></a><span class="co"># 7  3.79    7.08    3.79    3.79    7.08</span></span>
-<span id="cb222-47"><a href="cap.-5-programación-funcional.html#cb222-47" aria-hidden="true" tabindex="-1"></a><span class="co"># 8  2.97    2.14 5555.00      NA    4.61</span></span>
-<span id="cb222-48"><a href="cap.-5-programación-funcional.html#cb222-48" aria-hidden="true" tabindex="-1"></a><span class="co"># 9  4.61    6.26    7.90    4.61    3.79</span></span>
-<span id="cb222-49"><a href="cap.-5-programación-funcional.html#cb222-49" aria-hidden="true" tabindex="-1"></a><span class="co"># 10 7.08    7.90    5.43    7.08    7.08</span></span>
-<span id="cb222-50"><a href="cap.-5-programación-funcional.html#cb222-50" aria-hidden="true" tabindex="-1"></a><span class="co"># 11 7.90    5.43    7.08    1.32    7.90</span></span>
-<span id="cb222-51"><a href="cap.-5-programación-funcional.html#cb222-51" aria-hidden="true" tabindex="-1"></a><span class="co"># 12   NA    7.90    7.08    3.79 5555.00</span></span></code></pre></div>
+<div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb224-1"><a href="cap.-5-programación-funcional.html#cb224-1" aria-hidden="true" tabindex="-1"></a><span class="do">### Crear función</span></span>
+<span id="cb224-2"><a href="cap.-5-programación-funcional.html#cb224-2" aria-hidden="true" tabindex="-1"></a>cambiarNA <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb224-3"><a href="cap.-5-programación-funcional.html#cb224-3" aria-hidden="true" tabindex="-1"></a>  x[x <span class="sc">==</span> <span class="sc">-</span><span class="dv">999</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb224-4"><a href="cap.-5-programación-funcional.html#cb224-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(x)</span>
+<span id="cb224-5"><a href="cap.-5-programación-funcional.html#cb224-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb224-6"><a href="cap.-5-programación-funcional.html#cb224-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb224-7"><a href="cap.-5-programación-funcional.html#cb224-7" aria-hidden="true" tabindex="-1"></a><span class="do">### Usar la función</span></span>
+<span id="cb224-8"><a href="cap.-5-programación-funcional.html#cb224-8" aria-hidden="true" tabindex="-1"></a><span class="fu">cambiarNA</span>(DF)</span>
+<span id="cb224-9"><a href="cap.-5-programación-funcional.html#cb224-9" aria-hidden="true" tabindex="-1"></a><span class="co">#    Var1    Var2    Var3    Var4    Var5</span></span>
+<span id="cb224-10"><a href="cap.-5-programación-funcional.html#cb224-10" aria-hidden="true" tabindex="-1"></a><span class="co"># 1  2.14    3.79    7.08    7.90    6.26</span></span>
+<span id="cb224-11"><a href="cap.-5-programación-funcional.html#cb224-11" aria-hidden="true" tabindex="-1"></a><span class="co"># 2  2.14    2.14    2.14    5.43 5555.00</span></span>
+<span id="cb224-12"><a href="cap.-5-programación-funcional.html#cb224-12" aria-hidden="true" tabindex="-1"></a><span class="co"># 3  7.90      NA    2.97      NA    1.32</span></span>
+<span id="cb224-13"><a href="cap.-5-programación-funcional.html#cb224-13" aria-hidden="true" tabindex="-1"></a><span class="co"># 4  1.32    7.08    0.50 5555.00    0.50</span></span>
+<span id="cb224-14"><a href="cap.-5-programación-funcional.html#cb224-14" aria-hidden="true" tabindex="-1"></a><span class="co"># 5  4.61 5555.00      NA    3.79    7.08</span></span>
+<span id="cb224-15"><a href="cap.-5-programación-funcional.html#cb224-15" aria-hidden="true" tabindex="-1"></a><span class="co"># 6    NA    7.08    5.43    5.43      NA</span></span>
+<span id="cb224-16"><a href="cap.-5-programación-funcional.html#cb224-16" aria-hidden="true" tabindex="-1"></a><span class="co"># 7  3.79    7.08    3.79    3.79    7.08</span></span>
+<span id="cb224-17"><a href="cap.-5-programación-funcional.html#cb224-17" aria-hidden="true" tabindex="-1"></a><span class="co"># 8  2.97    2.14 5555.00      NA    4.61</span></span>
+<span id="cb224-18"><a href="cap.-5-programación-funcional.html#cb224-18" aria-hidden="true" tabindex="-1"></a><span class="co"># 9  4.61    6.26    7.90    4.61    3.79</span></span>
+<span id="cb224-19"><a href="cap.-5-programación-funcional.html#cb224-19" aria-hidden="true" tabindex="-1"></a><span class="co"># 10 7.08    7.90    5.43    7.08    7.08</span></span>
+<span id="cb224-20"><a href="cap.-5-programación-funcional.html#cb224-20" aria-hidden="true" tabindex="-1"></a><span class="co"># 11 7.90    5.43    7.08    1.32    7.90</span></span>
+<span id="cb224-21"><a href="cap.-5-programación-funcional.html#cb224-21" aria-hidden="true" tabindex="-1"></a><span class="co"># 12   NA    7.90    7.08    3.79 5555.00</span></span>
+<span id="cb224-22"><a href="cap.-5-programación-funcional.html#cb224-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb224-23"><a href="cap.-5-programación-funcional.html#cb224-23" aria-hidden="true" tabindex="-1"></a><span class="do">### Para guardar sus resultados permanentemente</span></span>
+<span id="cb224-24"><a href="cap.-5-programación-funcional.html#cb224-24" aria-hidden="true" tabindex="-1"></a>resultados <span class="ot">&lt;-</span> <span class="fu">cambiarNA</span>(DF)</span>
+<span id="cb224-25"><a href="cap.-5-programación-funcional.html#cb224-25" aria-hidden="true" tabindex="-1"></a><span class="co">#    Var1    Var2    Var3    Var4    Var5</span></span>
+<span id="cb224-26"><a href="cap.-5-programación-funcional.html#cb224-26" aria-hidden="true" tabindex="-1"></a><span class="co"># 1  2.14    3.79    7.08    7.90    6.26</span></span>
+<span id="cb224-27"><a href="cap.-5-programación-funcional.html#cb224-27" aria-hidden="true" tabindex="-1"></a><span class="co"># 2  2.14    2.14    2.14    5.43 5555.00</span></span>
+<span id="cb224-28"><a href="cap.-5-programación-funcional.html#cb224-28" aria-hidden="true" tabindex="-1"></a><span class="co"># 3  7.90      NA    2.97      NA    1.32</span></span>
+<span id="cb224-29"><a href="cap.-5-programación-funcional.html#cb224-29" aria-hidden="true" tabindex="-1"></a><span class="co"># 4  1.32    7.08    0.50 5555.00    0.50</span></span>
+<span id="cb224-30"><a href="cap.-5-programación-funcional.html#cb224-30" aria-hidden="true" tabindex="-1"></a><span class="co"># 5  4.61 5555.00      NA    3.79    7.08</span></span>
+<span id="cb224-31"><a href="cap.-5-programación-funcional.html#cb224-31" aria-hidden="true" tabindex="-1"></a><span class="co"># 6    NA    7.08    5.43    5.43      NA</span></span>
+<span id="cb224-32"><a href="cap.-5-programación-funcional.html#cb224-32" aria-hidden="true" tabindex="-1"></a><span class="co"># 7  3.79    7.08    3.79    3.79    7.08</span></span>
+<span id="cb224-33"><a href="cap.-5-programación-funcional.html#cb224-33" aria-hidden="true" tabindex="-1"></a><span class="co"># 8  2.97    2.14 5555.00      NA    4.61</span></span>
+<span id="cb224-34"><a href="cap.-5-programación-funcional.html#cb224-34" aria-hidden="true" tabindex="-1"></a><span class="co"># 9  4.61    6.26    7.90    4.61    3.79</span></span>
+<span id="cb224-35"><a href="cap.-5-programación-funcional.html#cb224-35" aria-hidden="true" tabindex="-1"></a><span class="co"># 10 7.08    7.90    5.43    7.08    7.08</span></span>
+<span id="cb224-36"><a href="cap.-5-programación-funcional.html#cb224-36" aria-hidden="true" tabindex="-1"></a><span class="co"># 11 7.90    5.43    7.08    1.32    7.90</span></span>
+<span id="cb224-37"><a href="cap.-5-programación-funcional.html#cb224-37" aria-hidden="true" tabindex="-1"></a><span class="co"># 12   NA    7.90    7.08    3.79 5555.00</span></span>
+<span id="cb224-38"><a href="cap.-5-programación-funcional.html#cb224-38" aria-hidden="true" tabindex="-1"></a>resultados</span>
+<span id="cb224-39"><a href="cap.-5-programación-funcional.html#cb224-39" aria-hidden="true" tabindex="-1"></a><span class="co">#    Var1    Var2    Var3    Var4    Var5</span></span>
+<span id="cb224-40"><a href="cap.-5-programación-funcional.html#cb224-40" aria-hidden="true" tabindex="-1"></a><span class="co"># 1  2.14    3.79    7.08    7.90    6.26</span></span>
+<span id="cb224-41"><a href="cap.-5-programación-funcional.html#cb224-41" aria-hidden="true" tabindex="-1"></a><span class="co"># 2  2.14    2.14    2.14    5.43 5555.00</span></span>
+<span id="cb224-42"><a href="cap.-5-programación-funcional.html#cb224-42" aria-hidden="true" tabindex="-1"></a><span class="co"># 3  7.90      NA    2.97      NA    1.32</span></span>
+<span id="cb224-43"><a href="cap.-5-programación-funcional.html#cb224-43" aria-hidden="true" tabindex="-1"></a><span class="co"># 4  1.32    7.08    0.50 5555.00    0.50</span></span>
+<span id="cb224-44"><a href="cap.-5-programación-funcional.html#cb224-44" aria-hidden="true" tabindex="-1"></a><span class="co"># 5  4.61 5555.00      NA    3.79    7.08</span></span>
+<span id="cb224-45"><a href="cap.-5-programación-funcional.html#cb224-45" aria-hidden="true" tabindex="-1"></a><span class="co"># 6    NA    7.08    5.43    5.43      NA</span></span>
+<span id="cb224-46"><a href="cap.-5-programación-funcional.html#cb224-46" aria-hidden="true" tabindex="-1"></a><span class="co"># 7  3.79    7.08    3.79    3.79    7.08</span></span>
+<span id="cb224-47"><a href="cap.-5-programación-funcional.html#cb224-47" aria-hidden="true" tabindex="-1"></a><span class="co"># 8  2.97    2.14 5555.00      NA    4.61</span></span>
+<span id="cb224-48"><a href="cap.-5-programación-funcional.html#cb224-48" aria-hidden="true" tabindex="-1"></a><span class="co"># 9  4.61    6.26    7.90    4.61    3.79</span></span>
+<span id="cb224-49"><a href="cap.-5-programación-funcional.html#cb224-49" aria-hidden="true" tabindex="-1"></a><span class="co"># 10 7.08    7.90    5.43    7.08    7.08</span></span>
+<span id="cb224-50"><a href="cap.-5-programación-funcional.html#cb224-50" aria-hidden="true" tabindex="-1"></a><span class="co"># 11 7.90    5.43    7.08    1.32    7.90</span></span>
+<span id="cb224-51"><a href="cap.-5-programación-funcional.html#cb224-51" aria-hidden="true" tabindex="-1"></a><span class="co"># 12   NA    7.90    7.08    3.79 5555.00</span></span></code></pre></div>
 <ol style="list-style-type: decimal">
 <li>Utilizando la base de datos DF creada inicialmente en el ejercicio 2, modifica la función <code>cambiarNA()</code> para que no solo cambie <code>-999</code> a <code>NA</code>, sino que cambie cualquier valor que tú le proporciones con un argumento. Llama a esta función <code>cambiarNA2()</code>. Utilízala para reemplazar los valores <code>5555</code> a <code>NA</code>.</li>
 </ol>
 <p><strong>Solución:</strong></p>
-<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb223-1"><a href="cap.-5-programación-funcional.html#cb223-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear la función con un argumento extra que te </span></span>
-<span id="cb223-2"><a href="cap.-5-programación-funcional.html#cb223-2" aria-hidden="true" tabindex="-1"></a><span class="co"># permita modificar el número a reemplazar por NA </span></span>
-<span id="cb223-3"><a href="cap.-5-programación-funcional.html#cb223-3" aria-hidden="true" tabindex="-1"></a>cambiarNA2 <span class="ot">&lt;-</span> <span class="cf">function</span>(x, valor) {</span>
-<span id="cb223-4"><a href="cap.-5-programación-funcional.html#cb223-4" aria-hidden="true" tabindex="-1"></a>  x[x <span class="sc">==</span> valor] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
-<span id="cb223-5"><a href="cap.-5-programación-funcional.html#cb223-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(x)</span>
-<span id="cb223-6"><a href="cap.-5-programación-funcional.html#cb223-6" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb223-7"><a href="cap.-5-programación-funcional.html#cb223-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb223-8"><a href="cap.-5-programación-funcional.html#cb223-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Usar la función</span></span>
-<span id="cb223-9"><a href="cap.-5-programación-funcional.html#cb223-9" aria-hidden="true" tabindex="-1"></a><span class="fu">cambiarNA2</span>(DF, <span class="dv">5555</span>)</span>
-<span id="cb223-10"><a href="cap.-5-programación-funcional.html#cb223-10" aria-hidden="true" tabindex="-1"></a><span class="co">#       Var1    Var2    Var3    Var4    Var5</span></span>
-<span id="cb223-11"><a href="cap.-5-programación-funcional.html#cb223-11" aria-hidden="true" tabindex="-1"></a><span class="co"># 1     2.14    3.79    7.08    7.90    6.26</span></span>
-<span id="cb223-12"><a href="cap.-5-programación-funcional.html#cb223-12" aria-hidden="true" tabindex="-1"></a><span class="co"># 2     2.14    2.14    2.14    5.43      NA</span></span>
-<span id="cb223-13"><a href="cap.-5-programación-funcional.html#cb223-13" aria-hidden="true" tabindex="-1"></a><span class="co"># 3     7.90 -999.00    2.97 -999.00    1.32</span></span>
-<span id="cb223-14"><a href="cap.-5-programación-funcional.html#cb223-14" aria-hidden="true" tabindex="-1"></a><span class="co"># 4     1.32    7.08    0.50      NA    0.50</span></span>
-<span id="cb223-15"><a href="cap.-5-programación-funcional.html#cb223-15" aria-hidden="true" tabindex="-1"></a><span class="co"># 5     4.61      NA -999.00    3.79    7.08</span></span>
-<span id="cb223-16"><a href="cap.-5-programación-funcional.html#cb223-16" aria-hidden="true" tabindex="-1"></a><span class="co"># 6  -999.00    7.08    5.43    5.43 -999.00</span></span>
-<span id="cb223-17"><a href="cap.-5-programación-funcional.html#cb223-17" aria-hidden="true" tabindex="-1"></a><span class="co"># 7     3.79    7.08    3.79    3.79    7.08</span></span>
-<span id="cb223-18"><a href="cap.-5-programación-funcional.html#cb223-18" aria-hidden="true" tabindex="-1"></a><span class="co"># 8     2.97    2.14      NA -999.00    4.61</span></span>
-<span id="cb223-19"><a href="cap.-5-programación-funcional.html#cb223-19" aria-hidden="true" tabindex="-1"></a><span class="co"># 9     4.61    6.26    7.90    4.61    3.79</span></span>
-<span id="cb223-20"><a href="cap.-5-programación-funcional.html#cb223-20" aria-hidden="true" tabindex="-1"></a><span class="co"># 10    7.08    7.90    5.43    7.08    7.08</span></span>
-<span id="cb223-21"><a href="cap.-5-programación-funcional.html#cb223-21" aria-hidden="true" tabindex="-1"></a><span class="co"># 11    7.90    5.43    7.08    1.32    7.90</span></span>
-<span id="cb223-22"><a href="cap.-5-programación-funcional.html#cb223-22" aria-hidden="true" tabindex="-1"></a><span class="co"># 12 -999.00    7.90    7.08    3.79      NA</span></span></code></pre></div>
+<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb225-1"><a href="cap.-5-programación-funcional.html#cb225-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear la función con un argumento extra que te </span></span>
+<span id="cb225-2"><a href="cap.-5-programación-funcional.html#cb225-2" aria-hidden="true" tabindex="-1"></a><span class="co"># permita modificar el número a reemplazar por NA </span></span>
+<span id="cb225-3"><a href="cap.-5-programación-funcional.html#cb225-3" aria-hidden="true" tabindex="-1"></a>cambiarNA2 <span class="ot">&lt;-</span> <span class="cf">function</span>(x, valor) {</span>
+<span id="cb225-4"><a href="cap.-5-programación-funcional.html#cb225-4" aria-hidden="true" tabindex="-1"></a>  x[x <span class="sc">==</span> valor] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb225-5"><a href="cap.-5-programación-funcional.html#cb225-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(x)</span>
+<span id="cb225-6"><a href="cap.-5-programación-funcional.html#cb225-6" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb225-7"><a href="cap.-5-programación-funcional.html#cb225-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb225-8"><a href="cap.-5-programación-funcional.html#cb225-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Usar la función</span></span>
+<span id="cb225-9"><a href="cap.-5-programación-funcional.html#cb225-9" aria-hidden="true" tabindex="-1"></a><span class="fu">cambiarNA2</span>(DF, <span class="dv">5555</span>)</span>
+<span id="cb225-10"><a href="cap.-5-programación-funcional.html#cb225-10" aria-hidden="true" tabindex="-1"></a><span class="co">#       Var1    Var2    Var3    Var4    Var5</span></span>
+<span id="cb225-11"><a href="cap.-5-programación-funcional.html#cb225-11" aria-hidden="true" tabindex="-1"></a><span class="co"># 1     2.14    3.79    7.08    7.90    6.26</span></span>
+<span id="cb225-12"><a href="cap.-5-programación-funcional.html#cb225-12" aria-hidden="true" tabindex="-1"></a><span class="co"># 2     2.14    2.14    2.14    5.43      NA</span></span>
+<span id="cb225-13"><a href="cap.-5-programación-funcional.html#cb225-13" aria-hidden="true" tabindex="-1"></a><span class="co"># 3     7.90 -999.00    2.97 -999.00    1.32</span></span>
+<span id="cb225-14"><a href="cap.-5-programación-funcional.html#cb225-14" aria-hidden="true" tabindex="-1"></a><span class="co"># 4     1.32    7.08    0.50      NA    0.50</span></span>
+<span id="cb225-15"><a href="cap.-5-programación-funcional.html#cb225-15" aria-hidden="true" tabindex="-1"></a><span class="co"># 5     4.61      NA -999.00    3.79    7.08</span></span>
+<span id="cb225-16"><a href="cap.-5-programación-funcional.html#cb225-16" aria-hidden="true" tabindex="-1"></a><span class="co"># 6  -999.00    7.08    5.43    5.43 -999.00</span></span>
+<span id="cb225-17"><a href="cap.-5-programación-funcional.html#cb225-17" aria-hidden="true" tabindex="-1"></a><span class="co"># 7     3.79    7.08    3.79    3.79    7.08</span></span>
+<span id="cb225-18"><a href="cap.-5-programación-funcional.html#cb225-18" aria-hidden="true" tabindex="-1"></a><span class="co"># 8     2.97    2.14      NA -999.00    4.61</span></span>
+<span id="cb225-19"><a href="cap.-5-programación-funcional.html#cb225-19" aria-hidden="true" tabindex="-1"></a><span class="co"># 9     4.61    6.26    7.90    4.61    3.79</span></span>
+<span id="cb225-20"><a href="cap.-5-programación-funcional.html#cb225-20" aria-hidden="true" tabindex="-1"></a><span class="co"># 10    7.08    7.90    5.43    7.08    7.08</span></span>
+<span id="cb225-21"><a href="cap.-5-programación-funcional.html#cb225-21" aria-hidden="true" tabindex="-1"></a><span class="co"># 11    7.90    5.43    7.08    1.32    7.90</span></span>
+<span id="cb225-22"><a href="cap.-5-programación-funcional.html#cb225-22" aria-hidden="true" tabindex="-1"></a><span class="co"># 12 -999.00    7.90    7.08    3.79      NA</span></span></code></pre></div>
 <ol style="list-style-type: decimal">
 <li>Utilizando la base de datos DF creada inicialmente en el ejercicio 2, modifica la función <code>cambiarNA2()</code> de tal manera que te permita definir más de un valor (un vector numérico) como elementos a ser reemplazados por <code>NA</code>. Llama a esta función <code>cambiarNA3()</code>. Cambia por <code>NA</code> los valores <code>-999</code> y <code>5555</code>. Pista: Esta función deberá contener un loop para aplicarle la función de cambio por NA a un elemento del vector a la vez en cada iteración.</li>
 </ol>
 <p><strong>Solución:</strong></p>
-<div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb224-1"><a href="cap.-5-programación-funcional.html#cb224-1" aria-hidden="true" tabindex="-1"></a><span class="do">### Crear la función con un argumento que admita </span></span>
-<span id="cb224-2"><a href="cap.-5-programación-funcional.html#cb224-2" aria-hidden="true" tabindex="-1"></a><span class="do">### un vector de varios elementos a cambiar por NA</span></span>
-<span id="cb224-3"><a href="cap.-5-programación-funcional.html#cb224-3" aria-hidden="true" tabindex="-1"></a>cambiarNA3 <span class="ot">&lt;-</span> <span class="cf">function</span>(x, vector) {</span>
-<span id="cb224-4"><a href="cap.-5-programación-funcional.html#cb224-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_along</span>(vector)) {</span>
-<span id="cb224-5"><a href="cap.-5-programación-funcional.html#cb224-5" aria-hidden="true" tabindex="-1"></a>    x[x <span class="sc">==</span> vector[i]] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
-<span id="cb224-6"><a href="cap.-5-programación-funcional.html#cb224-6" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb224-7"><a href="cap.-5-programación-funcional.html#cb224-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(x)</span>
-<span id="cb224-8"><a href="cap.-5-programación-funcional.html#cb224-8" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb224-9"><a href="cap.-5-programación-funcional.html#cb224-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb224-10"><a href="cap.-5-programación-funcional.html#cb224-10" aria-hidden="true" tabindex="-1"></a><span class="do">### Usar la función</span></span>
-<span id="cb224-11"><a href="cap.-5-programación-funcional.html#cb224-11" aria-hidden="true" tabindex="-1"></a><span class="fu">cambiarNA3</span>(DF, <span class="fu">c</span>(<span class="dv">5555</span>, <span class="sc">-</span><span class="dv">999</span>))</span>
-<span id="cb224-12"><a href="cap.-5-programación-funcional.html#cb224-12" aria-hidden="true" tabindex="-1"></a><span class="co">#    Var1 Var2 Var3 Var4 Var5</span></span>
-<span id="cb224-13"><a href="cap.-5-programación-funcional.html#cb224-13" aria-hidden="true" tabindex="-1"></a><span class="co"># 1  2.14 3.79 7.08 7.90 6.26</span></span>
-<span id="cb224-14"><a href="cap.-5-programación-funcional.html#cb224-14" aria-hidden="true" tabindex="-1"></a><span class="co"># 2  2.14 2.14 2.14 5.43   NA</span></span>
-<span id="cb224-15"><a href="cap.-5-programación-funcional.html#cb224-15" aria-hidden="true" tabindex="-1"></a><span class="co"># 3  7.90   NA 2.97   NA 1.32</span></span>
-<span id="cb224-16"><a href="cap.-5-programación-funcional.html#cb224-16" aria-hidden="true" tabindex="-1"></a><span class="co"># 4  1.32 7.08 0.50   NA 0.50</span></span>
-<span id="cb224-17"><a href="cap.-5-programación-funcional.html#cb224-17" aria-hidden="true" tabindex="-1"></a><span class="co"># 5  4.61   NA   NA 3.79 7.08</span></span>
-<span id="cb224-18"><a href="cap.-5-programación-funcional.html#cb224-18" aria-hidden="true" tabindex="-1"></a><span class="co"># 6    NA 7.08 5.43 5.43   NA</span></span>
-<span id="cb224-19"><a href="cap.-5-programación-funcional.html#cb224-19" aria-hidden="true" tabindex="-1"></a><span class="co"># 7  3.79 7.08 3.79 3.79 7.08</span></span>
-<span id="cb224-20"><a href="cap.-5-programación-funcional.html#cb224-20" aria-hidden="true" tabindex="-1"></a><span class="co"># 8  2.97 2.14   NA   NA 4.61</span></span>
-<span id="cb224-21"><a href="cap.-5-programación-funcional.html#cb224-21" aria-hidden="true" tabindex="-1"></a><span class="co"># 9  4.61 6.26 7.90 4.61 3.79</span></span>
-<span id="cb224-22"><a href="cap.-5-programación-funcional.html#cb224-22" aria-hidden="true" tabindex="-1"></a><span class="co"># 10 7.08 7.90 5.43 7.08 7.08</span></span>
-<span id="cb224-23"><a href="cap.-5-programación-funcional.html#cb224-23" aria-hidden="true" tabindex="-1"></a><span class="co"># 11 7.90 5.43 7.08 1.32 7.90</span></span>
-<span id="cb224-24"><a href="cap.-5-programación-funcional.html#cb224-24" aria-hidden="true" tabindex="-1"></a><span class="co"># 12   NA 7.90 7.08 3.79   NA</span></span></code></pre></div>
+<div class="sourceCode" id="cb226"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb226-1"><a href="cap.-5-programación-funcional.html#cb226-1" aria-hidden="true" tabindex="-1"></a><span class="do">### Crear la función con un argumento que admita </span></span>
+<span id="cb226-2"><a href="cap.-5-programación-funcional.html#cb226-2" aria-hidden="true" tabindex="-1"></a><span class="do">### un vector de varios elementos a cambiar por NA</span></span>
+<span id="cb226-3"><a href="cap.-5-programación-funcional.html#cb226-3" aria-hidden="true" tabindex="-1"></a>cambiarNA3 <span class="ot">&lt;-</span> <span class="cf">function</span>(x, vector) {</span>
+<span id="cb226-4"><a href="cap.-5-programación-funcional.html#cb226-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_along</span>(vector)) {</span>
+<span id="cb226-5"><a href="cap.-5-programación-funcional.html#cb226-5" aria-hidden="true" tabindex="-1"></a>    x[x <span class="sc">==</span> vector[i]] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb226-6"><a href="cap.-5-programación-funcional.html#cb226-6" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb226-7"><a href="cap.-5-programación-funcional.html#cb226-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(x)</span>
+<span id="cb226-8"><a href="cap.-5-programación-funcional.html#cb226-8" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb226-9"><a href="cap.-5-programación-funcional.html#cb226-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb226-10"><a href="cap.-5-programación-funcional.html#cb226-10" aria-hidden="true" tabindex="-1"></a><span class="do">### Usar la función</span></span>
+<span id="cb226-11"><a href="cap.-5-programación-funcional.html#cb226-11" aria-hidden="true" tabindex="-1"></a><span class="fu">cambiarNA3</span>(DF, <span class="fu">c</span>(<span class="dv">5555</span>, <span class="sc">-</span><span class="dv">999</span>))</span>
+<span id="cb226-12"><a href="cap.-5-programación-funcional.html#cb226-12" aria-hidden="true" tabindex="-1"></a><span class="co">#    Var1 Var2 Var3 Var4 Var5</span></span>
+<span id="cb226-13"><a href="cap.-5-programación-funcional.html#cb226-13" aria-hidden="true" tabindex="-1"></a><span class="co"># 1  2.14 3.79 7.08 7.90 6.26</span></span>
+<span id="cb226-14"><a href="cap.-5-programación-funcional.html#cb226-14" aria-hidden="true" tabindex="-1"></a><span class="co"># 2  2.14 2.14 2.14 5.43   NA</span></span>
+<span id="cb226-15"><a href="cap.-5-programación-funcional.html#cb226-15" aria-hidden="true" tabindex="-1"></a><span class="co"># 3  7.90   NA 2.97   NA 1.32</span></span>
+<span id="cb226-16"><a href="cap.-5-programación-funcional.html#cb226-16" aria-hidden="true" tabindex="-1"></a><span class="co"># 4  1.32 7.08 0.50   NA 0.50</span></span>
+<span id="cb226-17"><a href="cap.-5-programación-funcional.html#cb226-17" aria-hidden="true" tabindex="-1"></a><span class="co"># 5  4.61   NA   NA 3.79 7.08</span></span>
+<span id="cb226-18"><a href="cap.-5-programación-funcional.html#cb226-18" aria-hidden="true" tabindex="-1"></a><span class="co"># 6    NA 7.08 5.43 5.43   NA</span></span>
+<span id="cb226-19"><a href="cap.-5-programación-funcional.html#cb226-19" aria-hidden="true" tabindex="-1"></a><span class="co"># 7  3.79 7.08 3.79 3.79 7.08</span></span>
+<span id="cb226-20"><a href="cap.-5-programación-funcional.html#cb226-20" aria-hidden="true" tabindex="-1"></a><span class="co"># 8  2.97 2.14   NA   NA 4.61</span></span>
+<span id="cb226-21"><a href="cap.-5-programación-funcional.html#cb226-21" aria-hidden="true" tabindex="-1"></a><span class="co"># 9  4.61 6.26 7.90 4.61 3.79</span></span>
+<span id="cb226-22"><a href="cap.-5-programación-funcional.html#cb226-22" aria-hidden="true" tabindex="-1"></a><span class="co"># 10 7.08 7.90 5.43 7.08 7.08</span></span>
+<span id="cb226-23"><a href="cap.-5-programación-funcional.html#cb226-23" aria-hidden="true" tabindex="-1"></a><span class="co"># 11 7.90 5.43 7.08 1.32 7.90</span></span>
+<span id="cb226-24"><a href="cap.-5-programación-funcional.html#cb226-24" aria-hidden="true" tabindex="-1"></a><span class="co"># 12   NA 7.90 7.08 3.79   NA</span></span></code></pre></div>
 <ol style="list-style-type: decimal">
 <li>Crea un loop <code>for</code> que itere sobre los números del 1 al 50 y calcule el cubo de cada número, de manera que los resultados se vayan guardando en un vector llamado <code>preliminar</code>. Luego, crea un segundo loop que te permita identificar y almacenar solamente los números menores a la mediana <code>median()</code> del conjunto de datos <code>preliminar</code> en un nuevo vector llamado <code>final</code>.</li>
 </ol>
 <p><strong>Solución:</strong></p>
-<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb225-1"><a href="cap.-5-programación-funcional.html#cb225-1" aria-hidden="true" tabindex="-1"></a><span class="do">### Secuencia numérica</span></span>
-<span id="cb225-2"><a href="cap.-5-programación-funcional.html#cb225-2" aria-hidden="true" tabindex="-1"></a>secuencia <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">50</span></span>
-<span id="cb225-3"><a href="cap.-5-programación-funcional.html#cb225-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb225-4"><a href="cap.-5-programación-funcional.html#cb225-4" aria-hidden="true" tabindex="-1"></a><span class="do">### Primer loop con for</span></span>
-<span id="cb225-5"><a href="cap.-5-programación-funcional.html#cb225-5" aria-hidden="true" tabindex="-1"></a>preliminar <span class="ot">&lt;-</span> <span class="fu">c</span>()</span>
-<span id="cb225-6"><a href="cap.-5-programación-funcional.html#cb225-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="fu">seq_along</span>(secuencia)){</span>
-<span id="cb225-7"><a href="cap.-5-programación-funcional.html#cb225-7" aria-hidden="true" tabindex="-1"></a>  preliminar[i] <span class="ot">&lt;-</span> secuencia[i]<span class="sc">^</span><span class="dv">3</span></span>
-<span id="cb225-8"><a href="cap.-5-programación-funcional.html#cb225-8" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb225-9"><a href="cap.-5-programación-funcional.html#cb225-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb225-10"><a href="cap.-5-programación-funcional.html#cb225-10" aria-hidden="true" tabindex="-1"></a><span class="do">### Resultado preliminar</span></span>
-<span id="cb225-11"><a href="cap.-5-programación-funcional.html#cb225-11" aria-hidden="true" tabindex="-1"></a>preliminar</span>
-<span id="cb225-12"><a href="cap.-5-programación-funcional.html#cb225-12" aria-hidden="true" tabindex="-1"></a><span class="co">#  [1]      1      8     27     64    125    216    343    512    729   1000   1331</span></span>
-<span id="cb225-13"><a href="cap.-5-programación-funcional.html#cb225-13" aria-hidden="true" tabindex="-1"></a><span class="co"># [12]   1728   2197   2744   3375   4096   4913   5832   6859   8000   9261  10648</span></span>
-<span id="cb225-14"><a href="cap.-5-programación-funcional.html#cb225-14" aria-hidden="true" tabindex="-1"></a><span class="co"># [23]  12167  13824  15625  17576  19683  21952  24389  27000  29791  32768  35937</span></span>
-<span id="cb225-15"><a href="cap.-5-programación-funcional.html#cb225-15" aria-hidden="true" tabindex="-1"></a><span class="co"># [34]  39304  42875  46656  50653  54872  59319  64000  68921  74088  79507  85184</span></span>
-<span id="cb225-16"><a href="cap.-5-programación-funcional.html#cb225-16" aria-hidden="true" tabindex="-1"></a><span class="co"># [45]  91125  97336 103823 110592 117649 125000</span></span>
-<span id="cb225-17"><a href="cap.-5-programación-funcional.html#cb225-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb225-18"><a href="cap.-5-programación-funcional.html#cb225-18" aria-hidden="true" tabindex="-1"></a><span class="do">### Segundo loop con for</span></span>
-<span id="cb225-19"><a href="cap.-5-programación-funcional.html#cb225-19" aria-hidden="true" tabindex="-1"></a>final <span class="ot">&lt;-</span> <span class="fu">c</span>()</span>
-<span id="cb225-20"><a href="cap.-5-programación-funcional.html#cb225-20" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>( i <span class="cf">in</span> <span class="fu">seq_along</span>(preliminar)) {</span>
-<span id="cb225-21"><a href="cap.-5-programación-funcional.html#cb225-21" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(preliminar[i] <span class="sc">&lt;=</span> <span class="fu">median</span>(preliminar)){</span>
-<span id="cb225-22"><a href="cap.-5-programación-funcional.html#cb225-22" aria-hidden="true" tabindex="-1"></a>    final <span class="ot">&lt;-</span> <span class="fu">c</span>(final, preliminar[i])</span>
-<span id="cb225-23"><a href="cap.-5-programación-funcional.html#cb225-23" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb225-24"><a href="cap.-5-programación-funcional.html#cb225-24" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb225-25"><a href="cap.-5-programación-funcional.html#cb225-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb225-26"><a href="cap.-5-programación-funcional.html#cb225-26" aria-hidden="true" tabindex="-1"></a><span class="do">### Resultado final</span></span>
-<span id="cb225-27"><a href="cap.-5-programación-funcional.html#cb225-27" aria-hidden="true" tabindex="-1"></a>final</span>
-<span id="cb225-28"><a href="cap.-5-programación-funcional.html#cb225-28" aria-hidden="true" tabindex="-1"></a><span class="co">#  [1]     1     8    27    64   125   216   343   512   729  1000  1331  1728  2197</span></span>
-<span id="cb225-29"><a href="cap.-5-programación-funcional.html#cb225-29" aria-hidden="true" tabindex="-1"></a><span class="co"># [14]  2744  3375  4096  4913  5832  6859  8000  9261 10648 12167 13824 15625</span></span></code></pre></div>
+<div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb227-1"><a href="cap.-5-programación-funcional.html#cb227-1" aria-hidden="true" tabindex="-1"></a><span class="do">### Secuencia numérica</span></span>
+<span id="cb227-2"><a href="cap.-5-programación-funcional.html#cb227-2" aria-hidden="true" tabindex="-1"></a>secuencia <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">50</span></span>
+<span id="cb227-3"><a href="cap.-5-programación-funcional.html#cb227-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb227-4"><a href="cap.-5-programación-funcional.html#cb227-4" aria-hidden="true" tabindex="-1"></a><span class="do">### Primer loop con for</span></span>
+<span id="cb227-5"><a href="cap.-5-programación-funcional.html#cb227-5" aria-hidden="true" tabindex="-1"></a>preliminar <span class="ot">&lt;-</span> <span class="fu">c</span>()</span>
+<span id="cb227-6"><a href="cap.-5-programación-funcional.html#cb227-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="fu">seq_along</span>(secuencia)){</span>
+<span id="cb227-7"><a href="cap.-5-programación-funcional.html#cb227-7" aria-hidden="true" tabindex="-1"></a>  preliminar[i] <span class="ot">&lt;-</span> secuencia[i]<span class="sc">^</span><span class="dv">3</span></span>
+<span id="cb227-8"><a href="cap.-5-programación-funcional.html#cb227-8" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb227-9"><a href="cap.-5-programación-funcional.html#cb227-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb227-10"><a href="cap.-5-programación-funcional.html#cb227-10" aria-hidden="true" tabindex="-1"></a><span class="do">### Resultado preliminar</span></span>
+<span id="cb227-11"><a href="cap.-5-programación-funcional.html#cb227-11" aria-hidden="true" tabindex="-1"></a>preliminar</span>
+<span id="cb227-12"><a href="cap.-5-programación-funcional.html#cb227-12" aria-hidden="true" tabindex="-1"></a><span class="co">#  [1]      1      8     27     64    125    216    343    512    729   1000   1331</span></span>
+<span id="cb227-13"><a href="cap.-5-programación-funcional.html#cb227-13" aria-hidden="true" tabindex="-1"></a><span class="co"># [12]   1728   2197   2744   3375   4096   4913   5832   6859   8000   9261  10648</span></span>
+<span id="cb227-14"><a href="cap.-5-programación-funcional.html#cb227-14" aria-hidden="true" tabindex="-1"></a><span class="co"># [23]  12167  13824  15625  17576  19683  21952  24389  27000  29791  32768  35937</span></span>
+<span id="cb227-15"><a href="cap.-5-programación-funcional.html#cb227-15" aria-hidden="true" tabindex="-1"></a><span class="co"># [34]  39304  42875  46656  50653  54872  59319  64000  68921  74088  79507  85184</span></span>
+<span id="cb227-16"><a href="cap.-5-programación-funcional.html#cb227-16" aria-hidden="true" tabindex="-1"></a><span class="co"># [45]  91125  97336 103823 110592 117649 125000</span></span>
+<span id="cb227-17"><a href="cap.-5-programación-funcional.html#cb227-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb227-18"><a href="cap.-5-programación-funcional.html#cb227-18" aria-hidden="true" tabindex="-1"></a><span class="do">### Segundo loop con for</span></span>
+<span id="cb227-19"><a href="cap.-5-programación-funcional.html#cb227-19" aria-hidden="true" tabindex="-1"></a>final <span class="ot">&lt;-</span> <span class="fu">c</span>()</span>
+<span id="cb227-20"><a href="cap.-5-programación-funcional.html#cb227-20" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>( i <span class="cf">in</span> <span class="fu">seq_along</span>(preliminar)) {</span>
+<span id="cb227-21"><a href="cap.-5-programación-funcional.html#cb227-21" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(preliminar[i] <span class="sc">&lt;=</span> <span class="fu">median</span>(preliminar)){</span>
+<span id="cb227-22"><a href="cap.-5-programación-funcional.html#cb227-22" aria-hidden="true" tabindex="-1"></a>    final <span class="ot">&lt;-</span> <span class="fu">c</span>(final, preliminar[i])</span>
+<span id="cb227-23"><a href="cap.-5-programación-funcional.html#cb227-23" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb227-24"><a href="cap.-5-programación-funcional.html#cb227-24" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb227-25"><a href="cap.-5-programación-funcional.html#cb227-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb227-26"><a href="cap.-5-programación-funcional.html#cb227-26" aria-hidden="true" tabindex="-1"></a><span class="do">### Resultado final</span></span>
+<span id="cb227-27"><a href="cap.-5-programación-funcional.html#cb227-27" aria-hidden="true" tabindex="-1"></a>final</span>
+<span id="cb227-28"><a href="cap.-5-programación-funcional.html#cb227-28" aria-hidden="true" tabindex="-1"></a><span class="co">#  [1]     1     8    27    64   125   216   343   512   729  1000  1331  1728  2197</span></span>
+<span id="cb227-29"><a href="cap.-5-programación-funcional.html#cb227-29" aria-hidden="true" tabindex="-1"></a><span class="co"># [14]  2744  3375  4096  4913  5832  6859  8000  9261 10648 12167 13824 15625</span></span></code></pre></div>
 <ol style="list-style-type: decimal">
 <li>En R ya existe una función para calcular la varianza y es <code>var()</code>. Pero este ejercicio se trata de poner en juego lo que aprendiste sobre programación en R. La fórmula matemática de la varianza poblacional, con denominador <span class="math inline">\(n\)</span>, Ecuación <a href="ejercicios-del-capítulo-2.html#eq:varianzapob">(5.1)</a>. Pero la función <code>var()</code> de R contiene la fórmula matemática para calcular la varianza de muestras, no de poblaciones enteras. La fórmula matemática de la varianza muestral que usa R tiene como denominador <span class="math inline">\(n-1\)</span>, Ecuación <a href="ejercicios-del-capítulo-2.html#eq:varianzamuestral">(5.2)</a>. Crea una función llamada <code>var2()</code> que calcule la varianza del conjunto de datos llamado <code>vector</code>. Finalmente, compara tus resultados con los obtenidos por <code>var()</code>.</li>
 </ol>
@@ -559,8 +561,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><span class="math display" id="eq:varianzamuestral">\[\begin{equation}
   \sigma^2 = \frac{1}{n-1}*{\displaystyle\sum_{i=1}^{n}(x_i - \mu)^2} \tag{5.2}
   \end{equation}\]</span></p>
-<div class="sourceCode" id="cb226"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb226-1"><a href="cap.-5-programación-funcional.html#cb226-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
-<span id="cb226-2"><a href="cap.-5-programación-funcional.html#cb226-2" aria-hidden="true" tabindex="-1"></a>vector <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">50</span>, <span class="dv">21</span>, <span class="fl">1.6</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb228"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb228-1"><a href="cap.-5-programación-funcional.html#cb228-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb228-2"><a href="cap.-5-programación-funcional.html#cb228-2" aria-hidden="true" tabindex="-1"></a>vector <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">50</span>, <span class="dv">21</span>, <span class="fl">1.6</span>)</span></code></pre></div>
 <p><strong>Solución:</strong></p>
 <p>Dentro de la función necesitas:</p>
 <ul>
@@ -569,78 +571,76 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Sumar todos los cuadrados obtenidos.</li>
 <li>Identificar la longitud de <code>vector</code> (denotada por <code>n</code>), y dividir la sumatoria de cuadrados entre <code>n</code>.</li>
 </ul>
-<div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb227-1"><a href="cap.-5-programación-funcional.html#cb227-1" aria-hidden="true" tabindex="-1"></a><span class="do">### Crear la función</span></span>
-<span id="cb227-2"><a href="cap.-5-programación-funcional.html#cb227-2" aria-hidden="true" tabindex="-1"></a>var2 <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
-<span id="cb227-3"><a href="cap.-5-programación-funcional.html#cb227-3" aria-hidden="true" tabindex="-1"></a>  promedio <span class="ot">&lt;-</span> <span class="fu">mean</span>(x)</span>
-<span id="cb227-4"><a href="cap.-5-programación-funcional.html#cb227-4" aria-hidden="true" tabindex="-1"></a>  cuadrados <span class="ot">&lt;-</span> <span class="fu">c</span>()</span>
-<span id="cb227-5"><a href="cap.-5-programación-funcional.html#cb227-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span>(i <span class="cf">in</span> <span class="fu">seq_along</span>(x)) {</span>
-<span id="cb227-6"><a href="cap.-5-programación-funcional.html#cb227-6" aria-hidden="true" tabindex="-1"></a>    valor <span class="ot">&lt;-</span> (x[i] <span class="sc">-</span> promedio)<span class="sc">^</span><span class="dv">2</span></span>
-<span id="cb227-7"><a href="cap.-5-programación-funcional.html#cb227-7" aria-hidden="true" tabindex="-1"></a>    cuadrados <span class="ot">&lt;-</span> <span class="fu">c</span>(cuadrados, valor)</span>
-<span id="cb227-8"><a href="cap.-5-programación-funcional.html#cb227-8" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb227-9"><a href="cap.-5-programación-funcional.html#cb227-9" aria-hidden="true" tabindex="-1"></a>  n <span class="ot">&lt;-</span> <span class="fu">length</span>(x)</span>
-<span id="cb227-10"><a href="cap.-5-programación-funcional.html#cb227-10" aria-hidden="true" tabindex="-1"></a>  sumatoria <span class="ot">&lt;-</span> <span class="fu">sum</span>(cuadrados)</span>
-<span id="cb227-11"><a href="cap.-5-programación-funcional.html#cb227-11" aria-hidden="true" tabindex="-1"></a>  varianza <span class="ot">&lt;-</span> sumatoria <span class="sc">/</span> (n<span class="dv">-1</span>)</span>
-<span id="cb227-12"><a href="cap.-5-programación-funcional.html#cb227-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(varianza)</span>
-<span id="cb227-13"><a href="cap.-5-programación-funcional.html#cb227-13" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb227-14"><a href="cap.-5-programación-funcional.html#cb227-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-15"><a href="cap.-5-programación-funcional.html#cb227-15" aria-hidden="true" tabindex="-1"></a><span class="do">### Usar la función</span></span>
-<span id="cb227-16"><a href="cap.-5-programación-funcional.html#cb227-16" aria-hidden="true" tabindex="-1"></a><span class="fu">var2</span>(vector)</span>
-<span id="cb227-17"><a href="cap.-5-programación-funcional.html#cb227-17" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] 2.195</span></span>
-<span id="cb227-18"><a href="cap.-5-programación-funcional.html#cb227-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-19"><a href="cap.-5-programación-funcional.html#cb227-19" aria-hidden="true" tabindex="-1"></a><span class="do">### Comparar con la el resultado de var()</span></span>
-<span id="cb227-20"><a href="cap.-5-programación-funcional.html#cb227-20" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(vector)</span>
-<span id="cb227-21"><a href="cap.-5-programación-funcional.html#cb227-21" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] 2.195</span></span></code></pre></div>
+<div class="sourceCode" id="cb229"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb229-1"><a href="cap.-5-programación-funcional.html#cb229-1" aria-hidden="true" tabindex="-1"></a><span class="do">### Crear la función</span></span>
+<span id="cb229-2"><a href="cap.-5-programación-funcional.html#cb229-2" aria-hidden="true" tabindex="-1"></a>var2 <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb229-3"><a href="cap.-5-programación-funcional.html#cb229-3" aria-hidden="true" tabindex="-1"></a>  promedio <span class="ot">&lt;-</span> <span class="fu">mean</span>(x)</span>
+<span id="cb229-4"><a href="cap.-5-programación-funcional.html#cb229-4" aria-hidden="true" tabindex="-1"></a>  cuadrados <span class="ot">&lt;-</span> <span class="fu">c</span>()</span>
+<span id="cb229-5"><a href="cap.-5-programación-funcional.html#cb229-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span>(i <span class="cf">in</span> <span class="fu">seq_along</span>(x)) {</span>
+<span id="cb229-6"><a href="cap.-5-programación-funcional.html#cb229-6" aria-hidden="true" tabindex="-1"></a>    valor <span class="ot">&lt;-</span> (x[i] <span class="sc">-</span> promedio)<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb229-7"><a href="cap.-5-programación-funcional.html#cb229-7" aria-hidden="true" tabindex="-1"></a>    cuadrados <span class="ot">&lt;-</span> <span class="fu">c</span>(cuadrados, valor)</span>
+<span id="cb229-8"><a href="cap.-5-programación-funcional.html#cb229-8" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb229-9"><a href="cap.-5-programación-funcional.html#cb229-9" aria-hidden="true" tabindex="-1"></a>  n <span class="ot">&lt;-</span> <span class="fu">length</span>(x)</span>
+<span id="cb229-10"><a href="cap.-5-programación-funcional.html#cb229-10" aria-hidden="true" tabindex="-1"></a>  sumatoria <span class="ot">&lt;-</span> <span class="fu">sum</span>(cuadrados)</span>
+<span id="cb229-11"><a href="cap.-5-programación-funcional.html#cb229-11" aria-hidden="true" tabindex="-1"></a>  varianza <span class="ot">&lt;-</span> sumatoria <span class="sc">/</span> (n<span class="dv">-1</span>)</span>
+<span id="cb229-12"><a href="cap.-5-programación-funcional.html#cb229-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(varianza)</span>
+<span id="cb229-13"><a href="cap.-5-programación-funcional.html#cb229-13" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb229-14"><a href="cap.-5-programación-funcional.html#cb229-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-15"><a href="cap.-5-programación-funcional.html#cb229-15" aria-hidden="true" tabindex="-1"></a><span class="do">### Usar la función</span></span>
+<span id="cb229-16"><a href="cap.-5-programación-funcional.html#cb229-16" aria-hidden="true" tabindex="-1"></a><span class="fu">var2</span>(vector)</span>
+<span id="cb229-17"><a href="cap.-5-programación-funcional.html#cb229-17" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] 2.195</span></span>
+<span id="cb229-18"><a href="cap.-5-programación-funcional.html#cb229-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-19"><a href="cap.-5-programación-funcional.html#cb229-19" aria-hidden="true" tabindex="-1"></a><span class="do">### Comparar con la el resultado de var()</span></span>
+<span id="cb229-20"><a href="cap.-5-programación-funcional.html#cb229-20" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(vector)</span>
+<span id="cb229-21"><a href="cap.-5-programación-funcional.html#cb229-21" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] 2.195</span></span></code></pre></div>
 <p>Si necesitas en algún momento, ya conoces cómo crear la fórmula de la varianza poblacional en R.</p>
 <ol style="list-style-type: decimal">
 <li>Carga la base de datos npk. Usando una función de la familia apply(), calcula la el promedio, mediana y desviación estándar de la columna <code>yield</code> para cada categoría (numérica) de la columna <code>block</code>. Con ello, se conocerá el promedio de producción que se obtuvo en cada bloque para un estudio de mejora fitogenética:</li>
 </ol>
-<div class="sourceCode" id="cb228"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb228-1"><a href="cap.-5-programación-funcional.html#cb228-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;npk&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb230"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb230-1"><a href="cap.-5-programación-funcional.html#cb230-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;npk&quot;</span>)</span></code></pre></div>
 <p><strong>Solución:</strong></p>
-<div class="sourceCode" id="cb229"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb229-1"><a href="cap.-5-programación-funcional.html#cb229-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tapply</span>(npk<span class="sc">$</span>yield, npk<span class="sc">$</span>block, <span class="at">FUN =</span> mean)</span>
-<span id="cb229-2"><a href="cap.-5-programación-funcional.html#cb229-2" aria-hidden="true" tabindex="-1"></a><span class="co">#     1     2     3     4     5     6 </span></span>
-<span id="cb229-3"><a href="cap.-5-programación-funcional.html#cb229-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 54.02 57.45 60.77 50.12 50.52 56.35</span></span>
-<span id="cb229-4"><a href="cap.-5-programación-funcional.html#cb229-4" aria-hidden="true" tabindex="-1"></a><span class="fu">tapply</span>(npk<span class="sc">$</span>yield, npk<span class="sc">$</span>block, <span class="at">FUN =</span> median)</span>
-<span id="cb229-5"><a href="cap.-5-programación-funcional.html#cb229-5" aria-hidden="true" tabindex="-1"></a><span class="co">#     1     2     3     4     5     6 </span></span>
-<span id="cb229-6"><a href="cap.-5-programación-funcional.html#cb229-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 53.25 57.25 59.30 47.15 50.65 56.60</span></span>
-<span id="cb229-7"><a href="cap.-5-programación-funcional.html#cb229-7" aria-hidden="true" tabindex="-1"></a><span class="fu">tapply</span>(npk<span class="sc">$</span>yield, npk<span class="sc">$</span>block, <span class="at">FUN =</span> sd)</span>
-<span id="cb229-8"><a href="cap.-5-programación-funcional.html#cb229-8" aria-hidden="true" tabindex="-1"></a><span class="co">#     1     2     3     4     5     6 </span></span>
-<span id="cb229-9"><a href="cap.-5-programación-funcional.html#cb229-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 7.269 2.044 6.790 8.150 1.486 2.435</span></span></code></pre></div>
+<div class="sourceCode" id="cb231"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb231-1"><a href="cap.-5-programación-funcional.html#cb231-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tapply</span>(npk<span class="sc">$</span>yield, npk<span class="sc">$</span>block, <span class="at">FUN =</span> mean)</span>
+<span id="cb231-2"><a href="cap.-5-programación-funcional.html#cb231-2" aria-hidden="true" tabindex="-1"></a><span class="co">#     1     2     3     4     5     6 </span></span>
+<span id="cb231-3"><a href="cap.-5-programación-funcional.html#cb231-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 54.02 57.45 60.77 50.12 50.52 56.35</span></span>
+<span id="cb231-4"><a href="cap.-5-programación-funcional.html#cb231-4" aria-hidden="true" tabindex="-1"></a><span class="fu">tapply</span>(npk<span class="sc">$</span>yield, npk<span class="sc">$</span>block, <span class="at">FUN =</span> median)</span>
+<span id="cb231-5"><a href="cap.-5-programación-funcional.html#cb231-5" aria-hidden="true" tabindex="-1"></a><span class="co">#     1     2     3     4     5     6 </span></span>
+<span id="cb231-6"><a href="cap.-5-programación-funcional.html#cb231-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 53.25 57.25 59.30 47.15 50.65 56.60</span></span>
+<span id="cb231-7"><a href="cap.-5-programación-funcional.html#cb231-7" aria-hidden="true" tabindex="-1"></a><span class="fu">tapply</span>(npk<span class="sc">$</span>yield, npk<span class="sc">$</span>block, <span class="at">FUN =</span> sd)</span>
+<span id="cb231-8"><a href="cap.-5-programación-funcional.html#cb231-8" aria-hidden="true" tabindex="-1"></a><span class="co">#     1     2     3     4     5     6 </span></span>
+<span id="cb231-9"><a href="cap.-5-programación-funcional.html#cb231-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 7.269 2.044 6.790 8.150 1.486 2.435</span></span></code></pre></div>
 <ol style="list-style-type: decimal">
 <li>Ejecuta el siguiente código para crear una lista llamada <code>iris3Lista</code> a partir de la base de datos de ejemplo <code>iris3</code> (un array). Si revisas <code>iris3Lista</code>, notarás que continene 3 elementos, cada uno de ellos es una matriz de datos de cuatro columnas (<code>Sepal L.</code>, <code>Sepal W.</code>, <code>Petal L.</code>, y <code>Petal W.</code>). Utilizando dos funciones de la familia <code>apply()</code>, calcula el promedio de cada columna de cada elemento de la lista <code>iris3Lista</code>.</li>
 </ol>
-<div class="sourceCode" id="cb230"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb230-1"><a href="cap.-5-programación-funcional.html#cb230-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cargar iris3</span></span>
-<span id="cb230-2"><a href="cap.-5-programación-funcional.html#cb230-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;iris3&quot;</span>)</span>
-<span id="cb230-3"><a href="cap.-5-programación-funcional.html#cb230-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb230-4"><a href="cap.-5-programación-funcional.html#cb230-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Convertirla a lista</span></span>
-<span id="cb230-5"><a href="cap.-5-programación-funcional.html#cb230-5" aria-hidden="true" tabindex="-1"></a>iris3Lista <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">setosa =</span> iris3[,,<span class="dv">1</span>],</span>
-<span id="cb230-6"><a href="cap.-5-programación-funcional.html#cb230-6" aria-hidden="true" tabindex="-1"></a>                <span class="at">versicolor =</span> iris3[,,<span class="dv">2</span>],</span>
-<span id="cb230-7"><a href="cap.-5-programación-funcional.html#cb230-7" aria-hidden="true" tabindex="-1"></a>                <span class="at">virginica =</span> iris3[,,<span class="dv">3</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb232"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb232-1"><a href="cap.-5-programación-funcional.html#cb232-1" aria-hidden="true" tabindex="-1"></a><span class="do">### Cargar iris3</span></span>
+<span id="cb232-2"><a href="cap.-5-programación-funcional.html#cb232-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;iris3&quot;</span>)</span>
+<span id="cb232-3"><a href="cap.-5-programación-funcional.html#cb232-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb232-4"><a href="cap.-5-programación-funcional.html#cb232-4" aria-hidden="true" tabindex="-1"></a><span class="do">### Convertirla a lista</span></span>
+<span id="cb232-5"><a href="cap.-5-programación-funcional.html#cb232-5" aria-hidden="true" tabindex="-1"></a>iris3Lista <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">setosa =</span> iris3[,,<span class="dv">1</span>],</span>
+<span id="cb232-6"><a href="cap.-5-programación-funcional.html#cb232-6" aria-hidden="true" tabindex="-1"></a>                <span class="at">versicolor =</span> iris3[,,<span class="dv">2</span>],</span>
+<span id="cb232-7"><a href="cap.-5-programación-funcional.html#cb232-7" aria-hidden="true" tabindex="-1"></a>                <span class="at">virginica =</span> iris3[,,<span class="dv">3</span>])</span></code></pre></div>
 <p><strong>Solución:</strong></p>
-<div class="sourceCode" id="cb231"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb231-1"><a href="cap.-5-programación-funcional.html#cb231-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lapply</span>(iris3Lista, <span class="at">FUN =</span> <span class="cf">function</span>(x) {</span>
-<span id="cb231-2"><a href="cap.-5-programación-funcional.html#cb231-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">apply</span>(x, <span class="dv">2</span>, mean)</span>
-<span id="cb231-3"><a href="cap.-5-programación-funcional.html#cb231-3" aria-hidden="true" tabindex="-1"></a>})</span>
-<span id="cb231-4"><a href="cap.-5-programación-funcional.html#cb231-4" aria-hidden="true" tabindex="-1"></a><span class="co"># $setosa</span></span>
-<span id="cb231-5"><a href="cap.-5-programación-funcional.html#cb231-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Sepal L. Sepal W. Petal L. Petal W. </span></span>
-<span id="cb231-6"><a href="cap.-5-programación-funcional.html#cb231-6" aria-hidden="true" tabindex="-1"></a><span class="co">#    5.006    3.428    1.462    0.246 </span></span>
-<span id="cb231-7"><a href="cap.-5-programación-funcional.html#cb231-7" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb231-8"><a href="cap.-5-programación-funcional.html#cb231-8" aria-hidden="true" tabindex="-1"></a><span class="co"># $versicolor</span></span>
-<span id="cb231-9"><a href="cap.-5-programación-funcional.html#cb231-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Sepal L. Sepal W. Petal L. Petal W. </span></span>
-<span id="cb231-10"><a href="cap.-5-programación-funcional.html#cb231-10" aria-hidden="true" tabindex="-1"></a><span class="co">#    5.936    2.770    4.260    1.326 </span></span>
-<span id="cb231-11"><a href="cap.-5-programación-funcional.html#cb231-11" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb231-12"><a href="cap.-5-programación-funcional.html#cb231-12" aria-hidden="true" tabindex="-1"></a><span class="co"># $virginica</span></span>
-<span id="cb231-13"><a href="cap.-5-programación-funcional.html#cb231-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Sepal L. Sepal W. Petal L. Petal W. </span></span>
-<span id="cb231-14"><a href="cap.-5-programación-funcional.html#cb231-14" aria-hidden="true" tabindex="-1"></a><span class="co">#    6.588    2.974    5.552    2.026</span></span></code></pre></div>
+<div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb233-1"><a href="cap.-5-programación-funcional.html#cb233-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lapply</span>(iris3Lista, <span class="at">FUN =</span> <span class="cf">function</span>(x) {</span>
+<span id="cb233-2"><a href="cap.-5-programación-funcional.html#cb233-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">apply</span>(x, <span class="dv">2</span>, mean)</span>
+<span id="cb233-3"><a href="cap.-5-programación-funcional.html#cb233-3" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb233-4"><a href="cap.-5-programación-funcional.html#cb233-4" aria-hidden="true" tabindex="-1"></a><span class="co"># $setosa</span></span>
+<span id="cb233-5"><a href="cap.-5-programación-funcional.html#cb233-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Sepal L. Sepal W. Petal L. Petal W. </span></span>
+<span id="cb233-6"><a href="cap.-5-programación-funcional.html#cb233-6" aria-hidden="true" tabindex="-1"></a><span class="co">#    5.006    3.428    1.462    0.246 </span></span>
+<span id="cb233-7"><a href="cap.-5-programación-funcional.html#cb233-7" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb233-8"><a href="cap.-5-programación-funcional.html#cb233-8" aria-hidden="true" tabindex="-1"></a><span class="co"># $versicolor</span></span>
+<span id="cb233-9"><a href="cap.-5-programación-funcional.html#cb233-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Sepal L. Sepal W. Petal L. Petal W. </span></span>
+<span id="cb233-10"><a href="cap.-5-programación-funcional.html#cb233-10" aria-hidden="true" tabindex="-1"></a><span class="co">#    5.936    2.770    4.260    1.326 </span></span>
+<span id="cb233-11"><a href="cap.-5-programación-funcional.html#cb233-11" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb233-12"><a href="cap.-5-programación-funcional.html#cb233-12" aria-hidden="true" tabindex="-1"></a><span class="co"># $virginica</span></span>
+<span id="cb233-13"><a href="cap.-5-programación-funcional.html#cb233-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Sepal L. Sepal W. Petal L. Petal W. </span></span>
+<span id="cb233-14"><a href="cap.-5-programación-funcional.html#cb233-14" aria-hidden="true" tabindex="-1"></a><span class="co">#    6.588    2.974    5.552    2.026</span></span></code></pre></div>
 </div>
-
 </div>
-<!-- </div> -->
             </section>
 
           </div>
         </div>
       </div>
-<a href="preg-estructurasdatos.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="preg-estructurasdatos.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="cap.-6-manejo-de-datos-con-tidyverse.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

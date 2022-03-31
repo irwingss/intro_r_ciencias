@@ -23,14 +23,14 @@
 <meta name="author" content="Irwing S. Saldaña" />
 
 
-<meta name="date" content="2022-03-17" />
+<meta name="date" content="2022-03-30" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="figs/favicon.ico" type="image/x-icon" />
-<link rel="prev" href="valores-perdidos.html"/>
+<link rel="prev" href="limpieza-de-datos.html"/>
 <link rel="next" href="solucionario-de-ejercicios.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -294,7 +294,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.12.5" data-path="combinar-bases-de-datos.html"><a href="combinar-bases-de-datos.html#semi_join"><i class="fa fa-check"></i><b>6.12.5</b> <code>semi_join()</code><span></span></a></li>
 <li class="chapter" data-level="6.12.6" data-path="combinar-bases-de-datos.html"><a href="combinar-bases-de-datos.html#anti_join"><i class="fa fa-check"></i><b>6.12.6</b> <code>anti_join()</code><span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="6.13" data-path="valores-perdidos.html"><a href="valores-perdidos.html"><i class="fa fa-check"></i><b>6.13</b> Valores perdidos<span></span></a></li>
+<li class="chapter" data-level="6.13" data-path="limpieza-de-datos.html"><a href="limpieza-de-datos.html"><i class="fa fa-check"></i><b>6.13</b> Limpieza de datos<span></span></a>
+<ul>
+<li class="chapter" data-level="6.13.1" data-path="limpieza-de-datos.html"><a href="limpieza-de-datos.html#cuántos-na-existen-en-la-base-de-datos"><i class="fa fa-check"></i><b>6.13.1</b> ¿Cuántos NA existen en la base de datos?<span></span></a></li>
+<li class="chapter" data-level="6.13.2" data-path="limpieza-de-datos.html"><a href="limpieza-de-datos.html#cuántos-na-existen-en-cada-columna"><i class="fa fa-check"></i><b>6.13.2</b> ¿Cuántos NA existen en cada columna?<span></span></a></li>
+<li class="chapter" data-level="6.13.3" data-path="limpieza-de-datos.html"><a href="limpieza-de-datos.html#en-qué-fila-o-columna-están-los-na"><i class="fa fa-check"></i><b>6.13.3</b> ¿En qué fila o columna están los NA?<span></span></a></li>
+<li class="chapter" data-level="6.13.4" data-path="limpieza-de-datos.html"><a href="limpieza-de-datos.html#cómo-reemplazar-los-na-por-otro-valor"><i class="fa fa-check"></i><b>6.13.4</b> ¿Cómo reemplazar los NA por otro valor?<span></span></a></li>
+</ul></li>
 <li class="chapter" data-level="6.14" data-path="ejercicios-del-capítulo-3.html"><a href="ejercicios-del-capítulo-3.html"><i class="fa fa-check"></i><b>6.14</b> Ejercicios del capítulo<span></span></a></li>
 </ul></li>
 <li class="appendix"><span><b>APÉNDICES<span></span></b></span></li>
@@ -303,6 +309,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="A.1" data-path="cap.-2-primer-contacto-con-r.html"><a href="cap.-2-primer-contacto-con-r.html"><i class="fa fa-check"></i><b>A.1</b> Cap. 2: Primer contacto con R<span></span></a></li>
 <li class="chapter" data-level="A.2" data-path="preg-estructurasdatos.html"><a href="preg-estructurasdatos.html"><i class="fa fa-check"></i><b>A.2</b> Cap. 3: Estructuras de datos<span></span></a></li>
 <li class="chapter" data-level="A.3" data-path="cap.-5-programación-funcional.html"><a href="cap.-5-programación-funcional.html"><i class="fa fa-check"></i><b>A.3</b> Cap. 5: Programación funcional<span></span></a></li>
+<li class="chapter" data-level="A.4" data-path="cap.-6-manejo-de-datos-con-tidyverse.html"><a href="cap.-6-manejo-de-datos-con-tidyverse.html"><i class="fa fa-check"></i><b>A.4</b> Cap. 6: Manejo de datos con tidyverse<span></span></a></li>
 </ul></li>
 <li class="divider"></li>
 <li class='after'">
@@ -341,6 +348,38 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="ejercicios-del-capítulo-3" class="section level2 hasAnchor" number="6.14">
 <h2><span class="header-section-number">6.14</span> Ejercicios del capítulo<a href="ejercicios-del-capítulo-3.html#ejercicios-del-capítulo-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="question">
+<ol style="list-style-type: decimal">
+<li>Carga la base de datos <code>aids</code> de la librería <strong>boot</strong>. Se pretenden obtener el promedio de las columnas <code>delay</code>, <code>dud</code>, <code>time</code> e<code>y</code>, por cuarto (<code>quarter</code>) y por año (<code>year</code>). Asegúrate de que la tabla esté reordenada de menor a mayor por año (<code>year</code>) y por cuarto (<code>quarter</code>).</li>
+<li>Utilizando la base de dato <code>aids</code>, encuentra cuales son los años (o el año) en que se tuvieron valores mayores igual a 30 en <code>time</code> y valores de mayores a 25 en <code>delay</code>.</li>
+<li>La función <code>grepl()</code> provee una manera muy interesante de filtrar filas. Permite especificar un texto que será buscado dentro de cada palabra en cada celda de dicha columna, para filtrar las filas que contengan dicha cadena de texto. Pueden ser solo letras consecutivas, una palabras completa, etc. Usando <code>grepl()</code> dentro de la función <code>filter()</code>, se filtrarán las filas que coincidan con la búsqueda hecha por <code>grepl()</code>.</li>
+</ol>
+<p>Una vez entendido el uso de la función <code>grepl()</code>, instala y activa la librería <code>gapminder</code>, y carga la base de datos del mismo nombre. Filtra las filas que en la columna <code>country</code> tengan el patrón de texto “ru”. Luego, realiza una segunda <em>pipeline</em> para realizar lo mismo pero ahora con el patrón “nia”, indicando que se ignore mayúsculas o minúsculas.</p>
+<div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb201-1"><a href="ejercicios-del-capítulo-3.html#cb201-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Conjunto de datos</span></span>
+<span id="cb201-2"><a href="ejercicios-del-capítulo-3.html#cb201-2" aria-hidden="true" tabindex="-1"></a>vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Andrea&quot;</span>,<span class="st">&quot;Breta&quot;</span>,<span class="st">&quot;Mark&quot;</span>,<span class="st">&quot;Elon&quot;</span>)</span>
+<span id="cb201-3"><a href="ejercicios-del-capítulo-3.html#cb201-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb201-4"><a href="ejercicios-del-capítulo-3.html#cb201-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Buscar la letra A mayúscula en los elementos del vector</span></span>
+<span id="cb201-5"><a href="ejercicios-del-capítulo-3.html#cb201-5" aria-hidden="true" tabindex="-1"></a><span class="fu">grepl</span>(<span class="st">&quot;A&quot;</span>, vector)</span>
+<span id="cb201-6"><a href="ejercicios-del-capítulo-3.html#cb201-6" aria-hidden="true" tabindex="-1"></a><span class="co"># [1]  TRUE FALSE FALSE FALSE</span></span>
+<span id="cb201-7"><a href="ejercicios-del-capítulo-3.html#cb201-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb201-8"><a href="ejercicios-del-capítulo-3.html#cb201-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Buscar la letra A (mayúscula o minúscula) en los elementos del vector</span></span>
+<span id="cb201-9"><a href="ejercicios-del-capítulo-3.html#cb201-9" aria-hidden="true" tabindex="-1"></a><span class="fu">grepl</span>(<span class="st">&quot;A&quot;</span>, vector, <span class="at">ignore.case =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb201-10"><a href="ejercicios-del-capítulo-3.html#cb201-10" aria-hidden="true" tabindex="-1"></a><span class="co"># [1]  TRUE  TRUE  TRUE FALSE</span></span>
+<span id="cb201-11"><a href="ejercicios-del-capítulo-3.html#cb201-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb201-12"><a href="ejercicios-del-capítulo-3.html#cb201-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Buscar re mayúscula en los elementos del vector</span></span>
+<span id="cb201-13"><a href="ejercicios-del-capítulo-3.html#cb201-13" aria-hidden="true" tabindex="-1"></a><span class="fu">grepl</span>(<span class="st">&quot;re&quot;</span>, vector)</span>
+<span id="cb201-14"><a href="ejercicios-del-capítulo-3.html#cb201-14" aria-hidden="true" tabindex="-1"></a><span class="co"># [1]  TRUE  TRUE FALSE FALSE</span></span></code></pre></div>
+<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb202-1"><a href="ejercicios-del-capítulo-3.html#cb202-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Inicia el ejercicio con la instalación de gapminder</span></span>
+<span id="cb202-2"><a href="ejercicios-del-capítulo-3.html#cb202-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;gapminder&quot;</span>)</span>
+<span id="cb202-3"><a href="ejercicios-del-capítulo-3.html#cb202-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gapminder)</span>
+<span id="cb202-4"><a href="ejercicios-del-capítulo-3.html#cb202-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb202-5"><a href="ejercicios-del-capítulo-3.html#cb202-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Carga la base de datos gapminder</span></span>
+<span id="cb202-6"><a href="ejercicios-del-capítulo-3.html#cb202-6" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;gapminder&quot;</span>)</span></code></pre></div>
+<ol style="list-style-type: decimal">
+<li><p>Carga la base de datos <code>breslow</code> de la librería <strong>boot</strong>. Esta base contiene información sobre el estatus de fumador/no fumador y edad de varios pacientes. Filtra las filas de las personas fumadoras (<code>1</code>) en la columna <code>smoke</code> que tengan <code>age</code> (edad) mayor a 40. Si realizas el ejercicio y no te funciona, la respuesta no era tan sencilla como aparenta. Revisar la <code>str()</code> de una base de datos es crucial siempre, aquí ayuda a entender que originalmente <code>age</code> es un factor, y debería ser numérica para aplicarle el filtrado con mayor a 40. Algo similar pasa con <code>smoke</code>, es numérica y debe ser un factor. Utiliza la función respectiva de <strong>dplyr</strong> para transformar estas columnas. Aquí el truco para <code>age</code> es primero convertirla de factor a character, y luego a numeric. Pasar de factor directamente a numeric puede hacer que se pierda la información. Juega un poco con la base y notarás estos problemas.</p></li>
+<li><p>Carga la base de datos <code>population</code> de la librería <strong>tidyr</strong>. Identifica cuales son los seis países con mayor población (asegúrate de expresarlo en millones) en 1995, y luego en 2007. ¿Cambió algún país en la lista del top 6 ordenada de mayor a menor?</p></li>
+</ol>
+</div>
 
 </div>
 <!-- </div> -->
@@ -352,7 +391,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="valores-perdidos.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="limpieza-de-datos.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="solucionario-de-ejercicios.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>

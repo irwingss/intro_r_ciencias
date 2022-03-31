@@ -997,3 +997,40 @@ WHO %>%
 ```
 :::
 
+## Ejercicios del capítulo
+
+<div class="question">
+  1. Carga la base de datos `aids` de la librería **boot**. Se pretenden obtener el promedio de las columnas `delay`, `dud`, `time` e` y`, por cuarto (`quarter`) y por año (`year`). Asegúrate de que la tabla esté reordenada de menor a mayor por año (`year`) y por cuarto (`quarter`). 
+  1. Utilizando la base de dato `aids`, encuentra cuales son los años (o el año) en que se tuvieron valores mayores igual a 30 en `time` y valores de mayores a 25 en `delay`.
+  1. La función `grepl()` provee una manera muy interesante de filtrar filas. Permite especificar un texto que será buscado dentro de cada palabra en cada celda de dicha columna, para filtrar las filas que contengan dicha cadena de texto. Pueden ser solo letras consecutivas, una palabras completa, etc. Usando `grepl()` dentro de la función `filter()`, se filtrarán las filas que coincidan con la búsqueda hecha por `grepl()`. 
+
+Una vez entendido el uso de la función `grepl()`, instala y activa la librería `gapminder`, y carga la base de datos del mismo nombre. Filtra las filas que en la columna `country` tengan el patrón de texto "ru". Luego, realiza una segunda *pipeline* para realizar lo mismo pero ahora con el patrón "nia", indicando que se ignore mayúsculas o minúsculas.
+
+```{r}
+# Conjunto de datos
+vector <- c("Andrea","Breta","Mark","Elon")
+
+# Buscar la letra A mayúscula en los elementos del vector
+grepl("A", vector)
+
+# Buscar la letra A (mayúscula o minúscula) en los elementos del vector
+grepl("A", vector, ignore.case = TRUE)
+
+# Buscar re mayúscula en los elementos del vector
+grepl("re", vector)
+```
+
+```{r, eval=FALSE}
+# Inicia el ejercicio con la instalación de gapminder
+install.packages("gapminder")
+library(gapminder)
+
+# Carga la base de datos gapminder
+data("gapminder")
+```
+
+  1. Carga la base de datos `breslow` de la librería **boot**. Esta base contiene información sobre el estatus de fumador/no fumador y  edad de varios pacientes. Filtra las filas de las personas fumadoras (`1`) en la columna `smoke` que tengan `age` (edad) mayor a 40. Si realizas el ejercicio y no te funciona, la respuesta no era tan sencilla como aparenta. Revisar la `str()` de una base de datos es crucial siempre, aquí ayuda a entender que originalmente `age` es un factor, y debería ser numérica para aplicarle el filtrado con mayor a 40. Algo similar pasa con `smoke`, es numérica y debe ser un factor. Utiliza la función respectiva de **dplyr** para transformar estas columnas. Aquí el truco para `age` es primero convertirla de factor a character, y luego a numeric. Pasar de factor directamente a numeric puede hacer que se pierda la información. Juega un poco con la base y notarás estos problemas.
+  
+  1. Carga la base de datos `population` de la librería **tidyr**. Identifica cuales son los seis países con mayor población (asegúrate de expresarlo en millones) en 1995, y luego en 2007. ¿Cambió algún país en la lista del top 6 ordenada de mayor a menor?
+
+</div>

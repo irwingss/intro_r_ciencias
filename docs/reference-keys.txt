@@ -243,7 +243,9 @@ cuántos-na-existen-en-la-base-de-datos
 cuántos-na-existen-en-cada-columna
 en-qué-fila-o-columna-están-los-na
 cómo-reemplazar-los-na-por-otro-valor
+ejercicios-del-capítulo-3
 solucionario-de-ejercicios
 cap.-2-primer-contacto-con-r
 preg-estructurasdatos
 cap.-5-programación-funcional
+cap.-6-manejo-de-datos-con-tidyverse

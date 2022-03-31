@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>3.7 Listas | Introducción a R para Ciencias</title>
+  <title>A.4 Cap. 6: Manejo de datos con tidyverse | Introducción a R para Ciencias</title>
   <meta name="description" content="Libro introductorio al uso del lenguaje de programación R, con ejemplos orientados a ciencias" />
   <meta name="generator" content="bookdown 0.25 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="3.7 Listas | Introducción a R para Ciencias" />
+  <meta property="og:title" content="A.4 Cap. 6: Manejo de datos con tidyverse | Introducción a R para Ciencias" />
   <meta property="og:type" content="book" />
   <meta property="og:image" content="https://github.com/irwingss/intro_r_ciencias//Cover/cover R.png" />
   <meta property="og:description" content="Libro introductorio al uso del lenguaje de programación R, con ejemplos orientados a ciencias" />
   <meta name="github-repo" content="irwingss/intro_r_ciencias/" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="3.7 Listas | Introducción a R para Ciencias" />
+  <meta name="twitter:title" content="A.4 Cap. 6: Manejo de datos con tidyverse | Introducción a R para Ciencias" />
   
   <meta name="twitter:description" content="Libro introductorio al uso del lenguaje de programación R, con ejemplos orientados a ciencias" />
   <meta name="twitter:image" content="https://github.com/irwingss/intro_r_ciencias//Cover/cover R.png" />
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="figs/favicon.ico" type="image/x-icon" />
-<link rel="prev" href="tibbles.html"/>
-<link rel="next" href="coerción-de-variables.html"/>
+<link rel="prev" href="cap.-5-programación-funcional.html"/>
+
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -346,104 +346,160 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="listas" class="section level2 hasAnchor" number="3.7">
-<h2><span class="header-section-number">3.7</span> Listas<a href="listas.html#listas" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Las listas son estructuras de datos primitivas. En teoría, los data frame y tibbles son estructuras internamente basadas en listas. En ellos, sus elementos son únicamente vectores de elementos que se comportan como columnas de las tablas cuando imprimidos el objeto.</p>
-<p>Las listas propiamente dichas, las que creamos con la función <code>list()</code>, son estructuras amigables, <em>almacenando prácticamente toda clase de objetos</em>: vectores, factores, matrices, data frames, tibbles, incluso otras listas.</p>
-<p>Como se mencionó arriba, la función <code>list()</code> permite <strong>crear listas no nombradas</strong>. Cada elemento adquiere como nombre un número correlativo:</p>
-<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="listas.html#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creación de una lista no nombradas. Utilizaremos</span></span>
-<span id="cb62-2"><a href="listas.html#cb62-2" aria-hidden="true" tabindex="-1"></a><span class="co"># algunos objetos que hemos ido creando hasta aquí.</span></span>
-<span id="cb62-3"><a href="listas.html#cb62-3" aria-hidden="true" tabindex="-1"></a>primeraLista <span class="ot">&lt;-</span> <span class="fu">list</span>(TB, DF, vector1, F2)</span>
-<span id="cb62-4"><a href="listas.html#cb62-4" aria-hidden="true" tabindex="-1"></a>primeraLista</span>
-<span id="cb62-5"><a href="listas.html#cb62-5" aria-hidden="true" tabindex="-1"></a><span class="co"># [[1]]</span></span>
-<span id="cb62-6"><a href="listas.html#cb62-6" aria-hidden="true" tabindex="-1"></a><span class="co"># # A tibble: 5 x 4</span></span>
-<span id="cb62-7"><a href="listas.html#cb62-7" aria-hidden="true" tabindex="-1"></a><span class="co">#    Col1 Col2  Log   Fct  </span></span>
-<span id="cb62-8"><a href="listas.html#cb62-8" aria-hidden="true" tabindex="-1"></a><span class="co">#   &lt;int&gt; &lt;chr&gt; &lt;lgl&gt; &lt;fct&gt;</span></span>
-<span id="cb62-9"><a href="listas.html#cb62-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 1     1 Sit1  TRUE  A    </span></span>
-<span id="cb62-10"><a href="listas.html#cb62-10" aria-hidden="true" tabindex="-1"></a><span class="co"># 2     2 Sit1  TRUE  B    </span></span>
-<span id="cb62-11"><a href="listas.html#cb62-11" aria-hidden="true" tabindex="-1"></a><span class="co"># 3     3 Sit2  FALSE C    </span></span>
-<span id="cb62-12"><a href="listas.html#cb62-12" aria-hidden="true" tabindex="-1"></a><span class="co"># 4     4 Sit2  FALSE B    </span></span>
-<span id="cb62-13"><a href="listas.html#cb62-13" aria-hidden="true" tabindex="-1"></a><span class="co"># 5     5 Sit3  TRUE  A    </span></span>
-<span id="cb62-14"><a href="listas.html#cb62-14" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb62-15"><a href="listas.html#cb62-15" aria-hidden="true" tabindex="-1"></a><span class="co"># [[2]]</span></span>
-<span id="cb62-16"><a href="listas.html#cb62-16" aria-hidden="true" tabindex="-1"></a><span class="co">#   Col1 Col2   Log Fct</span></span>
-<span id="cb62-17"><a href="listas.html#cb62-17" aria-hidden="true" tabindex="-1"></a><span class="co"># 1    1 Sit1  TRUE   A</span></span>
-<span id="cb62-18"><a href="listas.html#cb62-18" aria-hidden="true" tabindex="-1"></a><span class="co"># 2    2 Sit1  TRUE   B</span></span>
-<span id="cb62-19"><a href="listas.html#cb62-19" aria-hidden="true" tabindex="-1"></a><span class="co"># 3    3 Sit2 FALSE   C</span></span>
-<span id="cb62-20"><a href="listas.html#cb62-20" aria-hidden="true" tabindex="-1"></a><span class="co"># 4    4 Sit2 FALSE   B</span></span>
-<span id="cb62-21"><a href="listas.html#cb62-21" aria-hidden="true" tabindex="-1"></a><span class="co"># 5    5 Sit3  TRUE   A</span></span>
-<span id="cb62-22"><a href="listas.html#cb62-22" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb62-23"><a href="listas.html#cb62-23" aria-hidden="true" tabindex="-1"></a><span class="co"># [[3]]</span></span>
-<span id="cb62-24"><a href="listas.html#cb62-24" aria-hidden="true" tabindex="-1"></a><span class="co">#  [1]  1  2  3  4  5  6  7  8  9 10</span></span>
-<span id="cb62-25"><a href="listas.html#cb62-25" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb62-26"><a href="listas.html#cb62-26" aria-hidden="true" tabindex="-1"></a><span class="co"># [[4]]</span></span>
-<span id="cb62-27"><a href="listas.html#cb62-27" aria-hidden="true" tabindex="-1"></a><span class="co">#  [1] A B A A A A B A C C B</span></span>
-<span id="cb62-28"><a href="listas.html#cb62-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Levels: B C A</span></span></code></pre></div>
-<p>Para <strong>crear una lista nombrada</strong>, se puede colocar cada elemento precedido con un nombre y el símbolo igual.</p>
-<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="listas.html#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creación de una lista no nombradas. Utilizaremos</span></span>
-<span id="cb63-2"><a href="listas.html#cb63-2" aria-hidden="true" tabindex="-1"></a><span class="co"># algunos objetos que hemos ido creando hasta aquí.</span></span>
-<span id="cb63-3"><a href="listas.html#cb63-3" aria-hidden="true" tabindex="-1"></a>L1 <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">TB =</span> TB, <span class="at">DF =</span> DF, <span class="at">vecThor =</span> vector1, <span class="at">factor =</span> F2)</span>
-<span id="cb63-4"><a href="listas.html#cb63-4" aria-hidden="true" tabindex="-1"></a>L1</span>
-<span id="cb63-5"><a href="listas.html#cb63-5" aria-hidden="true" tabindex="-1"></a><span class="co"># $TB</span></span>
-<span id="cb63-6"><a href="listas.html#cb63-6" aria-hidden="true" tabindex="-1"></a><span class="co"># # A tibble: 5 x 4</span></span>
-<span id="cb63-7"><a href="listas.html#cb63-7" aria-hidden="true" tabindex="-1"></a><span class="co">#    Col1 Col2  Log   Fct  </span></span>
-<span id="cb63-8"><a href="listas.html#cb63-8" aria-hidden="true" tabindex="-1"></a><span class="co">#   &lt;int&gt; &lt;chr&gt; &lt;lgl&gt; &lt;fct&gt;</span></span>
-<span id="cb63-9"><a href="listas.html#cb63-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 1     1 Sit1  TRUE  A    </span></span>
-<span id="cb63-10"><a href="listas.html#cb63-10" aria-hidden="true" tabindex="-1"></a><span class="co"># 2     2 Sit1  TRUE  B    </span></span>
-<span id="cb63-11"><a href="listas.html#cb63-11" aria-hidden="true" tabindex="-1"></a><span class="co"># 3     3 Sit2  FALSE C    </span></span>
-<span id="cb63-12"><a href="listas.html#cb63-12" aria-hidden="true" tabindex="-1"></a><span class="co"># 4     4 Sit2  FALSE B    </span></span>
-<span id="cb63-13"><a href="listas.html#cb63-13" aria-hidden="true" tabindex="-1"></a><span class="co"># 5     5 Sit3  TRUE  A    </span></span>
-<span id="cb63-14"><a href="listas.html#cb63-14" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb63-15"><a href="listas.html#cb63-15" aria-hidden="true" tabindex="-1"></a><span class="co"># $DF</span></span>
-<span id="cb63-16"><a href="listas.html#cb63-16" aria-hidden="true" tabindex="-1"></a><span class="co">#   Col1 Col2   Log Fct</span></span>
-<span id="cb63-17"><a href="listas.html#cb63-17" aria-hidden="true" tabindex="-1"></a><span class="co"># 1    1 Sit1  TRUE   A</span></span>
-<span id="cb63-18"><a href="listas.html#cb63-18" aria-hidden="true" tabindex="-1"></a><span class="co"># 2    2 Sit1  TRUE   B</span></span>
-<span id="cb63-19"><a href="listas.html#cb63-19" aria-hidden="true" tabindex="-1"></a><span class="co"># 3    3 Sit2 FALSE   C</span></span>
-<span id="cb63-20"><a href="listas.html#cb63-20" aria-hidden="true" tabindex="-1"></a><span class="co"># 4    4 Sit2 FALSE   B</span></span>
-<span id="cb63-21"><a href="listas.html#cb63-21" aria-hidden="true" tabindex="-1"></a><span class="co"># 5    5 Sit3  TRUE   A</span></span>
-<span id="cb63-22"><a href="listas.html#cb63-22" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb63-23"><a href="listas.html#cb63-23" aria-hidden="true" tabindex="-1"></a><span class="co"># $vecThor</span></span>
-<span id="cb63-24"><a href="listas.html#cb63-24" aria-hidden="true" tabindex="-1"></a><span class="co">#  [1]  1  2  3  4  5  6  7  8  9 10</span></span>
-<span id="cb63-25"><a href="listas.html#cb63-25" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb63-26"><a href="listas.html#cb63-26" aria-hidden="true" tabindex="-1"></a><span class="co"># $factor</span></span>
-<span id="cb63-27"><a href="listas.html#cb63-27" aria-hidden="true" tabindex="-1"></a><span class="co">#  [1] A B A A A A B A C C B</span></span>
-<span id="cb63-28"><a href="listas.html#cb63-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Levels: B C A</span></span></code></pre></div>
-<p>Resulta muy engorroso tener que colocar los nombres dado que las variables ya tienen uno, esto se puede solucionar si se usa la función <code>lst()</code> de la librería <strong>dplyr</strong>.</p>
-<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="listas.html#cb64-1" aria-hidden="true" tabindex="-1"></a>L2 <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">lst</span>(TB, DF, vector1, F2)</span>
-<span id="cb64-2"><a href="listas.html#cb64-2" aria-hidden="true" tabindex="-1"></a>L2</span>
-<span id="cb64-3"><a href="listas.html#cb64-3" aria-hidden="true" tabindex="-1"></a><span class="co"># $TB</span></span>
-<span id="cb64-4"><a href="listas.html#cb64-4" aria-hidden="true" tabindex="-1"></a><span class="co"># # A tibble: 5 x 4</span></span>
-<span id="cb64-5"><a href="listas.html#cb64-5" aria-hidden="true" tabindex="-1"></a><span class="co">#    Col1 Col2  Log   Fct  </span></span>
-<span id="cb64-6"><a href="listas.html#cb64-6" aria-hidden="true" tabindex="-1"></a><span class="co">#   &lt;int&gt; &lt;chr&gt; &lt;lgl&gt; &lt;fct&gt;</span></span>
-<span id="cb64-7"><a href="listas.html#cb64-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 1     1 Sit1  TRUE  A    </span></span>
-<span id="cb64-8"><a href="listas.html#cb64-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 2     2 Sit1  TRUE  B    </span></span>
-<span id="cb64-9"><a href="listas.html#cb64-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 3     3 Sit2  FALSE C    </span></span>
-<span id="cb64-10"><a href="listas.html#cb64-10" aria-hidden="true" tabindex="-1"></a><span class="co"># 4     4 Sit2  FALSE B    </span></span>
-<span id="cb64-11"><a href="listas.html#cb64-11" aria-hidden="true" tabindex="-1"></a><span class="co"># 5     5 Sit3  TRUE  A    </span></span>
-<span id="cb64-12"><a href="listas.html#cb64-12" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb64-13"><a href="listas.html#cb64-13" aria-hidden="true" tabindex="-1"></a><span class="co"># $DF</span></span>
-<span id="cb64-14"><a href="listas.html#cb64-14" aria-hidden="true" tabindex="-1"></a><span class="co">#   Col1 Col2   Log Fct</span></span>
-<span id="cb64-15"><a href="listas.html#cb64-15" aria-hidden="true" tabindex="-1"></a><span class="co"># 1    1 Sit1  TRUE   A</span></span>
-<span id="cb64-16"><a href="listas.html#cb64-16" aria-hidden="true" tabindex="-1"></a><span class="co"># 2    2 Sit1  TRUE   B</span></span>
-<span id="cb64-17"><a href="listas.html#cb64-17" aria-hidden="true" tabindex="-1"></a><span class="co"># 3    3 Sit2 FALSE   C</span></span>
-<span id="cb64-18"><a href="listas.html#cb64-18" aria-hidden="true" tabindex="-1"></a><span class="co"># 4    4 Sit2 FALSE   B</span></span>
-<span id="cb64-19"><a href="listas.html#cb64-19" aria-hidden="true" tabindex="-1"></a><span class="co"># 5    5 Sit3  TRUE   A</span></span>
-<span id="cb64-20"><a href="listas.html#cb64-20" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb64-21"><a href="listas.html#cb64-21" aria-hidden="true" tabindex="-1"></a><span class="co"># $vector1</span></span>
-<span id="cb64-22"><a href="listas.html#cb64-22" aria-hidden="true" tabindex="-1"></a><span class="co">#  [1]  1  2  3  4  5  6  7  8  9 10</span></span>
-<span id="cb64-23"><a href="listas.html#cb64-23" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb64-24"><a href="listas.html#cb64-24" aria-hidden="true" tabindex="-1"></a><span class="co"># $F2</span></span>
-<span id="cb64-25"><a href="listas.html#cb64-25" aria-hidden="true" tabindex="-1"></a><span class="co">#  [1] A B A A A A B A C C B</span></span>
-<span id="cb64-26"><a href="listas.html#cb64-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Levels: B C A</span></span></code></pre></div>
-<p>Es más que seguro que en el futuro encontrarás ventajoso tener listas nombradas para el manejo de estructuras de datos.</p>
+<div id="cap.-6-manejo-de-datos-con-tidyverse" class="section level2 hasAnchor" number="7.4">
+<h2><span class="header-section-number">A.4</span> Cap. 6: Manejo de datos con tidyverse<a href="cap.-6-manejo-de-datos-con-tidyverse.html#cap.-6-manejo-de-datos-con-tidyverse" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="question">
+<ol style="list-style-type: decimal">
+<li>Carga la base de datos <code>aids</code> de la librería <strong>boot</strong>. Se pretenden obtener el promedio de las columnas <code>delay</code>, <code>dud</code>, <code>time</code> e<code>y</code>, por cuarto (<code>quarter</code>) y por año (<code>year</code>). Asegúrate de que la tabla esté reordenada de menor a mayor por año (<code>year</code>) y por cuarto (<code>quarter</code>).</li>
+</ol>
+<p><strong>Solución:</strong></p>
+<div class="sourceCode" id="cb234"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb234-1"><a href="cap.-6-manejo-de-datos-con-tidyverse.html#cb234-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(boot)</span>
+<span id="cb234-2"><a href="cap.-6-manejo-de-datos-con-tidyverse.html#cb234-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;aids&quot;</span>)</span>
+<span id="cb234-3"><a href="cap.-6-manejo-de-datos-con-tidyverse.html#cb234-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb234-4"><a href="cap.-6-manejo-de-datos-con-tidyverse.html#cb234-4" aria-hidden="true" tabindex="-1"></a><span class="do">### Resultado</span></span>
+<span id="cb234-5"><a href="cap.-6-manejo-de-datos-con-tidyverse.html#cb234-5" aria-hidden="true" tabindex="-1"></a>aids <span class="sc">%&gt;%</span> </span>
+<span id="cb234-6"><a href="cap.-6-manejo-de-datos-con-tidyverse.html#cb234-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(year, quarter) <span class="sc">%&gt;%</span> </span>
+<span id="cb234-7"><a href="cap.-6-manejo-de-datos-con-tidyverse.html#cb234-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise_at</span>(<span class="at">.vars =</span> <span class="fu">vars</span>(delay, dud, time, y),</span>
+<span id="cb234-8"><a href="cap.-6-manejo-de-datos-con-tidyverse.html#cb234-8" aria-hidden="true" tabindex="-1"></a>               <span class="at">.funs =</span> <span class="fu">lst</span>(mean), <span class="at">na.rm=</span><span class="cn">TRUE</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb234-9"><a href="cap.-6-manejo-de-datos-con-tidyverse.html#cb234-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(year, quarter)</span>
+<span id="cb234-10"><a href="cap.-6-manejo-de-datos-con-tidyverse.html#cb234-10" aria-hidden="true" tabindex="-1"></a><span class="co"># # A tibble: 38 x 6</span></span>
+<span id="cb234-11"><a href="cap.-6-manejo-de-datos-con-tidyverse.html#cb234-11" aria-hidden="true" tabindex="-1"></a><span class="co"># # Groups:   year [10]</span></span>
+<span id="cb234-12"><a href="cap.-6-manejo-de-datos-con-tidyverse.html#cb234-12" aria-hidden="true" tabindex="-1"></a><span class="co">#    year quarter delay_mean dud_mean time_mean y_mean</span></span>
+<span id="cb234-13"><a href="cap.-6-manejo-de-datos-con-tidyverse.html#cb234-13" aria-hidden="true" tabindex="-1"></a><span class="co">#   &lt;dbl&gt;   &lt;dbl&gt;      &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;  &lt;dbl&gt;</span></span>
+<span id="cb234-14"><a href="cap.-6-manejo-de-datos-con-tidyverse.html#cb234-14" aria-hidden="true" tabindex="-1"></a><span class="co"># 1  1983       3       20.1        0         1  0.8  </span></span>
+<span id="cb234-15"><a href="cap.-6-manejo-de-datos-con-tidyverse.html#cb234-15" aria-hidden="true" tabindex="-1"></a><span class="co"># 2  1983       4       20.1        0         2  0.8  </span></span>
+<span id="cb234-16"><a href="cap.-6-manejo-de-datos-con-tidyverse.html#cb234-16" aria-hidden="true" tabindex="-1"></a><span class="co"># 3  1984       1       20.1        0         3  0.933</span></span>
+<span id="cb234-17"><a href="cap.-6-manejo-de-datos-con-tidyverse.html#cb234-17" aria-hidden="true" tabindex="-1"></a><span class="co"># 4  1984       2       20.1        0         4  1    </span></span>
+<span id="cb234-18"><a href="cap.-6-manejo-de-datos-con-tidyverse.html#cb234-18" aria-hidden="true" tabindex="-1"></a><span class="co"># 5  1984       3       20.1        0         5  2    </span></span>
+<span id="cb234-19"><a href="cap.-6-manejo-de-datos-con-tidyverse.html#cb234-19" aria-hidden="true" tabindex="-1"></a><span class="co"># 6  1984       4       20.1        0         6  2.6  </span></span>
+<span id="cb234-20"><a href="cap.-6-manejo-de-datos-con-tidyverse.html#cb234-20" aria-hidden="true" tabindex="-1"></a><span class="co"># # ... with 32 more rows</span></span></code></pre></div>
+<ol style="list-style-type: decimal">
+<li>Utilizando la base de dato <code>aids</code>, encuentra cuales son los años (o el año) en que se tuvieron valores mayores igual a 30 en <code>time</code> y valores de mayores a 25 en <code>delay</code>.</li>
+</ol>
+<p><strong>Solución:</strong></p>
+<div class="sourceCode" id="cb235"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb235-1"><a href="cap.-6-manejo-de-datos-con-tidyverse.html#cb235-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(boot)</span>
+<span id="cb235-2"><a href="cap.-6-manejo-de-datos-con-tidyverse.html#cb235-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;aids&quot;</span>)</span>
+<span id="cb235-3"><a href="cap.-6-manejo-de-datos-con-tidyverse.html#cb235-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb235-4"><a href="cap.-6-manejo-de-datos-con-tidyverse.html#cb235-4" aria-hidden="true" tabindex="-1"></a><span class="do">### Resultado</span></span>
+<span id="cb235-5"><a href="cap.-6-manejo-de-datos-con-tidyverse.html#cb235-5" aria-hidden="true" tabindex="-1"></a>aids <span class="sc">%&gt;%</span> </span>
+<span id="cb235-6"><a href="cap.-6-manejo-de-datos-con-tidyverse.html#cb235-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(time <span class="sc">&gt;=</span> <span class="dv">30</span> <span class="sc">&amp;</span> delay <span class="sc">&gt;</span> <span class="dv">25</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb235-7"><a href="cap.-6-manejo-de-datos-con-tidyverse.html#cb235-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(year) <span class="sc">%&gt;%</span> </span>
+<span id="cb235-8"><a href="cap.-6-manejo-de-datos-con-tidyverse.html#cb235-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unique</span>()</span>
+<span id="cb235-9"><a href="cap.-6-manejo-de-datos-con-tidyverse.html#cb235-9" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] 1990 1991 1992</span></span></code></pre></div>
 </div>
+
+<div class="rmdnote">
+Probablemente llegaste por tu cuenta hasta el uso de <code>filter()</code>. La función <code>pull()</code> extrae una columna como un vector de datos. Es muy útil cuando se desea trabajar con un vector resultante y no con una data frame. La función <code>unique()</code> devuelve los valores únicos de un vector, por ello el resultado impreso es solamente <code>1992</code>.
+</div>
+<div class="question">
+<ol style="list-style-type: decimal">
+<li>La función <code>grepl()</code> provee una manera muy interesante de filtrar filas. Permite especificar un texto que será buscado dentro de cada palabra en cada celda de dicha columna, para filtrar las filas que contengan dicha cadena de texto. Pueden ser solo letras consecutivas, una palabras completa, etc. Usando <code>grepl()</code> dentro de la función <code>filter()</code>, se filtrarán las filas que coincidan con la búsqueda hecha por <code>grepl()</code>. Una vez entendido el uso de la función <code>grepl()</code>, instala y activa la librería <code>gapminder</code>, y carga la base de datos del mismo nombre. Filtra las filas que en la columna <code>country</code> tengan el patrón de texto “ru”. Luego, realiza una segunda <em>pipeline</em> para realizar lo mismo pero ahora con el patrón “nia”, indicando que se ignore mayúsculas o minúsculas.</li>
+</ol>
+<div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb236-1"><a href="cap.-6-manejo-de-datos-con-tidyverse.html#cb236-1" aria-hidden="true" tabindex="-1"></a><span class="do">### Conjunto de datos</span></span>
+<span id="cb236-2"><a href="cap.-6-manejo-de-datos-con-tidyverse.html#cb236-2" aria-hidden="true" tabindex="-1"></a>vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Andrea&quot;</span>,<span class="st">&quot;Breta&quot;</span>,<span class="st">&quot;Mark&quot;</span>,<span class="st">&quot;Elon&quot;</span>)</span>
+<span id="cb236-3"><a href="cap.-6-manejo-de-datos-con-tidyverse.html#cb236-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb236-4"><a href="cap.-6-manejo-de-datos-con-tidyverse.html#cb236-4" aria-hidden="true" tabindex="-1"></a><span class="do">### Buscar la letra A mayúscula en los elementos del vector</span></span>
+<span id="cb236-5"><a href="cap.-6-manejo-de-datos-con-tidyverse.html#cb236-5" aria-hidden="true" tabindex="-1"></a><span class="fu">grepl</span>(<span class="st">&quot;A&quot;</span>, vector)</span>
+<span id="cb236-6"><a href="cap.-6-manejo-de-datos-con-tidyverse.html#cb236-6" aria-hidden="true" tabindex="-1"></a><span class="co"># [1]  TRUE FALSE FALSE FALSE</span></span>
+<span id="cb236-7"><a href="cap.-6-manejo-de-datos-con-tidyverse.html#cb236-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb236-8"><a href="cap.-6-manejo-de-datos-con-tidyverse.html#cb236-8" aria-hidden="true" tabindex="-1"></a><span class="do">### Buscar la letra A (mayúscula o minúscula) en los elementos del vector</span></span>
+<span id="cb236-9"><a href="cap.-6-manejo-de-datos-con-tidyverse.html#cb236-9" aria-hidden="true" tabindex="-1"></a><span class="fu">grepl</span>(<span class="st">&quot;A&quot;</span>, vector, <span class="at">ignore.case =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb236-10"><a href="cap.-6-manejo-de-datos-con-tidyverse.html#cb236-10" aria-hidden="true" tabindex="-1"></a><span class="co"># [1]  TRUE  TRUE  TRUE FALSE</span></span>
+<span id="cb236-11"><a href="cap.-6-manejo-de-datos-con-tidyverse.html#cb236-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb236-12"><a href="cap.-6-manejo-de-datos-con-tidyverse.html#cb236-12" aria-hidden="true" tabindex="-1"></a><span class="do">### Buscar re mayúscula en los elementos del vector</span></span>
+<span id="cb236-13"><a href="cap.-6-manejo-de-datos-con-tidyverse.html#cb236-13" aria-hidden="true" tabindex="-1"></a><span class="fu">grepl</span>(<span class="st">&quot;re&quot;</span>, vector)</span>
+<span id="cb236-14"><a href="cap.-6-manejo-de-datos-con-tidyverse.html#cb236-14" aria-hidden="true" tabindex="-1"></a><span class="co"># [1]  TRUE  TRUE FALSE FALSE</span></span></code></pre></div>
+<div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb237-1"><a href="cap.-6-manejo-de-datos-con-tidyverse.html#cb237-1" aria-hidden="true" tabindex="-1"></a><span class="do">### Inicia el ejercicio con la instalación de gapminder</span></span>
+<span id="cb237-2"><a href="cap.-6-manejo-de-datos-con-tidyverse.html#cb237-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;gapminder&quot;</span>)</span>
+<span id="cb237-3"><a href="cap.-6-manejo-de-datos-con-tidyverse.html#cb237-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gapminder)</span></code></pre></div>
+<p><strong>Solución:</strong></p>
+<div class="sourceCode" id="cb238"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb238-1"><a href="cap.-6-manejo-de-datos-con-tidyverse.html#cb238-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gapminder)</span>
+<span id="cb238-2"><a href="cap.-6-manejo-de-datos-con-tidyverse.html#cb238-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;gapminder&quot;</span>)</span>
+<span id="cb238-3"><a href="cap.-6-manejo-de-datos-con-tidyverse.html#cb238-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb238-4"><a href="cap.-6-manejo-de-datos-con-tidyverse.html#cb238-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Resolución</span></span>
+<span id="cb238-5"><a href="cap.-6-manejo-de-datos-con-tidyverse.html#cb238-5" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span> </span>
+<span id="cb238-6"><a href="cap.-6-manejo-de-datos-con-tidyverse.html#cb238-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">grepl</span>(<span class="st">&quot;ru&quot;</span>,country)) <span class="sc">%&gt;%</span> </span>
+<span id="cb238-7"><a href="cap.-6-manejo-de-datos-con-tidyverse.html#cb238-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(country) <span class="sc">%&gt;%</span> </span>
+<span id="cb238-8"><a href="cap.-6-manejo-de-datos-con-tidyverse.html#cb238-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unique</span>()</span>
+<span id="cb238-9"><a href="cap.-6-manejo-de-datos-con-tidyverse.html#cb238-9" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] Burundi Peru    Uruguay</span></span>
+<span id="cb238-10"><a href="cap.-6-manejo-de-datos-con-tidyverse.html#cb238-10" aria-hidden="true" tabindex="-1"></a><span class="co"># 142 Levels: Afghanistan Albania Algeria Angola Argentina Australia ... Zimbabwe</span></span>
+<span id="cb238-11"><a href="cap.-6-manejo-de-datos-con-tidyverse.html#cb238-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb238-12"><a href="cap.-6-manejo-de-datos-con-tidyverse.html#cb238-12" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span> </span>
+<span id="cb238-13"><a href="cap.-6-manejo-de-datos-con-tidyverse.html#cb238-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">grepl</span>(<span class="st">&quot;nia&quot;</span>,country, <span class="at">ignore.case =</span> <span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb238-14"><a href="cap.-6-manejo-de-datos-con-tidyverse.html#cb238-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(country) <span class="sc">%&gt;%</span> </span>
+<span id="cb238-15"><a href="cap.-6-manejo-de-datos-con-tidyverse.html#cb238-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unique</span>()</span>
+<span id="cb238-16"><a href="cap.-6-manejo-de-datos-con-tidyverse.html#cb238-16" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] Albania                Bosnia and Herzegovina Mauritania            </span></span>
+<span id="cb238-17"><a href="cap.-6-manejo-de-datos-con-tidyverse.html#cb238-17" aria-hidden="true" tabindex="-1"></a><span class="co"># [4] Romania                Slovenia               Tanzania              </span></span>
+<span id="cb238-18"><a href="cap.-6-manejo-de-datos-con-tidyverse.html#cb238-18" aria-hidden="true" tabindex="-1"></a><span class="co"># 142 Levels: Afghanistan Albania Algeria Angola Argentina Australia ... Zimbabwe</span></span></code></pre></div>
+<ol style="list-style-type: decimal">
+<li>Carga la base de datos <code>breslow</code> de la librería <strong>boot</strong>. Esta base contiene información sobre el estatus de fumador/no fumador y edad de varios pacientes. Filtra las filas de las personas fumadoras (<code>1</code>) en la columna <code>smoke</code> que tengan <code>age</code> (edad) mayor a 40. Si realizas el ejercicio y no te funciona, la respuesta no era tan sencilla como aparenta. Revisar la <code>str()</code> de una base de datos es crucial siempre, aquí ayuda a entender que originalmente <code>age</code> es un factor, y debería ser numérica para aplicarle el filtrado con mayor a 40. Algo similar pasa con <code>smoke</code>, es numérica y debe ser un factor. Utiliza la función respectiva de <strong>dplyr</strong> para transformar estas columnas. Aquí el truco para <code>age</code> es primero convertirla de factor a character, y luego a numeric. Pasar de factor directamente a numeric puede hacer que se pierda la información. Juega un poco con la base y notarás estos problemas.</li>
+</ol>
+<p><strong>Solución:</strong></p>
+<div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb239-1"><a href="cap.-6-manejo-de-datos-con-tidyverse.html#cb239-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(boot)</span>
+<span id="cb239-2"><a href="cap.-6-manejo-de-datos-con-tidyverse.html#cb239-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;breslow&quot;</span>)</span>
+<span id="cb239-3"><a href="cap.-6-manejo-de-datos-con-tidyverse.html#cb239-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb239-4"><a href="cap.-6-manejo-de-datos-con-tidyverse.html#cb239-4" aria-hidden="true" tabindex="-1"></a><span class="do">### Revisar su estructura</span></span>
+<span id="cb239-5"><a href="cap.-6-manejo-de-datos-con-tidyverse.html#cb239-5" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(breslow)</span>
+<span id="cb239-6"><a href="cap.-6-manejo-de-datos-con-tidyverse.html#cb239-6" aria-hidden="true" tabindex="-1"></a><span class="co"># &#39;data.frame&#39;: 10 obs. of  5 variables:</span></span>
+<span id="cb239-7"><a href="cap.-6-manejo-de-datos-con-tidyverse.html#cb239-7" aria-hidden="true" tabindex="-1"></a><span class="co">#  $ age  : Factor w/ 5 levels &quot;40&quot;,&quot;50&quot;,&quot;60&quot;,..: 1 2 3 4 5 1 2 3 4 5</span></span>
+<span id="cb239-8"><a href="cap.-6-manejo-de-datos-con-tidyverse.html#cb239-8" aria-hidden="true" tabindex="-1"></a><span class="co">#  $ smoke: num  0 0 0 0 0 1 1 1 1 1</span></span>
+<span id="cb239-9"><a href="cap.-6-manejo-de-datos-con-tidyverse.html#cb239-9" aria-hidden="true" tabindex="-1"></a><span class="co">#  $ n    : num  18790 10673 5710 2585 1462 ...</span></span>
+<span id="cb239-10"><a href="cap.-6-manejo-de-datos-con-tidyverse.html#cb239-10" aria-hidden="true" tabindex="-1"></a><span class="co">#  $ y    : num  2 12 28 28 31 32 104 206 186 102</span></span>
+<span id="cb239-11"><a href="cap.-6-manejo-de-datos-con-tidyverse.html#cb239-11" aria-hidden="true" tabindex="-1"></a><span class="co">#  $ ns   : num  0 0 0 0 0 ...</span></span>
+<span id="cb239-12"><a href="cap.-6-manejo-de-datos-con-tidyverse.html#cb239-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb239-13"><a href="cap.-6-manejo-de-datos-con-tidyverse.html#cb239-13" aria-hidden="true" tabindex="-1"></a><span class="do">### Resolver el problema</span></span>
+<span id="cb239-14"><a href="cap.-6-manejo-de-datos-con-tidyverse.html#cb239-14" aria-hidden="true" tabindex="-1"></a>breslow <span class="sc">%&gt;%</span> </span>
+<span id="cb239-15"><a href="cap.-6-manejo-de-datos-con-tidyverse.html#cb239-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">age =</span> <span class="fu">as.character</span>(age),</span>
+<span id="cb239-16"><a href="cap.-6-manejo-de-datos-con-tidyverse.html#cb239-16" aria-hidden="true" tabindex="-1"></a>         <span class="at">age =</span> <span class="fu">as.numeric</span>(age),</span>
+<span id="cb239-17"><a href="cap.-6-manejo-de-datos-con-tidyverse.html#cb239-17" aria-hidden="true" tabindex="-1"></a>         <span class="at">smoke =</span> <span class="fu">as.factor</span>(smoke)) <span class="sc">%&gt;%</span> </span>
+<span id="cb239-18"><a href="cap.-6-manejo-de-datos-con-tidyverse.html#cb239-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(smoke<span class="sc">==</span><span class="st">&quot;1&quot;</span> <span class="sc">&amp;</span> age <span class="sc">&gt;</span> <span class="dv">40</span>) </span>
+<span id="cb239-19"><a href="cap.-6-manejo-de-datos-con-tidyverse.html#cb239-19" aria-hidden="true" tabindex="-1"></a><span class="co">#    age smoke     n   y    ns</span></span>
+<span id="cb239-20"><a href="cap.-6-manejo-de-datos-con-tidyverse.html#cb239-20" aria-hidden="true" tabindex="-1"></a><span class="co"># 7   50     1 43248 104 43248</span></span>
+<span id="cb239-21"><a href="cap.-6-manejo-de-datos-con-tidyverse.html#cb239-21" aria-hidden="true" tabindex="-1"></a><span class="co"># 8   60     1 28612 206 28612</span></span>
+<span id="cb239-22"><a href="cap.-6-manejo-de-datos-con-tidyverse.html#cb239-22" aria-hidden="true" tabindex="-1"></a><span class="co"># 9   70     1 12663 186 12663</span></span>
+<span id="cb239-23"><a href="cap.-6-manejo-de-datos-con-tidyverse.html#cb239-23" aria-hidden="true" tabindex="-1"></a><span class="co"># 10  80     1  5317 102  5317</span></span></code></pre></div>
+<ol style="list-style-type: decimal">
+<li>Carga la base de datos <code>population</code> de la librería <strong>tidyr</strong>. Identifica cuales son los seis países con mayor población (asegúrate de expresarlo en millones) en 1995, y luego en 2007. ¿Cambió algún país en la lista del top 6 ordenada de mayor a menor?</li>
+</ol>
+<p><strong>Solución:</strong></p>
+<div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb240-1"><a href="cap.-6-manejo-de-datos-con-tidyverse.html#cb240-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb240-2"><a href="cap.-6-manejo-de-datos-con-tidyverse.html#cb240-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;population&quot;</span>)</span>
+<span id="cb240-3"><a href="cap.-6-manejo-de-datos-con-tidyverse.html#cb240-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb240-4"><a href="cap.-6-manejo-de-datos-con-tidyverse.html#cb240-4" aria-hidden="true" tabindex="-1"></a><span class="do">### Resultado para 1995</span></span>
+<span id="cb240-5"><a href="cap.-6-manejo-de-datos-con-tidyverse.html#cb240-5" aria-hidden="true" tabindex="-1"></a>Tabla_A <span class="ot">&lt;-</span> population <span class="sc">%&gt;%</span> </span>
+<span id="cb240-6"><a href="cap.-6-manejo-de-datos-con-tidyverse.html#cb240-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">1995</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb240-7"><a href="cap.-6-manejo-de-datos-con-tidyverse.html#cb240-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Millones =</span> population<span class="sc">/</span><span class="dv">1000000</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb240-8"><a href="cap.-6-manejo-de-datos-con-tidyverse.html#cb240-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(population)) <span class="sc">%&gt;%</span> </span>
+<span id="cb240-9"><a href="cap.-6-manejo-de-datos-con-tidyverse.html#cb240-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span>
+<span id="cb240-10"><a href="cap.-6-manejo-de-datos-con-tidyverse.html#cb240-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb240-11"><a href="cap.-6-manejo-de-datos-con-tidyverse.html#cb240-11" aria-hidden="true" tabindex="-1"></a><span class="do">### Resultado para 2007</span></span>
+<span id="cb240-12"><a href="cap.-6-manejo-de-datos-con-tidyverse.html#cb240-12" aria-hidden="true" tabindex="-1"></a>Tabla_B <span class="ot">&lt;-</span>population <span class="sc">%&gt;%</span> </span>
+<span id="cb240-13"><a href="cap.-6-manejo-de-datos-con-tidyverse.html#cb240-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2007</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb240-14"><a href="cap.-6-manejo-de-datos-con-tidyverse.html#cb240-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Millones =</span> population<span class="sc">/</span><span class="dv">1000000</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb240-15"><a href="cap.-6-manejo-de-datos-con-tidyverse.html#cb240-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(population)) <span class="sc">%&gt;%</span> </span>
+<span id="cb240-16"><a href="cap.-6-manejo-de-datos-con-tidyverse.html#cb240-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span>
+<span id="cb240-17"><a href="cap.-6-manejo-de-datos-con-tidyverse.html#cb240-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb240-18"><a href="cap.-6-manejo-de-datos-con-tidyverse.html#cb240-18" aria-hidden="true" tabindex="-1"></a><span class="do">### Utilizando anti_join() para ver las filas</span></span>
+<span id="cb240-19"><a href="cap.-6-manejo-de-datos-con-tidyverse.html#cb240-19" aria-hidden="true" tabindex="-1"></a><span class="do">### de Tabla_A que no aparecen en Tabla_B</span></span>
+<span id="cb240-20"><a href="cap.-6-manejo-de-datos-con-tidyverse.html#cb240-20" aria-hidden="true" tabindex="-1"></a><span class="do">### o por decirlo diferente, las filas exclusivas de Tabla_A</span></span>
+<span id="cb240-21"><a href="cap.-6-manejo-de-datos-con-tidyverse.html#cb240-21" aria-hidden="true" tabindex="-1"></a><span class="fu">anti_join</span>(Tabla_A, Tabla_B, <span class="at">by=</span><span class="st">&quot;country&quot;</span>)</span>
+<span id="cb240-22"><a href="cap.-6-manejo-de-datos-con-tidyverse.html#cb240-22" aria-hidden="true" tabindex="-1"></a><span class="co"># # A tibble: 1 x 4</span></span>
+<span id="cb240-23"><a href="cap.-6-manejo-de-datos-con-tidyverse.html#cb240-23" aria-hidden="true" tabindex="-1"></a><span class="co">#   country             year population Millones</span></span>
+<span id="cb240-24"><a href="cap.-6-manejo-de-datos-con-tidyverse.html#cb240-24" aria-hidden="true" tabindex="-1"></a><span class="co">#   &lt;chr&gt;              &lt;int&gt;      &lt;int&gt;    &lt;dbl&gt;</span></span>
+<span id="cb240-25"><a href="cap.-6-manejo-de-datos-con-tidyverse.html#cb240-25" aria-hidden="true" tabindex="-1"></a><span class="co"># 1 Russian Federation  1995  148602147     149.</span></span>
+<span id="cb240-26"><a href="cap.-6-manejo-de-datos-con-tidyverse.html#cb240-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb240-27"><a href="cap.-6-manejo-de-datos-con-tidyverse.html#cb240-27" aria-hidden="true" tabindex="-1"></a><span class="co"># Respuesta: sí, cambió la Federación Rusa por Pakistán.</span></span></code></pre></div>
+</div>
+
+</div>
+<!-- </div> -->
             </section>
 
           </div>
         </div>
       </div>
-<a href="tibbles.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="coerción-de-variables.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="cap.-5-programación-funcional.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -474,7 +530,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/irwingss/intro_r_ciencias/blob/master/03-estructuras-datos.Rmd",
+"link": "https://github.com/irwingss/intro_r_ciencias/blob/master/09-solucionario.Rmd",
 "text": "Editar"
 },
 "history": {

@@ -519,10 +519,10 @@ tapply(npk$yield, npk$block, FUN = sd)
   
   
 ```{r}
-# Cargar iris3
+### Cargar iris3
 data("iris3")
 
-# Convertirla a lista
+### Convertirla a lista
 iris3Lista <- list(setosa = iris3[,,1],
                 versicolor = iris3[,,2],
                 virginica = iris3[,,3])
@@ -536,4 +536,136 @@ lapply(iris3Lista, FUN = function(x) {
 })
 ```
 
+</div>
+
+## Cap. 6: Manejo de datos con tidyverse
+
+<div class="question">
+  1. Carga la base de datos `aids` de la librería **boot**. Se pretenden obtener el promedio de las columnas `delay`, `dud`, `time` e` y`, por cuarto (`quarter`) y por año (`year`). Asegúrate de que la tabla esté reordenada de menor a mayor por año (`year`) y por cuarto (`quarter`).
+  
+**Solución:**
+
+```{r}
+library(boot)
+data("aids")
+
+### Resultado
+aids %>% 
+  group_by(year, quarter) %>% 
+  summarise_at(.vars = vars(delay, dud, time, y),
+               .funs = lst(mean), na.rm=TRUE) %>% 
+  arrange(year, quarter)
+```
+  
+  1. Utilizando la base de dato `aids`, encuentra cuales son los años (o el año) en que se tuvieron valores mayores igual a 30 en `time` y valores de mayores a 25 en `delay`.
+  
+**Solución:**
+  
+```{r}
+library(boot)
+data("aids")
+
+### Resultado
+aids %>% 
+  filter(time >= 30 & delay > 25) %>% 
+  pull(year) %>% 
+  unique()
+```
+</div>
+  
+```{block2, type='rmdnote'}
+Probablemente llegaste por tu cuenta hasta el uso de `filter()`. La función `pull()` extrae una columna como un vector de datos. Es muy útil cuando se desea trabajar con un vector resultante y no con una data frame. La función `unique()` devuelve los valores únicos de un vector, por ello el resultado impreso es solamente `1992`.
+```
+
+<div class="question">
+  1. La función `grepl()` provee una manera muy interesante de filtrar filas. Permite especificar un texto que será buscado dentro de cada palabra en cada celda de dicha columna, para filtrar las filas que contengan dicha cadena de texto. Pueden ser solo letras consecutivas, una palabras completa, etc. Usando `grepl()` dentro de la función `filter()`, se filtrarán las filas que coincidan con la búsqueda hecha por `grepl()`. Una vez entendido el uso de la función `grepl()`, instala y activa la librería `gapminder`, y carga la base de datos del mismo nombre. Filtra las filas que en la columna `country` tengan el patrón de texto "ru". Luego, realiza una segunda *pipeline* para realizar lo mismo pero ahora con el patrón "nia", indicando que se ignore mayúsculas o minúsculas.
+
+```{r}
+### Conjunto de datos
+vector <- c("Andrea","Breta","Mark","Elon")
+
+### Buscar la letra A mayúscula en los elementos del vector
+grepl("A", vector)
+
+### Buscar la letra A (mayúscula o minúscula) en los elementos del vector
+grepl("A", vector, ignore.case = TRUE)
+
+### Buscar re mayúscula en los elementos del vector
+grepl("re", vector)
+```
+
+```{r, eval=FALSE}
+### Inicia el ejercicio con la instalación de gapminder
+install.packages("gapminder")
+library(gapminder)
+```
+
+**Solución:**
+
+```{r}
+library(gapminder)
+data("gapminder")
+
+# Resolución
+gapminder %>% 
+  filter(grepl("ru",country)) %>% 
+  pull(country) %>% 
+  unique()
+
+gapminder %>% 
+  filter(grepl("nia",country, ignore.case = TRUE)) %>% 
+  pull(country) %>% 
+  unique()
+```
+  
+  
+  1. Carga la base de datos `breslow` de la librería **boot**. Esta base contiene información sobre el estatus de fumador/no fumador y  edad de varios pacientes. Filtra las filas de las personas fumadoras (`1`) en la columna `smoke` que tengan `age` (edad) mayor a 40. Si realizas el ejercicio y no te funciona, la respuesta no era tan sencilla como aparenta. Revisar la `str()` de una base de datos es crucial siempre, aquí ayuda a entender que originalmente `age` es un factor, y debería ser numérica para aplicarle el filtrado con mayor a 40. Algo similar pasa con `smoke`, es numérica y debe ser un factor. Utiliza la función respectiva de **dplyr** para transformar estas columnas. Aquí el truco para `age` es primero convertirla de factor a character, y luego a numeric. Pasar de factor directamente a numeric puede hacer que se pierda la información. Juega un poco con la base y notarás estos problemas.
+  
+**Solución:**
+
+```{r}
+library(boot)
+data("breslow")
+
+### Revisar su estructura
+str(breslow)
+
+### Resolver el problema
+breslow %>% 
+  mutate(age = as.character(age),
+         age = as.numeric(age),
+         smoke = as.factor(smoke)) %>% 
+  filter(smoke=="1" & age > 40) 
+```
+
+  1. Carga la base de datos `population` de la librería **tidyr**. Identifica cuales son los seis países con mayor población (asegúrate de expresarlo en millones) en 1995, y luego en 2007. ¿Cambió algún país en la lista del top 6 ordenada de mayor a menor?
+  
+**Solución:**
+  
+```{r}
+library(tidyr)
+data("population")
+
+### Resultado para 1995
+Tabla_A <- population %>% 
+  filter(year == 1995) %>%
+  mutate(Millones = population/1000000) %>% 
+  arrange(desc(population)) %>% 
+  head()
+
+### Resultado para 2007
+Tabla_B <-population %>% 
+  filter(year == 2007) %>%
+  mutate(Millones = population/1000000) %>% 
+  arrange(desc(population)) %>% 
+  head()
+
+### Utilizando anti_join() para ver las filas
+### de Tabla_A que no aparecen en Tabla_B
+### o por decirlo diferente, las filas exclusivas de Tabla_A
+anti_join(Tabla_A, Tabla_B, by="country")
+
+# Respuesta: sí, cambió la Federación Rusa por Pakistán.
+```
+  
 </div>

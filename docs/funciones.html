@@ -23,7 +23,7 @@
 <meta name="author" content="Irwing S. Saldaña" />
 
 
-<meta name="date" content="2022-03-27" />
+<meta name="date" content="2022-03-30" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -301,6 +301,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.13.3" data-path="limpieza-de-datos.html"><a href="limpieza-de-datos.html#en-qué-fila-o-columna-están-los-na"><i class="fa fa-check"></i><b>6.13.3</b> ¿En qué fila o columna están los NA?<span></span></a></li>
 <li class="chapter" data-level="6.13.4" data-path="limpieza-de-datos.html"><a href="limpieza-de-datos.html#cómo-reemplazar-los-na-por-otro-valor"><i class="fa fa-check"></i><b>6.13.4</b> ¿Cómo reemplazar los NA por otro valor?<span></span></a></li>
 </ul></li>
+<li class="chapter" data-level="6.14" data-path="ejercicios-del-capítulo-3.html"><a href="ejercicios-del-capítulo-3.html"><i class="fa fa-check"></i><b>6.14</b> Ejercicios del capítulo<span></span></a></li>
 </ul></li>
 <li class="appendix"><span><b>APÉNDICES<span></span></b></span></li>
 <li class="chapter" data-level="A" data-path="solucionario-de-ejercicios.html"><a href="solucionario-de-ejercicios.html"><i class="fa fa-check"></i><b>A</b> <strong>Solucionario de ejercicios</strong><span></span></a>
@@ -308,6 +309,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="A.1" data-path="cap.-2-primer-contacto-con-r.html"><a href="cap.-2-primer-contacto-con-r.html"><i class="fa fa-check"></i><b>A.1</b> Cap. 2: Primer contacto con R<span></span></a></li>
 <li class="chapter" data-level="A.2" data-path="preg-estructurasdatos.html"><a href="preg-estructurasdatos.html"><i class="fa fa-check"></i><b>A.2</b> Cap. 3: Estructuras de datos<span></span></a></li>
 <li class="chapter" data-level="A.3" data-path="cap.-5-programación-funcional.html"><a href="cap.-5-programación-funcional.html"><i class="fa fa-check"></i><b>A.3</b> Cap. 5: Programación funcional<span></span></a></li>
+<li class="chapter" data-level="A.4" data-path="cap.-6-manejo-de-datos-con-tidyverse.html"><a href="cap.-6-manejo-de-datos-con-tidyverse.html"><i class="fa fa-check"></i><b>A.4</b> Cap. 6: Manejo de datos con tidyverse<span></span></a></li>
 </ul></li>
 <li class="divider"></li>
 <li class='after'">
@@ -359,7 +361,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb23-2"><a href="funciones.html#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="co"># function (x, na.rm = FALSE) </span></span>
 <span id="cb23-3"><a href="funciones.html#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="co"># sqrt(var(if (is.vector(x) || is.factor(x)) x else as.double(x), </span></span>
 <span id="cb23-4"><a href="funciones.html#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="co">#     na.rm = na.rm))</span></span>
-<span id="cb23-5"><a href="funciones.html#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="co"># &lt;bytecode: 0x00000000165f9580&gt;</span></span>
+<span id="cb23-5"><a href="funciones.html#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="co"># &lt;bytecode: 0x0000000015cdfe98&gt;</span></span>
 <span id="cb23-6"><a href="funciones.html#cb23-6" aria-hidden="true" tabindex="-1"></a><span class="co"># &lt;environment: namespace:stats&gt;</span></span></code></pre></div>
 <p>La secuencia de órdenes dentro de <code>sd</code> es corta. Básicamente utiliza la función <code>sqrt()</code> para sacarle la raíz cuadrada a la función <code>var()</code>, esta última calcula la varianza de un conjunto de datos. La estructura del código es propiamente la fórmula matemática para el cálculo de la desviación estándar. Aunque, a decir verdades, el código luce más complejo, y es debido a que aquí la función <code>var()</code> contiene argumentos condicionales para pedir que evalúe si el objeto <code>x</code> es correcto para la función, o si se necesita un cambio antes de procesar<code>x</code> en <code>sd()</code>. Pierde cuidado si no se entiende mucho por ahora, no es necesario comprender las funciones a este nivel al iniciar con R.</p>
 </div>
