@@ -204,8 +204,8 @@ vector4
 
 # Producto de dos vectores de longitud desigual
 vector2 * vector4
-# Warning in vector2 * vector4: longer object length is not a multiple of shorter
-# object length
+# Warning in vector2 * vector4: longitud de objeto mayor no es múltiplo de la longitud
+# de uno menor
 #  [1] 10 22 36 13 28 45 16 34 54 19 40
 ```
 
@@ -626,7 +626,7 @@ TB <- tibble(Col1 = 1:5,
                  Log = c(T,T,F,F,T),
                  Fct = factor(c("A","B","C","B","A")))
 TB
-# # A tibble: 5 x 4
+# # A tibble: 5 × 4
 #    Col1 Col2  Log   Fct  
 #   <int> <chr> <lgl> <fct>
 # 1     1 Sit1  TRUE  A    
@@ -651,7 +651,7 @@ Como se mencionó arriba, la función `list()` permite **crear listas no nombrad
 primeraLista <- list(TB, DF, vector1, F2)
 primeraLista
 # [[1]]
-# # A tibble: 5 x 4
+# # A tibble: 5 × 4
 #    Col1 Col2  Log   Fct  
 #   <int> <chr> <lgl> <fct>
 # 1     1 Sit1  TRUE  A    
@@ -685,7 +685,7 @@ Para **crear una lista nombrada**, se puede colocar cada elemento precedido con 
 L1 <- list(TB = TB, DF = DF, vecThor = vector1, factor = F2)
 L1
 # $TB
-# # A tibble: 5 x 4
+# # A tibble: 5 × 4
 #    Col1 Col2  Log   Fct  
 #   <int> <chr> <lgl> <fct>
 # 1     1 Sit1  TRUE  A    
@@ -717,7 +717,7 @@ Resulta muy engorroso tener que colocar los nombres dado que las variables ya ti
 L2 <- dplyr::lst(TB, DF, vector1, F2)
 L2
 # $TB
-# # A tibble: 5 x 4
+# # A tibble: 5 × 4
 #    Col1 Col2  Log   Fct  
 #   <int> <chr> <lgl> <fct>
 # 1     1 Sit1  TRUE  A    

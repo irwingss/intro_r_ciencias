@@ -330,7 +330,7 @@ miPais <- "Peru"
 
 ### Coercer hacia número
 as.numeric(miPais)
-# Warning: NAs introduced by coercion
+# Warning: NAs introducidos por coerción
 # [1] NA
 ```
 
@@ -766,7 +766,7 @@ aids %>%
   summarise_at(.vars = vars(delay, dud, time, y),
                .funs = lst(mean), na.rm=TRUE) %>% 
   arrange(year, quarter)
-# # A tibble: 38 x 6
+# # A tibble: 38 × 6
 # # Groups:   year [10]
 #    year quarter delay_mean dud_mean time_mean y_mean
 #   <dbl>   <dbl>      <dbl>    <dbl>     <dbl>  <dbl>
@@ -776,7 +776,7 @@ aids %>%
 # 4  1984       2       20.1        0         4  1    
 # 5  1984       3       20.1        0         5  2    
 # 6  1984       4       20.1        0         6  2.6  
-# # ... with 32 more rows
+# # … with 32 more rows
 ```
   
   1. Utilizando la base de dato `aids`, encuentra cuales son los años (o el año) en que se tuvieron valores mayores igual a 30 en `time` y valores de mayores a 25 en `delay`.
@@ -910,7 +910,7 @@ Tabla_B <-population %>%
 ### de Tabla_A que no aparecen en Tabla_B
 ### o por decirlo diferente, las filas exclusivas de Tabla_A
 anti_join(Tabla_A, Tabla_B, by="country")
-# # A tibble: 1 x 4
+# # A tibble: 1 × 4
 #   country             year population Millones
 #   <chr>              <int>      <int>    <dbl>
 # 1 Russian Federation  1995  148602147     149.

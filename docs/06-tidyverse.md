@@ -660,7 +660,7 @@ WHO %>%
   dplyr::select(Country, Year, Polio, Diph) %>%
   group_by(Year) %>% 
   head()
-# # A tibble: 6 x 4
+# # A tibble: 6 × 4
 # # Groups:   Year [6]
 #   Country      Year Polio  Diph
 #   <chr>       <dbl> <dbl> <dbl>
@@ -738,7 +738,7 @@ WHO %>%
             GDP_prom = mean(GDP),
             GDP_sd = sd(GDP)) %>% 
   ungroup()
-# # A tibble: 16 x 5
+# # A tibble: 16 × 5
 #    Year Promed   Pol GDP_prom GDP_sd
 #   <dbl>  <dbl> <dbl>    <dbl>  <dbl>
 # 1  2000   66.8    NA       NA     NA
@@ -747,7 +747,7 @@ WHO %>%
 # 4  2003   67.4    NA       NA     NA
 # 5  2004   67.6    NA       NA     NA
 # 6  2005   68.2    NA       NA     NA
-# # ... with 10 more rows
+# # … with 10 more rows
 ```
 
 
@@ -761,7 +761,7 @@ WHO %>%
             GDP_prom = mean(GDP, na.rm = TRUE),
             GDP_sd = sd(GDP, na.rm = TRUE)) %>% 
   ungroup()
-# # A tibble: 16 x 5
+# # A tibble: 16 × 5
 #    Year Promed   Pol GDP_prom GDP_sd
 #   <dbl>  <dbl> <dbl>    <dbl>  <dbl>
 # 1  2000   66.8    88    4709.  9182.
@@ -770,7 +770,7 @@ WHO %>%
 # 4  2003   67.4    91    4775.  9144.
 # 5  2004   67.6    91    7056. 13504.
 # 6  2005   68.2    93    7250. 13107.
-# # ... with 10 more rows
+# # … with 10 more rows
 ```
 :::
 
@@ -815,7 +815,7 @@ WHO %>%
                 na.rm=TRUE)%>% 
   ungroup()
 # Adding missing grouping variables: `Country`
-# # A tibble: 3 x 7
+# # A tibble: 3 × 7
 #   Country  GDP_mean Life_exp_mean  Pop_mean   GDP_var Life_exp_var Pop_var
 #   <chr>       <dbl>         <dbl>     <dbl>     <dbl>        <dbl>   <dbl>
 # 1 Colombia    3322.          73.3 31767433.  7555129.        1.16  4.08e14
@@ -847,13 +847,14 @@ WHO %>%
                .funs = lst(mean, median, sd),  
                na.rm=TRUE)%>% 
   ungroup()
-# # A tibble: 3 x 10
-#   Country  GDP_mean Life_exp_mean  Pop_mean GDP_median Life_exp_median Pop_median
-#   <chr>       <dbl>         <dbl>     <dbl>      <dbl>           <dbl>      <dbl>
-# 1 Colombia    3322.          73.3 31767433.      2434.            73.5  43004898.
-# 2 Mexico      5179.          75.7 27585265.      6976.            75.6  11460708.
-# 3 Peru        2929.          73.7 16854322.      2601.            73.8  26088121 
-# # ... with 3 more variables: GDP_sd <dbl>, Life_exp_sd <dbl>, Pop_sd <dbl>
+# # A tibble: 3 × 10
+#   Country  GDP_mean Life_exp…¹ Pop_m…² GDP_m…³ Life_…⁴ Pop_m…⁵ GDP_sd Life_…⁶ Pop_sd
+#   <chr>       <dbl>      <dbl>   <dbl>   <dbl>   <dbl>   <dbl>  <dbl>   <dbl>  <dbl>
+# 1 Colombia    3322.       73.3  3.18e7   2434.    73.5  4.30e7  2749.   1.08  2.02e7
+# 2 Mexico      5179.       75.7  2.76e7   6976.    75.6  1.15e7  3920.   0.621 4.50e7
+# 3 Peru        2929.       73.7  1.69e7   2601.    73.8  2.61e7  2379.   1.28  1.33e7
+# # … with abbreviated variable names ¹​Life_exp_mean, ²​Pop_mean, ³​GDP_median,
+# #   ⁴​Life_exp_median, ⁵​Pop_median, ⁶​Life_exp_sd
 ```
 :::
 
@@ -898,7 +899,7 @@ WHO %>%
   group_by(Country) %>% 
   summarise_at(.vars = vars(GDP), .funs = lst(mean, sd), na.rm = TRUE) %>% 
   arrange(desc(mean))
-# # A tibble: 4 x 3
+# # A tibble: 4 × 3
 #   Country       mean    sd
 #   <chr>        <dbl> <dbl>
 # 1 Qatar       86083. 2344.

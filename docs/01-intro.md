@@ -185,7 +185,9 @@ Para instalarlo, copia las líneas de código completas en la consola.
 
 
 ```r
+install.packages("xml2")
 install.packages("rstudioapi")
+install.packages("fs")
 tema_BrackInstitute <- fs::path_temp("tema_BrackInstitute", ext = "tmTheme")
 download.file("https://raw.githubusercontent.com/irwingss/Primolius-Theme/main/BrackInstitute.tmTheme",tema_BrackInstitute)
 rstudioapi::addTheme(tema_BrackInstitute, apply = TRUE)
