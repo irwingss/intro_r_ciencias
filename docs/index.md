@@ -9,7 +9,7 @@ title: "Introducción a R para Ciencias"
 subtitle: "Una gentil introducción al mundo de la programación para investigadores"
 author: "Irwing S. Saldaña"
 description: "Libro introductorio al uso del lenguaje de programación R, con ejemplos orientados a ciencias"
-date: "2022-09-23"
+date: "2022-09-26"
 bibliography: [book.bib, packages.bib]
 biblio-style: apalike
 colorlinks: yes
@@ -46,11 +46,17 @@ Esta página web es de *libre uso dentro de los términos autorizados* bajo la [
 
 El libro cuenta con capítulos secuenciales. Si es tu primera vez con R, se sugiere continuar la secuencia. La información está organizada de manera que permita al lector identificar la teoría y ejemplos, junto con ciertos contenidos resaltados como se muestra a continuación:
 
-\BeginKnitrBlock{rmdnote}<div class="rmdnote">**NOTAS SOBRE EL CÓDIGO:** brindan ayuda respecto al código. Incluye comandos adicionales, sugerencias o alternativas para escribir de manera más sencilla y clara en el lenguaje R.</div>\EndKnitrBlock{rmdnote}
+\BeginKnitrBlock{rmdnote}
+**NOTAS SOBRE EL CÓDIGO:** brindan ayuda respecto al código. Incluye comandos adicionales, sugerencias o alternativas para escribir de manera más sencilla y clara en el lenguaje R.
+\EndKnitrBlock{rmdnote}
 
-\BeginKnitrBlock{rmdtip}<div class="rmdtip">**COMENTARIOS:** con aclaraciones y mensajes que ayudarán a entender mejor lo explicado.</div>\EndKnitrBlock{rmdtip}
+\BeginKnitrBlock{rmdtip}
+**COMENTARIOS:** con aclaraciones y mensajes que ayudarán a entender mejor lo explicado.
+\EndKnitrBlock{rmdtip}
 
-\BeginKnitrBlock{rmdwarning}<div class="rmdwarning">**ADVERTENCIAS:** de índole metodológica, técnica, o sobre alguna particularidad del código.</div>\EndKnitrBlock{rmdwarning}
+\BeginKnitrBlock{rmdwarning}
+**ADVERTENCIAS:** de índole metodológica, técnica, o sobre alguna particularidad del código.
+\EndKnitrBlock{rmdwarning}
 
 # **Prefacio** {.unnumbered}
 
@@ -60,10 +66,14 @@ Sin importar tu carrera de origen, es más que seguro nunca pensaste que algún 
 
 (ref:porquer1) Fortalezas que presenta el lenguaje de programación R y lo destacan por sobre otros lenguajes como Python o Julia.
 
-<div class="figure" style="text-align: center">
-<img src="figs/elaboradas/Por que R.png" alt="(ref:porquer1)" width="100%" />
-<p class="caption">(\#fig:figura01)(ref:porquer1)</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{figs/elaboradas/Por que R} 
+
+}
+
+\caption{(ref:porquer1)}(\#fig:figura01)
+\end{figure}
 
 R es uno de los lenguajes más populares para ciencia de datos e investigación científica. Es considerado uno de los lenguajes de programación más sencillos de aprender. Tres razones técnicas por las cuales aprender R por sobre otros lenguajes implican:
 

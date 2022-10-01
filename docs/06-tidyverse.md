@@ -15,10 +15,14 @@ Para más detalles, visita la página web de [tidyverse](https://www.tidyverse.o
 
 (ref:tidyverse1) Librerías de tidyverse y asociadas. Se ha creado una masiva cantidad de librerías que mejoran las particularidades de tidyverse para ofrecer una experiencia de usuario más completa en diferentes áreas:carga de datos, reordenamiento, transformación, programación, manipulación de datos, graficación, modelamiento y publicación.
 
-<div class="figure" style="text-align: center">
-<img src="figs/elaboradas/tidyverse universo.png" alt="(ref:tidyverse1)" width="100%" />
-<p class="caption">(\#fig:figura49)(ref:tidyverse1)</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{figs/elaboradas/tidyverse universo} 
+
+}
+
+\caption{(ref:tidyverse1)}(\#fig:figura49)
+\end{figure}
 
 <br>
 
@@ -26,10 +30,14 @@ Más allá de los ocho paquetes núcleo de **tidyverse**, se ha desarrollado una
 
 (ref:pipelineejemeplo1) Ejemplo del uso de pipe (`%>%`) en una pipeline para trabajar con tidyverse.
 
-<div class="figure" style="text-align: center">
-<img src="figs/screenshots/pipeline ejemplo.png" alt="(ref:pipelineejemeplo1)" width="100%" />
-<p class="caption">(\#fig:figura50)(ref:pipelineejemeplo1)</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{figs/screenshots/pipeline ejemplo} 
+
+}
+
+\caption{(ref:pipelineejemeplo1)}(\#fig:figura50)
+\end{figure}
 
 #### Activación de **tidyverse** {.unnumbered}
 
@@ -53,10 +61,14 @@ Tras activar **tidyverse**, aparecerán en la consola los paquetes nucleo que es
 
 (ref:conflictostidyverse) Vista previa de los conflictos detectados en consola tras la activación de la librería **tidyverse**.
 
-<div class="figure" style="text-align: center">
-<img src="figs/screenshots/conflictos tidyverse.jpg" alt="(ref:conflictostidyverse)" width="100%" />
-<p class="caption">(\#fig:conflictotidyverse)(ref:conflictostidyverse)</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{figs/screenshots/conflictos tidyverse} 
+
+}
+
+\caption{(ref:conflictostidyverse)}(\#fig:conflictotidyverse)
+\end{figure}
 
 Para **resolver el conflicto**, cada vez que se use una función conflictiva se debe especificar la librería de origen con el operador `::`; el código debe ser como el siguiente: `dplyr::filter()`. R reconocerá que se está utilizando la función `filter()` del paquete **dplyr**.
 
@@ -71,10 +83,14 @@ Un gran porcentaje del tiempo que se suele emplear en el análisis de datos en R
 
 (ref:tidy1) Datos ordenados correctamente para analizar en R
 
-<div class="figure" style="text-align: center">
-<img src="figs/elaboradas/datos tidy.png" alt="(ref:tidy1)" width="100%" />
-<p class="caption">(\#fig:figura51)(ref:tidy1)</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{figs/elaboradas/datos tidy} 
+
+}
+
+\caption{(ref:tidy1)}(\#fig:figura51)
+\end{figure}
 
 El estructurar las bases de datos de esta manera se puede hacer fuera del entorno de R, utilizando el gestor de hojas de cálculo de tu preferencia.
 
@@ -84,31 +100,47 @@ En principio, recordando que cada columna es una variable en las que cada fila s
 
 (ref:excel1) Evitar poner encabezados (texto en negritas), comentarios o usar columnas que no contengan datos (texto resaltado). Celdas fusionadas (texto en rojo) generan problemas porque al cargarse en RStudio, las celdas se desagregan y dejan espacios en blanco.
 
-<div class="figure" style="text-align: center">
-<img src="figs/screenshots/excel1.jpg" alt="(ref:excel1)" width="100%" />
-<p class="caption">(\#fig:figura52)(ref:excel1)</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{figs/screenshots/excel1} 
+
+}
+
+\caption{(ref:excel1)}(\#fig:figura52)
+\end{figure}
 
 (ref:excel2) Evitar colocar más de una variable de medición en una columna. En este caso, la columna `Status` contiene información de estado, categoría y nivel. Estas deben ser tratadas como variables independientes unas de otras.
 
-<div class="figure" style="text-align: center">
-<img src="figs/screenshots/excel2.jpg" alt="(ref:excel2)" width="100%" />
-<p class="caption">(\#fig:figura53)(ref:excel2)</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{figs/screenshots/excel2} 
+
+}
+
+\caption{(ref:excel2)}(\#fig:figura53)
+\end{figure}
 
 (ref:excel3) Evitar nombres complejos como nombre de variable (columna). Al cargar en R, dependiendo de la función, los espacios en blanco entre palabras se autocorregirán por `.` o `_`. Es mejor modificar estos nombres para simplificarlos, acortarlos y evitar espacios en blanco.
 
-<div class="figure" style="text-align: center">
-<img src="figs/screenshots/excel3.jpg" alt="(ref:excel3)" width="100%" />
-<p class="caption">(\#fig:figura54)(ref:excel3)</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{figs/screenshots/excel3} 
+
+}
+
+\caption{(ref:excel3)}(\#fig:figura54)
+\end{figure}
 
 (ref:excel4) Si una variable contiene categorías, es probable que en R la quieras tratar como factor para análisis o graficación. Evita nombres de categorías excesivamente largos o con símbolos extraños. Puedes asegurarte en convertirlos a categorías numéricas (1, 2, 3, etc.).
 
-<div class="figure" style="text-align: center">
-<img src="figs/screenshots/excel4.jpg" alt="(ref:excel4)" width="100%" />
-<p class="caption">(\#fig:figura55)(ref:excel4)</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{figs/screenshots/excel4} 
+
+}
+
+\caption{(ref:excel4)}(\#fig:figura55)
+\end{figure}
 
 Como dato adicional. Trata de utilizar una sola hoja de cálculo por archivo. Facilitará la carga de datos.
 
@@ -118,10 +150,14 @@ Con todas las consideraciones mencionadas, una base de datos perfectamente tidy 
 
 (ref:excel5) Tabla de datos ordenada. Vista de hoja de cálculo.
 
-<div class="figure" style="text-align: center">
-<img src="figs/screenshots/excel5.jpg" alt="(ref:excel5)" width="100%" />
-<p class="caption">(\#fig:figura56)(ref:excel5)</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{figs/screenshots/excel5} 
+
+}
+
+\caption{(ref:excel5)}(\#fig:figura56)
+\end{figure}
 
 Asumiendo que se está utilizando proyectos de RStudio, y que la base de datos `WHO_tidy.xlsx` existe dentro de dicha carpeta, el código para cargar la base datos en R es:
 
@@ -132,10 +168,14 @@ WHO <- openxlsx::read.xlsx("WHO_tidy.xlsx")
 
 (ref:excel6) Tabla perfectamente ordenada vista en RStudio.
 
-<div class="figure" style="text-align: center">
-<img src="figs/screenshots/excel6.jpg" alt="(ref:excel6)" width="100%" />
-<p class="caption">(\#fig:figura57)(ref:excel6)</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{figs/screenshots/excel6} 
+
+}
+
+\caption{(ref:excel6)}(\#fig:figura57)
+\end{figure}
 
 
 
@@ -242,10 +282,14 @@ Boston %>%
         title = element_text(face = 2))
 ```
 
-<div class="figure" style="text-align: center">
-<img src="06-tidyverse_files/figure-html/figura58-1.svg" alt="Ejemplo de código con ggplot2 y dplyr utilizando una pipeline." width="100%" />
-<p class="caption">(\#fig:figura58)Ejemplo de código con ggplot2 y dplyr utilizando una pipeline.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{06-tidyverse_files/figure-latex/figura58-1} 
+
+}
+
+\caption{Ejemplo de código con ggplot2 y dplyr utilizando una pipeline.}(\#fig:figura58)
+\end{figure}
 
 ## Tablas anchas y largas con tidyr
 
@@ -256,10 +300,14 @@ En general, mucho de lo que se puede hacer en R necesita de tablas anchas. Este 
 
 (ref:anchasylargas1) Comparativa entre tabla ancha y larga, y las funciones para pasar de una estructura a otra.
 
-<div class="figure" style="text-align: center">
-<img src="figs/elaboradas/tablas ancha y larga.png" alt="(ref:anchasylargas1)" width="100%" />
-<p class="caption">(\#fig:figura59)(ref:anchasylargas1)</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{figs/elaboradas/tablas ancha y larga} 
+
+}
+
+\caption{(ref:anchasylargas1)}(\#fig:figura59)
+\end{figure}
 
 ### De ancha a larga
 
@@ -480,7 +528,9 @@ WHO %>%
 
 Al igual que con el filtrado de filas, una sola función para seleccionar columnas, `select()`. La función devuelve solo las columnas seleccionadas, ya sea utilizando sus nombres o su indexación de posición. El orden en el que coloques las columnas dentro de la función será el orden en el que aparecerán en el resultado final.
 
-\BeginKnitrBlock{rmdtip}<div class="rmdtip">A partir de la reciente versión de R 4.1.3., en algunos equipos es necesario colocar `dplyr::select()` en lugar de simplemente usar `select()`. Si en tu equipo funciona directamente `select()`, no te preocupes en mencionar de qué paquete procede.</div>\EndKnitrBlock{rmdtip}
+\BeginKnitrBlock{rmdtip}
+A partir de la reciente versión de R 4.1.3., en algunos equipos es necesario colocar `dplyr::select()` en lugar de simplemente usar `select()`. Si en tu equipo funciona directamente `select()`, no te preocupes en mencionar de qué paquete procede.
+\EndKnitrBlock{rmdtip}
 
 ::: {.example}
 Considerando la base de datos `WHO`, seleccionar las columnas `Country`, `Year`, `Polio`, `Diph`, utilizando posición y nombre. Mostrar las primeras 6 filas.
@@ -597,7 +647,9 @@ WHO %>%
 ```
 :::
 
-\BeginKnitrBlock{rmdnote}<div class="rmdnote">Las dos funciones que se verán a continuación permiten seleccionar utilizando una o varias letras iniciales o finales de cada nombre. La búsqueda no es sensible a si la letra es mayúscula o minúscula.</div>\EndKnitrBlock{rmdnote}
+\BeginKnitrBlock{rmdnote}
+Las dos funciones que se verán a continuación permiten seleccionar utilizando una o varias letras iniciales o finales de cada nombre. La búsqueda no es sensible a si la letra es mayúscula o minúscula.
+\EndKnitrBlock{rmdnote}
 
 ::: {.example}
 Seleccionar las columnas **cuyo nombre comience con** la letra S. Mostrar las primeras 6 filas.
@@ -645,7 +697,9 @@ Esto es muy útil cuando se debe generar resúmenes estadísticos, por ejemplo p
 
 En el siguiente ejemplo solo veremos la agrupación, visible como un dato extra mostrado en consola impreso encima la tabla. Más adelante se usará agrupamiento dentro de una *pipeline* más realista.
 
-\BeginKnitrBlock{rmdwarning}<div class="rmdwarning">Es **importante desagrupar** una vez que se acabaron los cálculos hechos con la pipeline. El no colocar `ungroup()` al final producirá errores cuando más adelante se usa la base de datos resultante en otras *pipelines*. Nunca dejes un `group_by()` sin desagrupar al final.</div>\EndKnitrBlock{rmdwarning}
+\BeginKnitrBlock{rmdwarning}
+Es **importante desagrupar** una vez que se acabaron los cálculos hechos con la pipeline. El no colocar `ungroup()` al final producirá errores cuando más adelante se usa la base de datos resultante en otras *pipelines*. Nunca dejes un `group_by()` sin desagrupar al final.
+\EndKnitrBlock{rmdwarning}
 
 ::: {.example}
 Seleccionar las columnas `Country`, `Year`, `Polio`, `Diph`, y agrupar la base de datos `WHO` por año (columna `Year`). Mostrar las primeras 6 filas.
@@ -660,7 +714,7 @@ WHO %>%
   dplyr::select(Country, Year, Polio, Diph) %>%
   group_by(Year) %>% 
   head()
-# # A tibble: 6 × 4
+# # A tibble: 6 x 4
 # # Groups:   Year [6]
 #   Country      Year Polio  Diph
 #   <chr>       <dbl> <dbl> <dbl>
@@ -673,7 +727,9 @@ WHO %>%
 ```
 :::
 
-\BeginKnitrBlock{rmdnote}<div class="rmdnote">Si estas seleccionando y luego agrupando, asegúrate de que la columna de agrupamiento esté dentro de las seleccionadas. La función antagonista de `group_by()` es `ungroup()`.</div>\EndKnitrBlock{rmdnote}
+\BeginKnitrBlock{rmdnote}
+Si estas seleccionando y luego agrupando, asegúrate de que la columna de agrupamiento esté dentro de las seleccionadas. La función antagonista de `group_by()` es `ungroup()`.
+\EndKnitrBlock{rmdnote}
 
 ## Conteo
 
@@ -721,7 +777,9 @@ BASE_DE_DATOS %>% ... %>%
   summarise(COLUMNA_NUEVA = FUNCION_ESTADÍSTICA(COLUMNA_ANTIGUA))
 ```
 
-\BeginKnitrBlock{rmdtip}<div class="rmdtip">Las funciones estadísticas como `mean()`, `median()` y las demás mencionadas arriba, tienen problemas lidiando con valores `NA`. Si se calcula el promedio de una columna que se conoce contiene `NA`, se debe colocar el argumento `na.rm = TRUE` dentro de cada función para hacer esta obvie los `NA` y calcule el estimados estadístico deseado. Por ejemplo `mean(vector, na.rm = TRUE)`.</div>\EndKnitrBlock{rmdtip}
+\BeginKnitrBlock{rmdtip}
+Las funciones estadísticas como `mean()`, `median()` y las demás mencionadas arriba, tienen problemas lidiando con valores `NA`. Si se calcula el promedio de una columna que se conoce contiene `NA`, se debe colocar el argumento `na.rm = TRUE` dentro de cada función para hacer esta obvie los `NA` y calcule el estimados estadístico deseado. Por ejemplo `mean(vector, na.rm = TRUE)`.
+\EndKnitrBlock{rmdtip}
 
 <br>
 
@@ -738,7 +796,7 @@ WHO %>%
             GDP_prom = mean(GDP),
             GDP_sd = sd(GDP)) %>% 
   ungroup()
-# # A tibble: 16 × 5
+# # A tibble: 16 x 5
 #    Year Promed   Pol GDP_prom GDP_sd
 #   <dbl>  <dbl> <dbl>    <dbl>  <dbl>
 # 1  2000   66.8    NA       NA     NA
@@ -747,7 +805,7 @@ WHO %>%
 # 4  2003   67.4    NA       NA     NA
 # 5  2004   67.6    NA       NA     NA
 # 6  2005   68.2    NA       NA     NA
-# # … with 10 more rows
+# # ... with 10 more rows
 ```
 
 
@@ -761,7 +819,7 @@ WHO %>%
             GDP_prom = mean(GDP, na.rm = TRUE),
             GDP_sd = sd(GDP, na.rm = TRUE)) %>% 
   ungroup()
-# # A tibble: 16 × 5
+# # A tibble: 16 x 5
 #    Year Promed   Pol GDP_prom GDP_sd
 #   <dbl>  <dbl> <dbl>    <dbl>  <dbl>
 # 1  2000   66.8    88    4709.  9182.
@@ -770,7 +828,7 @@ WHO %>%
 # 4  2003   67.4    91    4775.  9144.
 # 5  2004   67.6    91    7056. 13504.
 # 6  2005   68.2    93    7250. 13107.
-# # … with 10 more rows
+# # ... with 10 more rows
 ```
 :::
 
@@ -815,7 +873,7 @@ WHO %>%
                 na.rm=TRUE)%>% 
   ungroup()
 # Adding missing grouping variables: `Country`
-# # A tibble: 3 × 7
+# # A tibble: 3 x 7
 #   Country  GDP_mean Life_exp_mean  Pop_mean   GDP_var Life_exp_var Pop_var
 #   <chr>       <dbl>         <dbl>     <dbl>     <dbl>        <dbl>   <dbl>
 # 1 Colombia    3322.          73.3 31767433.  7555129.        1.16  4.08e14
@@ -847,14 +905,14 @@ WHO %>%
                .funs = lst(mean, median, sd),  
                na.rm=TRUE)%>% 
   ungroup()
-# # A tibble: 3 × 10
-#   Country  GDP_mean Life_exp…¹ Pop_m…² GDP_m…³ Life_…⁴ Pop_m…⁵ GDP_sd Life_…⁶ Pop_sd
+# # A tibble: 3 x 10
+#   Country  GDP_mean Life_exp~1 Pop_m~2 GDP_m~3 Life_~4 Pop_m~5 GDP_sd Life_~6 Pop_sd
 #   <chr>       <dbl>      <dbl>   <dbl>   <dbl>   <dbl>   <dbl>  <dbl>   <dbl>  <dbl>
 # 1 Colombia    3322.       73.3  3.18e7   2434.    73.5  4.30e7  2749.   1.08  2.02e7
 # 2 Mexico      5179.       75.7  2.76e7   6976.    75.6  1.15e7  3920.   0.621 4.50e7
 # 3 Peru        2929.       73.7  1.69e7   2601.    73.8  2.61e7  2379.   1.28  1.33e7
-# # … with abbreviated variable names ¹​Life_exp_mean, ²​Pop_mean, ³​GDP_median,
-# #   ⁴​Life_exp_median, ⁵​Pop_median, ⁶​Life_exp_sd
+# # ... with abbreviated variable names 1: Life_exp_mean, 2: Pop_mean, 3: GDP_median,
+# #   4: Life_exp_median, 5: Pop_median, 6: Life_exp_sd
 ```
 :::
 
@@ -899,7 +957,7 @@ WHO %>%
   group_by(Country) %>% 
   summarise_at(.vars = vars(GDP), .funs = lst(mean, sd), na.rm = TRUE) %>% 
   arrange(desc(mean))
-# # A tibble: 4 × 3
+# # A tibble: 4 x 3
 #   Country       mean    sd
 #   <chr>        <dbl> <dbl>
 # 1 Qatar       86083. 2344.
@@ -930,7 +988,9 @@ BASE_DE_DATOS %>% ... %>%
          COL_NUEVA4 = FUNCION_DE_TRANSFORMACION(COL_NUEVA1))
 ```
 
-\BeginKnitrBlock{rmdtip}<div class="rmdtip">El resultado de transformación con `transmute()` es el mismo, excepto que las nuevas columnas aparecerán solitarias en su propia tabla, separadas de la original. Con `mutate()`, las nuevas columnas aparecen adjuntas a la derecha de la última columna dentro de la tabla original.</div>\EndKnitrBlock{rmdtip}
+\BeginKnitrBlock{rmdtip}
+El resultado de transformación con `transmute()` es el mismo, excepto que las nuevas columnas aparecerán solitarias en su propia tabla, separadas de la original. Con `mutate()`, las nuevas columnas aparecen adjuntas a la derecha de la última columna dentro de la tabla original.
+\EndKnitrBlock{rmdtip}
 
 ::: {.example #summariseall}
 Se pretende ejemplificar un nuevo índice de la relación Poliomielitis - Sarampión utilizando la fórmula:
@@ -1008,7 +1068,9 @@ BASE_DE_DATOS %>%
   mutate_all(.funs = lst(LISTA_DE_FUNCIONES))
 ```
 
-\BeginKnitrBlock{rmdnote}<div class="rmdnote">Si la función a usar en el argumento `.funs =` require más de un argumento para funcionar, es mejor crear una función con todas los argumentos definidos tal y como se necesitan. Luego usa la función nueva dentro de alguna función de la familia `mutate()`.  </div>\EndKnitrBlock{rmdnote}
+\BeginKnitrBlock{rmdnote}
+Si la función a usar en el argumento `.funs =` require más de un argumento para funcionar, es mejor crear una función con todas los argumentos definidos tal y como se necesitan. Luego usa la función nueva dentro de alguna función de la familia `mutate()`.  
+\EndKnitrBlock{rmdnote}
 
 ::: {.example #mutateall}
 Seleccionando las columnas `Income`, `GDP` y `Life_exp`, aplicar la función `round()` para redondear a un dígito los decimales de estas columnas. Crea previamente la función `rr()` para redondear a dos decimales un valor dado.
@@ -1119,10 +1181,14 @@ Combinar bases de datos es una tarea recurrente en ciencia de datos. Las funcion
 
 (ref:combina1) Funciones de combinación de **dplyr** y resultado esperado. El color indica la base de datos de origen de las filas que aparecerán en la tabla de resultados. 
 
-<div class="figure" style="text-align: center">
-<img src="figs/elaboradas/Combinar datasets.png" alt="(ref:combina1)" width="100%" />
-<p class="caption">(\#fig:figura60)(ref:combina1)</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{figs/elaboradas/Combinar datasets} 
+
+}
+
+\caption{(ref:combina1)}(\#fig:figura60)
+\end{figure}
 
 Veamos la aplicación de estas funciones con un ejemplo muy simple.
 
@@ -1238,7 +1304,9 @@ anti_join(Base_A, Base_B, by="ID")
 
 Esta sección abordará algunos tópicos de limpieza de datos o *Data cleaning*. Como ya se ha revisado, los valores perdidos o `NA` causan problemas en el cálculo de parámetros estadísticos de las bases de datos. Más aún, cuando se pretende modelar la relación de una variable Y con los valores de una variable X, es imposible hacer regresión alguna con valores perdidos. Para estos casos, limpiar la base de datos será crucial. 
 
-\BeginKnitrBlock{rmdnote}<div class="rmdnote">Siempre que necesites identificar si un elemento dentro de un objeto es `NA` o no, podrás utilizar la función `is.na()`. Esta devolverá un objeto lógico con la misma extensión que el objeto original. En aquellas posiciones donde exista un `NA` en la base de datos original, `is.na()` mostrará `TRUE`.</div>\EndKnitrBlock{rmdnote}
+\BeginKnitrBlock{rmdnote}
+Siempre que necesites identificar si un elemento dentro de un objeto es `NA` o no, podrás utilizar la función `is.na()`. Esta devolverá un objeto lógico con la misma extensión que el objeto original. En aquellas posiciones donde exista un `NA` en la base de datos original, `is.na()` mostrará `TRUE`.
+\EndKnitrBlock{rmdnote}
 
 ### ¿Cuántos NA existen en la base de datos?
 
@@ -1335,7 +1403,9 @@ which(WHO_logical, arr.ind=TRUE) %>%
 ```
 :::
 
-\BeginKnitrBlock{rmdtip}<div class="rmdtip">En inglés, *row* significa fila y *col* columna.</div>\EndKnitrBlock{rmdtip}
+\BeginKnitrBlock{rmdtip}
+En inglés, *row* significa fila y *col* columna.
+\EndKnitrBlock{rmdtip}
 
 ### ¿Cómo reemplazar los NA por otro valor?
 

@@ -6,20 +6,26 @@ Estos tópicos son considerados por muchos autores como el una introducción a R
 
 (ref:programming1) Ejemplo sencillo del uso de programación funcional con loops (ciclos o iteraciones repetidas *i* veces) para obtener un resultado.
 
-<div class="figure" style="text-align: center">
-<img src="figs/screenshots/programming.png" alt="(ref:programming1)" width="100%" />
-<p class="caption">(\#fig:figura48)(ref:programming1)</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{figs/screenshots/programming} 
+
+}
+
+\caption{(ref:programming1)}(\#fig:figura48)
+\end{figure}
 
 ## Creación de funciones {#creacion-fun}
 
 La gran comunidad de desarrollo detrás de R ha creado una infinidad de funciones, almacenadas en los miles de paquetes (o librerías), disponibles en el repositorio oficial `CRAN`, así como en repositorios secundarios (ver sección [1.6 Librerías y repositorios](#librerías-y-repositorios)). Es casi seguro que más adelante te será útil crear funciones con las que suplir alguna necesidad en el análisis de datos. Cuando se detecta que algunas secuencias de órdenes se suelen repetir, crear una función que empaquete dicha secuencia permitirá *automatizar procedimientos y simplificar el código*. Como regla general, si copias y pegas una secuencia de órdenes para usarla más de 2 veces, ya se debería pensar en crear una función que compile la tarea. 
 
-\BeginKnitrBlock{rmdnote}<div class="rmdnote">**Crear un función involucra los siguientes pasos:**
+\BeginKnitrBlock{rmdnote}
+**Crear un función involucra los siguientes pasos:**
 
 1. Darle un nombre. Crear una función es como crear una variable: hay que asignarle un contenido a un nombre.
 2. Luego de escribir el nombre, se tiene que usar la función llamada `function()`para indicar qué argumentos tendrá la nueva función.
-3. Definir el contenido de la función, la secuencia de órdenes, dentro de corchetes. Dentro de ellos se usarán los argumentos establecidos en `function()`.</div>\EndKnitrBlock{rmdnote}
+3. Definir el contenido de la función, la secuencia de órdenes, dentro de corchetes. Dentro de ellos se usarán los argumentos establecidos en `function()`.
+\EndKnitrBlock{rmdnote}
 
 ### Ejemplo simple
 
@@ -135,10 +141,14 @@ En R existen algunos operadores para controlar el flujo de las acciones a tomar 
 
 (ref:control1) Diagramas de flujo para comprender cómo funcionan las principales estructuras de control de flujo en  programación con R.
 
-<div class="figure" style="text-align: center">
-<img src="figs/elaboradas/Contro de Flujo en R.png" alt="(ref:control1)" width="100%" />
-<p class="caption">(\#fig:figura65)(ref:control1)</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{figs/elaboradas/Contro de Flujo en R} 
+
+}
+
+\caption{(ref:control1)}(\#fig:figura65)
+\end{figure}
 
 
 ### Control con `if`
@@ -370,7 +380,9 @@ if (is.numeric(valor) == TRUE) {
 ```
 :::
 
-\BeginKnitrBlock{rmdnote}<div class="rmdnote">Tanto `if` como `else` permiten evaluar elementos dentro de una función y pueden funcionar como **interruptores** que de decanten en la elección de una ruta de análisis en relación a una condición relacionada con el elemento u objeto de entrada.</div>\EndKnitrBlock{rmdnote}
+\BeginKnitrBlock{rmdnote}
+Tanto `if` como `else` permiten evaluar elementos dentro de una función y pueden funcionar como **interruptores** que de decanten en la elección de una ruta de análisis en relación a una condición relacionada con el elemento u objeto de entrada.
+\EndKnitrBlock{rmdnote}
 
 Para entender la importancia de estos **interruptores** en la creación de funciones, revisemos el contenido de la función `dist()`, que calcula una matriz de distancias para análisis multivariados. Para esta función, es importante especificar qué método de cálculo de distancias se debe usar. Siempre existirá alguno definido por defecto, en este caso `"euclidean"` (distancia euclidiana). Reconoce las estructuras `if` y `else` que usa la función para decidir qué hacer cuando se le a otorgado uno u otro valor en el argumento `method`.
 
@@ -400,7 +412,7 @@ dist
 #         class = "dist")
 #     .Call(C_Cdist, x, method, attrs, p)
 # }
-# <bytecode: 0x0000028652ae2030>
+# <bytecode: 0x000001c83ede14d0>
 # <environment: namespace:stats>
 ```
 

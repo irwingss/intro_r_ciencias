@@ -12,10 +12,14 @@ No obstante, R es considerada una de los mejores lenguajes informáticos si nues
 
 (ref:vistprevRStudio) Ejemplo de uso de RStudio en el análisis estadístico.
 
-<div class="figure" style="text-align: center">
-<img src="figs/screenshots/tema BrackInstitute.png" alt="(ref:vistprevRStudio)" width="100%" />
-<p class="caption">(\#fig:figura40)(ref:vistprevRStudio)</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{figs/screenshots/tema BrackInstitute} 
+
+}
+
+\caption{(ref:vistprevRStudio)}(\#fig:figura40)
+\end{figure}
 <br>
 
 R es considerada como una _calculadora con esteroides_ dado que puedes aplicar matemáticas con él; aquella ciencia sobre la que se cimentan casi todas las demás. Si puedes hacer ello, tienes las puertas abiertas a aplicar análisis estadísticos, generar gráficos y todo lo que te imagines. Y pues sí, también hay cosas algo bizarras en R, como poder crear tu propio [calendario](https://r-coder.com/calendarios-r/) o usar [gatitos](https://github.com/R-CoderDotCom/ggcats) en un gráfico de dispersión de puntos.
@@ -36,17 +40,21 @@ Por ahora no se ahondará en el detalle de qué cosa es `rnorm()` o `hist()`.
 hist(rnorm(10000))
 ```
 
-<img src="02-primer-contacto_files/figure-html/figura41-1.svg" width="100%" style="display: block; margin: auto;" />
+
+
+\begin{center}\includegraphics[width=1\linewidth]{02-primer-contacto_files/figure-latex/figura41-1} \end{center}
 
 Para replicarlo, es necesario escribir el código exacto, para luego dar la orden, es decir, ejecutar el código. La ejecución se hace presionando en el teclado de tu computador `control + enter` o `command + enter` (usuarios macOS).
 
-\BeginKnitrBlock{rmdnote}<div class="rmdnote">Existen otros atajos de teclado para ejecuciones especiales.
+\BeginKnitrBlock{rmdnote}
+Existen otros atajos de teclado para ejecuciones especiales.
 
 - Ejecutar todas las líneas de código del script: `control (o command) + shift + enter`.
 - Ejecutar desde el inicio del script hasta la línea actual: `control (o command) + Alt + B`.
 - Ejecutar desde la línea actual hasta el final del script: `control (o command) + Alt + E`.
 
-No obstante, no son necesarias. Es suficiente con conocer la ejecución básica, dado que para ejecutar varias líneas de código a la vez solo se deben seleccionar las requeridas y ejecutar con  `control + enter` o `command + enter`.</div>\EndKnitrBlock{rmdnote}
+No obstante, no son necesarias. Es suficiente con conocer la ejecución básica, dado que para ejecutar varias líneas de código a la vez solo se deben seleccionar las requeridas y ejecutar con  `control + enter` o `command + enter`.
+\EndKnitrBlock{rmdnote}
 
 Una pregunta que siempre genera confusión es la presencia de unos corchetes `[1]` en los resultados vistos tanto en consola como en este libro. Esto no es parte de un resultado por si mismo, es la posición del elemento mostrado justo a la derecha del corchete. 
 
@@ -76,7 +84,9 @@ Como ya se había mencionado antes, R nos permite operar con código. La cosa m�
 ```
 
 
-\BeginKnitrBlock{rstudio-tip}<div class="rstudio-tip">En adelante se visualizará tanto el código a ejecutar (primera línea del ejemplo de suma aquí propuesto) como su resultado textual, mismo que obtendrás en la consola de RStudio (segunda línea del ejemplo) si sigues los pasos de cada ejemplo o ejercicio.</div>\EndKnitrBlock{rstudio-tip}
+\BeginKnitrBlock{rstudio-tip}
+En adelante se visualizará tanto el código a ejecutar (primera línea del ejemplo de suma aquí propuesto) como su resultado textual, mismo que obtendrás en la consola de RStudio (segunda línea del ejemplo) si sigues los pasos de cada ejemplo o ejercicio.
+\EndKnitrBlock{rstudio-tip}
 
 <br>
 
@@ -214,7 +224,9 @@ log(10, base = bs)
 ```
 
 
-\BeginKnitrBlock{rstudio-tip}<div class="rstudio-tip">Ciertamente, en el ejemplo anterior no fue esencial guardar la variable `bs` en el ambiente para su uso posterior dentro de `log()`. Sabemos de antemano que la suma es `10`. No obstante, este ejemplo nos da idea de como aplicar el guardar un resultado para usarlo luego en ejercicios más complejos.</div>\EndKnitrBlock{rstudio-tip}
+\BeginKnitrBlock{rstudio-tip}
+Ciertamente, en el ejemplo anterior no fue esencial guardar la variable `bs` en el ambiente para su uso posterior dentro de `log()`. Sabemos de antemano que la suma es `10`. No obstante, este ejemplo nos da idea de como aplicar el guardar un resultado para usarlo luego en ejercicios más complejos.
+\EndKnitrBlock{rstudio-tip}
 
 No es posible continuar hablando de variables sin antes hacer una introducción a las funciones en R. 
 
@@ -242,7 +254,7 @@ sd
 # function (x, na.rm = FALSE) 
 # sqrt(var(if (is.vector(x) || is.factor(x)) x else as.double(x), 
 #     na.rm = na.rm))
-# <bytecode: 0x0000022157abedb0>
+# <bytecode: 0x0000020985342ee0>
 # <environment: namespace:stats>
 ```
 

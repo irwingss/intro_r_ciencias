@@ -1,5 +1,15 @@
 bookdown::render_book("index.Rmd", "bookdown::bs4_book")
 bookdown::render_book("index.Rmd", "bookdown::gitbook")
+bookdown::render_book("index.Rmd", "bookdown::pdf_book")
+
+
+update.packages(ask = FALSE, checkBuilt = TRUE)
+tinytex::tlmgr_update()
+tinytex::install_tinytex()
+
+
+tinytex::reinstall_tinytex()
+
 
 colorPal <- c("#8BC73D","#077173","#5CCAE2","#F2CD00","#CD001A","#5E36CC")
 colorPal <- c("#b41214","#007588","#ffc000")
