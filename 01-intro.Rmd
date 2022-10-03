@@ -466,3 +466,7 @@ Para pedir ayuda en internet, se recomienda el uso del buscador exclusivo de tem
 ```{r figura39, echo=FALSE, fig.cap='(ref:help3)', fig.align='center', out.width="100%"}
 knitr::include_graphics("figs/screenshots/rseek.jpg")
 ```
+
+<div id="KC1.1" class="keyconcept">
+  1. Carga la base de datos `BOD` que muestra unos datos sencillos sobre demanda bioquímica de oxígeno (BOD en inglés). Calcula el promedio y desvición estándar de la columna `demand`. Utiliza la forma de código utilizando **dplyr** y sin usar **dplyr**.
+</div>

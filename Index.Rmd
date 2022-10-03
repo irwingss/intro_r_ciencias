@@ -32,13 +32,13 @@ bookdown::gitbook(split_by = "section")
 
 <a href="https://www.brackinstitute.com"><img src="Cover/cover R.png" alt="Cover image" width="281" height="398" align="right" style="margin: 1em 1em 1em 1em;"/></a>
 
-<br> Esta es la página web del libro *Introducción a R para Ciencias*, publicado por [IC Press](https://www.brackinstitute.com/editorial), Fondo Editorial del Instituto de Ciencias Antonio Brack. Para solicitar una copia electrónica del libro en formato PDF, hacerlo a través de [Amazon](https://www.amazon.com/) o [IC PRESS](https://www.brackinstitute.com/editorial).
+<br> Esta es la página web del libro *Introducción a R para Ciencias*, publicado por [IC Press](https://www.ilcid.org/editorial), Fondo Editorial del Instituto de Ciencias Antonio Brack. Para solicitar una copia electrónica del libro en formato PDF, hacerlo a través de [Amazon](https://www.amazon.com/) o [IC PRESS](https://www.ilcid.org/editorial).
 
 Este libro busca:
 
 -   Democratizar el uso del lenguaje de programación R en investigación científica, a través de una explicación amigable, con ejemplos sencillos y ejercicios de refuerzo.
 
--   Ser el libro de referencia de los primeros módulos del programa *Data Science: Análisis Estadístico para Ciencias con R*, el cual contiene cinco cursos dictados por el profesor [Irwing S. saldaña](https://scholar.google.com/citations?user=ZvRX_U0AAAAJ) en el [Instituto de Ciencias Antonio Brack](https://www.brackinstitute.com/) a través de la plataforma educativa online [masterX](https://www.masterx.org/).
+-   Ser el libro de referencia de los primeros módulos del programa *Data Science: Análisis Estadístico para Ciencias con R*, el cual contiene cinco cursos dictados por el profesor [Irwing S. saldaña](https://scholar.google.com/citations?user=ZvRX_U0AAAAJ) en el [Instituto Latinoamericano de Ciencias Innovación y Desarrollo - ILCID](https://www.ilcid.org/editorial) a través de la plataforma educativa online [masterX](https://www.masterx.org/).
 
 En tal sentido, para usar este libro, no se necesita saber de antemano el lenguaje de programación R ni conocimientos estadísticos.
 

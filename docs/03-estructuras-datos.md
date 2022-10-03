@@ -4,14 +4,10 @@ La sección básica de R, introdujo la terminología de variables y funciones en
 
 (ref:estructuras2) Ejemplos de código para crear las diferentes estructuras de datos de amplio uso en R.
 
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth]{figs/elaboradas/Estructuras 2} 
-
-}
-
-\caption{(ref:estructuras2)}(\#fig:figura42)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="figs/elaboradas/Estructuras 2.png" alt="(ref:estructuras2)" width="100%" />
+<p class="caption">(\#fig:figura42)(ref:estructuras2)</p>
+</div>
 
 ## Clasificación de variables
 
@@ -19,14 +15,10 @@ Toda variable cuenta con dos atributos: clase y estructura. Para entender cómo 
 
 (ref:gatocaja) Analogía del gato en la caja para entender a las variables. Aquí, el gato es el contenido; la caja, la estructura. Esta "variable" podría ser considerada de la clase "contenedora de gatos" y de estructura "cúbica". De igual manera, en R reconoceremos variables contenedoras de números, de caracteres, de valores lógicos, mismos que podrán estar ordenados en estructuras de una, dos, tres o N dimensiones.  
 
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth]{figs/fotografias/gatobox} 
-
-}
-
-\caption{(ref:gatocaja)}(\#fig:figura43)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="figs/fotografias/gatobox.jpg" alt="(ref:gatocaja)" width="100%" />
+<p class="caption">(\#fig:figura43)(ref:gatocaja)</p>
+</div>
 <br>
 
 
@@ -56,14 +48,10 @@ matrices, data frames o tibbles.
 
 (ref:strdatos1) Estructuras informáticas para almacenar de datos en el lenguaje R.
 
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth]{figs/elaboradas/Estructuras de datos en R} 
-
-}
-
-\caption{(ref:strdatos1)}(\#fig:figura44)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="figs/elaboradas/Estructuras de datos en R.png" alt="(ref:strdatos1)" width="100%" />
+<p class="caption">(\#fig:figura44)(ref:strdatos1)</p>
+</div>
 
 ## Vectores
 
@@ -324,9 +312,7 @@ En ocasiones es requerido realizar muestreos virtuales, en la que se especifique
 
 Si el muestreo es sin reemplazamiento, solo se puede extraer un máximo de elementos igual a la cantidad de elementos del conjunto inicial.
 
-\BeginKnitrBlock{rmdnote}
-Antes de cualquier función de aleatorización, es importante establecer un conjunto de números aleatorios para que el código sea replicable. Asegurar replicabilidad de los experimentos y análisis es importante para las publicaciones científicas. Utiliza la función `set.seed(123)` definiendo un número cualquiera, como aquí se colocó 123.
-\EndKnitrBlock{rmdnote}
+\BeginKnitrBlock{rmdnote}<div class="rmdnote">Antes de cualquier función de aleatorización, es importante establecer un conjunto de números aleatorios para que el código sea replicable. Asegurar replicabilidad de los experimentos y análisis es importante para las publicaciones científicas. Utiliza la función `set.seed(123)` definiendo un número cualquiera, como aquí se colocó 123.</div>\EndKnitrBlock{rmdnote}
 
 
 ```r
@@ -355,14 +341,10 @@ Los factores son tipos especiales de vectores, donde R evalúa los valores únic
 
 (ref:factoresEjemplo) Ejemplo de uso de la variable _Grupos_ (factor) empleada para colorear los puntos del gráfico de enfrentamiento de _Pétalo_ y _Sépalo_.
 
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth]{03-estructuras-datos_files/figure-latex/figura45-1} 
-
-}
-
-\caption{(ref:factoresEjemplo)}(\#fig:figura45)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="03-estructuras-datos_files/figure-html/figura45-1.svg" alt="(ref:factoresEjemplo)" width="100%" />
+<p class="caption">(\#fig:figura45)(ref:factoresEjemplo)</p>
+</div>
 
 ### Crear un factor
 
@@ -644,7 +626,7 @@ TB <- tibble(Col1 = 1:5,
                  Log = c(T,T,F,F,T),
                  Fct = factor(c("A","B","C","B","A")))
 TB
-# # A tibble: 5 x 4
+# # A tibble: 5 × 4
 #    Col1 Col2  Log   Fct  
 #   <int> <chr> <lgl> <fct>
 # 1     1 Sit1  TRUE  A    
@@ -669,7 +651,7 @@ Como se mencionó arriba, la función `list()` permite **crear listas no nombrad
 primeraLista <- list(TB, DF, vector1, F2)
 primeraLista
 # [[1]]
-# # A tibble: 5 x 4
+# # A tibble: 5 × 4
 #    Col1 Col2  Log   Fct  
 #   <int> <chr> <lgl> <fct>
 # 1     1 Sit1  TRUE  A    
@@ -703,7 +685,7 @@ Para **crear una lista nombrada**, se puede colocar cada elemento precedido con 
 L1 <- list(TB = TB, DF = DF, vecThor = vector1, factor = F2)
 L1
 # $TB
-# # A tibble: 5 x 4
+# # A tibble: 5 × 4
 #    Col1 Col2  Log   Fct  
 #   <int> <chr> <lgl> <fct>
 # 1     1 Sit1  TRUE  A    
@@ -735,7 +717,7 @@ Resulta muy engorroso tener que colocar los nombres dado que las variables ya ti
 L2 <- dplyr::lst(TB, DF, vector1, F2)
 L2
 # $TB
-# # A tibble: 5 x 4
+# # A tibble: 5 × 4
 #    Col1 Col2  Log   Fct  
 #   <int> <chr> <lgl> <fct>
 # 1     1 Sit1  TRUE  A    
@@ -807,9 +789,7 @@ Función             Descripción
 `image()`           Coerce una matriz numérica hacia una imagen raster.                       
 
 
-\BeginKnitrBlock{rmdtip}
-Para casos incluso más especiales, como tópicos relacionados a sistemas de información geográfica, bioinformática, entre otros, encontrarás las funciones de coerción respectivas dentro de cada paquetes específico que utilices.
-\EndKnitrBlock{rmdtip}
+\BeginKnitrBlock{rmdtip}<div class="rmdtip">Para casos incluso más especiales, como tópicos relacionados a sistemas de información geográfica, bioinformática, entre otros, encontrarás las funciones de coerción respectivas dentro de cada paquetes específico que utilices.</div>\EndKnitrBlock{rmdtip}
  
 ## Ejercicios del capítulo
 

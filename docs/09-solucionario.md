@@ -113,9 +113,7 @@ integrate(integrand, lower = 0, upper = Inf)
 # 3.142 with absolute error < 2.7e-05
 ```
 
-\BeginKnitrBlock{rmdtip}
-Se recomienda la lectura del libro [R for Calculus](https://dtkaplan.github.io/RforCalculus/integrals-and-integration.html) de [Daniel Kaplan](https://github.com/dtkaplan) para profundizar en cálculo diferencial e integral en R.
-\EndKnitrBlock{rmdtip}
+\BeginKnitrBlock{rmdtip}<div class="rmdtip">Se recomienda la lectura del libro [R for Calculus](https://dtkaplan.github.io/RforCalculus/integrals-and-integration.html) de [Daniel Kaplan](https://github.com/dtkaplan) para profundizar en cálculo diferencial e integral en R.</div>\EndKnitrBlock{rmdtip}
 
 <br>
 
@@ -768,7 +766,7 @@ aids %>%
   summarise_at(.vars = vars(delay, dud, time, y),
                .funs = lst(mean), na.rm=TRUE) %>% 
   arrange(year, quarter)
-# # A tibble: 38 x 6
+# # A tibble: 38 × 6
 # # Groups:   year [10]
 #    year quarter delay_mean dud_mean time_mean y_mean
 #   <dbl>   <dbl>      <dbl>    <dbl>     <dbl>  <dbl>
@@ -778,7 +776,7 @@ aids %>%
 # 4  1984       2       20.1        0         4  1    
 # 5  1984       3       20.1        0         5  2    
 # 6  1984       4       20.1        0         6  2.6  
-# # ... with 32 more rows
+# # … with 32 more rows
 ```
   
   1. Utilizando la base de dato `aids`, encuentra cuales son los años (o el año) en que se tuvieron valores mayores igual a 30 en `time` y valores de mayores a 25 en `delay`.
@@ -799,9 +797,7 @@ aids %>%
 ```
 </div>
   
-\BeginKnitrBlock{rmdnote}
-Probablemente llegaste por tu cuenta hasta el uso de `filter()`. La función `pull()` extrae una columna como un vector de datos. Es muy útil cuando se desea trabajar con un vector resultante y no con una data frame. La función `unique()` devuelve los valores únicos de un vector, por ello el resultado impreso es solamente `1992`.
-\EndKnitrBlock{rmdnote}
+\BeginKnitrBlock{rmdnote}<div class="rmdnote">Probablemente llegaste por tu cuenta hasta el uso de `filter()`. La función `pull()` extrae una columna como un vector de datos. Es muy útil cuando se desea trabajar con un vector resultante y no con una data frame. La función `unique()` devuelve los valores únicos de un vector, por ello el resultado impreso es solamente `1992`.</div>\EndKnitrBlock{rmdnote}
 
 <div class="question">
   1. La función `grepl()` provee una manera muy interesante de filtrar filas. Permite especificar un texto que será buscado dentro de cada palabra en cada celda de dicha columna, para filtrar las filas que contengan dicha cadena de texto. Pueden ser solo letras consecutivas, una palabras completa, etc. Usando `grepl()` dentro de la función `filter()`, se filtrarán las filas que coincidan con la búsqueda hecha por `grepl()`. Una vez entendido el uso de la función `grepl()`, instala y activa la librería `gapminder`, y carga la base de datos del mismo nombre. Filtra las filas que en la columna `country` tengan el patrón de texto "ru". Luego, realiza una segunda *pipeline* para realizar lo mismo pero ahora con el patrón "nia", indicando que se ignore mayúsculas o minúsculas.
@@ -914,7 +910,7 @@ Tabla_B <-population %>%
 ### de Tabla_A que no aparecen en Tabla_B
 ### o por decirlo diferente, las filas exclusivas de Tabla_A
 anti_join(Tabla_A, Tabla_B, by="country")
-# # A tibble: 1 x 4
+# # A tibble: 1 × 4
 #   country             year population Millones
 #   <chr>              <int>      <int>    <dbl>
 # 1 Russian Federation  1995  148602147     149.

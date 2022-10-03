@@ -177,7 +177,7 @@ i {
     z-index: 1;
     width: 300px;
     color: #364149;  /**/
-    background: #4e00ff; /* #eaf5fb;  #d9edf7#bdcadb #3572D9 #fafafa*/
+    background: #ffffff; /* #eaf5fb;  #d9edf7#bdcadb #3572D9 #fafafa*/
     border-right: 1px solid rgba(0,0,0,.07);
     -webkit-transition: left 250ms ease;
     -moz-transition: left 250ms ease;
@@ -190,7 +190,7 @@ i {
     display: block;
     padding: 10px 25px;
     border-bottom: none;
-    color: #e9e9e9; /**/
+    color: #0e0e0e; /**/
     background: 0 0;
     text-overflow: ellipsis;
     overflow: hidden;

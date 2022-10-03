@@ -4,14 +4,10 @@ En este capítulo corto, se abordarán los tópicos de carga y exportación de b
 
 (ref:carga1) Extensiones de archivos frecuentemente usados en R y RStudio. Más allá de lo mencionado aquí, existe una vasta cantidad de extensiones posibles de gestionar con RStudio. Dependiendo del campo de aplicación específico en el que te desarrolles, continuarás encontrando nuevas extensiones.
 
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth]{figs/elaboradas/Extensiones} 
-
-}
-
-\caption{(ref:carga1)}(\#fig:figura46)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="figs/elaboradas/Extensiones.png" alt="(ref:carga1)" width="100%" />
+<p class="caption">(\#fig:figura46)(ref:carga1)</p>
+</div>
 
 En adelante se espera que los archivos a cargar estén colocados dentro de la carpete de proyecto activa. De no ser el caso, se pueden buscar manualmente los archivos con una ventana emergente de búsqueda activada por la función `file.choose()`.
 
@@ -31,18 +27,12 @@ misDatos <- read.csv(file.choose())
 
 (ref:emergente1) Vista previa de la venta emergente que se abre tras ejecutar el código mostrado anteriormente con `file.choose()`. Si no se muestra automáticamente, algunas veces se abre minimizada. Se recomienda buscar en los programas abiertos de la barra de tareas del sistema operativo en cuestión.
 
-\begin{figure}
+<div class="figure" style="text-align: center">
+<img src="figs/screenshots/ventana emergente file choose.jpg" alt="(ref:emergente1)" width="100%" />
+<p class="caption">(\#fig:figura47)(ref:emergente1)</p>
+</div>
 
-{\centering \includegraphics[width=1\linewidth]{figs/screenshots/ventana emergente file choose} 
-
-}
-
-\caption{(ref:emergente1)}(\#fig:figura47)
-\end{figure}
-
-\BeginKnitrBlock{rmdwarning}
-Nunca olvidar la extensión respectiva dentro de las comillas y al final del nombre del archivo (como en el ejemplo "archivo.csv" mostrado aneriormente). Si se coloca la extensión correcta, el archivo exportado será ilegible.
-\EndKnitrBlock{rmdwarning}
+\BeginKnitrBlock{rmdwarning}<div class="rmdwarning">Nunca olvidar la extensión respectiva dentro de las comillas y al final del nombre del archivo (como en el ejemplo "archivo.csv" mostrado aneriormente). Si se coloca la extensión correcta, el archivo exportado será ilegible.</div>\EndKnitrBlock{rmdwarning}
 
 ## Lectura de bases de datos
 
@@ -161,9 +151,7 @@ read.xlsx("archivo.xslx", # Nombre o ruta completa al archivo
           sep.names = ".") # Rellena los espacios de los nombres de columnas con .
 ```
 
-\BeginKnitrBlock{rmdnote}
-Es mucho más fácil trabajar con archivos con extensión .xlsx. Si forzosamente se debe abrir un archivo .xls (más antiguo), utiliza: `readxl::read_xls("archivo.xls")`
-\EndKnitrBlock{rmdnote}
+\BeginKnitrBlock{rmdnote}<div class="rmdnote">Es mucho más fácil trabajar con archivos con extensión .xlsx. Si forzosamente se debe abrir un archivo .xls (más antiguo), utiliza: `readxl::read_xls("archivo.xls")`</div>\EndKnitrBlock{rmdnote}
 
 ### Bases de datos de R
 
@@ -174,9 +162,7 @@ Los archivos de extensión `.rda` son la forma más sencilla de compartir bases 
 load("archivo.rda")
 ```
 
-\BeginKnitrBlock{rmdtip}
-También existen archivos `.RData` que aparecen automáticamente uno crea un proyecto. Estos son los archivos que almacenan el ambiente de un proyecto, es decir, todas las variables creadas durante la sesión de RStudio, y que fueron guardadas al cerrar esta misma.
-\EndKnitrBlock{rmdtip}
+\BeginKnitrBlock{rmdtip}<div class="rmdtip">También existen archivos `.RData` que aparecen automáticamente uno crea un proyecto. Estos son los archivos que almacenan el ambiente de un proyecto, es decir, todas las variables creadas durante la sesión de RStudio, y que fueron guardadas al cerrar esta misma.</div>\EndKnitrBlock{rmdtip}
 
 ### Archivos de SPSS
 

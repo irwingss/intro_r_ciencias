@@ -6,22 +6,17 @@ Comenzar el aprendizaje de un lenguaje de programación puede resultar doblement
 
 (ref:esenciales1) Estructura temática del capítulo "Esenciales de R y RStudio".
 
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth]{figs/elaboradas/Esenciales de RStudio} 
-
-}
-
-\caption{(ref:esenciales1)}(\#fig:figura1)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="figs/elaboradas/Esenciales de RStudio.png" alt="(ref:esenciales1)" width="100%" />
+<p class="caption">(\#fig:figura1)(ref:esenciales1)</p>
+</div>
 
 
 ## Instalación de R y RStudio
 
 Para utilizar el lenguaje de programación R (en adelante R), proponemos el uso del ambiente de desarrollo integrado [RStudio](https://www.rstudio.com/). Este programa mejorará enormemente el flujo, la velocidad y la eficiencia de trabajo con R. RStudio es más que un editor de texto que resalta la sintaxis del código de R, sino que también permite tener paneles de trabajo organizados que facilitan su uso. 
 
-\BeginKnitrBlock{rmdwarning }
-**Requerimientos mínimos del sistema para ejecutar RStudio:**
+\BeginKnitrBlock{rmdwarning }<div class="rmdwarning ">**Requerimientos mínimos del sistema para ejecutar RStudio:**
 
 - Sistema con CPU de 64 bits. Con 32 bits es posible instalar R pero no las versiones más recientes de RStudio.
 - Procesadores de 2 núcleos (equivalente a Intel® Core™ i3 o AMD Ryzen™ 3).
@@ -32,8 +27,7 @@ Para utilizar el lenguaje de programación R (en adelante R), proponemos el uso 
 
 - Procesadores de 4 a más núcleos (equivalente a Intel® Core™ i5 a más o AMD Ryzen™ 5 a más).
 - 8 a más Gb RAM.
-- Más de 100 Gb de espacio de almacenamiento.
-\EndKnitrBlock{rmdwarning }
+- Más de 100 Gb de espacio de almacenamiento.</div>\EndKnitrBlock{rmdwarning }
 
 Para efectos de este libro, se deberá utilizar **las versiones listadas (o posteriores)** de los siguientes programas, según el sistema operativo:
 
@@ -94,110 +88,74 @@ La siguiente es una configuración sugerida para que RStudio sea visualizado de 
 
 (ref:config1) Para iniciar la configuración de RStudio, clic en `tools/ Global Options`.
 
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth]{figs/screenshots/configRStudio-1} 
-
-}
-
-\caption{(ref:config1)}(\#fig:figura2)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="figs/screenshots/configRStudio-1.jpg" alt="(ref:config1)" width="100%" />
+<p class="caption">(\#fig:figura2)(ref:config1)</p>
+</div>
 <br>
 
 (ref:config2) Abrirá la ventana de configuraciones. En la pestaña General se verifica la versión de R que está ejecutando RStudio.
 
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth]{figs/screenshots/configRStudio-2} 
-
-}
-
-\caption{(ref:config2)}(\#fig:figura3)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="figs/screenshots/configRStudio-2.jpg" alt="(ref:config2)" width="100%" />
+<p class="caption">(\#fig:figura3)(ref:config2)</p>
+</div>
 <br>
 
 (ref:config3) En la pestaña Code se configura la mayor cantidad de puntos necesarios para que el código sea legible. Aquí se muestra la configuración de las pestañas Editing y Display. Las dos opciones nuevas en la versión de RStudio 1.4+ son (con flechas rojas), son importantes en mejorar la lectura del código para principiantes: una permite identificar los pares de paréntesis con colores diferenciables (Rainbow parentheses en pestaña Display), y la otra es un primer intento de crear un operador pipe nativo para el código básico de R (Use native pipe operator, `|>`). Este último no lo habilitaremos para seguir usando el pipe de tidyverse `%>%`.
 
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth]{figs/screenshots/configRStudio-3} 
-
-}
-
-\caption{(ref:config3)}(\#fig:figura4)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="figs/screenshots/configRStudio-3.jpg" alt="(ref:config3)" width="100%" />
+<p class="caption">(\#fig:figura4)(ref:config3)</p>
+</div>
 <br>
 
 (ref:config4) En la pestaña Saving es importante definir la codificación que usarán los archivos generados por RStudio. Se recomienda dar clic en `Change...` y luego seleccionar la codificación `UTF-8`.
 
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth]{figs/screenshots/configRStudio-4} 
-
-}
-
-\caption{(ref:config4)}(\#fig:figura5)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="figs/screenshots/configRStudio-4.jpg" alt="(ref:config4)" width="100%" />
+<p class="caption">(\#fig:figura5)(ref:config4)</p>
+</div>
 <br>
 
 (ref:config6) Las pestañas Completion y Diagnóstico no se modifican mucho, pero sí es necesario mencionar que si notáse que el programa se ejecuta muy lento, se debe considerar desactivar las opciones de diagnóstico (marcadas en rojo).
 
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth]{figs/screenshots/configRStudio-6} 
-
-}
-
-\caption{(ref:config6)}(\#fig:figura6)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="figs/screenshots/configRStudio-6.jpg" alt="(ref:config6)" width="100%" />
+<p class="caption">(\#fig:figura6)(ref:config6)</p>
+</div>
 <br>
 
 (ref:config7) La organización de los paneles descritos en la sección [1.4 Paneles de RStudio](#panelesRStudio) se configuran previamente en la pestaña Pane Layout. A la izquierda: la organización por defecto. A la derecha: se deberá seleccionar todas las pestañas (excepto VCS y Connections) con un check dentro del panel superior derecho. Eso hará que el panel inferior derecho cambie de nombre a "TabSet".
 
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth]{figs/screenshots/configRStudio-7} 
-
-}
-
-\caption{(ref:config7)}(\#fig:figura7)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="figs/screenshots/configRStudio-7.jpg" alt="(ref:config7)" width="100%" />
+<p class="caption">(\#fig:figura7)(ref:config7)</p>
+</div>
 <br>
 
 (ref:config8) El siguiente paso es cambiar la ubicación de TabSet haciendo clic y cambiando el panel por Console. Clic en Aplicar para definir los cambios.
 
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth]{figs/screenshots/configRStudio-8} 
-
-}
-
-\caption{(ref:config8)}(\#fig:figura8)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="figs/screenshots/configRStudio-8.jpg" alt="(ref:config8)" width="100%" />
+<p class="caption">(\#fig:figura8)(ref:config8)</p>
+</div>
 <br>
 
 (ref:config9) La configuración de R Markdown es solo para evitar que se cuelgue al usar los documentos. Definir todas las casillas y selectores como se muestra a continuación en las pestañas Basic y Advanced.
 
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth]{figs/screenshots/configRStudio-9} 
-
-}
-
-\caption{(ref:config9)}(\#fig:figura9)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="figs/screenshots/configRStudio-9.jpg" alt="(ref:config9)" width="100%" />
+<p class="caption">(\#fig:figura9)(ref:config9)</p>
+</div>
 <br>
 
 (ref:config10) Para trabajar correctamente con los documentos R Markdown y evitar que se cuelguen, desmarcar la casilla con flecha roja. En la pestaña Spelling, se especifica el uso del lenguaje para el texto de los documentos. Selecciona de la lista "Spanish". Clic en Aplicar para definir los cambios.
 
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth]{figs/screenshots/configRStudio-10} 
-
-}
-
-\caption{(ref:config10)}(\#fig:figura10)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="figs/screenshots/configRStudio-10.jpg" alt="(ref:config10)" width="100%" />
+<p class="caption">(\#fig:figura10)(ref:config10)</p>
+</div>
 <br>
 
 ## Nuevas características de RStudio versión 2022 (Actualizado: 23-02-22)
@@ -206,14 +164,10 @@ Durante febrero de 2022 se actualizó RStudio a la primera versión del año: 20
 
 (ref:act2022) En la sección de R Markdown, pestaña Visual, apareció una nueva opción para numerar las líneas de código dentro de cada code chunk (flecha roja izquierda, cambio visualizado en la flecha roja derecha). Además, la forma de cambiar del modo editor visual (Visual) a editor de código (Source) está dispuesto de manera más elegante. Estos cambios, están acompañados en mejoras en la salida gráfica y corrección de algunos problemas menores de los R Markdown.
 
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth]{figs/screenshots/actualizacion RStudio 2022} 
-
-}
-
-\caption{(ref:act2022)}(\#fig:figura11)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="figs/screenshots/actualizacion RStudio 2022.jpg" alt="(ref:act2022)" width="100%" />
+<p class="caption">(\#fig:figura11)(ref:act2022)</p>
+</div>
 
 ## Tema BrackInstitute (2022)
 
@@ -221,14 +175,10 @@ Este es un requerimiento especial para los estudiantes que usen este libro en la
 
 (ref:tema0) Vista previa del tema `BrackInstitute`.
 
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth]{figs/screenshots/tema BrackInstitute} 
-
-}
-
-\caption{(ref:tema0)}(\#fig:figura12)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="figs/screenshots/tema BrackInstitute.png" alt="(ref:tema0)" width="100%" />
+<p class="caption">(\#fig:figura12)(ref:tema0)</p>
+</div>
 <br>
 
 Para instalarlo, copia las líneas de código completas en la consola.
@@ -247,14 +197,10 @@ Como se muestra a continuación:
 
 (ref:tema) Código de instalación del tema `BrackInstitute` en la consola, listo para ser ejecutado.
 
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth]{figs/screenshots/tema en consola} 
-
-}
-
-\caption{(ref:tema)}(\#fig:figura13)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="figs/screenshots/tema en consola.jpg" alt="(ref:tema)" width="100%" />
+<p class="caption">(\#fig:figura13)(ref:tema)</p>
+</div>
 <br>
 
 Finalmente, presiona `enter` para comenzar su ejecución. 
@@ -267,61 +213,41 @@ Existen diversos editores de código que permiten trabajar con R, pero ninguno c
 
 (ref:paneles1) Panel de Trabajo. Aquí aparecerán los archivos de trabajo de R, sean R script o R Markdown. Además, es donde aparecen las bases de datos cuando se pide visualizarlas en RStudio.
 
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth]{figs/screenshots/Slide1} 
-
-}
-
-\caption{(ref:paneles1)}(\#fig:figura14)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="figs/screenshots/Slide1.PNG" alt="(ref:paneles1)" width="100%" />
+<p class="caption">(\#fig:figura14)(ref:paneles1)</p>
+</div>
 <br>
 
 (ref:paneles2) Consola. Es el panel donde se imprimen los resultados textuales y numéricos junto con el código que los genera.
 
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth]{figs/screenshots/Slide2} 
-
-}
-
-\caption{(ref:paneles2)}(\#fig:figura15)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="figs/screenshots/Slide2.PNG" alt="(ref:paneles2)" width="100%" />
+<p class="caption">(\#fig:figura15)(ref:paneles2)</p>
+</div>
 <br>
 
 (ref:paneles3) Panel de pestañas: aquí encontrarás: el ambiente (Environment) donde se guardan los objetos creados o cargados en RStudio; la historia (History) de las ejecuciones realizadas durante la sesión de RStudio; archivos (Files) para visualizar los archivos de la carpeta de trabajo actual (definida como la carpeta "documentos" por defecto); la pestaña de visualización de gráficos estáticos (Plots); pestaña de  instalación y actualización de paquetes (Packages); la pestaña de ayuda (Help); y el visualizador (Viewer) de gráficos animados, gráficos 3D, objetos HTML. las conexiones (Connections) que se pueden realizar con bases de datos (Oracle, SQL, Salesforce, Spark, Hipe, entre otros); tutoriales (tutorial) precargados usando shiny para el uso básico de R y RStudio.
 
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth]{figs/screenshots/Slide3} 
-
-}
-
-\caption{(ref:paneles3)}(\#fig:figura16)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="figs/screenshots/Slide3.PNG" alt="(ref:paneles3)" width="100%" />
+<p class="caption">(\#fig:figura16)(ref:paneles3)</p>
+</div>
 <br>
 
 (ref:paneles6) Barra de opciones rápidas.
 
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth]{figs/screenshots/Slide6} 
-
-}
-
-\caption{(ref:paneles6)}(\#fig:figura17)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="figs/screenshots/Slide6.PNG" alt="(ref:paneles6)" width="100%" />
+<p class="caption">(\#fig:figura17)(ref:paneles6)</p>
+</div>
 
 (ref:paneles5) Barra de menús. De las pestañas más importantes: File nos permite crear o cargar archivos; Session, definir espacio de trabajo actual; y Tools, ingresar a las configuraciones de RStudio. Usos más avanzados, como la depuración de código o el uso de versiones de control (Git), también se manejan desde las opciones de esta barra. 
 
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth]{figs/screenshots/Slide5} 
-
-}
-
-\caption{(ref:paneles5)}(\#fig:figura18)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="figs/screenshots/Slide5.PNG" alt="(ref:paneles5)" width="100%" />
+<p class="caption">(\#fig:figura18)(ref:paneles5)</p>
+</div>
 <br>
 
 ## Librerías y Repositorios
@@ -336,14 +262,10 @@ Una de las mayores virtudes de R es la enorme comunidad de desarrollo que ha cre
 
 (ref:paquetes) Instalación manual de paquetes.
 
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth]{figs/screenshots/paquetes instalacion} 
-
-}
-
-\caption{(ref:paquetes)}(\#fig:figura19)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="figs/screenshots/paquetes instalacion.jpg" alt="(ref:paquetes)" width="100%" />
+<p class="caption">(\#fig:figura19)(ref:paquetes)</p>
+</div>
 
 Si se requiere instalar paquetes de CRAN (e.g., **tidyverse**) con código, se utilizará un código similar a este:
 
@@ -358,14 +280,10 @@ Es importante mantener actualizada la paquetería. En los repositorios de cada p
 
 (ref:paquetesActualizacion) Actualización manual de paquetes de CRAN.
 
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth]{figs/screenshots/paquetes actualizacion} 
-
-}
-
-\caption{(ref:paquetesActualizacion)}(\#fig:figura20)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="figs/screenshots/paquetes actualizacion.jpg" alt="(ref:paquetesActualizacion)" width="100%" />
+<p class="caption">(\#fig:figura20)(ref:paquetesActualizacion)</p>
+</div>
 
 Los paquetes instalados desde repositorio no oficial, deberán ser actualizados "reinstalándolos" de manera forzada. Para forzar la instalación de un paquete ya instalado desde github, se usa el argumento `force=TRUE`:
 
@@ -375,9 +293,7 @@ install.packages("devtools")
 devtools::install_github("irwingss/rbrack", force=TRUE)
 ```
 
-\BeginKnitrBlock{rmdnote}
-Una vez instalados, los paquetes se almacenan en un estado no activo. Para usar sus funciones, se requiere **activar el paquete** que la contiene. 
-\EndKnitrBlock{rmdnote}
+\BeginKnitrBlock{rmdnote}<div class="rmdnote">Una vez instalados, los paquetes se almacenan en un estado no activo. Para usar sus funciones, se requiere **activar el paquete** que la contiene. </div>\EndKnitrBlock{rmdnote}
 
 Para activar un paquete utiliza la función `library()`:
 
@@ -388,9 +304,7 @@ library(tidyverse)
 
 Desde el momento que se ejecuta el código anterior, **tidyverse** estará activo hasta que se cierre o reinicie el programa RStudio.
 
-\BeginKnitrBlock{rmdnote}
-Otra manera de usar una función es activar su uso puntualmente, sin activar toda la librería. En este respecto, el operador `::` permite acceder a las funciones de un paquete para seleccionar una y activar su uso
-\EndKnitrBlock{rmdnote}
+\BeginKnitrBlock{rmdnote}<div class="rmdnote">Otra manera de usar una función es activar su uso puntualmente, sin activar toda la librería. En este respecto, el operador `::` permite acceder a las funciones de un paquete para seleccionar una y activar su uso</div>\EndKnitrBlock{rmdnote}
 
 Para acceder puntualmente a la función `bind_cols()` de la librería **dplyr**, se usa:
 
@@ -407,32 +321,22 @@ Luego de conocer los paneles de RStudio, es necesario crear los espacios donde s
  
 Es el documento más simple donde puedo escribir R. Es un editor de texto como el bloc de notas de cualquier sistema operativo. No obstante, este editor lee y colorea la sintaxis especial del código de R. Esto permite identificar cada parte del código según lo que sea: una variable, una función, un número, un texto, símbolos especiales, operadores, entre otros; simplificando enormemente la lectura del código y el aprendizaje de R.
 
-\BeginKnitrBlock{rmdnote}
-Puedes crear un R script utilizando clics (ver Figura \@ref(fig:figura21)), o con atajo de teclado: `Control + shift + N` (Windows) o `Command + shift + N` (MacOS). 
-\EndKnitrBlock{rmdnote}
+\BeginKnitrBlock{rmdnote}<div class="rmdnote">Puedes crear un R script utilizando clics (ver Figura \@ref(fig:figura21)), o con atajo de teclado: `Control + shift + N` (Windows) o `Command + shift + N` (MacOS). </div>\EndKnitrBlock{rmdnote}
 
 (ref:rscript1) Procedimiento para abrir un documento de RScript usando el menú `File/ New File/ R script`.
  
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth]{figs/screenshots/abrir un Rscript} 
-
-}
-
-\caption{(ref:rscript1)}(\#fig:figura21)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="figs/screenshots/abrir un Rscript.jpg" alt="(ref:rscript1)" width="100%" />
+<p class="caption">(\#fig:figura21)(ref:rscript1)</p>
+</div>
 
  
 (ref:rscript2) Apariencia de un R script con código. Notar los colores diferenciales para cada parte del código.
 
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth]{figs/screenshots/Rscript} 
-
-}
-
-\caption{(ref:rscript2)}(\#fig:figura22)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="figs/screenshots/Rscript.jpg" alt="(ref:rscript2)" width="100%" />
+<p class="caption">(\#fig:figura22)(ref:rscript2)</p>
+</div>
 
 
 ### R Markdown (.Rmd)
@@ -445,83 +349,55 @@ No se profundizará en el uso de R Markdown, dado que no es el objetivo del prog
 
 (ref:rmarkdown1) Procedimiento para abrir un documento de R Markdown usando el menú `File/ New File/ R Markdown...`.
  
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth]{figs/screenshots/abrir R Markdown 1} 
-
-}
-
-\caption{(ref:rmarkdown1)}(\#fig:figura23)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="figs/screenshots/abrir R Markdown 1.jpg" alt="(ref:rmarkdown1)" width="100%" />
+<p class="caption">(\#fig:figura23)(ref:rmarkdown1)</p>
+</div>
 
  
 (ref:rmarkdown2) Ventana emergente para darle nombre al documento R Markdown.
 
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth]{figs/screenshots/abrir R Markdown 2} 
-
-}
-
-\caption{(ref:rmarkdown2)}(\#fig:figura24)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="figs/screenshots/abrir R Markdown 2.jpg" alt="(ref:rmarkdown2)" width="100%" />
+<p class="caption">(\#fig:figura24)(ref:rmarkdown2)</p>
+</div>
 
 
 (ref:rmarkdown3) Aparecerá un archivo R Markdown con texto de ejemplo para que tengamos una idea de qué se puede hacer con él.
  
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth]{figs/screenshots/abrir R Markdown 3} 
-
-}
-
-\caption{(ref:rmarkdown3)}(\#fig:figura25)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="figs/screenshots/abrir R Markdown 3.jpg" alt="(ref:rmarkdown3)" width="100%" />
+<p class="caption">(\#fig:figura25)(ref:rmarkdown3)</p>
+</div>
 
 (ref:rmarkdown4) `knit` es una función del paquete `knitr`, desarrollado por Yihui Xie y colaboradores, para la generación de reportes dinámicos con R Markdown. Haciendo clic en el botón se despliega la lista de posibles exportaciones del documento. La exportación `Knit to HTML` produce una página web de reporte.
 
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth]{figs/screenshots/abrir R Markdown 4} 
-
-}
-
-\caption{(ref:rmarkdown4)}(\#fig:figura26)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="figs/screenshots/abrir R Markdown 4.jpg" alt="(ref:rmarkdown4)" width="100%" />
+<p class="caption">(\#fig:figura26)(ref:rmarkdown4)</p>
+</div>
 
 
 (ref:rmarkdown5) Tras hacer clic en `Knit to HTML`, será necesario guardar en el almacenamiento de la computadora el documento, cuya extensión es `.Rmd`.
 
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth]{figs/screenshots/abrir R Markdown 5} 
-
-}
-
-\caption{(ref:rmarkdown5)}(\#fig:figura27)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="figs/screenshots/abrir R Markdown 5.jpg" alt="(ref:rmarkdown5)" width="100%" />
+<p class="caption">(\#fig:figura27)(ref:rmarkdown5)</p>
+</div>
 
 (ref:rmarkdown6) En la consola, o en una pestaña Render, comenzará a mostrarse la ejecución del código que `knit` desplegó para exportar el R Markdown a página web HTML.
 
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth]{figs/screenshots/abrir R Markdown 6} 
-
-}
-
-\caption{(ref:rmarkdown6)}(\#fig:figura28)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="figs/screenshots/abrir R Markdown 6.jpg" alt="(ref:rmarkdown6)" width="100%" />
+<p class="caption">(\#fig:figura28)(ref:rmarkdown6)</p>
+</div>
 
 (ref:rmarkdown7) Vista del archivo HTML generado a partir del R Markdown de ejemplo.
 
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth]{figs/screenshots/abrir R Markdown 7} 
-
-}
-
-\caption{(ref:rmarkdown7)}(\#fig:figura29)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="figs/screenshots/abrir R Markdown 7.jpg" alt="(ref:rmarkdown7)" width="100%" />
+<p class="caption">(\#fig:figura29)(ref:rmarkdown7)</p>
+</div>
 
 ## Proyectos de RStudio
 
@@ -533,89 +409,59 @@ Aquí se muestran los pasos para crear un proyecto local:
 
 (ref:proyecto1) Para crear un proyecto local, ir a menu `File/ New Project...`. 
 
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth]{figs/screenshots/proyectos1} 
-
-}
-
-\caption{(ref:proyecto1)}(\#fig:figura30)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="figs/screenshots/proyectos1.jpg" alt="(ref:proyecto1)" width="100%" />
+<p class="caption">(\#fig:figura30)(ref:proyecto1)</p>
+</div>
 
 (ref:proyecto2) Para efectos de este libro, selecciona la primera opción. Clic en `New Directory` para crear en el almacenamiento de tu computador una carpeta nueva donde se almacenará todo los respecto a este proyecto. `Existing Directory` solo se usará cuando ya se ha creado de antemano una carpeta donde se quiere almacenar el proyecto. Para versiones de control con Git y GitHub, el proceso se inicia con `Version Control`, para crear la carpeta de trabajo (tal como las anteriores opciones), pero el proyecto estará _casi_ listo para hacer _commit_ y publicar los cambios en GitHub. 
 
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth]{figs/screenshots/proyectos2} 
-
-}
-
-\caption{(ref:proyecto2)}(\#fig:figura31)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="figs/screenshots/proyectos2.jpg" alt="(ref:proyecto2)" width="100%" />
+<p class="caption">(\#fig:figura31)(ref:proyecto2)</p>
+</div>
 
 (ref:proyecto3) En `Directory name:` escribe el nombre del proyecto, mismo que también tendrá la nueva carpeta de trabajo que se creará en tu computador. En el botón `Browse...`, podrás ubicar una carpeta _madre_ donde irás creando proyectos para mantenerlos todos ordenados y accesibles. Puede ser una subcarpeta dentro de documentos, con algún nombre genérico como "proyectos", "proyectos de R", entre otros. Finalmente, clic en `Create Project`.
 
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth]{figs/screenshots/proyectos3} 
-
-}
-
-\caption{(ref:proyecto3)}(\#fig:figura32)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="figs/screenshots/proyectos3.jpg" alt="(ref:proyecto3)" width="100%" />
+<p class="caption">(\#fig:figura32)(ref:proyecto3)</p>
+</div>
 
 (ref:proyecto4) Se abrirá una nueva sesión con título idéntico a la carpeta de proyecto creada (aquí "Investigación A"). Nótese el ambiente (environment) en blanco. Todas las variables y funciones que se creen o carguen en el proyecto permanecerán en este ambiente específico del proyecto.  
 
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth]{figs/screenshots/proyectos4} 
-
-}
-
-\caption{(ref:proyecto4)}(\#fig:figura33)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="figs/screenshots/proyectos4.jpg" alt="(ref:proyecto4)" width="100%" />
+<p class="caption">(\#fig:figura33)(ref:proyecto4)</p>
+</div>
 
 (ref:proyecto5) En la pestaña de `Files` se verá el contenido de todo lo que copiemos dentro de la carpeta del proyecto. Puedes acceder a la carpeta de trabajo haciendo clic en `More/ Show Folder in New Windows`. Allí podrás pegar archivos o documentos que necesites cargar posteriormente en tu proyecto.
 
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth]{figs/screenshots/proyectos5} 
-
-}
-
-\caption{(ref:proyecto5)}(\#fig:figura34)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="figs/screenshots/proyectos5.jpg" alt="(ref:proyecto5)" width="100%" />
+<p class="caption">(\#fig:figura34)(ref:proyecto5)</p>
+</div>
 
 (ref:proyecto6) Para crear un nuevo proyecto, abrir uno existente  o cerrar el proyecto actual (flecha roja), existe el menú de acceso rápido que tiene el mismo nombre que tu proyecto actual. Para ver la dirección de la carpeta de trabajo en consola, ejecuta la función `getwd()`.
 
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth]{figs/screenshots/proyectos6} 
-
-}
-
-\caption{(ref:proyecto6)}(\#fig:figura35)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="figs/screenshots/proyectos6.jpg" alt="(ref:proyecto6)" width="100%" />
+<p class="caption">(\#fig:figura35)(ref:proyecto6)</p>
+</div>
 
 (ref:proyecto7) En tu computador, encontrarás creada la carpeta del proyecto, en la dirección que especificaste, donde podrás pegar los archivos que aparecerán en la pestaña de Files del Panel de Ambiente del proyecto.
 
-\begin{figure}
+<div class="figure" style="text-align: center">
+<img src="figs/screenshots/proyectos7.jpg" alt="(ref:proyecto7)" width="100%" />
+<p class="caption">(\#fig:figura36)(ref:proyecto7)</p>
+</div>
 
-{\centering \includegraphics[width=1\linewidth]{figs/screenshots/proyectos7} 
-
-}
-
-\caption{(ref:proyecto7)}(\#fig:figura36)
-\end{figure}
-
-\BeginKnitrBlock{rmdnote}
-- Para ver la dirección de la carpeta de trabajo en consola, ejecuta la función `getwd()`.
+\BeginKnitrBlock{rmdnote}<div class="rmdnote">- Para ver la dirección de la carpeta de trabajo en consola, ejecuta la función `getwd()`.
 
 - Si necesitas cambiar manualmente tu proyecto a otro directorio (carpeta) de trabajo, ejecuta la función `setwd()` definiendo dentro de ella y entre comillas la nueva dirección deseada. Por ejemplo:
 <center>`setwd("C:/Users/irwin/Documents/Otra_Carpeta/Subcarpeta B")`</center>
 
-- No olvides las comillas al inicio y final de la dirección, ni que los slash usados son forwardslash (hacia delante) `/`, no backslash (hacia atrás) `\`.
-\EndKnitrBlock{rmdnote}
+- No olvides las comillas al inicio y final de la dirección, ni que los slash usados son forwardslash (hacia delante) `/`, no backslash (hacia atrás) `\`.</div>\EndKnitrBlock{rmdnote}
 
 ## Pedir ayuda
 
@@ -625,44 +471,34 @@ Para acceder a ella, se debe acceder a la pestaña Help.
 
 (ref:help1) Accediendo a la pestaña Help para buscar ayuda sobre la función `mean()`. Nótese que solo se busca el nombre de la función sin paréntesis. 
 
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth]{figs/screenshots/help1} 
-
-}
-
-\caption{(ref:help1)}(\#fig:figura37)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="figs/screenshots/help1.jpg" alt="(ref:help1)" width="100%" />
+<p class="caption">(\#fig:figura37)(ref:help1)</p>
+</div>
 
 (ref:help2) Detalle de la ayuda de la función `mean()`. Es muy útil revisar la sección Arguments donde se describen los argumentos, además los ejemplos de uso.
 
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth]{figs/screenshots/help2} 
-
-}
-
-\caption{(ref:help2)}(\#fig:figura38)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="figs/screenshots/help2.jpg" alt="(ref:help2)" width="100%" />
+<p class="caption">(\#fig:figura38)(ref:help2)</p>
+</div>
 
 
-\BeginKnitrBlock{rmdnote}
-- Es posible **pedir ayuda con código**. Ejecutando la función `help()` conteniendo el nombre de la _función_ que se desea buscar, abrirá automáticamente la página de ayuda en la pestaña Help. Por ejemplo:`help(varimax)`.
+\BeginKnitrBlock{rmdnote}<div class="rmdnote">- Es posible **pedir ayuda con código**. Ejecutando la función `help()` conteniendo el nombre de la _función_ que se desea buscar, abrirá automáticamente la página de ayuda en la pestaña Help. Por ejemplo:`help(varimax)`.
 
 - Otra forma de obtener el mismo resultado es usando el símbolo `?`. Por ejemplo: `?varimax`.
 
-- Si se necesita buscar un _término_, no una función, se usaría el simbolo doble `??` antes del término a buscar. Esta búsqueda es más lenta porque es más profunda y nos da todas las funciones donde se use dicho término. Por ejemplo, para buscar en todos archivos de ayuda de R el término deviance: `??deviance`.
-\EndKnitrBlock{rmdnote}
+- Si se necesita buscar un _término_, no una función, se usaría el simbolo doble `??` antes del término a buscar. Esta búsqueda es más lenta porque es más profunda y nos da todas las funciones donde se use dicho término. Por ejemplo, para buscar en todos archivos de ayuda de R el término deviance: `??deviance`.</div>\EndKnitrBlock{rmdnote}
 
 Para pedir ayuda en internet, se recomienda el uso del buscador exclusivo de temas en R conocido como [rseek](https://rseek.org/). 
 
 (ref:help3) Búsqueda de ayuda para la función `mean()` en rseek. Puedes acceder directamente a la viñeta (PDF o web) del uso de la función (que es la misma información que en la búsqueda en RStudio), documentación, funciones asociadas, paquetes populares que usen mean, wikipedia, blogs como [R-Bloggers](https://www.r-bloggers.com/) donde expliquen su uso, _Issues_ que son problemas reportados para la función, o paquetes que contengan una función con el mismo nombre. 
 
-\begin{figure}
+<div class="figure" style="text-align: center">
+<img src="figs/screenshots/rseek.jpg" alt="(ref:help3)" width="100%" />
+<p class="caption">(\#fig:figura39)(ref:help3)</p>
+</div>
 
-{\centering \includegraphics[width=1\linewidth]{figs/screenshots/rseek} 
-
-}
-
-\caption{(ref:help3)}(\#fig:figura39)
-\end{figure}
+<div id="KC1.1" class="keyconcept">
+  1. Carga la base de datos `BOD` que muestra unos datos sencillos sobre demanda bioquímica de oxígeno (BOD en inglés). Calcula el promedio y desvición estándar de la columna `demand`. Utiliza la forma de código utilizando **dplyr** y sin usar **dplyr**.
+</div>
